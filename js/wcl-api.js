@@ -80,6 +80,43 @@ async function loadSpecGuides(specs) {
   return results;
 }
 
+async function fetchInterruptEvents(fight) {
+  const allEvents = [];
+  let nextPageTimestamp = null;
+  for (let page = 0; page < 10; page++) {
+    const startTime = nextPageTimestamp !== null ? nextPageTimestamp : fight.startTime;
+    const q = `query($code:String!,$start:Float!,$end:Float!,$fightIds:[Int]!){reportData{report(code:$code){
+      events(startTime:$start,endTime:$end,fightIDs:$fightIds,dataType:Interrupts,limit:300){data,nextPageTimestamp}
+    }}}`;
+    const data = await wclQuery(q, { code: reportCode, start: startTime, end: fight.endTime, fightIds: [fight.id] });
+    const result = data.reportData.report.events;
+    (result.data || []).forEach(ev => allEvents.push(ev));
+    if (!result.nextPageTimestamp || result.nextPageTimestamp >= fight.endTime) break;
+    nextPageTimestamp = result.nextPageTimestamp;
+  }
+  return allEvents;
+}
+
+async function fetchCastEvents(fight, spellIds) {
+  const allEvents = [];
+  let nextPageTimestamp = null;
+  if (spellIds.length === 0) return allEvents;
+  for (let page = 0; page < 10; page++) {
+    const startTime = nextPageTimestamp !== null ? nextPageTimestamp : fight.startTime;
+    const q = `query($code:String!,$start:Float!,$end:Float!,$fightIds:[Int]!){reportData{report(code:$code){
+      events(startTime:$start,endTime:$end,fightIDs:$fightIds,dataType:Casts,limit:300){data,nextPageTimestamp}
+    }}}`;
+    const data = await wclQuery(q, { code: reportCode, start: startTime, end: fight.endTime, fightIds: [fight.id] });
+    const result = data.reportData.report.events;
+    (result.data || []).forEach(ev => {
+      if (spellIds.includes(ev.abilityGameID)) allEvents.push(ev);
+    });
+    if (!result.nextPageTimestamp || result.nextPageTimestamp >= fight.endTime) break;
+    nextPageTimestamp = result.nextPageTimestamp;
+  }
+  return allEvents;
+}
+
 async function fetchAvoidableEvents(fight, spellIds) {
   const allEvents = [];
   let nextPageTimestamp = null;

@@ -62,6 +62,11 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
     ['#e09c40','#2a1a05'],['#5bc4c4','#0a2828'],['#d4537e','#2a0d1a'],['#7aab5a','#152009']
   ];
 
+  const bossFlForInt = allFights.find(f => f.encounterID === currentEncounterId);
+  const bossNmForInt = bossFlForInt ? bossFlForInt.name : '';
+  const hasInterruptTracking = Object.keys((BOSS_KNOWLEDGE_META[bossNmForInt] || {}).interruptTargetSpellIds || {}).length > 0;
+  const gridCols = hasInterruptTracking ? '44px 80px 68px 1fr 90px' : '44px 80px 68px 1fr';
+
   const rows = players.map((p, i) => {
     const [fg, bg] = colors[i % colors.length];
     const initials = p.name.slice(0,2).toUpperCase();
@@ -81,6 +86,9 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
       ? (displayAb ? `Top non-tank dmg: ${displayAb.name} — ${fmt(displayAb.total)} over ${displayAb.pulls} pull${displayAb.pulls !== 1 ? 's' : ''}` : 'Tank damage profile normal')
       : (displayAb ? `Top avoidable: ${displayAb.name} — ${fmt(displayAb.total)} over ${displayAb.pulls} pull${displayAb.pulls !== 1 ? 's' : ''}` : 'No notable avoidable damage');
     const attendance = p.pulls < numPulls ? `<span style="color:var(--warn);">${p.pulls}/${numPulls} pulls</span>` : `${p.pulls}/${numPulls} pulls`;
+    const interruptLine = hasInterruptTracking && p.interruptStats
+      ? `<div style="font-size:11px;color:var(--muted);margin-top:2px;">Interrupts: <span style="color:var(--ok);">${p.interruptStats.totalLanded}</span> landed across ${p.pulls} pull${p.pulls !== 1 ? 's' : ''}</div>`
+      : '';
     const rowId = `expand-${i}`;
 
     const pullRows = (p.pullDetail || []).map(pd => {
@@ -117,12 +125,26 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
         ? `<span style="color:var(--ok);">Kill</span>`
         : (pd.fightPct != null ? `${pd.fightPct.toFixed(0)}% left` : '?');
 
+      let interruptCell = '';
+      if (hasInterruptTracking) {
+        const myPI = pd.interrupts && pd.interrupts.perPlayer && pd.interrupts.perPlayer[p.name];
+        if (isDeep && myPI && myPI.events && myPI.events.length > 0) {
+          interruptCell = myPI.events.map(ev =>
+            `<span style="display:block;font-size:11px;white-space:nowrap;color:var(--ok);">⚡${fmtTs(ev.timestamp)} ${ev.ability}</span>`
+          ).join('');
+        } else {
+          const count = myPI ? myPI.landed : 0;
+          interruptCell = `<span style="font-size:11px;color:${count > 0 ? 'var(--ok)' : 'var(--muted)'};">${count > 0 ? count : '—'}</span>`;
+        }
+      }
+
       return `
-        <div style="display:grid;grid-template-columns:44px 80px 68px 1fr;gap:0;align-items:start;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <div style="display:grid;grid-template-columns:${gridCols};gap:0;align-items:start;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
           <span style="color:var(--muted);">P${pd.pullIndex}</span>
           <span style="color:var(--muted);font-size:11px;">${phaseLabel}</span>
           <span style="color:var(--muted);text-align:right;padding-right:16px;">${fmt(pd.totalDmgTaken)}</span>
           <span style="min-width:0;">${avoidableContent}</span>
+          ${hasInterruptTracking ? `<span style="padding-left:12px;">${interruptCell}</span>` : ''}
         </div>`;
     }).join('');
 
@@ -133,6 +155,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
           <div class="player-name">${p.name}${tankBadge}${specLabel}${deathBadge}</div>
           <div class="player-detail">${topAb}</div>
           <div style="font-size:11px;color:var(--muted);margin-top:2px;">${attendance}</div>
+          ${interruptLine}
         </div>
         <div class="stat">
           <div class="stat-num">${fmt(p.totalDmgTaken)}</div>
@@ -141,9 +164,10 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
         <div style="margin-left:10px;color:var(--muted);font-size:11px;flex-shrink:0;" id="${rowId}-chevron">▶</div>
       </div>
       <div id="${rowId}" style="display:none;padding:8px 12px 6px 52px;background:var(--surface2);border-radius:var(--radius);margin:-4px 0 6px;">
-        <div style="display:grid;grid-template-columns:44px 80px 68px 1fr;gap:0;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:2px;">
+        <div style="display:grid;grid-template-columns:${gridCols};gap:0;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:2px;">
           <span>Pull</span><span>Phase</span><span style="text-align:right;padding-right:16px;">Total</span>
           <span>Avoidable${isDeep ? ` <span style="font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px;color:var(--accent);">⏱ = timestamped hits &nbsp;·&nbsp; no ⏱ = aggregated total</span>` : ''}</span>
+          ${hasInterruptTracking ? '<span style="padding-left:12px;">Interrupts</span>' : ''}
         </div>
         ${pullRows || '<div style="color:var(--muted);font-size:12px;padding:8px 0;">No data</div>'}
       </div>`;

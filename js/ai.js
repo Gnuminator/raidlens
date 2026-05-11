@@ -35,8 +35,32 @@ async function runAI(players, numPulls, apiKey, isDeep = false, specGuides = {})
       + '\n';
   }
 
+  const interruptSpellNames = Object.values((BOSS_KNOWLEDGE_META[bossName] || {}).interruptTargetSpellIds || {});
+  let interruptSection = '';
+  if (interruptSpellNames.length > 0) {
+    const pullInterruptMap = {};
+    players.forEach(p => {
+      (p.pullDetail || []).forEach(pd => {
+        if (pd.interrupts && !pullInterruptMap[pd.pullIndex]) pullInterruptMap[pd.pullIndex] = pd.interrupts;
+      });
+    });
+    let totalMissed = 0, totalOverlaps = 0;
+    const missedLines = [], overlapLines = [];
+    Object.entries(pullInterruptMap).forEach(([pullIdx, pi]) => {
+      totalMissed += (pi.missed || []).length;
+      totalOverlaps += (pi.overlaps || []).length;
+      (pi.missed || []).forEach(m => missedLines.push(`  Pull ${pullIdx}: ${m.ability} went uninterrupted at ${fmtTs(m.timestamp)}`));
+      (pi.overlaps || []).forEach(o => overlapLines.push(`  Pull ${pullIdx}: ${o.ability} double-interrupted at ${fmtTs(o.timestamp)} by ${o.interrupters.join(' + ')}`));
+    });
+    const perPlayerLines = players.map(p => {
+      const landed = (p.interruptStats || {}).totalLanded || 0;
+      return `  ${p.name} (${p.spec}): ${landed} interrupt${landed !== 1 ? 's' : ''} landed across ${p.pulls} pull${p.pulls !== 1 ? 's' : ''} present`;
+    }).join('\n');
+    interruptSection = `\nINTERRUPT ANALYSIS:\nInterruptable abilities this fight: ${interruptSpellNames.join(', ')}\nTotal missed interrupts across all pulls: ${totalMissed}\nTotal interrupt overlaps: ${totalOverlaps}\n\nPer-player interrupt summary:\n${perPlayerLines}${missedLines.length > 0 ? '\n\nMissed interrupt details:\n' + missedLines.join('\n') : ''}${overlapLines.length > 0 ? '\n\nOverlap details:\n' + overlapLines.join('\n') : ''}\n`;
+  }
+
   const prompt = `You are analyzing World of Warcraft Mythic raid logs for "${bossName}" across ${numPulls} pulls. This is active progression -- the raid wipes every pull, so the entire raid dies every time. Death counts are meaningless and must not be mentioned.
-${bossSection}${specGuideSection}${refKillSection}
+${bossSection}${specGuideSection}${interruptSection}${refKillSection}
 Player data (damage taken by ability across all pulls, raid-wide unavoidable abilities pre-filtered):
 
 ${JSON.stringify(summary, null, 2)}
@@ -49,7 +73,9 @@ Write a focused Mythic raid leader debrief. Rules:
 - Do NOT mention deaths.
 - Do NOT flag expected tank mechanics, soak mechanics, or unavoidable raid damage.
 - If the avoidable damage picture is clean, say so briefly.
-- Under 250 words. Plain text only, no markdown, no bullet symbols, no asterisks.`;
+- If interrupt data is present: flag players who land zero interrupts across multiple pulls if their spec has an interrupt ability. Flag pulls with 3+ missed interrupts as a coordination failure. Flag consistent overlap patterns where the same two players repeatedly double-interrupt the same ability.
+- Do NOT flag tanks for low interrupt counts if the interruptable abilities are on adds they are tanking.
+- Under 300 words. Plain text only, no markdown, no bullet symbols, no asterisks.`;
 
   const resp = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',

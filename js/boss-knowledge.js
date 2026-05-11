@@ -8,7 +8,8 @@ const BOSS_KNOWLEDGE_META = {
       1245486: 'Corrupted Devastation'
     },
     interruptTargetSpellIds: {
-      // Step 8 -- to be added
+      1249017: 'Fearsome Cry',
+      1261997: 'Essence Bolt'
     }
   }
 };

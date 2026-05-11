@@ -25,9 +25,11 @@ async function analyze() {
   const bossFightForFilter = allFights.find(f => f.encounterID === currentEncounterId);
   const bossNameForFilter = bossFightForFilter ? bossFightForFilter.name : '';
   const nonAvoidableForFilter = BOSS_NON_AVOIDABLE[bossNameForFilter] || new Set();
+  const bossKnowledge = BOSS_KNOWLEDGE_META[bossNameForFilter] || {};
+  const interruptSpellIds = Object.keys(bossKnowledge.interruptTargetSpellIds || {}).map(Number);
 
   const init = (name) => {
-    if (!playerStats[name]) playerStats[name] = { deaths: 0, pulls: 0, totalDmgTaken: 0, abilityDmg: {}, pullDetail: [] };
+    if (!playerStats[name]) playerStats[name] = { deaths: 0, pulls: 0, totalDmgTaken: 0, abilityDmg: {}, pullDetail: [], interruptStats: { totalLanded: 0 } };
   };
 
   document.getElementById('resultsSection').classList.remove('hidden');
@@ -44,7 +46,12 @@ async function analyze() {
     if (!fight) continue;
     showStatus(`Fetching pull ${i+1} of ${pullIds.length}...`);
     try {
-      const [dmgData, deaths] = await Promise.all([fetchDmgTable(fight), fetchDeaths(fight)]);
+      const [dmgData, deaths, interruptData, castData] = await Promise.all([
+        fetchDmgTable(fight),
+        fetchDeaths(fight),
+        interruptSpellIds.length > 0 ? fetchInterruptEvents(fight) : Promise.resolve([]),
+        interruptSpellIds.length > 0 ? fetchCastEvents(fight, interruptSpellIds) : Promise.resolve([])
+      ]);
       const playersInPull = new Set();
       const pullSnapshot = {};
 
@@ -77,16 +84,47 @@ async function analyze() {
         if (actor) { init(actor.name); playersInPull.add(actor.name); playerStats[actor.name].deaths += 1; }
       });
 
+      // Build interrupt data for this pull
+      const pullInterrupts = { missed: [], overlaps: [], perPlayer: {} };
+      if (interruptSpellIds.length > 0) {
+        const interruptNames = bossKnowledge.interruptTargetSpellIds || {};
+        interruptData.forEach(ev => {
+          const actor = actors.find(a => a.id === ev.sourceID);
+          if (!actor) return;
+          if (!pullInterrupts.perPlayer[actor.name]) pullInterrupts.perPlayer[actor.name] = { landed: 0, events: [] };
+          pullInterrupts.perPlayer[actor.name].landed += 1;
+          const abilityName = interruptNames[ev.extraAbilityGameID] || `Spell ${ev.extraAbilityGameID}`;
+          pullInterrupts.perPlayer[actor.name].events.push({ timestamp: ev.timestamp - fight.startTime, ability: abilityName });
+        });
+        castData.filter(ev => ev.type === 'cast').forEach(cast => {
+          const matching = interruptData.filter(iv =>
+            iv.extraAbilityGameID === cast.abilityGameID &&
+            iv.timestamp <= cast.timestamp &&
+            iv.timestamp >= cast.timestamp - 100
+          );
+          const abilityName = interruptNames[cast.abilityGameID] || `Spell ${cast.abilityGameID}`;
+          if (matching.length === 0) {
+            pullInterrupts.missed.push({ ability: abilityName, timestamp: cast.timestamp - fight.startTime });
+          } else if (matching.length > 1) {
+            const interrupters = matching.map(iv => { const a = actors.find(a => a.id === iv.sourceID); return a ? a.name : 'Unknown'; });
+            pullInterrupts.overlaps.push({ ability: abilityName, timestamp: cast.timestamp - fight.startTime, interrupters });
+          }
+        });
+      }
+
       playersInPull.forEach(name => {
         playerStats[name].pulls += 1;
         const snap = pullSnapshot[name] || { totalDmgTaken: 0, avoidable: [] };
+        const myPI = pullInterrupts.perPlayer[name];
+        if (myPI) playerStats[name].interruptStats.totalLanded += myPI.landed;
         playerStats[name].pullDetail.push({
           pullIndex: i + 1, fightId: fid,
           isKill: fight.kill || false, fightPct: fight.fightPercentage,
           durationMs: fight.endTime - fight.startTime,
           totalDmgTaken: snap.totalDmgTaken,
           avoidable: snap.avoidable.sort((a,b) => b.total - a.total),
-          hits: []
+          hits: [],
+          interrupts: pullInterrupts
         });
       });
 

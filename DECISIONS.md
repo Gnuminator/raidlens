@@ -30,6 +30,20 @@ The tool still runs as a local file opened in Edge — no build step, no server 
 
 ---
 
+### Interrupt tracking (2026-05-11)
+Interrupt tracking runs in the fast path alongside damage and deaths. Two WCL queries are added per pull when `interruptTargetSpellIds` is defined: `dataType:Interrupts` for successful interrupts, and `dataType:Casts` filtered client-side to interruptable spell IDs.
+
+- Fearsome Cry SpellID: 1249017 (confirmed Wowhead live)
+- Essence Bolt SpellID: 1261997 (confirmed Wowhead live)
+- `type:'cast'` = completed cast (spell fired). `type:'begincast'` = cast started. Only completed casts matter for missed interrupt detection.
+- Match interrupts to completed casts by `extraAbilityGameID === abilityGameID` and `interrupt.timestamp` within 100ms before cast completion.
+- 0 matching interrupts on a completed cast = missed. 2+ matching = overlap (both fired too late).
+- Per-player interrupt events stored with timestamps for deep mode display.
+- `interruptStats.totalLanded` accumulated per player across all pulls.
+- Tanks are not flagged for low interrupts if the interruptable adds are ones they're tanking.
+
+---
+
 ## Analysis
 
 ### Deaths not surfaced in Claude analysis
