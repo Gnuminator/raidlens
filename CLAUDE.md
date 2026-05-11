@@ -40,9 +40,10 @@ Do not read all files by default. If scope is unclear, read `DECISIONS.md` and a
 
 ## At the end of every session where code changed
 
-1. Push all changed files to GitHub using the token above
-2. Update `DECISIONS.md` if anything new was learned
-3. Confirm which files were pushed
+1. Run `git status` to check for untracked files -- new files under `guides/` or elsewhere may exist locally but not yet be staged. Add and commit them if they belong in the repo.
+2. Push all changed files to GitHub using the token above
+3. Update `DECISIONS.md` if anything new was learned
+4. Confirm which files were pushed
 
 ---
 
