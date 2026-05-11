@@ -1,4 +1,4 @@
-async function runAI(players, numPulls, apiKey, isDeep = false) {
+async function runAI(players, numPulls, apiKey, isDeep = false, specGuides = {}) {
   const bossFight = allFights.find(f => f.encounterID === currentEncounterId);
   const bossName = bossFight ? bossFight.name : 'Unknown boss';
   const bossContext = BOSS_KNOWLEDGE[bossName] || null;
@@ -24,8 +24,19 @@ async function runAI(players, numPulls, apiKey, isDeep = false) {
     ? `\nBOSS KNOWLEDGE FOR THIS FIGHT (Mythic, use this to interpret the log data correctly):\n${bossContext.trim()}\n`
     : `\nNo boss knowledge available for "${bossName}". Use general WoW raid logic to interpret abilities.\n`;
 
+  const guideEntries = Object.entries(specGuides);
+  let specGuideSection = '';
+  if (guideEntries.length > 0) {
+    const totalChars = guideEntries.reduce((sum, [, md]) => sum + md.length, 0);
+    console.log(`[RaidLens] Injecting ${guideEntries.length} spec guide(s) into prompt — ${totalChars.toLocaleString()} chars total`);
+    if (totalChars > 50000) console.warn(`[RaidLens] Spec guide content exceeds 50,000 characters (${totalChars.toLocaleString()}). Proceeding anyway.`);
+    specGuideSection = '\nSPEC GUIDES FOR PLAYERS IN THIS RAID:\nThe following guides describe each spec present. Use defensives and utility sections to assess whether players correctly used their toolkit. Use spec identity to understand what normal damage patterns look like for each spec.\n\n'
+      + guideEntries.map(([spec, md]) => `--- ${spec} ---\n${md.trim()}`).join('\n\n')
+      + '\n';
+  }
+
   const prompt = `You are analyzing World of Warcraft Mythic raid logs for "${bossName}" across ${numPulls} pulls. This is active progression -- the raid wipes every pull, so the entire raid dies every time. Death counts are meaningless and must not be mentioned.
-${bossSection}${refKillSection}
+${bossSection}${specGuideSection}${refKillSection}
 Player data (damage taken by ability across all pulls, raid-wide unavoidable abilities pre-filtered):
 
 ${JSON.stringify(summary, null, 2)}

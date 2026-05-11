@@ -27,6 +27,13 @@ const BOSS_NON_AVOIDABLE = {
   ])
 };
 
+// Maps WCL subType (spec name) to the guide path in the repo.
+// Only specs listed here will have guides fetched. Missing specs are silently skipped.
+const SPEC_GUIDE_PATHS = {
+  'Havoc':      'guides/classes/dps/demon-hunter/havoc.md',
+  'Vengeance':  'guides/classes/tank/demon-hunter/vengeance.md',
+};
+
 const BOSS_KNOWLEDGE = {
   'Chimaerus, the Undreamt God': `
 FIGHT STRUCTURE:

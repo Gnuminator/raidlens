@@ -25,6 +25,11 @@ The tool still runs as a local file opened in Edge — no build step, no server 
 
 ---
 
+### Spec guides fetched from GitHub raw URLs at analysis time (2026-05-11)
+`SPEC_GUIDE_PATHS` in `js/boss-knowledge.js` maps WCL `subType` strings to guide paths in the repo. At the start of each `runAI()` call, `loadSpecGuides()` fetches only the guides for specs present in the current raid, in parallel, from `https://raw.githubusercontent.com/Gnuminator/raidlens/main/`. Results are cached in `specGuideCache` for the session — guides are only fetched once per session per spec. 404s are silently skipped (guide not yet written). Guide content is injected into the Claude prompt after boss knowledge. Total character count is logged to the console; a warning is logged if it exceeds 50,000 characters.
+
+---
+
 ## Analysis
 
 ### Deaths not surfaced in Claude analysis

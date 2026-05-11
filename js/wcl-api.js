@@ -47,6 +47,39 @@ async function fetchDeaths(fight) {
   return data.reportData.report.events.data || [];
 }
 
+const specGuideCache = {};
+
+async function loadSpecGuides(specs) {
+  const RAW_BASE = 'https://raw.githubusercontent.com/Gnuminator/raidlens/main/';
+  const results = {};
+  const toFetch = [];
+
+  for (const spec of specs) {
+    const path = SPEC_GUIDE_PATHS[spec];
+    if (!path) continue;
+    if (specGuideCache[spec] !== undefined) {
+      if (specGuideCache[spec]) results[spec] = specGuideCache[spec];
+      continue;
+    }
+    toFetch.push(spec);
+  }
+
+  await Promise.all(toFetch.map(async (spec) => {
+    const path = SPEC_GUIDE_PATHS[spec];
+    try {
+      const resp = await fetch(RAW_BASE + path);
+      if (!resp.ok) { specGuideCache[spec] = null; return; }
+      const md = await resp.text();
+      specGuideCache[spec] = md;
+      results[spec] = md;
+    } catch(e) {
+      specGuideCache[spec] = null;
+    }
+  }));
+
+  return results;
+}
+
 async function fetchAvoidableEvents(fight, spellIds) {
   const allEvents = [];
   let nextPageTimestamp = null;

@@ -12,7 +12,9 @@ async function analyze() {
     const cached = analysisCache[cacheKey].fast;
     renderResults(cached.playerList, pullIds.length, cached.playerList);
     showStatus('Sending to Claude for analysis...');
-    try { await runAI(cached.playerList, pullIds.length, apiKey); } catch(e) {
+    const specsPresent = new Set(actors.map(a => a.subType).filter(Boolean));
+    const specGuides = await loadSpecGuides(specsPresent);
+    try { await runAI(cached.playerList, pullIds.length, apiKey, false, specGuides); } catch(e) {
       document.getElementById('aiOutput').textContent = 'Claude analysis failed: ' + e.message;
     }
     hideStatus();
@@ -103,7 +105,9 @@ async function analyze() {
 
   renderResults(playerList, pullIds.length);
   showStatus('Sending to Claude for analysis...');
-  try { await runAI(playerList, pullIds.length, apiKey); } catch(e) {
+  const specsPresent = new Set(actors.map(a => a.subType).filter(Boolean));
+  const specGuides = await loadSpecGuides(specsPresent);
+  try { await runAI(playerList, pullIds.length, apiKey, false, specGuides); } catch(e) {
     document.getElementById('aiOutput').textContent = 'Claude analysis failed: ' + e.message;
   }
   hideStatus();
@@ -131,7 +135,9 @@ async function runDeepAnalysis() {
   if (analysisCache[cacheKey].deep) {
     renderResults(analysisCache[cacheKey].deep.playerList, pullIds.length, true);
     showStatus('Sending to Claude for analysis...');
-    try { await runAI(analysisCache[cacheKey].deep.playerList, pullIds.length, apiKey, true); } catch(e) {
+    const specsPresent = new Set(actors.map(a => a.subType).filter(Boolean));
+    const specGuides = await loadSpecGuides(specsPresent);
+    try { await runAI(analysisCache[cacheKey].deep.playerList, pullIds.length, apiKey, true, specGuides); } catch(e) {
       document.getElementById('aiOutput').textContent = 'Claude analysis failed: ' + e.message;
     }
     hideStatus();
@@ -209,7 +215,9 @@ async function runDeepAnalysis() {
   document.getElementById('deepBtn').textContent = 'Deep analysis ↓';
 
   showStatus('Sending to Claude for deep analysis...');
-  try { await runAI(playerList, pullIds.length, apiKey, true); } catch(e) {
+  const specsPresent = new Set(actors.map(a => a.subType).filter(Boolean));
+  const specGuides = await loadSpecGuides(specsPresent);
+  try { await runAI(playerList, pullIds.length, apiKey, true, specGuides); } catch(e) {
     document.getElementById('aiOutput').textContent = 'Claude analysis failed: ' + e.message;
   }
   hideStatus();
