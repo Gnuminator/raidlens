@@ -108,6 +108,11 @@ Once assigned, spell IDs never change. Hardcode with confidence.
 ### BOSS_KNOWLEDGE_META declared before all functions
 JavaScript does not hoist `const`. All boss constants must be declared before any function body that references them.
 
+### Boss knowledge migration direction (2026-05-11)
+Spell IDs stay hardcoded in JS (`BOSS_KNOWLEDGE_META`, `BOSS_NON_AVOIDABLE`) — they are permanent identifiers needed for client-side filtering and will never be fetched at runtime. Rich descriptive context (fight overview, mechanic explanations, avoidable ability notes, quick tips) moves to markdown files under `guides/bosses/` fetched at analysis time, same pattern as spec guides. The boss guide markdown is injected into the Claude prompt; the JS constants handle filtering logic. These are complementary, not competing.
+
+---
+
 ### Brewmaster Stagger: never flag
 Stagger is core mitigation for Brewmaster Monks. Always appears as high damage taken. Ignore entirely.
 
