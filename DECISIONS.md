@@ -1,0 +1,99 @@
+# RaidLens — Decisions Log
+
+Key architectural and design decisions for the project. Updated as decisions are made or reversed.
+
+---
+
+## Architecture
+
+### Single HTML → folder split (2026-05-11)
+Restructured from a single `wow_raid_analyzer.html` into:
+- `index.html` — slim shell, just HTML structure + script/link tags
+- `css/main.css` — all styles
+- `js/boss-knowledge.js` — BOSS_KNOWLEDGE_META, BOSS_NON_AVOIDABLE, BOSS_KNOWLEDGE constants (loaded first — `const` is not hoisted)
+- `js/globals.js` — global state variables and getCacheKey
+- `js/wcl-api.js` — WCL OAuth + GraphQL query functions
+- `js/ui.js` — status/error helpers, fmt, fmtTs, toggleExpand
+- `js/report.js` — loadReport, onFightChange, pull tag rendering, loadRefKill
+- `js/render.js` — buildPlayerList, renderResults, renderPlayerTable
+- `js/analyze.js` — analyze() fast path, runDeepAnalysis() deep path
+- `js/ai.js` — runAI() Claude prompt + display
+
+Script load order in index.html is intentional. Constants must come before any function that references them.
+
+The tool still runs as a local file opened in Edge — no build step, no server required.
+
+---
+
+## Analysis
+
+### Deaths not surfaced in Claude analysis
+Everyone dies every wipe on progression. Death count is noise. Not passed to Claude.
+
+### 3+ pull threshold for flagging patterns
+Single-pull occurrences are noise. Only flag avoidable damage appearing on 3+ pulls.
+
+### Called wipe detection: deadAtTime, not avg pull duration
+Avg pull duration rejected as a proxy — a short pull can be from a real mistake.
+Use `deadAtTime >= 3` (players already dead at moment of hit) as the context flag instead.
+
+### Fast path / deep path split
+- Fast path: damage table + deaths per pull. ~2 requests per pull. Progressive rendering.
+- Deep path: paginated damage events filtered to avoidable spell IDs + death timestamps. Triggered manually after fast path.
+- Both paths cached in `analysisCache` keyed by `reportCode-encounterId-pullIds`.
+
+### Progressive rendering
+Player table updates after each pull completes. Don't wait for all pulls to finish.
+
+---
+
+## UI
+
+### Avg pull length replaces Total Deaths in summary cards
+Deaths are meaningless noise on progression. Avg pull length is actionable context.
+
+### Deep mode: gold timestamps, red aggregated
+- Gold color + ⏱ prefix for timestamped per-hit entries (deep mode)
+- Red for aggregated totals (fast mode)
+- Legend shown in column header
+
+### Tank cards: "Top non-tank dmg" not "Top avoidable"
+Use BOSS_NON_AVOIDABLE filter. Never show Melee/Stagger as "top avoidable" for tanks.
+
+---
+
+## WCL API
+
+### masterData actors for player roster
+`masterData { actors(type:"Player") }` does not require fightIDs. Reliable source for player names + spec (subType).
+
+### table returns JSON scalar
+`table` returns a JSON scalar — no sub-selection. Parse with `typeof raw === 'string' ? JSON.parse(raw) : raw`.
+
+### events requires `{ data }` sub-selection
+`events` returns a ReportEventPaginator. Always use `{ data, nextPageTimestamp }`.
+
+### Always pass startTime, endTime, fightIDs for table/events
+Required for scoping queries to a specific fight.
+
+### Pagination cap: 10 pages per fight
+Safety limit. Stop when nextPageTimestamp is null or >= fight.endTime.
+
+---
+
+## Boss knowledge
+
+### Spell IDs are permanent in WoW
+Once assigned, spell IDs never change. Hardcode with confidence.
+
+### BOSS_KNOWLEDGE_META declared before all functions
+JavaScript does not hoist `const`. All boss constants must be declared before any function body that references them.
+
+### Brewmaster Stagger: never flag
+Stagger is core mitigation for Brewmaster Monks. Always appears as high damage taken. Ignore entirely.
+
+### Blessing of Dawn: ignore
+Holy Paladin self-buff. Appears as self-damage in WCL logs. Not boss damage.
+
+### Discordant Roar: unavoidable, added to BOSS_NON_AVOIDABLE
+Raid-wide physical from Colossal Horror spawning. Unavoidable, heal through. Added 2026-05-11.
