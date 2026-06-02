@@ -49,6 +49,11 @@ Interrupt tracking runs in the fast path alongside damage and deaths. Two WCL qu
 
 ---
 
+### localStorage persistence — Step 11 (2026-06-02)
+`js/storage.js` (loaded right after `globals.js`) persists the credential and common input fields to `localStorage` under key `raidlens.settings.v1`: `clientId`, `clientSecret`, `anthropicKey`, `reportUrl`, `refReportUrl`, `refFightId`. Loaded on `DOMContentLoaded`, auto-saved on each field's `input` event. A "Remember credentials & inputs on this device" checkbox (default on) gates saving; unchecking it calls `clearSettings()`, which also wipes the stored blob and the two secret fields from the form. All access is wrapped in try/catch with an `rlStorageAvailable()` probe so the tool degrades gracefully where `localStorage` is blocked (some `file://` contexts). Values — including API keys and the WCL secret — are stored UNENCRYPTED; acceptable for a private single-user local tool, and surfaced to the user via an inline note. Step 11's "after local server setup" caveat is moot: the try/catch probe makes it safe under both `file://` and `npx serve`.
+
+---
+
 ## Analysis
 
 ### Deaths not surfaced in Claude analysis

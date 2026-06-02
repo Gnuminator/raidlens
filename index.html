@@ -33,6 +33,15 @@
         <label>Anthropic API key</label>
         <input type="password" id="anthropicKey" placeholder="sk-ant-..." autocomplete="off" />
       </div>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap;">
+        <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin:0;cursor:pointer;font-weight:400;">
+          <input type="checkbox" id="rememberToggle" checked style="width:auto;margin:0;" />
+          Remember credentials &amp; inputs on this device
+        </label>
+        <button class="small" type="button" onclick="clearSettings()">Clear saved data</button>
+        <span id="storageNote" style="font-size:11px;color:var(--muted);"></span>
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin:8px 0 0;">Stored unencrypted in this browser only. Never sent anywhere except directly to WarcraftLogs and Anthropic.</p>
     </div>
   </div>
 
@@ -150,6 +159,7 @@
 <!-- Load order matters: constants before functions that reference them -->
 <script src="js/boss-knowledge.js"></script>
 <script src="js/globals.js"></script>
+<script src="js/storage.js"></script>
 <script src="js/wcl-api.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/report.js"></script>
