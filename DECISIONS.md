@@ -28,6 +28,11 @@ The tool still runs as a local file opened in Edge — no build step, no server 
 ### Spec guides fetched from GitHub raw URLs at analysis time (2026-05-11)
 `SPEC_GUIDE_PATHS` in `js/boss-knowledge.js` maps WCL `subType` strings to guide paths in the repo. At the start of each `runAI()` call, `loadSpecGuides()` fetches only the guides for specs present in the current raid, in parallel, from `https://raw.githubusercontent.com/Gnuminator/raidlens/main/`. Results are cached in `specGuideCache` for the session — guides are only fetched once per session per spec. 404s are silently skipped (guide not yet written). Guide content is injected into the Claude prompt after boss knowledge. Total character count is logged to the console; a warning is logged if it exceeds 50,000 characters.
 
+### Full spec guide roster + shared-name collision handling (2026-06-02)
+All 39 specs now have guide entries in `SPEC_GUIDE_PATHS`. Files live under `guides/classes/{role}/{class-slug}/{spec-slug}.md` (role = dps/tank/healer). The 37 guides beyond the original Havoc/Beast Mastery were produced by a research swarm doing live Wowhead research under strict no-fabrication rules (confirmed SpellIDs only; unconfirmed facts omitted and flagged in each guide's "Notes and Known Gaps").
+
+WCL's `masterData.actors` only returns the bare spec name as `subType` ("Frost", "Holy", etc.) — never the class. Four spec names are shared by two classes (Frost: DK/Mage; Holy: Paladin/Priest; Protection: Paladin/Warrior; Restoration: Druid/Shaman). These map to an **array** of candidate paths; `loadSpecGuides()` fetches BOTH and labels each by class (e.g. "Frost (Death Knight)", "Frost (Mage)") so the correct guide is always present in the prompt. This over-fetches one extra guide for those four names when present — accepted as the safe choice. `specGuideCache` is keyed by repo **path** (not spec name) to avoid collisions. Full per-actor class disambiguation would require `playerDetails` (which exposes class as `type`, scoped by fightID) — deferred as a future refinement.
+
 ---
 
 ### Interrupt tracking (2026-05-11)

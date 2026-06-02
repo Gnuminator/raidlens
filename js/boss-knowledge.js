@@ -28,11 +28,68 @@ const BOSS_NON_AVOIDABLE = {
   ])
 };
 
-// Maps WCL subType (spec name) to the guide path in the repo.
+// Maps WCL subType (spec name) to the guide path(s) in the repo.
 // Only specs listed here will have guides fetched. Missing specs are silently skipped.
+//
+// WCL's masterData.actors only exposes the bare spec name as `subType` (e.g. "Frost"),
+// not the class. Four spec names are shared across two classes. For those, the value is
+// an ARRAY of candidate paths and loadSpecGuides() fetches BOTH (labelled by class), so
+// the correct guide is always present even though we can't disambiguate from subType alone:
+//   Frost       -> Death Knight (dps) + Mage (dps)
+//   Holy        -> Paladin (healer) + Priest (healer)
+//   Protection  -> Paladin (tank) + Warrior (tank)
+//   Restoration -> Druid (healer) + Shaman (healer)
+// All other spec names are unique and map to a single string path.
 const SPEC_GUIDE_PATHS = {
-  'Havoc':      'guides/classes/dps/demon-hunter/havoc.md',
-  'Vengeance':  'guides/classes/tank/demon-hunter/vengeance.md',
+  // Death Knight
+  'Blood':         'guides/classes/tank/death-knight/blood.md',
+  'Unholy':        'guides/classes/dps/death-knight/unholy.md',
+  // Demon Hunter
+  'Havoc':         'guides/classes/dps/demon-hunter/havoc.md',
+  'Vengeance':     'guides/classes/tank/demon-hunter/vengeance.md',
+  // Druid
+  'Balance':       'guides/classes/dps/druid/balance.md',
+  'Feral':         'guides/classes/dps/druid/feral.md',
+  'Guardian':      'guides/classes/tank/druid/guardian.md',
+  // Evoker
+  'Devastation':   'guides/classes/dps/evoker/devastation.md',
+  'Augmentation':  'guides/classes/dps/evoker/augmentation.md',
+  'Preservation':  'guides/classes/healer/evoker/preservation.md',
+  // Hunter
+  'Beast Mastery': 'guides/classes/dps/hunter/beast-mastery.md',
+  'Marksmanship':  'guides/classes/dps/hunter/marksmanship.md',
+  'Survival':      'guides/classes/dps/hunter/survival.md',
+  // Mage
+  'Arcane':        'guides/classes/dps/mage/arcane.md',
+  'Fire':          'guides/classes/dps/mage/fire.md',
+  // Monk
+  'Brewmaster':    'guides/classes/tank/monk/brewmaster.md',
+  'Mistweaver':    'guides/classes/healer/monk/mistweaver.md',
+  'Windwalker':    'guides/classes/dps/monk/windwalker.md',
+  // Paladin
+  'Retribution':   'guides/classes/dps/paladin/retribution.md',
+  // Priest
+  'Discipline':    'guides/classes/healer/priest/discipline.md',
+  'Shadow':        'guides/classes/dps/priest/shadow.md',
+  // Rogue
+  'Assassination': 'guides/classes/dps/rogue/assassination.md',
+  'Outlaw':        'guides/classes/dps/rogue/outlaw.md',
+  'Subtlety':      'guides/classes/dps/rogue/subtlety.md',
+  // Shaman
+  'Elemental':     'guides/classes/dps/shaman/elemental.md',
+  'Enhancement':   'guides/classes/dps/shaman/enhancement.md',
+  // Warlock
+  'Affliction':    'guides/classes/dps/warlock/affliction.md',
+  'Demonology':    'guides/classes/dps/warlock/demonology.md',
+  'Destruction':   'guides/classes/dps/warlock/destruction.md',
+  // Warrior
+  'Arms':          'guides/classes/dps/warrior/arms.md',
+  'Fury':          'guides/classes/dps/warrior/fury.md',
+  // Shared spec names (class ambiguous from WCL subType) — fetch both candidates
+  'Frost':         ['guides/classes/dps/death-knight/frost.md', 'guides/classes/dps/mage/frost.md'],
+  'Holy':          ['guides/classes/healer/paladin/holy.md', 'guides/classes/healer/priest/holy.md'],
+  'Protection':    ['guides/classes/tank/paladin/protection.md', 'guides/classes/tank/warrior/protection.md'],
+  'Restoration':   ['guides/classes/healer/druid/restoration.md', 'guides/classes/healer/shaman/restoration.md'],
 };
 
 const BOSS_KNOWLEDGE = {

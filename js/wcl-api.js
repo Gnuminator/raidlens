@@ -47,33 +47,50 @@ async function fetchDeaths(fight) {
   return data.reportData.report.events.data || [];
 }
 
+// Cached by repo path (not spec name) so shared spec names don't collide.
 const specGuideCache = {};
+
+// "death-knight" -> "Death Knight". Class slug is the 4th path segment:
+// guides/classes/{role}/{class-slug}/{spec}.md
+function prettyClassFromGuidePath(path) {
+  const slug = (path.split('/')[3]) || '';
+  return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
 
 async function loadSpecGuides(specs) {
   const RAW_BASE = 'https://raw.githubusercontent.com/Gnuminator/raidlens/main/';
   const results = {};
-  const toFetch = [];
 
+  // Expand present specs into {label, path} jobs. Shared spec names (array values)
+  // produce one job per candidate path, labelled by class so they don't overwrite.
+  const jobs = [];
+  const seenPaths = new Set();
   for (const spec of specs) {
-    const path = SPEC_GUIDE_PATHS[spec];
-    if (!path) continue;
-    if (specGuideCache[spec] !== undefined) {
-      if (specGuideCache[spec]) results[spec] = specGuideCache[spec];
-      continue;
-    }
-    toFetch.push(spec);
+    const entry = SPEC_GUIDE_PATHS[spec];
+    if (!entry) continue;
+    const paths = Array.isArray(entry) ? entry : [entry];
+    const multi = paths.length > 1;
+    paths.forEach(path => {
+      if (seenPaths.has(path)) return;
+      seenPaths.add(path);
+      const label = multi ? `${spec} (${prettyClassFromGuidePath(path)})` : spec;
+      jobs.push({ label, path });
+    });
   }
 
-  await Promise.all(toFetch.map(async (spec) => {
-    const path = SPEC_GUIDE_PATHS[spec];
+  await Promise.all(jobs.map(async ({ label, path }) => {
+    if (specGuideCache[path] !== undefined) {
+      if (specGuideCache[path]) results[label] = specGuideCache[path];
+      return;
+    }
     try {
       const resp = await fetch(RAW_BASE + path);
-      if (!resp.ok) { specGuideCache[spec] = null; return; }
+      if (!resp.ok) { specGuideCache[path] = null; return; }
       const md = await resp.text();
-      specGuideCache[spec] = md;
-      results[spec] = md;
+      specGuideCache[path] = md;
+      results[label] = md;
     } catch(e) {
-      specGuideCache[spec] = null;
+      specGuideCache[path] = null;
     }
   }));
 

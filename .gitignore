@@ -1,0 +1,7 @@
+# Local Claude Code config — contains GITHUB_TOKEN and machine-local settings.
+# Never commit; the token lives only in the Claude Project instructions.
+.claude/
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
