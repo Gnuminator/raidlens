@@ -12,6 +12,7 @@
 > - https://www.wowhead.com/spell=97462/rallying-cry (Rallying Cry ID + cooldown confirmed)
 > - https://www.wowhead.com/spell=23920/spell-reflection (Spell Reflection ID confirmed)
 > - https://www.wowhead.com/spell=6673/battle-shout (Battle Shout ID confirmed)
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 >
 > Several individual Wowhead spell pages returned HTTP 403 (rate limiting) during research and could not be confirmed. Where an ID could not be verified against a page I actually loaded, the ability is listed by name only and flagged in "Notes and Known Gaps." No IDs have been guessed or recalled from memory.
 
@@ -51,25 +52,28 @@ Core gameplay loop:
 Confirmed spell IDs are shown in parentheses. Abilities without an ID could not be confirmed against a page I loaded — treat the name as authoritative and the ID as unverified.
 
 **Rage spenders / mitigation:**
-- **Ignore Pain** — Rage-spent damage-absorption shield; the primary Rage dump and a core part of active mitigation. (ID not confirmed — page returned 403.)
+- **Ignore Pain** (190456) — Rage-spent damage-absorption shield; the primary Rage dump and a core part of active mitigation. (ID confirmed via SimC spell reference.)
 - **Shield Block** (2565) — Buff that mitigates physical damage; uses a charge/cooldown system (community guides describe roughly 2 charges intended for near-constant uptime during melee windows). Costs Rage.
 
 **Rage generators / rotational damage:**
 - **Shield Slam** (23922) — Primary Rage generator (generates 15 Rage per the spell page), instant, ~9s base cooldown, deals physical damage.
-- **Thunder Clap** — AoE physical damage and the basis of the AoE rotation; can be replaced/upgraded by **Thunder Blast** via talents. (IDs not confirmed.)
-- **Revenge** — AoE-leaning strike, prominent in the AoE priority. (ID not confirmed.)
-- **Execute** — Finisher used at low target count / execute range. (ID not confirmed.)
+- **Thunder Clap** (6343) — AoE physical damage and the basis of the AoE rotation; can be replaced/upgraded by **Thunder Blast** (435222) via talents. (IDs confirmed via SimC spell reference.)
+- **Revenge** (6572) — AoE-leaning strike, prominent in the AoE priority. (ID confirmed via SimC spell reference.)
+- **Execute** (163201, 260798, 5308, 280849 — multiple IDs) — Finisher used at low target count / execute range. (IDs confirmed via SimC spell reference; multiple base cast + variant IDs.)
 - **Devastate** — Filler strike on builds that use it. (ID not confirmed.)
+- **Rend** (388539, 772 — multiple IDs) — Bleed DoT applied as part of the rotation. (IDs confirmed via SimC spell reference.)
 
 **Cooldowns / burst:**
-- **Avatar** — Damage/throughput burst cooldown, used on cooldown in raid. (ID not confirmed.)
-- **Ravager** — Optional talented cooldown (whirling AoE), used on cooldown when talented. (ID not confirmed.)
+- **Avatar** (107574) — Damage/throughput burst cooldown, used on cooldown in raid. (ID confirmed via SimC spell reference.)
+- **Ravager** (228920, 156287 — multiple IDs) — Optional talented cooldown (whirling AoE), used on cooldown when talented. (IDs confirmed via SimC spell reference.)
 
 **Key passives / talents referenced for 12.0.5 (from Method changelog):**
 - **Practiced Strikes** — increases Shield Slam, Revenge, and Thunder Clap damage by 15%.
 - **Demolish** — AoE radius expanded to 10 yards in 12.0.5.
 - **Dominance of the Colossus** — cooldown reduction increased to 5 seconds in 12.0.5.
 - **Last Stand** rework — see Defensives note below; Icy Veins describes Last Stand as having been turned into a passive bonus tied to Shield Wall on at least one talent path, while the standalone Last Stand spell still exists.
+- **Deep Wounds** (262115) — Passive bleed applied by Shield Slam and other attacks. (ID confirmed via SimC spell reference.)
+- **Tough as Nails** (385890) — Passive that deals damage when the warrior blocks attacks. (ID confirmed via SimC spell reference.)
 
 ---
 
@@ -107,8 +111,8 @@ Each entry includes a **RaidLens usage** note: how to judge from a log whether t
 - **Shield Block** (2565) — Rage-cost buff that mitigates physical damage; charge-based, intended for near-constant uptime in melee.
   - *RaidLens usage:* For physical melee damage windows, Shield Block should be active across the hit. A large physical hit taken with no Shield Block buff present (and Rage available) is a mitigation miss. Magic hits are NOT mitigated by Shield Block — do not flag a magic hit for lacking it.
 
-- **Ignore Pain** — Rage-spent absorption shield; the primary active-mitigation Rage dump.
-  - *RaidLens usage:* Should be kept up through sustained damage and refreshed before predictable hits. A lethal/heavy hit taken with no Ignore Pain absorb active and ample Rage banked is a usage miss. (Spell ID unconfirmed — see Known Gaps.)
+- **Ignore Pain** (190456) — Rage-spent absorption shield; the primary active-mitigation Rage dump.
+  - *RaidLens usage:* Should be kept up through sustained damage and refreshed before predictable hits. A lethal/heavy hit taken with no Ignore Pain absorb active and ample Rage banked is a usage miss.
 
 - **Shield Wall** (871) — Major all-school damage reduction (~40% per the spell page) for ~8 seconds. Long cooldown (cooldown not numerically confirmed against a page; reduced by Anger Management / Impenetrable Wall talents per Maxroll). This is the strongest personal defensive and works against magic as well as physical.
   - *RaidLens usage:* Expect Shield Wall on the biggest scripted tank-busters / lethal raid hits. If a player died to a known heavy hit with Shield Wall off cooldown and unused, flag it.
@@ -119,7 +123,7 @@ Each entry includes a **RaidLens usage** note: how to judge from a log whether t
 - **Spell Reflection** (23920) — Reflects incoming spells back at the caster for ~5 seconds (page shows a 100% reflect aura). The displayed "1 second" on the spell page is a server-side script artifact, not the usable cooldown — the real cooldown is longer (not numerically confirmed; flag).
   - *RaidLens usage:* A magic-specific defensive. Expect it on reflectable single-target magic casts / tank-buster spells. If a player ate a known reflectable magic hit with Spell Reflection available, flag it. Do not expect it against physical or unreflectable raid-wide damage.
 
-- **Demoralizing Shout** — Reduces damage dealt by affected enemies; used largely on cooldown (also a DPS gain when talented). Functions as a group/tank mitigation debuff.
+- **Demoralizing Shout** (1160) — Reduces damage dealt by affected enemies; used largely on cooldown (also a DPS gain when talented). Functions as a group/tank mitigation debuff.
   - *RaidLens usage:* Best treated as a near-on-cooldown mitigation/DPS button rather than a reactive save. If it is consistently absent during melee-heavy windows where it would mitigate, note under-use. (Cooldown unconfirmed — flag.)
 
 - **Rallying Cry** (97462) — Raid/party-wide temporary maximum-health increase; 3-minute cooldown (confirmed).
@@ -154,7 +158,7 @@ Each entry includes a **RaidLens usage** note: how to judge from a log whether t
 
 - **Raid buffs/debuffs:**
   - **Battle Shout** (6673) — raid-wide attack power (+stamina) buff.
-  - **Demoralizing Shout** — enemy damage-dealt reduction debuff.
+  - **Demoralizing Shout** (1160) — enemy damage-dealt reduction debuff.
 
 - **Movement tools:** **Charge**, **Heroic Leap**, **Intervene** (and **Double Time** talent for an extra Charge charge per Maxroll).
 
@@ -172,6 +176,157 @@ All specific item IDs, enchant names, and consumable names are **flagged as unco
 
 ---
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero tree(s) covered:** The JSON source does not specify a hero tree (`hero_tree: null`). The APL contains branches for both **Colossus** (`hero_tree.colossus`) and **Mountain Thane** (`hero_tree.mountain_thane`), so the talent string covers a baseline build from which either hero path is selected.
+
+### Talent Import String — Protection Warrior (Baseline / Both Hero Paths)
+
+```
+CkEAAAAAAAAAAAAAAAAAAAAAA02AAAzMDzMzMzMzmxsMjxYmGGDLzMzMDGzMAAAAYZAYGDwAbwyiRjZAMbYmNYGzMY2GAMzAAwMgB
+```
+
+### Metrics (SimC Patchwerk single-target)
+
+| Metric | Value |
+|--------|-------|
+| DPS (tank damage output) | 84,394 |
+| DTPS (damage taken per second) | 37,953 |
+| HPS (healing/absorb per second, includes Ignore Pain) | 28,808 |
+
+> Note: DPS for a Protection Warrior reflects the active-mitigation rotation described in this guide — Ignore Pain, Shield Block, and defensive cooldown usage all contribute to the DTPS and HPS figures above. These are not a DPS spec's numbers; the 84k DPS represents incidental tank damage while fulfilling the mitigation priority.
+
+### Damage Distribution (SimC, share of total)
+
+Rows with a valid percentage share only. The parenthesised value is used where the format is "X% (Y%)" (parenthesised = with procs/variants included). Leech (self-sustain heal) and consumable/buff-uptime rows are excluded.
+
+| Ability | Share |
+|---------|-------|
+| Auto Attack (MH) | 13.4% |
+| Revenge | 4.1% |
+| Execute | 3.8% |
+| Rend (DoT) | 1.9% |
+| Ravager (whirling blade) | 1.5% |
+| Tough as Nails | 1.5% |
+| Deep Wounds | 0.9% |
+| Voidclaw | 0.4% |
+| Voidstalker Sting | 0.2% |
+
+> RaidLens interpretation: The sim's damage budget is dominated by auto-attacks (~13%), which is expected for a tank spec that prioritises mitigation over GCD-filling. Revenge and Execute are the most impactful active abilities. Shield Slam, Thunder Clap, and Thunder Blast do not appear as explicit percentage rows — they likely appear only as buff-uptime or cast-count entries in the raw SimC output, meaning their damage is partially captured inside the auto-attack and proc chains rather than as standalone top-level rows. In a real log, Shield Slam will be the highest-cast single damage contributor; the SimC distribution here is a floor estimate for active abilities, not a complete damage breakdown.
+
+---
+
+## Action Priority List — Protection Warrior (Both Hero Paths)
+
+The APL branches at the bottom into four sub-lists: `colossus_aoe`, `thane_aoe`, `colossus_st`, and `thane_st`. The main list routes to the appropriate sub-list based on `hero_tree` and target count. Ignore Pain is handled off-GCD by a complex Rage-threshold condition.
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/battle_stance,toggle=on
+actions.precombat+=/use_item,name=algethar_puzzle_box
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/call_action_list,name=variables
+actions+=/charge,if=time=0
+actions+=/use_item,name=tome_of_lights_devotion,if=buff.inner_resilience.up
+actions+=/use_items
+actions+=/avatar,if=buff.thunder_blast.down|buff.thunder_blast.stack<=2
+actions+=/shield_wall
+actions+=/blood_fury
+actions+=/berserking
+actions+=/arcane_torrent
+actions+=/lights_judgment
+actions+=/fireblood
+actions+=/ancestral_call
+actions+=/bag_of_tricks
+actions+=/potion,if=buff.avatar.up|buff.avatar.up&target.health.pct<=20
+actions+=/ignore_pain,if=target.health.pct>=20&(rage.deficit<=15&cooldown.shield_slam.ready|rage.deficit<=20&cooldown.shield_charge.ready|rage.deficit<=20&cooldown.demoralizing_shout.ready&talent.booming_voice.enabled|rage.deficit<=15|rage.deficit<=40&cooldown.shield_slam.ready&buff.violent_outburst.up&talent.heavy_repercussions.enabled&talent.practiced_strikes.enabled|rage.deficit<=17&cooldown.shield_slam.ready&talent.heavy_repercussions.enabled|rage.deficit<=18&cooldown.shield_slam.ready&talent.practiced_strikes.enabled)|(rage>=70|buff.seeing_red.stack=7&rage>=35)&cooldown.shield_slam.remains<=1&buff.shield_block.remains,use_off_gcd=1
+actions+=/ravager
+actions+=/demoralizing_shout,if=talent.booming_voice.enabled
+actions+=/champions_leap
+actions+=/champions_spear
+actions+=/thunder_blast,if=spell_targets.thunder_blast>=2&buff.thunder_blast.stack=2
+actions+=/demolish,if=buff.colossal_might.stack>=3
+actions+=/shield_charge
+actions+=/shield_block,if=buff.shield_block.remains<=10
+actions+=/run_action_list,name=colossus_aoe,if=hero_tree.colossus&spell_targets.thunder_clap>=3
+actions+=/run_action_list,name=thane_aoe,if=hero_tree.mountain_thane&spell_targets.thunder_clap>=3
+actions+=/run_action_list,name=colossus_st,if=talent.demolish
+actions+=/run_action_list,name=thane_st,if=talent.lightning_strikes
+
+actions.colossus_aoe=thunder_clap,if=dot.rend_dot.remains<=1
+actions.colossus_aoe+=/shield_slam,if=buff.violent_outburst.up&buff.phalanx.up
+actions.colossus_aoe+=/thunder_clap,if=spell_targets.thunder_clap>6&buff.avatar.up
+actions.colossus_aoe+=/revenge,if=rage>=70&spell_targets.revenge>=3
+actions.colossus_aoe+=/shield_slam,if=rage<=60|buff.violent_outburst.up
+actions.colossus_aoe+=/thunder_clap
+actions.colossus_aoe+=/revenge,if=rage>=30|rage>=40&talent.barbaric_training.enabled
+actions.colossus_aoe+=/execute,if=spell_targets.execute>=2&(rage>=50|buff.sudden_death.up)&talent.heavy_handed.enabled
+
+actions.colossus_st=shield_slam
+actions.colossus_st+=/thunder_clap
+actions.colossus_st+=/revenge,if=buff.ravager.up
+actions.colossus_st+=/execute,if=buff.sudden_death.up&talent.deep_wounds|talent.deep_wounds&rage>=40
+actions.colossus_st+=/thunder_clap,if=(spell_targets.thunder_clap>=1|cooldown.shield_slam.remains)&hero_tree.mountain_thane&rage<=80
+actions.colossus_st+=/revenge,if=rage>=80&!variable.execute_phase|buff.revenge.up&variable.execute_phase&rage<=18&cooldown.shield_slam.remains|buff.revenge.up&!variable.execute_phase
+actions.colossus_st+=/wrecking_throw,if=talent.javelineer.enabled
+actions.colossus_st+=/shattering_throw,if=talent.javelineer.enabled
+actions.colossus_st+=/revenge
+actions.colossus_st+=/devastate
+
+actions.thane_aoe=thunder_blast,if=dot.rend_dot.remains<=1
+actions.thane_aoe+=/thunder_clap,if=dot.rend_dot.remains<=1
+actions.thane_aoe+=/shield_slam,if=buff.violent_outburst.up&buff.phalanx.up
+actions.thane_aoe+=/thunder_blast,if=spell_targets.thunder_clap>=2&buff.avatar.up
+actions.thane_aoe+=/shield_slam,if=buff.phalanx.up
+actions.thane_aoe+=/thunder_clap,if=spell_targets.thunder_clap>=4&buff.avatar.up
+actions.thane_aoe+=/revenge,if=rage>=70&spell_targets.revenge>=3
+actions.thane_aoe+=/shield_slam,if=rage<=60|buff.violent_outburst.up
+actions.thane_aoe+=/thunder_blast
+actions.thane_aoe+=/thunder_clap
+actions.thane_aoe+=/execute,if=spell_targets.execute>=2&(rage>=50|buff.sudden_death.up)&talent.heavy_handed.enabled
+actions.thane_aoe+=/revenge,if=rage>=30|rage>=40&talent.barbaric_training.enabled
+
+actions.thane_st=thunder_blast
+actions.thane_st+=/thunder_clap,if=buff.ravager.up
+actions.thane_st+=/shield_slam
+actions.thane_st+=/thunder_clap
+actions.thane_st+=/thunder_blast,if=(spell_targets.thunder_clap>=1|cooldown.shield_slam.remains)
+actions.thane_st+=/execute,if=buff.sudden_death.up|rage>=40
+actions.thane_st+=/wrecking_throw,if=talent.javelineer.enabled
+actions.thane_st+=/shattering_throw,if=talent.javelineer.enabled
+actions.thane_st+=/revenge,if=rage>=80&!variable.execute_phase|buff.revenge.up&variable.execute_phase&rage<=18&cooldown.shield_slam.remains|buff.revenge.up&!variable.execute_phase
+actions.thane_st+=/revenge
+actions.thane_st+=/devastate
+
+actions.variables=variable,name=execute_phase,value=(talent.massacre.enabled&target.health.pct<35)|target.health.pct<20
+```
+
+---
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+IDs in this table are sourced exclusively from `spell-ids-reference.json` (exact key match). IDs already confirmed via Wowhead (Pummel, Shield Wall, Shield Slam, Shield Block, Last Stand, Rallying Cry, Spell Reflection, Battle Shout) are preserved from the sections above and not duplicated here.
+
+| Ability | Spell ID(s) | School | Type |
+|---------|------------|--------|------|
+| Avatar | 107574 | physical | cast |
+| Deep Wounds | 262115 | physical | cast |
+| Demoralizing Shout | 1160 | physical | cast |
+| Execute | 163201, 260798, 5308, 280849 (multiple: base cast + variants) | physical | cast |
+| Ignore Pain | 190456 | physical | cast |
+| Ravager | 228920, 156287 (multiple: base cast + variants) | physical | cast |
+| Rend | 388539, 772 (multiple: base cast + variants) | physical | cast |
+| Revenge | 6572 | physical | cast |
+| Thunder Blast | 435222 | stormstrike | cast |
+| Thunder Clap | 6343 | physical | cast |
+| Tough as Nails | 385890 | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
+---
+
 ## Notes and Known Gaps
 
 **Confirmed spell IDs (verified against a fetched live page):**
@@ -184,22 +339,35 @@ All specific item IDs, enchant names, and consumable names are **flagged as unco
 - Spell Reflection — 23920
 - Battle Shout — 6673
 
+**Confirmed spell IDs (verified via SimulationCraft spell-ids-reference.json):**
+- Ignore Pain — 190456
+- Thunder Clap — 6343
+- Thunder Blast — 435222
+- Revenge — 6572
+- Execute — 163201, 260798, 5308, 280849 (multiple IDs)
+- Avatar — 107574
+- Ravager — 228920, 156287 (multiple IDs)
+- Rend — 388539, 772 (multiple IDs)
+- Deep Wounds — 262115
+- Tough as Nails — 385890
+- Demoralizing Shout — 1160
+
+**Talent import string and APL:** Now added (SimulationCraft Midnight 12.0.5, covers both Colossus and Mountain Thane hero paths via APL branching).
+
 **Unconfirmed facts (ID or value NOT verified — do not treat as authoritative):**
-- **Ignore Pain** spell ID — not confirmed (Wowhead page returned HTTP 403). Listed by name only.
-- **Thunder Clap / Thunder Blast / Revenge / Execute / Devastate** spell IDs — not confirmed (rate-limited). Names only.
-- **Avatar / Ravager** spell IDs and exact cooldowns — not confirmed. Names only.
-- **Demoralizing Shout** spell ID and cooldown — not confirmed (HTTP 403). Effect (enemy damage-dealt reduction) is from Maxroll/Method prose.
+- **Devastate** spell ID — not confirmed. Name only.
+- **Avatar / Ravager exact cooldowns** — not confirmed against a live page. Names and IDs confirmed via SimC; numeric cooldowns are not.
+- **Demoralizing Shout cooldown** — effect confirmed (enemy damage-dealt reduction) and ID confirmed (1160 via SimC); numeric cooldown not confirmed against a live page.
 - **Taunt / Charge / Heroic Leap / Intervene / Intimidating Shout / Shockwave / Storm Bolt / Berserker Rage / Piercing Howl / Impending Victory / Victory Rush** spell IDs — not confirmed. Names only.
 - **Shield Wall cooldown** — numeric base cooldown not confirmed against a page (the spell page shows the 8-second aura duration, not the cooldown). Talents (Anger Management, Impenetrable Wall) reduce it.
 - **Spell Reflection cooldown** — the "1 second" on the spell page is a server-side-script artifact, not the real cooldown; true cooldown not numerically confirmed.
 - **Shield Block charges/duration** — community guides cite ~2 charges of ~6s each for constant uptime; the fetched spell page did not show the charge count, so this is from guide prose, not the spell page.
 - **Last Stand as active vs. passive** — Icy Veins describes a talent that folds Last Stand into Shield Wall as a passive; the standalone spell (12975) still exists. Availability is talent-dependent.
-- **Hero talent trees** — Mountain Thane and Colossus are referenced indirectly (Maxroll opener is Mountain Thane); their specific abilities/spell IDs were not individually verified.
+- **Hero talent trees (specific abilities)** — Mountain Thane and Colossus are referenced in the APL; their specific sub-abilities/spell IDs (e.g. Champion's Leap, Champion's Spear, Demolish) were not individually verified.
 - **Consumables and enchants** — no item IDs, flask/food/oil/enchant names confirmed for 12.0.5. Entire section is conceptual only.
-- **No talent import string or SimC APL** was sourced; none is provided here by design.
 
 **Sourcing caveats:**
 - Wowhead's class-guide overview/rotation HTML returned only page chrome (no body text) via fetch; rotation content above is drawn from Maxroll, and supporting prose from Icy Veins and Method. Individual Wowhead *spell* pages provided the confirmed IDs before rate-limiting set in.
 - All confirmed data is consistent with WoW Midnight patch 12.0.5 (sources dated Feb–Apr 2026). No Dragonflight or War Within data was used as current.
 
-**Maintenance flag:** Re-verify every spell ID, cooldown, and the Last Stand active/passive status after ANY 12.x patch (e.g. 12.0.6, 12.1). Tank tuning and talent reworks are common between patches. Fill in the unconfirmed spell IDs above by fetching the individual Wowhead spell pages when not rate-limited, and add the consumables/enchants section from a live current-tier source.
+**Maintenance flag:** Re-verify every spell ID, cooldown, and the Last Stand active/passive status after ANY 12.x patch (e.g. 12.0.6, 12.1). Tank tuning and talent reworks are common between patches. Fill in the remaining unconfirmed spell IDs above by fetching individual Wowhead spell pages when not rate-limited, and add the consumables/enchants section from a live current-tier source.

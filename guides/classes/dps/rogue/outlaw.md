@@ -34,6 +34,7 @@
 > - https://www.wowhead.com/spell=271877/blade-rush
 > - https://www.wowhead.com/spell=381989/keep-it-rolling
 > - https://www.wowhead.com/spell=79096/restless-blades
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 
 ## Overview
 
@@ -141,6 +142,243 @@ Outlaw has a broad defensive kit. For RaidLens, the key question on any lethal o
 
 Not confirmable from the live pages fetched in this pass. Outlaw is an Agility user (flasks/food/oils/enchants should be Agility/stat-focused), but specific Midnight 12.0.5 item IDs and names for flasks, potions, food, weapon enchants, and gem/enchant recommendations were not loaded from a source in this research. **Do not assume any specific item IDs.** See Known Gaps — the Wowhead "consumables-enchants" and Method.gg "gearing" pages should be fetched to fill this section.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero trees covered: **Fatebound**, **Trickster**
+
+Source: SimulationCraft Midnight 12.0.5 HTML report (simc-guides/). Single-target Patchwerk sim. Metrics not captured in source.
+
+---
+
+### Fatebound — Talent Import String
+
+```
+CQQAAAAAAAAAAAAAAAAAAAAAAAgx2MGjZmZmtZmZmZMmFGmZZaZw2MAAAAAgZbbmZGmZmZGzMzyAAAAwAYgNYGjGzGgtJswAgZmBG
+```
+
+### Trickster — Talent Import String
+
+```
+CQQAAAAAAAAAAAAAAAAAAAAAAAgx2MYmZmZmtZmZmZMmNeAmZbaZw2MAAAAAgZbbmZGmZmZGzMzyAAAAwYAwYWMMkBmFWoF2YAmZwAD
+```
+
+---
+
+### Damage Distribution (SimC, share of total)
+
+**Fatebound** — top abilities by share of total damage:
+
+| Ability | Share |
+|---|---|
+| Dispatch | 20.4% |
+| Hand of Fate | 11.1% |
+| Pistol Shot | 7.8% |
+| Main Gauche | 7.4% |
+| Sinister Strike | 5.3% |
+| Instant Poison | 2.2% |
+
+Hand of Fate (the Fatebound hero-tree proc) is the second-largest source at 11.1%, making it the defining feature of this build's damage profile. Dispatch dominates at 20.4%, confirming it as the primary finisher to prioritise in logs.
+
+**Trickster** — top abilities by share of total damage:
+
+| Ability | Share |
+|---|---|
+| Dispatch | 12.2% |
+| Pistol Shot | 9.7% |
+| Main Gauche | 8.6% |
+| Sinister Strike | 7.1% |
+| Unseen Blade | 5.5% |
+| Coup de Grace | 4.7% |
+| Instant Poison | 1.8% |
+
+Trickster spreads damage more broadly: Dispatch is still the top finisher but falls to 12.2%, Pistol Shot climbs to 9.7% (reflecting the Trickster talent synergy with Opportunity/fan-the-hammer procs), and the hero-tree abilities Unseen Blade (5.5%) and Coup de Grace (4.7%) together account for ~10% — a meaningful Trickster-only footprint visible in logs.
+
+---
+
+## Action Priority List — Fatebound
+
+```
+actions.precombat=apply_poison,nonlethal=none,lethal=instant
+# Snapshot raid buffed stats before combat begins and pre-potting is done.
+actions.precombat+=/snapshot_stats
+actions.precombat+=/stealth,precombat_seconds=2
+actions.precombat+=/adrenaline_rush,precombat_seconds=1,if=talent.improved_adrenaline_rush
+actions.precombat+=/slice_and_dice,precombat_seconds=1,if=talent.improved_adrenaline_rush
+actions.precombat+=/roll_the_bones,precombat_seconds=0,if=buff.loaded_dice.up
+
+# Executed every time the actor is available.
+# Restealth if possible (no vulnerable enemies in combat).
+actions=stealth
+# Interrupt on cooldown to allow simming interactions with that.
+actions+=/kick
+actions+=/variable,name=ambush_condition,value=(talent.hidden_opportunity|combo_points.deficit>=2+talent.improved_ambush)&energy>=50
+# Use finishers if at -1 from max combo points, but Killing Spree is used at -2, and Fatebound uses Dispatch at -2.
+actions+=/variable,name=finish_condition,value=combo_points>=cp_max_spend-1-(!cooldown.between_the_eyes.ready&(hero_tree.fatebound|cooldown.killing_spree.ready))
+actions+=/variable,name=blade_flurry_sync,value=spell_targets.blade_flurry<2&raid_event.adds.in>20|buff.blade_flurry.up
+actions+=/call_action_list,name=cds
+actions+=/run_action_list,name=finish,if=variable.finish_condition
+actions+=/call_action_list,name=build
+actions+=/arcane_torrent,if=energy.base_deficit>=15+energy.regen
+actions+=/arcane_pulse
+actions+=/lights_judgment
+actions+=/bag_of_tricks
+
+# Builders High priority Ambush with Hidden Opportunity.
+actions.build=ambush,if=talent.hidden_opportunity&buff.audacity.up
+# With Deft Maneuvers, build CPs with Blade Flurry at 3+ targets.
+actions.build+=/blade_flurry,if=talent.deft_maneuvers&spell_targets>=3
+# Prioritize Coup de Grace if Unseen Blade is guaranteed after Killing Spree.
+actions.build+=/coup_de_grace,if=buff.disorienting_strikes.up
+# With Audacity + Hidden Opportunity, consume Opportunity to proc Audacity any time Ambush is not available.
+actions.build+=/pistol_shot,if=talent.audacity&talent.hidden_opportunity&buff.opportunity.up&!buff.audacity.up
+# With Fan the Hammer, consume Opportunity if at max stacks or if it will expire.
+actions.build+=/pistol_shot,if=talent.fan_the_hammer&buff.opportunity.up&(buff.opportunity.stack>=buff.opportunity.max_stack|buff.opportunity.remains<2)
+# With Fan the Hammer, consume Opportunity if it will not overcap CPs. Fatebound with stage 2 RTB tries to avoid consuming PS at 1CP.
+actions.build+=/pistol_shot,if=talent.fan_the_hammer&buff.opportunity.up&(combo_points.deficit>=(1+talent.quick_draw+(talent.quick_draw*talent.fan_the_hammer.rank))&(combo_points>1|rtb_buffs<2|!talent.deal_fate))
+# If not using Fan the Hammer, then consume Opportunity based on energy, when it will exactly cap CPs, or when using Quick Draw.
+actions.build+=/pistol_shot,if=!talent.fan_the_hammer&buff.opportunity.up&(energy.base_deficit>energy.regen*1.5|combo_points.deficit<=1|talent.quick_draw.enabled|talent.audacity.enabled&!buff.audacity.up)
+# Fallback pooling just so Hidden Opportunity builds do not skip Ambush at low energy.
+actions.build+=/pool_resource,for_next=1
+actions.build+=/ambush,if=talent.hidden_opportunity
+actions.build+=/sinister_strike
+
+# Cooldowns Maintain Adrenaline Rush. With Improved AR, use at low CPs. Has a cursory check to try not to send if immediate downtime is expected.
+actions.cds=adrenaline_rush,if=!buff.adrenaline_rush.up&(!variable.finish_condition|!talent.improved_adrenaline_rush)&(raid_event.adds.remains>5|raid_event.adds.in<5|!raid_event.adds.exists|!raid_event.adds.count)
+# Maintain Blade Flurry at 2+ targets.
+actions.cds+=/blade_flurry,if=spell_targets>=2&buff.blade_flurry.remains<gcd
+# Use Preparation to reset Adrenaline Rush and Between the Eyes.
+actions.cds+=/preparation,if=cooldown.adrenaline_rush.remains>30&!cooldown.between_the_eyes.ready|fight_remains<30
+# Use Keep it Rolling with at least stage 3 of RtB.
+actions.cds+=/keep_it_rolling,if=rtb_buffs>=3
+# Use Roll the Bones if not active, or reroll for stage 2. Roll over stage 2 if both Loaded Dice is active and KIR is ready.
+actions.cds+=/roll_the_bones,if=!buff.roll_the_bones.up|rtb_buffs=1+(buff.loaded_dice.up&cooldown.between_the_eyes.ready)
+# Use Blade Rush if using tier, or in AoE, or if you will not overcap energy within the gcd on ST.
+actions.cds+=/blade_rush,if=set_bonus.mid1_2pc|spell_targets=1&energy.base_time_to_max>2|spell_targets>=2
+# Hidden Opportunity builds use Vanish or Shadowmeld for an extra Ambush in between procs.
+actions.cds+=/vanish,if=!variable.finish_condition&talent.hidden_opportunity&!buff.audacity.up&!buff.opportunity.up
+actions.cds+=/shadowmeld,if=!variable.finish_condition&talent.hidden_opportunity&!buff.audacity.up&!buff.opportunity.up
+actions.cds+=/potion,if=buff.bloodlust.react|fight_remains<30|buff.adrenaline_rush.up
+actions.cds+=/blood_fury
+actions.cds+=/berserking
+actions.cds+=/fireblood
+actions.cds+=/ancestral_call
+# Default conditions for usable items.
+actions.cds+=/use_items,slots=trinket1,if=buff.between_the_eyes.up|trinket.1.has_stat.any_dps|fight_remains<=20
+actions.cds+=/use_items,slots=trinket2,if=buff.between_the_eyes.up|trinket.2.has_stat.any_dps|fight_remains<=20
+
+# Finishers With Supercharger and Zero In, hold BtE for an upcoming Adrenaline Rush
+actions.finish=between_the_eyes,if=cooldown.adrenaline_rush.remains>30|buff.adrenaline_rush.up|!talent.supercharger|!talent.zero_in
+actions.finish+=/pool_resource,for_next=1
+# Cancel Killing Spree with a builder/finisher if approaching max energy.
+actions.finish+=/killing_spree,interrupt_if=energy.time_to_max<2,interrupt_global=1
+actions.finish+=/coup_de_grace
+actions.finish+=/dispatch
+```
+
+## Action Priority List — Trickster
+
+```
+actions.precombat=apply_poison,nonlethal=none,lethal=instant
+# Snapshot raid buffed stats before combat begins and pre-potting is done.
+actions.precombat+=/snapshot_stats
+actions.precombat+=/stealth,precombat_seconds=2
+actions.precombat+=/adrenaline_rush,precombat_seconds=1,if=talent.improved_adrenaline_rush
+actions.precombat+=/slice_and_dice,precombat_seconds=1,if=talent.improved_adrenaline_rush
+actions.precombat+=/roll_the_bones,precombat_seconds=0,if=buff.loaded_dice.up
+
+# Executed every time the actor is available.
+# Restealth if possible (no vulnerable enemies in combat).
+actions=stealth
+# Interrupt on cooldown to allow simming interactions with that.
+actions+=/kick
+actions+=/variable,name=ambush_condition,value=(talent.hidden_opportunity|combo_points.deficit>=2+talent.improved_ambush)&energy>=50
+# Use finishers if at -1 from max combo points, but Killing Spree is used at -2, and Fatebound uses Dispatch at -2.
+actions+=/variable,name=finish_condition,value=combo_points>=cp_max_spend-1-(!cooldown.between_the_eyes.ready&(hero_tree.fatebound|cooldown.killing_spree.ready))
+actions+=/variable,name=blade_flurry_sync,value=spell_targets.blade_flurry<2&raid_event.adds.in>20|buff.blade_flurry.up
+actions+=/call_action_list,name=cds
+actions+=/run_action_list,name=finish,if=variable.finish_condition
+actions+=/call_action_list,name=build
+actions+=/arcane_torrent,if=energy.base_deficit>=15+energy.regen
+actions+=/arcane_pulse
+actions+=/lights_judgment
+actions+=/bag_of_tricks
+
+# Builders High priority Ambush with Hidden Opportunity.
+actions.build=ambush,if=talent.hidden_opportunity&buff.audacity.up
+# With Deft Maneuvers, build CPs with Blade Flurry at 3+ targets.
+actions.build+=/blade_flurry,if=talent.deft_maneuvers&spell_targets>=3
+# Prioritize Coup de Grace if Unseen Blade is guaranteed after Killing Spree.
+actions.build+=/coup_de_grace,if=buff.disorienting_strikes.up
+# With Audacity + Hidden Opportunity, consume Opportunity to proc Audacity any time Ambush is not available.
+actions.build+=/pistol_shot,if=talent.audacity&talent.hidden_opportunity&buff.opportunity.up&!buff.audacity.up
+# With Fan the Hammer, consume Opportunity if at max stacks or if it will expire.
+actions.build+=/pistol_shot,if=talent.fan_the_hammer&buff.opportunity.up&(buff.opportunity.stack>=buff.opportunity.max_stack|buff.opportunity.remains<2)
+# With Fan the Hammer, consume Opportunity if it will not overcap CPs. Fatebound with stage 2 RTB tries to avoid consuming PS at 1CP.
+actions.build+=/pistol_shot,if=talent.fan_the_hammer&buff.opportunity.up&(combo_points.deficit>=(1+talent.quick_draw+(talent.quick_draw*talent.fan_the_hammer.rank))&(combo_points>1|rtb_buffs<2|!talent.deal_fate))
+# If not using Fan the Hammer, then consume Opportunity based on energy, when it will exactly cap CPs, or when using Quick Draw.
+actions.build+=/pistol_shot,if=!talent.fan_the_hammer&buff.opportunity.up&(energy.base_deficit>energy.regen*1.5|combo_points.deficit<=1|talent.quick_draw.enabled|talent.audacity.enabled&!buff.audacity.up)
+# Fallback pooling just so Hidden Opportunity builds do not skip Ambush at low energy.
+actions.build+=/pool_resource,for_next=1
+actions.build+=/ambush,if=talent.hidden_opportunity
+actions.build+=/sinister_strike
+
+# Cooldowns Maintain Adrenaline Rush. With Improved AR, use at low CPs. Has a cursory check to try not to send if immediate downtime is expected.
+actions.cds=adrenaline_rush,if=!buff.adrenaline_rush.up&(!variable.finish_condition|!talent.improved_adrenaline_rush)&(raid_event.adds.remains>5|raid_event.adds.in<5|!raid_event.adds.exists|!raid_event.adds.count)
+# Maintain Blade Flurry at 2+ targets.
+actions.cds+=/blade_flurry,if=spell_targets>=2&buff.blade_flurry.remains<gcd
+# Use Preparation to reset Adrenaline Rush and Between the Eyes.
+actions.cds+=/preparation,if=cooldown.adrenaline_rush.remains>30&!cooldown.between_the_eyes.ready|fight_remains<30
+# Use Keep it Rolling with at least stage 3 of RtB.
+actions.cds+=/keep_it_rolling,if=rtb_buffs>=3
+# Use Roll the Bones if not active, or reroll for stage 2. Roll over stage 2 if both Loaded Dice is active and KIR is ready.
+actions.cds+=/roll_the_bones,if=!buff.roll_the_bones.up|rtb_buffs=1+(buff.loaded_dice.up&cooldown.between_the_eyes.ready)
+# Use Blade Rush if using tier, or in AoE, or if you will not overcap energy within the gcd on ST.
+actions.cds+=/blade_rush,if=set_bonus.mid1_2pc|spell_targets=1&energy.base_time_to_max>2|spell_targets>=2
+# Hidden Opportunity builds use Vanish or Shadowmeld for an extra Ambush in between procs.
+actions.cds+=/vanish,if=!variable.finish_condition&talent.hidden_opportunity&!buff.audacity.up&!buff.opportunity.up
+actions.cds+=/shadowmeld,if=!variable.finish_condition&talent.hidden_opportunity&!buff.audacity.up&!buff.opportunity.up
+actions.cds+=/potion,if=buff.bloodlust.react|fight_remains<30|buff.adrenaline_rush.up
+actions.cds+=/blood_fury
+actions.cds+=/berserking
+actions.cds+=/fireblood
+actions.cds+=/ancestral_call
+# Default conditions for usable items.
+actions.cds+=/use_items,slots=trinket1,if=buff.between_the_eyes.up|trinket.1.has_stat.any_dps|fight_remains<=20
+actions.cds+=/use_items,slots=trinket2,if=buff.between_the_eyes.up|trinket.2.has_stat.any_dps|fight_remains<=20
+
+# Finishers With Supercharger and Zero In, hold BtE for an upcoming Adrenaline Rush
+actions.finish=between_the_eyes,if=cooldown.adrenaline_rush.remains>30|buff.adrenaline_rush.up|!talent.supercharger|!talent.zero_in
+actions.finish+=/pool_resource,for_next=1
+# Cancel Killing Spree with a builder/finisher if approaching max energy.
+actions.finish+=/killing_spree,interrupt_if=energy.time_to_max<2,interrupt_global=1
+actions.finish+=/coup_de_grace
+actions.finish+=/dispatch
+```
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Abilities named in this guide that appear in the SimC spell-ids-reference.json by exact key match:
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Adrenaline Rush | 13750 | physical | cast |
+| Between the Eyes | 315341 | physical | cast |
+| Blade Rush | 271877 | physical | cast |
+| Coup de Grace | 441776 | physical | cast |
+| Dispatch | 2098 | physical | cast |
+| Hand of Fate | 452536 | physical | cast |
+| Instant Poison | 315585 | nature | cast |
+| Keep It Rolling | 381989 | physical | cast |
+| Killing Spree | 51690, 57841, 57842 | physical | cast (multiple: base cast + variants) |
+| Main Gauche | 86392 | physical | cast |
+| Pistol Shot | 185763 | physical | cast |
+| Roll the Bones | 1214909 | physical | cast |
+| Sinister Strike | 193315, 197834 | physical | cast (multiple: base cast + variants) |
+| Slice and Dice | 426605, 315496 | physical | cast/other (multiple: base cast + variants) |
+| Unseen Blade | 441144 | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 - **Wowhead guide body text did not render** through the fetch tool for the overview, rotation, and abilities-talents pages (only navigation/comment scaffolding returned). Conceptual rotation and role detail were sourced from Icy Veins and Method.gg instead; spell IDs were each confirmed on individual live Wowhead spell pages.
@@ -153,4 +391,8 @@ Not confirmable from the live pages fetched in this pass. Outlaw is an Agility u
 - **Gravedigger apex talent** was mentioned in search summaries as the Midnight apex talent but did NOT appear in the Method.gg rotation body and its spell ID/effect were not confirmed live. Omitted from the abilities reference pending confirmation.
 - **Consumables and Enchants** section is unsourced — flasks, potions, food, oils, weapon enchants, gems for 12.0.5 must be fetched before use.
 - **Atrophic Poison** effect described conservatively as a damage-reduction weakening poison; exact magnitude/duration of the weakening proc was not confirmed beyond the 30% proc-chance aura on the spell page.
+- **Talent string and APL:** now added for both Fatebound and Trickster variants from SimulationCraft Midnight 12.0.5 (see SimulationCraft Reference section above).
+- **Rotational and damaging spell IDs:** confirmed via SimC spell-ids-reference.json for all abilities named in the guide that appear in the reference (Dispatch, Between the Eyes, Sinister Strike, Pistol Shot, Main Gauche, Blade Rush, Instant Poison, Keep It Rolling, Killing Spree, Roll the Bones, Slice and Dice, Adrenaline Rush, Unseen Blade, Coup de Grace, Hand of Fate). IDs match the Wowhead-confirmed values already in this guide where both sources are present.
+- **Defensive and interrupt spell IDs** (Crimson Vial, Feint, Evasion, Cloak of Shadows, Cheat Death, Kick, etc.) are not present in the SimC damaging-ability source, as expected. IDs for these remain as Wowhead-confirmed above.
+- **Consumable spell IDs** (flasks, potions, food) are excluded from the SimC table by design; consumables section remains unsourced.
 - **Maintenance flag:** Re-verify ALL spell IDs, cooldowns, and the rotation after any 12.x patch. Spell IDs themselves do not change once assigned, but cooldowns, talent gating, and rotational priority can shift between patches.

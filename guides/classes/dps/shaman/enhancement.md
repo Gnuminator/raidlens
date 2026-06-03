@@ -17,8 +17,9 @@
 > - https://www.icy-veins.com/wow/enhancement-shaman-pve-dps-guide
 > - https://www.icy-veins.com/wow/enhancement-shaman-pve-dps-rotation-cooldowns-abilities
 > - https://www.icy-veins.com/wow/enhancement-shaman-pve-dps-gems-enchants-consumables
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 >
-> Spell IDs below are included ONLY where the live Wowhead spell page was fetched and explicitly showed that exact numeric ID. Abilities without a confirmed ID are named with no number; see Notes and Known Gaps.
+> Spell IDs below are included ONLY where the live Wowhead spell page was fetched and explicitly showed that exact numeric ID, or where confirmed via the SimulationCraft spell-ids-reference.json. Abilities without a confirmed ID are named with no number; see Notes and Known Gaps.
 
 ---
 
@@ -49,30 +50,37 @@ Per the live Wowhead Midnight overview, the spec is described as a dynamic, reac
 
 ## Abilities Reference
 
-Confirmed spell IDs are listed where the Wowhead spell page was fetched and showed the exact ID. Others are named without IDs (see Known Gaps).
+Confirmed spell IDs are listed where the Wowhead spell page was fetched and showed the exact ID, or where confirmed via SimulationCraft spell-ids-reference.json. Others are named without IDs (see Known Gaps).
 
 **Core builders / strikes**
 - **Stormstrike** (spell ID 17364) — primary melee strike, no cooldown listed (governed by GCD / proc economy); triggers off-hand and additional Stormstrike damage effects.
-- **Lava Lash** — secondary melee strike; interacts with Hot Hand (free/empowered Lava Lash procs). *ID not confirmed live.*
-- **Crash Lightning** — AoE/cleave strike that applies a buff and splash damage; "cast on cooldown." Buff window ~12 seconds per the rotation guide. *ID not confirmed live.*
-- **Ice Strike / Frost Shock / Flame Shock** — situational builders/DoT maintenance depending on talents; Flame Shock is the DoT often applied via Voltaic Blaze. *IDs not confirmed live.*
-- **Voltaic Blaze** — in Midnight this is an active button (was a proc); used to apply/maintain Flame Shock and as filler. *ID not confirmed live.*
+- **Lava Lash** (spell ID 60103) — secondary melee strike; interacts with Hot Hand (free/empowered Lava Lash procs).
+- **Crash Lightning** (spell IDs 187874, 195592 — multiple: base cast + variants) — AoE/cleave strike that applies a buff and splash damage; "cast on cooldown." Buff window ~12 seconds per the rotation guide.
+- **Ice Strike / Frost Shock / Flame Shock** (Flame Shock spell ID 188389) — situational builders/DoT maintenance depending on talents; Flame Shock is the DoT often applied via Voltaic Blaze. Ice Strike and Frost Shock IDs not confirmed live.
+- **Voltaic Blaze** (spell ID 470057) — in Midnight this is an active button (was a proc); used to apply/maintain Flame Shock and as filler.
 
 **Maelstrom Weapon spenders**
-- **Lightning Bolt** (single target), **Chain Lightning** (2+ targets), **Elemental Blast**, and **Primordial Storm** (Midnight spender, spent around 10 stacks). *IDs not confirmed live.*
+- **Lightning Bolt** (spell ID 188196) — primary single-target spender.
+- **Chain Lightning** (spell ID 211094) — multi-target spender (2+ targets).
+- **Elemental Blast** (spell ID 117014) — alternative spender.
+- **Primordial Storm** (spell ID 1218090) — Midnight spender, spent around 10 stacks.
 
 **Cooldowns**
 - **Feral Spirit** (spell ID 51533) — summons spirit wolves; 1.5-minute cooldown per live page. Throughput cooldown.
-- **Doom Winds** — ~60-second cooldown; greatly increases Windfury Weapon trigger chance for ~8 seconds; off the GCD. *ID not confirmed live.*
-- **Ascendance** — ~120-second cooldown; converts Stormstrike into Windstrike and (via Thorim's Invocation) auto-spends Maelstrom Weapon. *ID not confirmed live.*
-- **Sundering** — strike that hits all targets in front and triggers weapon/elemental effects; synced with Surging Totem. *ID not confirmed live.*
-- **Surging Totem** — totem deployed in the opener and on cooldown (Totemic hero talent path emphasizes it). *ID not confirmed live.*
+- **Doom Winds** (spell IDs 469270, 384352 — multiple: base cast + variants) — ~60-second cooldown; greatly increases Windfury Weapon trigger chance for ~8 seconds; off the GCD.
+- **Ascendance** (spell IDs 1219480, 114051, 344548 — multiple: base cast + variants) — ~120-second cooldown; converts Stormstrike into Windstrike and (via Thorim's Invocation) auto-spends Maelstrom Weapon.
+- **Sundering** (spell IDs 197214, 467283 — multiple: base cast + variants) — strike that hits all targets in front and triggers weapon/elemental effects; synced with Surging Totem.
+- **Surging Totem** (spell ID 444995) — totem deployed in the opener and on cooldown (Totemic hero talent path emphasizes it).
+- **Tempest** (spell ID 452201) — Stormbringer hero talent proc/ability; consumed at 10 Maelstrom Weapon stacks.
 - **Thunderstorm** (spell ID 51490) — 30-second cooldown; Nature damage in a 10-yard radius around the caster, knockback, and a 40% snare. Historically an Elemental tool; available to Enhancement via talent in some builds. Treat as a knockback/utility/AoE button, not a core single-target ability.
 
 **Key passives / procs**
 - **Maelstrom Weapon** — the central resource (see Overview). **Overflowing Maelstrom** raises the cap (20 in 12.0.5).
 - **Hot Hand** — empowers/resets Lava Lash.
-- **Hero talent trees:** **Stormbringer** (aggressive Maelstrom cycling toward Tempest procs) and **Totemic** (Surging Totem / Hot Hand window focused). *Talent spell IDs not confirmed live.*
+- **Flametongue Attack** (spell IDs 10444, 467386 — multiple: base cast + variants) — passive weapon attack proc from Flametongue Weapon imbue.
+- **Windfury Attack** (spell ID 25504) — passive proc from Windfury Weapon imbue.
+- **Windstrike** (spell IDs 115356, 115357 — multiple: base cast + variants) — Ascendance-empowered version of Stormstrike.
+- **Hero talent trees:** **Stormbringer** (aggressive Maelstrom cycling toward Tempest procs) and **Totemic** (Surging Totem / Hot Hand window focused).
 
 ---
 
@@ -144,7 +152,7 @@ Enhancement's defensives are how RaidLens should judge survivability decisions. 
 **Raid buffs/debuffs:**
 - **Bloodlust** (spell ID 2825) — raid haste cooldown (see Role in Raid).
 - **Skyfury** (spell ID 462854) — raid-wide Mastery buff (see Role in Raid).
-- **Windfury Weapon** — personal/Enhancement weapon imbue throughput.
+- **Windfury Weapon** (spell ID 33757) — personal/Enhancement weapon imbue throughput.
 
 **Movement tools:**
 - **Ghost Wolf** — travel form; suppresses slows while active.
@@ -169,15 +177,350 @@ These choices are throughput/stat optimizations and are NOT something RaidLens s
 
 ---
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero trees covered: **Stormbringer** and **Totemic**.
+
+Metrics were not captured in source (both JSON files have empty `metrics` objects).
+
+### Talent Import Strings
+
+**Stormbringer:**
+```
+CcQAAAAAAAAAAAAAAAAAAAAAAMzMzwMzMzMzMzMzMzAAAAAAAAAsBYzMG2ILwMM0gFAmlZMzMWWmBmZ2YZmZmhhxMAAzwwwMTgZGMYcBA
+```
+
+**Totemic:**
+```
+CcQAAAAAAAAAAAAAAAAAAAAAAMzMjZmZmZmZmZmZmZGAAAAAAAAAYB2gZsox2AYmgNAsMjZMWWmBmZ2GLzMzMMWGzAAYAGzMxMDAMGA
+```
+
+### Damage Distribution (SimC, share of total)
+
+**Stormbringer — single-target Patchwerk:**
+
+| Ability | Share |
+|---|---|
+| Lightning Bolt | 29.16% |
+| Tempest | 15.66% |
+| Primordial Storm | 11.64% |
+| Ride the Lightning | 7.2% |
+| Doom Winds | 3.4% |
+| Lightning Rod | 2.8% |
+| Flame Shock | 2.5% |
+| Flametongue Attack | 2.5% |
+| Fire Nova | 0.1% |
+| melee | 0.2% |
+
+*Note: Lightning Bolt (_ti) at 33.92% and Tempest (_ti) at 9.62% are Thorim's Invocation sub-breakdowns of the LB and Tempest rows above; they share the same damage and are not additive. The dominant source of single-target damage is Lightning Bolt (and its Thorim's Invocation-empowered variant), confirming that not capping and spending Maelstrom Weapon promptly is the primary DPS mistake to watch for in RaidLens.*
+
+**Totemic — single-target Patchwerk:**
+
+| Ability | Share |
+|---|---|
+| Lightning Bolt | 50.77% |
+| Primordial Storm | 16.06% |
+| Surging Bolt (Surging Totem) | 6.9% |
+| Flametongue Attack | 4.4% |
+| Ride the Lightning | 4.6% |
+| Tremor (_es) | 4.5% |
+| Flame Shock | 3.3% |
+| Searing Volley (Searing Totem) | 3.2% |
+| Thorim's Invocation | 3.0% |
+| Doom Winds | 2.9% |
+| Tremor | 2.7% |
+| Searing Bolt (Searing Totem) | 2.3% |
+| Flametongue Attack (_imbuement_mastery) | 1.4% |
+| melee | 0.1% |
+
+*Totemic's damage is even more concentrated in Lightning Bolt (50.77%) than Stormbringer's, with Surging Totem's pet abilities (Surging Bolt, Tremor, Searing Volley, Searing Bolt) contributing ~15% collectively; a Totemic player who lets Surging Totem drop or fails to deploy it is losing a significant chunk of throughput, which RaidLens can watch for via cast-event absence.*
+
+### Action Priority List — Stormbringer
+
+```
+actions.precombat=windfury_weapon
+actions.precombat+=/flametongue_weapon
+actions.precombat+=/lightning_shield
+actions.precombat+=/variable,name=trinket1_is_weird,value=trinket.1.is.algethar_puzzle_box|trinket.1.is.unyielding_netherprism
+actions.precombat+=/variable,name=trinket2_is_weird,value=trinket.2.is.algethar_puzzle_box|trinket.2.is.unyielding_netherprism
+# Snapshot raid buffed stats before combat begins and pre-potting is done.
+actions.precombat+=/snapshot_stats
+actions.precombat+=/use_item,name=algethar_puzzle_box
+
+# Executed every time the actor is available.
+actions=variable,name=target_nature_mod,value=(1+debuff.chaos_brand.up*debuff.chaos_brand.value)*(1+(debuff.hunters_mark.up*target.health.pct>=80)*debuff.hunters_mark.value)
+actions+=/variable,name=expected_lb_funnel,value=action.lightning_bolt.damage*(1+debuff.lightning_rod.up*variable.target_nature_mod*(1+active_dot.flame_shock)*debuff.lightning_rod.value)
+actions+=/variable,name=expected_cl_funnel,value=action.chain_lightning.damage*(1+debuff.lightning_rod.up*variable.target_nature_mod*active_enemies*debuff.lightning_rod.value)
+actions+=/variable,name=flame_shock_saturated,value=((active_dot.flame_shock=active_enemies)|(active_dot.flame_shock=6))
+actions+=/bloodlust,line_cd=600
+actions+=/auto_attack
+actions+=/call_action_list,name=single_sb,if=active_enemies=1&!talent.surging_totem.enabled
+actions+=/call_action_list,name=single_totemic,if=active_enemies=1&talent.surging_totem.enabled
+actions+=/call_action_list,name=aoe,if=active_enemies>1
+
+actions.aoe=voltaic_blaze,if=talent.surging_totem.enabled&dot.flame_shock.remains=0
+actions.aoe+=/flame_shock,if=!ticking
+actions.aoe+=/surging_totem
+actions.aoe+=/ascendance,if=ti_chain_lightning
+actions.aoe+=/call_action_list,name=buffs
+actions.aoe+=/sundering,if=talent.surging_elements.enabled|buff.whirling_earth.up
+actions.aoe+=/lava_lash,if=buff.whirling_fire.up
+actions.aoe+=/doom_winds
+actions.aoe+=/crash_lightning,if=talent.thorims_invocation.enabled&buff.whirling_air.up&(buff.doom_winds.up|buff.ascendance.up)
+actions.aoe+=/windstrike,if=talent.thorims_invocation.enabled&buff.whirling_air.up
+actions.aoe+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up&buff.whirling_air.up
+actions.aoe+=/lava_lash,if=talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/tempest,if=buff.maelstrom_weapon.stack>=10&(!buff.ascendance.up|!buff.doom_winds.up)
+actions.aoe+=/primordial_storm,if=buff.maelstrom_weapon.stack>=10
+actions.aoe+=/crash_lightning,if=talent.thorims_invocation.enabled&(buff.doom_winds.up|buff.ascendance.up)&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/windstrike,if=talent.thorims_invocation.enabled&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/chain_lightning,if=buff.maelstrom_weapon.stack>=(9+1*talent.surging_totem.enabled)&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/voltaic_blaze,if=talent.fire_nova.enabled
+actions.aoe+=/crash_lightning
+actions.aoe+=/windstrike,if=talent.thorims_invocation.enabled
+actions.aoe+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up
+actions.aoe+=/chain_lightning,if=buff.maelstrom_weapon.stack>=(9+1*talent.surging_totem.enabled)
+actions.aoe+=/sundering,if=talent.feral_spirit.enabled
+actions.aoe+=/voltaic_blaze
+actions.aoe+=/lava_lash,if=pet.searing_totem.active
+actions.aoe+=/windstrike
+actions.aoe+=/stormstrike,if=charges_fractional>=1.8|buff.converging_storms.stack=buff.converging_storms.max_stack
+actions.aoe+=/sundering,if=cooldown.surging_totem.remains>25
+actions.aoe+=/stormstrike,if=!talent.surging_totem.enabled
+actions.aoe+=/lava_lash
+actions.aoe+=/stormstrike
+actions.aoe+=/chain_lightning,if=buff.maelstrom_weapon.stack>=5
+actions.aoe+=/flame_shock
+
+actions.buffs=use_item,name=algethar_puzzle_box,if=(talent.ascendance.enabled&(cooldown.ascendance.remains<2*gcd.max))|(talent.doom_winds.enabled&!talent.ascendance.enabled&(cooldown.doom_winds.remains<2*gcd.max))|(fight_remains%%120<=20)
+actions.buffs+=/use_item,name=unyielding_netherprism,if=(talent.ascendance.enabled&(cooldown.ascendance.remains<2*gcd.max))|(talent.doom_winds.enabled&!talent.ascendance.enabled&(cooldown.doom_winds.remains<2*gcd.max))|fight_remains<=20
+actions.buffs+=/use_item,slot=trinket1,if=!variable.trinket1_is_weird&((buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains=20)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled)))|!trinket.1.has_use_buff
+actions.buffs+=/use_item,slot=trinket2,if=!variable.trinket2_is_weird&((buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains=20)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled)))|!trinket.2.has_use_buff
+actions.buffs+=/potion,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%300<=30)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/blood_fury,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.blood_fury.cooldown<=action.blood_fury.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/berserking,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.berserking.cooldown<=action.berserking.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/fireblood,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.fireblood.cooldown<=action.fireblood.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/ancestral_call,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.ancestral_call.cooldown<=action.ancestral_call.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/invoke_external_buff,name=power_infusion,if=((talent.deeply_rooted_elements.enabled&buff.ascendance.remains>7.5)|(!talent.deeply_rooted_elements.enabled&(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active))|(fight_remains%%120<=20)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+
+actions.single_sb=primordial_storm,if=(buff.maelstrom_weapon.stack>=9|buff.primordial_storm.remains<=4&buff.maelstrom_weapon.stack>=5)
+actions.single_sb+=/voltaic_blaze,if=dot.flame_shock.remains=0&time<5
+actions.single_sb+=/flame_shock,if=!ticking
+actions.single_sb+=/lava_lash,if=!debuff.lashing_flames.up&time<5
+actions.single_sb+=/call_action_list,name=buffs
+actions.single_sb+=/sundering,if=talent.surging_elements.enabled|talent.feral_spirit.enabled
+actions.single_sb+=/doom_winds
+actions.single_sb+=/crash_lightning,if=!buff.crash_lightning.up|talent.storm_unleashed.enabled
+actions.single_sb+=/voltaic_blaze,if=(buff.doom_winds.up&buff.maelstrom_weapon.stack>=10-(1+2*talent.fire_nova.enabled)&!buff.maelstrom_weapon.stack=10)&talent.thorims_invocation.enabled
+actions.single_sb+=/windstrike,if=buff.maelstrom_weapon.stack>0&talent.thorims_invocation.enabled
+actions.single_sb+=/ascendance
+actions.single_sb+=/stormstrike,if=buff.doom_winds.up&talent.thorims_invocation.enabled
+actions.single_sb+=/crash_lightning,if=buff.doom_winds.up&talent.thorims_invocation.enabled
+actions.single_sb+=/tempest,if=buff.maelstrom_weapon.stack=10
+actions.single_sb+=/lightning_bolt,if=buff.maelstrom_weapon.stack=10
+actions.single_sb+=/stormstrike,if=charges_fractional>=1.8
+actions.single_sb+=/lava_lash
+actions.single_sb+=/stormstrike
+actions.single_sb+=/voltaic_blaze
+actions.single_sb+=/sundering
+actions.single_sb+=/lightning_bolt,if=buff.maelstrom_weapon.stack>=8
+actions.single_sb+=/crash_lightning
+actions.single_sb+=/lightning_bolt,if=buff.maelstrom_weapon.stack>=5
+actions.single_sb+=/flame_shock
+
+actions.single_totemic=voltaic_blaze,if=dot.flame_shock.remains=0
+actions.single_totemic+=/flame_shock,if=!ticking
+actions.single_totemic+=/surging_totem
+actions.single_totemic+=/call_action_list,name=buffs
+actions.single_totemic+=/sundering,if=talent.surging_elements.enabled|buff.whirling_earth.up|talent.feral_spirit.enabled
+actions.single_totemic+=/lava_lash,if=buff.whirling_fire.up|buff.hot_hand.up
+actions.single_totemic+=/doom_winds
+actions.single_totemic+=/crash_lightning,if=!buff.crash_lightning.up|talent.storm_unleashed.enabled
+actions.single_totemic+=/primordial_storm,if=(buff.maelstrom_weapon.stack>=10|buff.primordial_storm.remains<3.5&buff.maelstrom_weapon.stack>=5)
+actions.single_totemic+=/windstrike,if=talent.thorims_invocation.enabled&buff.ascendance.up
+actions.single_totemic+=/ascendance,if=ti_lightning_bolt
+actions.single_totemic+=/crash_lightning,if=talent.thorims_invocation.enabled&buff.doom_winds.up|buff.ascendance.up
+actions.single_totemic+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up
+actions.single_totemic+=/lightning_bolt,if=talent.elemental_tempo.enabled&(buff.maelstrom_weapon.stack>=5&(cooldown.lava_lash.remains>gcd.max)&(cooldown.lava_lash.remains<=buff.maelstrom_weapon.stack*0.3)|buff.maelstrom_weapon.stack>=10)
+actions.single_totemic+=/crash_lightning,if=!buff.crash_lightning.up
+actions.single_totemic+=/lava_lash
+actions.single_totemic+=/sundering,if=cooldown.surging_totem.remains>25
+actions.single_totemic+=/stormstrike
+actions.single_totemic+=/voltaic_blaze
+actions.single_totemic+=/crash_lightning
+actions.single_totemic+=/lightning_bolt,if=buff.maelstrom_weapon.stack>=5
+actions.single_totemic+=/flame_shock
+```
+
+### Action Priority List — Totemic
+
+```
+actions.precombat=windfury_weapon
+actions.precombat+=/flametongue_weapon
+actions.precombat+=/lightning_shield
+actions.precombat+=/variable,name=trinket1_is_weird,value=trinket.1.is.algethar_puzzle_box|trinket.1.is.unyielding_netherprism
+actions.precombat+=/variable,name=trinket2_is_weird,value=trinket.2.is.algethar_puzzle_box|trinket.2.is.unyielding_netherprism
+# Snapshot raid buffed stats before combat begins and pre-potting is done.
+actions.precombat+=/snapshot_stats
+actions.precombat+=/use_item,name=algethar_puzzle_box
+
+# Executed every time the actor is available.
+actions=variable,name=target_nature_mod,value=(1+debuff.chaos_brand.up*debuff.chaos_brand.value)*(1+(debuff.hunters_mark.up*target.health.pct>=80)*debuff.hunters_mark.value)
+actions+=/variable,name=expected_lb_funnel,value=action.lightning_bolt.damage*(1+debuff.lightning_rod.up*variable.target_nature_mod*(1+active_dot.flame_shock)*debuff.lightning_rod.value)
+actions+=/variable,name=expected_cl_funnel,value=action.chain_lightning.damage*(1+debuff.lightning_rod.up*variable.target_nature_mod*active_enemies*debuff.lightning_rod.value)
+actions+=/variable,name=flame_shock_saturated,value=((active_dot.flame_shock=active_enemies)|(active_dot.flame_shock=6))
+actions+=/bloodlust,line_cd=600
+actions+=/auto_attack
+actions+=/call_action_list,name=single_sb,if=active_enemies=1&!talent.surging_totem.enabled
+actions+=/call_action_list,name=single_totemic,if=active_enemies=1&talent.surging_totem.enabled
+actions+=/call_action_list,name=aoe,if=active_enemies>1
+
+actions.aoe=voltaic_blaze,if=talent.surging_totem.enabled&dot.flame_shock.remains=0
+actions.aoe+=/flame_shock,if=!ticking
+actions.aoe+=/surging_totem
+actions.aoe+=/ascendance,if=ti_chain_lightning
+actions.aoe+=/call_action_list,name=buffs
+actions.aoe+=/sundering,if=talent.surging_elements.enabled|buff.whirling_earth.up
+actions.aoe+=/lava_lash,if=buff.whirling_fire.up
+actions.aoe+=/doom_winds
+actions.aoe+=/crash_lightning,if=talent.thorims_invocation.enabled&buff.whirling_air.up&(buff.doom_winds.up|buff.ascendance.up)
+actions.aoe+=/windstrike,if=talent.thorims_invocation.enabled&buff.whirling_air.up
+actions.aoe+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up&buff.whirling_air.up
+actions.aoe+=/lava_lash,if=talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/tempest,if=buff.maelstrom_weapon.stack>=10&(!buff.ascendance.up|!buff.doom_winds.up)
+actions.aoe+=/primordial_storm,if=buff.maelstrom_weapon.stack>=10
+actions.aoe+=/crash_lightning,if=talent.thorims_invocation.enabled&(buff.doom_winds.up|buff.ascendance.up)&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/windstrike,if=talent.thorims_invocation.enabled&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/chain_lightning,if=buff.maelstrom_weapon.stack>=(9+1*talent.surging_totem.enabled)&talent.splitstream.enabled&buff.hot_hand.up
+actions.aoe+=/voltaic_blaze,if=talent.fire_nova.enabled
+actions.aoe+=/crash_lightning
+actions.aoe+=/windstrike,if=talent.thorims_invocation.enabled
+actions.aoe+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up
+actions.aoe+=/chain_lightning,if=buff.maelstrom_weapon.stack>=(9+1*talent.surging_totem.enabled)
+actions.aoe+=/sundering,if=talent.feral_spirit.enabled
+actions.aoe+=/voltaic_blaze
+actions.aoe+=/lava_lash,if=pet.searing_totem.active
+actions.aoe+=/windstrike
+actions.aoe+=/stormstrike,if=charges_fractional>=1.8|buff.converging_storms.stack=buff.converging_storms.max_stack
+actions.aoe+=/sundering,if=cooldown.surging_totem.remains>25
+actions.aoe+=/stormstrike,if=!talent.surging_totem.enabled
+actions.aoe+=/lava_lash
+actions.aoe+=/stormstrike
+actions.aoe+=/chain_lightning,if=buff.maelstrom_weapon.stack>=5
+actions.aoe+=/flame_shock
+
+actions.buffs=use_item,name=algethar_puzzle_box,if=(talent.ascendance.enabled&(cooldown.ascendance.remains<2*gcd.max))|(talent.doom_winds.enabled&!talent.ascendance.enabled&(cooldown.doom_winds.remains<2*gcd.max))|(fight_remains%%120<=20)
+actions.buffs+=/use_item,name=unyielding_netherprism,if=(talent.ascendance.enabled&(cooldown.ascendance.remains<2*gcd.max))|(talent.doom_winds.enabled&!talent.ascendance.enabled&(cooldown.doom_winds.remains<2*gcd.max))|fight_remains<=20
+actions.buffs+=/use_item,slot=trinket1,if=!variable.trinket1_is_weird&((buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains=20)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled)))|!trinket.1.has_use_buff
+actions.buffs+=/use_item,slot=trinket2,if=!variable.trinket2_is_weird&((buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains=20)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled)))|!trinket.2.has_use_buff
+actions.buffs+=/potion,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%300<=30)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/blood_fury,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.blood_fury.cooldown<=action.blood_fury.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/berserking,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.berserking.cooldown<=action.berserking.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/fireblood,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.fireblood.cooldown<=action.fireblood.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/ancestral_call,if=(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active|(fight_remains%%action.ancestral_call.cooldown<=action.ancestral_call.duration)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+actions.buffs+=/invoke_external_buff,name=power_infusion,if=((talent.deeply_rooted_elements.enabled&buff.ascendance.remains>7.5)|(!talent.deeply_rooted_elements.enabled&(buff.ascendance.up|buff.doom_winds.up|pet.surging_totem.active))|(fight_remains%%120<=20)|(!talent.ascendance.enabled&!talent.doom_winds.enabled&!talent.surging_totem.enabled))
+
+actions.single_sb=primordial_storm,if=(buff.maelstrom_weapon.stack>=9|buff.primordial_storm.remains<=4&buff.maelstrom_weapon.stack>=5)
+actions.single_sb+=/voltaic_blaze,if=dot.flame_shock.remains=0&time<5
+actions.single_sb+=/flame_shock,if=!ticking
+actions.single_sb+=/lava_lash,if=!debuff.lashing_flames.up&time<5
+actions.single_sb+=/call_action_list,name=buffs
+actions.single_sb+=/sundering,if=talent.surging_elements.enabled|talent.feral_spirit.enabled
+actions.single_sb+=/doom_winds
+actions.single_sb+=/crash_lightning,if=!buff.crash_lightning.up|talent.storm_unleashed.enabled
+actions.single_sb+=/voltaic_blaze,if=(buff.doom_winds.up&buff.maelstrom_weapon.stack>=10-(1+2*talent.fire_nova.enabled)&!buff.maelstrom_weapon.stack=10)&talent.thorims_invocation.enabled
+actions.single_sb+=/windstrike,if=buff.maelstrom_weapon.stack>0&talent.thorims_invocation.enabled
+actions.single_sb+=/ascendance
+actions.single_sb+=/stormstrike,if=buff.doom_winds.up&talent.thorims_invocation.enabled
+actions.single_sb+=/crash_lightning,if=buff.doom_winds.up&talent.thorims_invocation.enabled
+actions.single_sb+=/tempest,if=buff.maelstrom_weapon.stack=10
+actions.single_sb+=/lightning_bolt,if=buff.maelstrom_weapon.stack=10
+actions.single_sb+=/stormstrike,if=charges_fractional>=1.8
+actions.single_sb+=/lava_lash
+actions.single_sb+=/stormstrike
+actions.single_sb+=/voltaic_blaze
+actions.single_sb+=/sundering
+actions.single_sb+=/lightning_bolt,if=buff.maelstrom_weapon.stack>=8
+actions.single_sb+=/crash_lightning
+actions.single_sb+=/lightning_bolt,if=buff.maelstrom_weapon.stack>=5
+actions.single_sb+=/flame_shock
+
+actions.single_totemic=voltaic_blaze,if=dot.flame_shock.remains=0
+actions.single_totemic+=/flame_shock,if=!ticking
+actions.single_totemic+=/surging_totem
+actions.single_totemic+=/call_action_list,name=buffs
+actions.single_totemic+=/sundering,if=talent.surging_elements.enabled|buff.whirling_earth.up|talent.feral_spirit.enabled
+actions.single_totemic+=/lava_lash,if=buff.whirling_fire.up|buff.hot_hand.up
+actions.single_totemic+=/doom_winds
+actions.single_totemic+=/crash_lightning,if=!buff.crash_lightning.up|talent.storm_unleashed.enabled
+actions.single_totemic+=/primordial_storm,if=(buff.maelstrom_weapon.stack>=10|buff.primordial_storm.remains<3.5&buff.maelstrom_weapon.stack>=5)
+actions.single_totemic+=/windstrike,if=talent.thorims_invocation.enabled&buff.ascendance.up
+actions.single_totemic+=/ascendance,if=ti_lightning_bolt
+actions.single_totemic+=/crash_lightning,if=talent.thorims_invocation.enabled&buff.doom_winds.up|buff.ascendance.up
+actions.single_totemic+=/stormstrike,if=talent.thorims_invocation.enabled&buff.doom_winds.up
+actions.single_totemic+=/lightning_bolt,if=talent.elemental_tempo.enabled&(buff.maelstrom_weapon.stack>=5&(cooldown.lava_lash.remains>gcd.max)&(cooldown.lava_lash.remains<=buff.maelstrom_weapon.stack*0.3)|buff.maelstrom_weapon.stack>=10)
+actions.single_totemic+=/crash_lightning,if=!buff.crash_lightning.up
+actions.single_totemic+=/lava_lash
+actions.single_totemic+=/sundering,if=cooldown.surging_totem.remains>25
+actions.single_totemic+=/stormstrike
+actions.single_totemic+=/voltaic_blaze
+actions.single_totemic+=/crash_lightning
+actions.single_totemic+=/lightning_bolt,if=buff.maelstrom_weapon.stack>=5
+actions.single_totemic+=/flame_shock
+```
+
+---
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+The following table lists abilities named in this guide that have an exact key match in the SimulationCraft spell-ids-reference.json (Midnight 12.0.5). IDs already present in the guide from live Wowhead fetches are retained unchanged.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Arc Discharge | 455096 | nature | cast |
+| Ascendance | 1219480, 114051, 344548 (multiple: base cast + variants) | fire / nature / nature | cast |
+| Bloodlust | 2825 | nature | cast |
+| Chain Lightning | 211094 | nature | cast |
+| Crash Lightning | 187874, 195592 (multiple: base cast + variants) | nature | cast |
+| Doom Winds | 469270, 384352 (multiple: base cast + variants) | stormstrike / physical | cast |
+| Elemental Blast | 117014 | elemental | cast |
+| Fire Nova | 333974, 333977 (multiple: base cast + variants) | firestorm | cast |
+| Flame Shock | 188389 | firestorm | cast |
+| Flametongue Attack | 10444, 467386 (multiple: base cast + variants) | fire | cast |
+| Lava Lash | 60103 | fire | cast |
+| Lightning Bolt | 188196 | nature | cast |
+| Lightning Rod | 197568 | nature | cast |
+| Primordial Storm | 1218090 | physical | cast |
+| Ride the Lightning | 289874 | physical | cast |
+| Stormblast | 390287, 319930 (multiple: base cast + variants) | nature | cast |
+| Stormstrike | 17364, 32175 (multiple: base cast + variants) | physical | cast |
+| Sundering | 197214, 467283 (multiple: base cast + variants) | flamestrike | cast |
+| Surging Bolt | 458267 | nature | cast |
+| Surging Totem | 444995 | nature | cast |
+| Tempest | 452201 | nature | cast |
+| Voltaic Blaze | 470057 | firestorm | cast |
+| Windfury Attack | 25504 | physical | cast |
+| Windfury Weapon | 33757 | nature | buff |
+| Windlash | 114089 | physical | cast |
+| Windstrike | 115356, 115357 (multiple: base cast + variants) | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
+---
+
 ## Notes and Known Gaps
 
 - **Maintenance flag:** Re-verify this entire guide after any 12.x patch. Enhancement tuning (Maelstrom caps, Wind Shear cooldown, talent layout, hero talent balance) has changed within Midnight already (e.g., Overflowing Maelstrom cap raised to 20 in 12.0.5).
-- **Confirmed spell IDs (fetched live on Wowhead):** Wind Shear 254410, Astral Shift 108271, Feral Spirit 51533, Thunderstorm 51490, Capacitor Totem 192058, Hex 51514, Stormstrike 17364, Ancestral Spirit 2008, Tremor Totem 8143, Cleanse Spirit 51886, Bloodlust 2825, Skyfury 462854.
-- **Unconfirmed IDs (omitted on purpose, NOT guessed):** Lava Lash, Crash Lightning, Lightning Bolt, Chain Lightning, Elemental Blast, Primordial Storm, Voltaic Blaze, Ice Strike, Frost Shock, Flame Shock, Doom Winds, Ascendance, Sundering, Surging Totem, Stone Bulwark Totem, Earth Elemental, Earth Shield, Earthgrab Totem, Earthbind Totem, Purge, Poison Cleansing Totem, Wind Rush Totem, Spiritwalker's Grace, Gust of Wind, Ghost Wolf, Windfury Weapon, and the Stormbringer/Totemic hero-talent abilities. Wowhead began returning HTTP 403 (rate limiting) before these individual spell pages could be fetched. Confirm IDs on live Wowhead before adding numbers.
+- **SimC talent strings and APL:** Now added (Stormbringer and Totemic variants, Midnight 12.0.5). See SimulationCraft Reference section.
+- **Damage/rotational spell IDs:** Now confirmed for all abilities that appeared in the SimulationCraft spell-ids-reference.json (exact key matches only). See Confirmed Spell IDs section. This includes: Lava Lash, Crash Lightning, Lightning Bolt, Chain Lightning, Elemental Blast, Primordial Storm, Voltaic Blaze, Flame Shock, Doom Winds, Ascendance, Sundering, Surging Totem, Tempest, Flametongue Attack, Windfury Attack, Windstrike, Stormblast, Lightning Rod, Ride the Lightning, Arc Discharge, Fire Nova, Surging Bolt, Windlash.
+- **Still unconfirmed (not in SimC source — omitted on purpose, NOT guessed):** Ice Strike, Frost Shock, Stone Bulwark Totem, Earth Elemental, Earth Shield, Earthgrab Totem, Earthbind Totem, Purge, Poison Cleansing Totem, Wind Rush Totem, Spiritwalker's Grace, Gust of Wind, Ghost Wolf. Defensive/interrupt/consumable spell IDs remain absent from the SimC source by design (SimC Patchwerk sim only covers damaging abilities).
+- **Confirmed spell IDs (fetched live on Wowhead):** Wind Shear 254410, Astral Shift 108271, Feral Spirit 51533, Thunderstorm 51490, Capacitor Totem 192058, Hex 51514, Stormstrike 17364, Ancestral Spirit 2008, Tremor Totem 8143, Cleanse Spirit 51886, Bloodlust 2825, Skyfury 462854. Do not alter these Wowhead-confirmed values.
 - **Astral Shift cooldown discrepancy:** Icy Veins text said ~1m30s; live Wowhead spell page shows 2 minutes. This guide uses **2 minutes** (live spell page authoritative). Re-verify if RaidLens availability checks misfire.
 - **Wind Shear cooldown discrepancy:** A Blizzard-forum post (Oct 2025) referenced a 30-second cooldown; the live 12.0.5 Wowhead spell page shows **12 seconds**, which this guide uses. If interrupt-cadence analysis seems off, re-check the live value.
 - **Tremor Totem dispel detail:** The live Wowhead page's dispel-type field showed "n/a"; the Fear/Charm/Sleep removal described here is the totem's standard documented function, not a value read off that page. Re-verify.
 - **Thunderstorm for Enhancement:** Confirmed as a live Shaman spell (51490) but it is historically Elemental's; its availability to Enhancement is talent-dependent and was not confirmed in the Enhancement talent tree on a live fetch. Treat as build-dependent.
-- **Rotation specifics** (opener order, Primordial Storm stack thresholds, hero-talent nuances) come from the Icy Veins live rotation page and the Wowhead overview, not from a parsed in-game tooltip or a user-provided SimC profile. No SimC APL or talent import string was available; none was invented.
+- **Rotation specifics** (opener order, Primordial Storm stack thresholds, hero-talent nuances) come from the Icy Veins live rotation page, the Wowhead overview, and the SimulationCraft APL (Midnight 12.0.5).
 - **Consumables/enchants:** Item names from a single source (Icy Veins), no item IDs confirmed. Re-verify names against current Wowhead before relying on them.
 - **Wowhead main guide body extraction:** The Wowhead overview/abilities/rotation guide pages returned mostly navigation chrome via the fetch tool; substantive ability and rotation detail in this guide came primarily from Icy Veins plus the individual Wowhead spell pages that were fetched successfully.

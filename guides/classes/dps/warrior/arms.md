@@ -19,6 +19,7 @@
 > - https://www.wowhead.com/spell=23920/spell-reflection
 > - https://www.wowhead.com/spell=107570/storm-bolt
 > - https://www.wowhead.com/spell=227847/bladestorm
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 
 ## Overview
 
@@ -113,15 +114,250 @@ Recommendations below are from the live Icy Veins gems/enchants/consumables page
 
 All consumable/enchant names should be re-verified against the live Wowhead/Icy Veins pages before relying on them for a raid night; tunings and availability shift across 12.x hotfixes.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero tree(s) covered: The JSON `hero_tree` field is null; the APL covers both **Colossus** (actions.colossus_*) and **Slayer** (actions.slayer_*) hero-tree branches as separate action lists within a single profile. The talent string below applies to both branches — the active hero tree is selected by the `talent.demolish` / `talent.slayers_dominance` conditions in the main action list.
+
+### Talent import string
+
+```
+CcEAAAAAAAAAAAAAAAAAAAAAAAzMzsMzMzMDAAAghphxYmxyMzMzgxMDAAAAgZWmZAZMWWGYBMgZYCZGsBMjNz2YwMGgZGAmxwA
+```
+
+### Metrics
+
+Metrics not captured in source.
+
+### Damage distribution (SimC, share of total)
+
+Only rows whose `percent` field contained a literal `%` character and survived exclusion filters are shown. For entries with a parenthesised value (e.g. `"0.0% (19.1%)"`) the parenthesised figure is the real share; the outer value is the direct-hit component before Execute/Slam sub-ability accounting.
+
+| Ability | Share of total |
+|---|---|
+| Execute | 19.1% |
+| Slam | 9.2% |
+| Deep Wounds | 9.0% |
+| Slayer's Strike | 8.1% |
+| Rend (DoT) | 2.0% |
+| Fatal Mark (fatality) | 2.0% |
+
+**RaidLens interpretation:** Execute and Slam together account for nearly 30% of simulated damage, confirming that Execute-phase mismanagement (Rage dumped into Slam when Execute is available, or Sudden Death procs missed) is the single highest-value mistake to flag. Deep Wounds and Slayer's Strike are passive/proc outputs — low in logs relative to sim share suggests low Mortal Strike / Colossus Smash uptime upstream. Rend DoT and Fatal Mark are bleed contributions; their absence in a pull is a maintenance-failure signal.
+
+Note: many abilities in the raw JSON (Bladestorm, Colossus Smash, Mortal Strike, Overpower, Avatar, Rend base, Storm Bolt, Wrecking Throw) had numeric-only or sub-1 `percent` values with no `%` suffix — these are buff-uptime/proc-count/duration mis-parses from the SimC HTML scrape, not damage shares, and are excluded from this table.
+
+### Action Priority List — Colossus / Slayer (combined profile)
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/variable,name=trinket_1_exclude,value=trinket.1.is.algethar_puzzle_box
+actions.precombat+=/variable,name=trinket_2_exclude,value=trinket.2.is.algethar_puzzle_box
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_duration,op=setif,value=0,value_else=trinket.1.proc.any_dps.duration,condition=0
+actions.precombat+=/variable,name=trinket_2_duration,op=setif,value=0,value_else=trinket.2.proc.any_dps.duration,condition=0
+actions.precombat+=/variable,name=trinket_1_high_value,op=setif,value=2,value_else=1,condition=trinket.1.is.treacherous_transmitter
+actions.precombat+=/variable,name=trinket_2_high_value,op=setif,value=2,value_else=1,condition=trinket.2.is.treacherous_transmitter
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&talent.avatar&trinket.1.cooldown.duration%%cooldown.avatar.duration=0
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&talent.avatar&trinket.2.cooldown.duration%%cooldown.avatar.duration=0
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs&(trinket.2.has_cooldown|!trinket.1.has_cooldown)|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_duration)*(1.5+trinket.2.has_buff.strength)*(variable.trinket_2_sync)*(variable.trinket_2_high_value)*(1+((trinket.2.ilvl-trinket.1.ilvl)%100)))>((trinket.1.cooldown.duration%variable.trinket_1_duration)*(1.5+trinket.1.has_buff.strength)*(variable.trinket_1_sync)*(variable.trinket_1_high_value)*(1+((trinket.1.ilvl-trinket.2.ilvl)%100)))
+actions.precombat+=/variable,name=damage_trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&!variable.trinket_2_buffs&trinket.2.ilvl>=trinket.1.ilvl
+actions.precombat+=/battle_stance,toggle=on
+
+actions=charge,if=time<=0.5|movement.distance>5
+actions+=/auto_attack
+actions+=/potion,if=gcd.remains=0&debuff.colossus_smash.remains>8|target.time_to_die<25
+actions+=/pummel,if=target.debuff.casting.react
+actions+=/call_action_list,name=variables
+actions+=/call_action_list,name=trinkets
+actions+=/arcane_torrent,if=cooldown.mortal_strike.remains>1.5&rage<50
+actions+=/lights_judgment,if=debuff.colossus_smash.down&cooldown.mortal_strike.remains
+actions+=/bag_of_tricks,if=debuff.colossus_smash.down&cooldown.mortal_strike.remains
+actions+=/berserking,if=target.time_to_die>180&debuff.colossus_smash.up|target.time_to_die<180&variable.execute_phase&debuff.colossus_smash.up|target.time_to_die<20
+actions+=/blood_fury,if=debuff.colossus_smash.up
+actions+=/fireblood,if=debuff.colossus_smash.up
+actions+=/ancestral_call,if=debuff.colossus_smash.up
+actions+=/invoke_external_buff,name=power_infusion,if=debuff.colossus_smash.up&fight_remains>=135|variable.execute_phase&buff.avatar.up|fight_remains<=25
+actions+=/run_action_list,name=colossus_aoe,if=talent.demolish&active_enemies>2
+actions+=/run_action_list,name=colossus_execute,target_if=min:target.health.pct,if=talent.demolish&variable.execute_phase
+actions+=/run_action_list,name=colossus_st,if=talent.demolish
+actions+=/run_action_list,name=slayer_aoe,if=talent.slayers_dominance&active_enemies>2
+actions+=/run_action_list,name=slayer_execute,target_if=min:target.health.pct,if=talent.slayers_dominance&variable.execute_phase
+actions+=/run_action_list,name=slayer_st,if=talent.slayers_dominance
+
+actions.colossus_aoe=thunder_clap,if=!dot.rend_dot.remains
+actions.colossus_aoe+=/rend,if=!dot.rend_dot.remains
+actions.colossus_aoe+=/sweeping_strikes,if=cooldown.colossus_smash.remains>10&buff.sweeping_strikes.down|!talent.broad_strokes
+actions.colossus_aoe+=/ravager,if=cooldown.colossus_smash.remains<2
+actions.colossus_aoe+=/avatar
+actions.colossus_aoe+=/colossus_smash
+actions.colossus_aoe+=/champions_spear
+actions.colossus_aoe+=/cleave,if=buff.collateral_damage.stack>=2
+actions.colossus_aoe+=/demolish,if=buff.colossal_might.stack=10&(debuff.colossus_smash.remains>2|cooldown.colossus_smash.remains>10)
+actions.colossus_aoe+=/cleave
+actions.colossus_aoe+=/demolish,if=debuff.colossus_smash.remains>=2
+actions.colossus_aoe+=/whirlwind,if=talent.fervor_of_battle&buff.collateral_damage.stack=3
+actions.colossus_aoe+=/rend,if=dot.rend_dot.remains<3
+actions.colossus_aoe+=/mortal_strike
+actions.colossus_aoe+=/overpower
+actions.colossus_aoe+=/execute,if=buff.sweeping_strikes.up&buff.sudden_death.up
+actions.colossus_aoe+=/heroic_strike
+actions.colossus_aoe+=/rend
+actions.colossus_aoe+=/execute
+actions.colossus_aoe+=/slam
+actions.colossus_aoe+=/bladestorm
+actions.colossus_aoe+=/wrecking_throw
+actions.colossus_aoe+=/whirlwind
+
+actions.colossus_execute=sweeping_strikes,if=active_enemies=2&(cooldown.colossus_smash.remains&buff.sweeping_strikes.down|!talent.broad_strokes)
+actions.colossus_execute+=/rend,if=dot.rend_dot.remains<=gcd&!talent.bloodletting
+actions.colossus_execute+=/champions_spear
+actions.colossus_execute+=/ravager,if=cooldown.colossus_smash.remains<=gcd&talent.cleave
+actions.colossus_execute+=/avatar
+actions.colossus_execute+=/colossus_smash
+actions.colossus_execute+=/demolish,if=buff.colossal_might.stack=10&debuff.colossus_smash.up
+actions.colossus_execute+=/heroic_strike
+actions.colossus_execute+=/mortal_strike,if=buff.executioners_precision.stack=2|!talent.executioners_precision|talent.battlelord
+actions.colossus_execute+=/execute,if=talent.deep_wounds&rage>75|buff.sudden_death.up
+actions.colossus_execute+=/cleave,if=active_enemies=2&talent.mass_execution&(buff.ravager.remains|buff.collateral_damage.stack=3)
+actions.colossus_execute+=/overpower
+actions.colossus_execute+=/execute,if=rage>75
+actions.colossus_execute+=/cleave,if=active_enemies=2&!talent.mass_execution&(buff.ravager.remains|talent.mass_execution|buff.collateral_damage.stack=3)
+actions.colossus_execute+=/slam,if=!talent.deep_wounds
+actions.colossus_execute+=/execute
+actions.colossus_execute+=/bladestorm,if=active_enemies=2
+actions.colossus_execute+=/wrecking_throw
+
+actions.colossus_st=rend,if=dot.rend_dot.remains<=gcd|cooldown.colossus_smash.remains<2&dot.rend_dot.remains<=10
+actions.colossus_st+=/sweeping_strikes,if=active_enemies=2&(cooldown.colossus_smash.remains&buff.sweeping_strikes.down|!talent.broad_strokes)
+actions.colossus_st+=/ravager,if=cooldown.colossus_smash.remains<=gcd&talent.cleave
+actions.colossus_st+=/avatar
+actions.colossus_st+=/colossus_smash
+actions.colossus_st+=/champions_spear
+actions.colossus_st+=/demolish,if=debuff.colossus_smash.up&buff.colossal_might.stack>0
+actions.colossus_st+=/heroic_strike
+actions.colossus_st+=/mortal_strike
+actions.colossus_st+=/cleave,if=active_enemies=2&buff.ravager.remains&buff.collateral_damage.stack=3
+actions.colossus_st+=/overpower
+actions.colossus_st+=/cleave,if=active_enemies=2&buff.ravager.remains|buff.collateral_damage.stack=3
+actions.colossus_st+=/execute
+actions.colossus_st+=/whirlwind,if=active_enemies=2&buff.collateral_damage.stack=3
+actions.colossus_st+=/cleave,if=buff.ravager.remains|buff.collateral_damage.stack=3
+actions.colossus_st+=/rend,if=dot.rend_dot.remains<=gcd*5
+actions.colossus_st+=/bladestorm,if=active_enemies=2
+actions.colossus_st+=/slam
+actions.colossus_st+=/wrecking_throw
+
+actions.slayer_aoe=rend,if=!dot.rend_dot.remains&talent.rend
+actions.slayer_aoe+=/sweeping_strikes,if=!buff.sweeping_strikes.up&cooldown.colossus_smash.remains>10|!talent.broad_strokes
+actions.slayer_aoe+=/avatar
+actions.slayer_aoe+=/champions_spear
+actions.slayer_aoe+=/ravager,if=debuff.colossus_smash.up
+actions.slayer_aoe+=/colossus_smash
+actions.slayer_aoe+=/cleave,if=buff.collateral_damage.stack=3
+actions.slayer_aoe+=/bladestorm,if=debuff.colossus_smash.up
+actions.slayer_aoe+=/cleave
+actions.slayer_aoe+=/whirlwind,if=talent.fervor_of_battle&buff.collateral_damage.stack=3
+actions.slayer_aoe+=/execute,if=buff.sudden_death.up
+actions.slayer_aoe+=/mortal_strike,if=buff.battlelord.up
+actions.slayer_aoe+=/overpower,if=talent.dreadnaught
+actions.slayer_aoe+=/mortal_strike,if=talent.fierce_followthrough|debuff.colossus_smash.up
+actions.slayer_aoe+=/thunder_clap,if=dot.rend_dot.remains<8&talent.rend
+actions.slayer_aoe+=/whirlwind,if=talent.fervor_of_battle
+actions.slayer_aoe+=/overpower
+actions.slayer_aoe+=/mortal_strike
+actions.slayer_aoe+=/rend,if=dot.rend_dot.remains
+actions.slayer_aoe+=/execute
+actions.slayer_aoe+=/whirlwind
+actions.slayer_aoe+=/slam
+actions.slayer_aoe+=/wrecking_throw
+actions.slayer_aoe+=/storm_bolt,if=buff.bladestorm.up
+
+actions.slayer_execute=sweeping_strikes,if=active_enemies=2&(cooldown.colossus_smash.remains&buff.sweeping_strikes.down|!talent.broad_strokes)
+actions.slayer_execute+=/rend,if=dot.rend_dot.remains<2&!talent.bloodletting
+actions.slayer_execute+=/avatar
+actions.slayer_execute+=/colossus_smash
+actions.slayer_execute+=/heroic_strike
+actions.slayer_execute+=/bladestorm,if=debuff.colossus_smash.up
+actions.slayer_execute+=/mortal_strike,if=buff.executioners_precision.stack=2&(talent.martial_prowess|!talent.martial_prowess&debuff.colossus_smash.up)|debuff.colossus_smash.up&talent.battlelord
+actions.slayer_execute+=/overpower,if=buff.opportunist.up&talent.opportunist
+actions.slayer_execute+=/overpower,if=talent.fierce_followthrough&!buff.battlelord.up&rage<80
+actions.slayer_execute+=/execute,if=rage>40|buff.sudden_death.up
+actions.slayer_execute+=/overpower
+actions.slayer_execute+=/execute,if=talent.improved_execute
+actions.slayer_execute+=/cleave,if=talent.mass_execution
+actions.slayer_execute+=/slam,if=!talent.critical_thinking
+actions.slayer_execute+=/execute
+actions.slayer_execute+=/wrecking_throw
+actions.slayer_execute+=/storm_bolt,if=buff.bladestorm.up
+
+actions.slayer_st=sweeping_strikes,if=active_enemies=2&(cooldown.colossus_smash.remains&buff.sweeping_strikes.down|!talent.broad_strokes)
+actions.slayer_st+=/avatar
+actions.slayer_st+=/champions_spear,if=debuff.colossus_smash.up|buff.avatar.up
+actions.slayer_st+=/ravager,if=cooldown.colossus_smash.remains<=gcd
+actions.slayer_st+=/colossus_smash
+actions.slayer_st+=/bladestorm,if=debuff.colossus_smash.up
+actions.slayer_st+=/heroic_strike
+actions.slayer_st+=/mortal_strike
+actions.slayer_st+=/execute,if=buff.sudden_death.up
+actions.slayer_st+=/cleave,if=active_enemies=2&buff.collateral_damage.stack=3
+actions.slayer_st+=/overpower
+actions.slayer_st+=/cleave,if=talent.mass_execution&target.health.pct<35
+actions.slayer_st+=/whirlwind,if=active_enemies=2&buff.collateral_damage.stack=3
+actions.slayer_st+=/rend,if=dot.rend_dot.remains<=5
+actions.slayer_st+=/slam
+actions.slayer_st+=/wrecking_throw,if=active_enemies=1
+actions.slayer_st+=/storm_bolt,if=buff.bladestorm.up
+
+actions.trinkets=use_item,slot=trinket1,if=variable.trinket_1_buffs&(variable.trinket_priority=1|!variable.trinket_2_buffs|!trinket.2.has_cooldown)&(buff.avatar.up)
+actions.trinkets+=/use_item,slot=trinket2,if=variable.trinket_2_buffs&(variable.trinket_priority=2|!variable.trinket_1_buffs|!trinket.1.has_cooldown)&(buff.avatar.up)
+actions.trinkets+=/use_item,slot=trinket1,if=!variable.trinket_1_buffs&(variable.damage_trinket_priority=1|!variable.trinket_2_buffs|!trinket.2.has_cooldown)
+actions.trinkets+=/use_item,slot=trinket2,if=!variable.trinket_2_buffs&(variable.damage_trinket_priority=2|!variable.trinket_1_buffs|!trinket.1.has_cooldown)
+actions.trinkets+=/use_item,name=algethar_puzzle_box,if=cooldown.avatar.remains<2|cooldown.colossus_smash.remains<2
+
+actions.variables=variable,name=st_planning,value=active_enemies=1&(raid_event.adds.in>15|!raid_event.adds.exists)
+actions.variables+=/variable,name=adds_remain,value=active_enemies>=2&(!raid_event.adds.exists|raid_event.adds.exists&raid_event.adds.remains>5)
+actions.variables+=/variable,name=execute_phase,value=(talent.massacre.enabled&target.health.pct<35)|target.health.pct<20
+```
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+IDs below are from exact-key matches in `spell-ids-reference.json` (Midnight 12.0.5 SimC source). IDs already present in this guide from Wowhead are preserved above unchanged; this section adds or cross-confirms IDs for damage abilities the SimC HTML spelldata covered.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Avatar | 107574 | physical | cast |
+| Bladestorm | 446035, 50622 (multiple: base cast + variants) | physical | cast |
+| Colossus Smash | 167105 | physical | cast |
+| Deep Wounds | 262115 | physical | cast |
+| Execute | 163201, 260798, 5308, 280849 (multiple: base cast + variants) | physical | cast |
+| Fatal Mark | 383706 | physical | cast |
+| Heroic Strike | 1269383 | physical | cast |
+| Mortal Strike | 12294 | physical | cast |
+| Overpower | 7384 | physical | cast |
+| Ravager | 228920, 156287 (multiple: base cast + variants) | physical | cast |
+| Rend | 388539, 772 (multiple: base cast + variants) | physical | cast |
+| Slam | 1464 | physical | cast |
+| Slayer's Strike | 445579 | physical | cast |
+| Storm Bolt | 107570 | physical | cast |
+| Whirlwind | 190411, 199667, 199852 (multiple: base cast + variants) | physical | cast |
+
+Abilities named in the guide with no exact key match in the SimC reference (non-damaging utility, not simmed, or named differently in spelldata): Battle Shout, Charge, Cleave, Sweeping Strikes, Demolish, Skullsplitter, Thunderous Roar, Pummel, Die by the Sword, Defensive Stance, Rallying Cry, Spell Reflection, Intervene, Heroic Leap, Berserker Rage, Bitter Immunity, Shockwave, Intimidating Shout, Sudden Death.
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 - **Confirmed SpellIDs (verified on the exact Wowhead spell page fetched):** Mortal Strike 12294, Colossus Smash 167105, Avatar 107574, Battle Shout 6673, Charge 100, Heroic Leap 6544, Intervene 3411, Spell Reflection 23920, Storm Bolt 107570, Bladestorm 227847, Die by the Sword 118038, Defensive Stance 386208, Rallying Cry 97462, Pummel 6552.
-- **Execute SpellID NOT included** — could not confirm the current Arms Execute SpellID on a live page (Wowhead returned 403). Omitted deliberately rather than guessed.
-- **Overpower, Slam, Cleave, Sweeping Strikes, Rend, Deep Wounds, Whirlwind, Skullsplitter, Thunderous Roar, Ravager, Demolish, Heroic Strike, Piercing Howl, Shockwave, Intimidating Shout, Berserker Rage, Bitter Immunity, Second Wind, Sudden Death** — referenced by name from live guides but their individual SpellIDs were NOT confirmed; no IDs given for these.
+- **Damage and rotational spell IDs confirmed via SimC spelldata** for: Avatar (107574), Bladestorm (446035/50622), Colossus Smash (167105), Deep Wounds (262115), Execute (163201/260798/5308/280849), Fatal Mark (383706), Heroic Strike (1269383), Mortal Strike (12294), Overpower (7384), Ravager (228920/156287), Rend (388539/772), Slam (1464), Slayer's Strike (445579), Storm Bolt (107570), Whirlwind (190411/199667/199852). These cross-confirm or extend the Wowhead-sourced IDs above.
+- **Talent string and APL:** Now added (SimC Midnight 12.0.5 profile, covering both Colossus and Slayer hero-tree branches in a single combined APL). See SimulationCraft Reference section above.
+- **Execute SpellID:** Multiple IDs present in SimC reference (163201, 260798, 5308, 280849); 5308 is the classic Arms Execute ID. Use all four for WCL log matching until confirmed which fires in Midnight logs.
+- **Bladestorm ID note:** The guide previously cited 227847 (from Wowhead). SimC reference lists 446035 and 50622 as the active IDs. 227847 may be a talent-page or redirect ID; prefer 446035/50622 for WCL event filtering until verified in live logs.
+- **Cleave, Sweeping Strikes, Demolish, Skullsplitter, Thunderous Roar** — still no confirmed SpellIDs; not present in SimC spelldata reference under those exact names.
 - **Mortal Strike healing-reduction (Mortal Wounds):** stated by class design but the specific aura/effect was not visible on the fetched Mortal Strike page. Unconfirmed.
-- **Bladestorm cooldown:** numeric cooldown not confirmed. Also note 227847 is the Arms Bladestorm ID; a different Bladestorm ID exists for Fury — do not cross-apply.
-- **Spell Reflection / Charge / Heroic Leap / Intervene "cooldown" values on Wowhead:** the spell pages returned very small scalars (1–1.5s) that are GCD/internal lockout values, NOT the real ability cooldowns. Real cooldowns (e.g., Spell Reflection's true cooldown, Heroic Leap's, Charge's) were not reliably confirmed and should be re-checked in-game or via the tooltip.
+- **Bladestorm cooldown:** numeric cooldown not confirmed from live pages.
+- **Spell Reflection / Charge / Heroic Leap / Intervene "cooldown" values on Wowhead:** the spell pages returned very small scalars (1–1.5s) that are GCD/internal lockout values, NOT the real ability cooldowns. Real cooldowns were not reliably confirmed and should be re-checked in-game or via the tooltip.
 - **Intervene damage-transfer/absorb:** not confirmed on the live spell page this patch; treat as a movement/reposition tool only until verified.
-- **Talent / Hero-tree specifics (Colossus vs. Slayer):** the live Wowhead guide HTML did not extract cleanly; talent build, import strings, and exact Hero-talent rotation are NOT captured here. No SimC APL was provided. Re-derive from the live Wowhead/Icy Veins talent pages if a build-specific guide is needed.
+- **Talent / Hero-tree specifics:** talent import string now provided from SimC. The profile covers both Colossus and Slayer branches. Exact per-build tuning differences (Demolish vs. Slayer's Strike weighting) are reflected in the APL conditions but not numerically benchmarked (metrics not captured).
+- **Defensive/interrupt/consumable spell IDs:** Die by the Sword, Defensive Stance, Rallying Cry, Spell Reflection, Pummel, Heroic Leap, Intervene, Berserker Rage, Bitter Immunity — IDs from Wowhead only (see Confirmed SpellIDs bullet above); SimC source has no non-damaging defensives or interrupts, as expected.
 - **Consumable/enchant item IDs:** omitted (names only, from Icy Veins). Re-verify names and availability each patch.
 - **Maintenance flag:** Re-verify every SpellID, cooldown, and consumable/enchant name after ANY 12.x patch or hotfix. Tuning and item availability in Midnight change frequently; treat this guide as a 12.0.5 snapshot (June 2026).

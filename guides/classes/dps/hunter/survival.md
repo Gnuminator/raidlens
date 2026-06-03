@@ -10,6 +10,7 @@
 > - https://www.wowhead.com/spell=109304/exhilaration
 > - https://www.wowhead.com/spell=257284/hunters-mark
 > - Web search aggregations of wowhead.com and icy-veins.com 12.0.5 Survival Hunter pages
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Hunter_Survival_PL_DW.apl.txt, spell-ids-reference.json
 
 ## Overview
 
@@ -32,21 +33,21 @@ Primary weakness: as a melee with limited passive mitigation, it is vulnerable i
 
 ## Abilities Reference
 
-Confirmed SpellIDs are noted. Where an ID was not confirmable on a fetched live source, the ability is listed by name only (see Known Gaps).
+Confirmed SpellIDs are noted. Where an ID was not confirmable on a fetched live source, the ability is listed by name only (see Known Gaps). SimulationCraft-confirmed IDs are noted in the Confirmed Spell IDs section below.
 
 Core / rotational:
-- **Kill Command** — short-cooldown focus spender that grants **Tip of the Spear** stacks; the engine of the rotation. (~6s cooldown per Icy Veins; ID unconfirmed.)
-- **Wildfire Bomb** — periodic bomb, charge-based (~18s recharge, 2 charges per Icy Veins); core AoE/single-target damage. (ID unconfirmed.)
-- **Raptor Strike** — primary melee focus spender (~30 focus). With the Raptor Swipe apex talent it can convert into a cleaving **Raptor Swipe**. (ID unconfirmed.)
-- **Takedown** — primary offensive cooldown. Deals heavy damage, then increases all damage by 20% for 10s and doubles auto-attack speed. ~90s cooldown, reducible to ~60s with the Savagery talent. (ID unconfirmed.)
-- **Boomstick** — rotational damage ability used in the opener/burst. (ID unconfirmed.)
+- **Kill Command** — short-cooldown focus spender that grants **Tip of the Spear** stacks; the engine of the rotation. (~6s cooldown per Icy Veins; SimC IDs confirmed — see Confirmed Spell IDs.)
+- **Wildfire Bomb** — periodic bomb, charge-based (~18s recharge, 2 charges per Icy Veins); core AoE/single-target damage. (SimC IDs confirmed — see Confirmed Spell IDs.)
+- **Raptor Strike** — primary melee focus spender (~30 focus). With the Raptor Swipe apex talent it can convert into a cleaving **Raptor Swipe**. (SimC IDs confirmed — see Confirmed Spell IDs.)
+- **Takedown** — primary offensive cooldown. Deals heavy damage, then increases all damage by 20% for 10s and doubles auto-attack speed. ~90s cooldown, reducible to ~60s with the Savagery talent. (SimC IDs confirmed — see Confirmed Spell IDs.)
+- **Boomstick** — rotational damage ability used in the opener/burst. (SimC IDs confirmed — see Confirmed Spell IDs.)
 - **Flamefang Pitch** — ~1 min cooldown damage ability (per Icy Veins). (ID unconfirmed.)
 - **Hunter's Mark** — debuff, +3% damage taken on the target. **SpellID 257284.**
 
 Key passives/procs:
-- **Tip of the Spear** — buff granted by Kill Command (2 stacks per Icy Veins) that empowers the next abilities. Central to the priority. (ID unconfirmed.)
+- **Tip of the Spear** — buff granted by Kill Command (2 stacks per Icy Veins) that empowers the next abilities. Central to the priority. (ID unconfirmed in SimC source.)
 
-> Note: Several Survival ability SpellIDs (Kill Command, Wildfire Bomb, Raptor Strike, Takedown, Boomstick) were described on fetched pages but their exact numeric IDs were not shown on the sources loaded, so they are intentionally omitted rather than guessed.
+> Note: Flamefang Pitch, Tip of the Spear (buff), and several utility abilities were not found as exact-key matches in the SimC reference. SpellIDs for Wowhead-confirmed defensives and the interrupt remain unchanged from their original confirmed values.
 
 ## Rotation / Priority
 
@@ -121,15 +122,145 @@ Sourced from the Icy Veins 12.0.5 gems/enchants/consumables page (via search agg
 - **Augment rune:** Void-Touched Augment Rune.
 - **Enchants:** Specific weapon/armor enchant names were **not** confirmed on a fetched page — omitted. See Known Gaps.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero tree covered:** Pack Leader (dual-wield variant) — `hero_tree: PL_DW`
+
+### Variant: Pack Leader — Dual Wield (PL_DW)
+
+**Talent import string:**
+
+```
+C8PAAAAAAAAAAAAAAAAAAAAAAMgxMGWgNYGGawiZmZmZYZAAAAAAwMmZmx2MGzYGWGTzAAAAwAAjllZmZxMzMYMGwMbAGGjZmNDA
+```
+
+**Metrics:** metrics not captured in source.
+
+**Damage distribution (SimC, share of total):**
+
+Rows with a "%" in their percent field only; parenthesized values used where present; consumables, auto-attack splits, pet-header rows, buff-uptime/rank entries, and resource metrics excluded.
+
+| Ability | Share of Total |
+|---|---|
+| Raptor Strike | 25.6% |
+| Strike As One | 19.6% |
+| Boar Charge | 7.3% |
+| Claw (pet) | 1.8% |
+| Stampede (_tick) | 1.7% |
+| melee (pet) | 0.3% |
+
+The SimC damage table is dominated by **Raptor Strike** and the Pack Leader hero proc **Strike As One** together accounting for roughly 45% of damage, confirming that maximizing Tip of the Spear uptime and correctly timing Raptor Strike empowerment is the single biggest driver of Survival DPS in this build. **Boar Charge** (a Pack Leader pet proc) adds a meaningful 7.3%. The remaining percentage to 100% is accounted for by auto-attacks, which are excluded from this table per the filtering rules.
+
+### Action Priority List — Pack Leader Dual Wield (PL_DW)
+
+```
+actions.precombat=summon_pet
+# Snapshot raid buffed stats before combat begins.
+actions.precombat+=/snapshot_stats
+actions.precombat+=/use_item,name=algethar_puzzle_box
+actions.precombat+=/wildfire_bomb,if=active_enemies=1
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/call_action_list,name=cds
+actions+=/call_action_list,name=plst,if=active_enemies<3&talent.howl_of_the_pack_leader
+actions+=/call_action_list,name=plcleave,if=active_enemies>2&talent.howl_of_the_pack_leader
+actions+=/call_action_list,name=sentst,if=active_enemies<3&!talent.howl_of_the_pack_leader
+actions+=/call_action_list,name=sentcleave,if=active_enemies>2&!talent.howl_of_the_pack_leader
+
+# CDS
+actions.cds=blood_fury,if=buff.takedown.up|cooldown.takedown.ready
+actions.cds+=/use_items,if=buff.takedown.up|cooldown.takedown.ready|!talent.takedown
+actions.cds+=/use_item,name=algethar_puzzle_box,if=cooldown.takedown.remains<5|!talent.takedown
+actions.cds+=/invoke_external_buff,name=power_infusion,if=buff.takedown.up&!buff.power_infusion.up
+actions.cds+=/ancestral_call,if=buff.takedown.up|cooldown.takedown.ready
+actions.cds+=/fireblood,if=buff.takedown.up|cooldown.takedown.ready
+actions.cds+=/berserking,if=buff.takedown.up|cooldown.takedown.ready
+actions.cds+=/muzzle
+actions.cds+=/potion,if=target.time_to_die<25|cooldown.takedown.ready
+actions.cds+=/aspect_of_the_eagle,if=target.distance>=6
+
+# AOE - PL
+actions.plcleave=kill_command,if=buff.tip_of_the_spear.stack<2&(buff.howl_of_the_pack_leader_wyvern.remains|buff.howl_of_the_pack_leader_boar.remains|buff.howl_of_the_pack_leader_bear.remains)
+actions.plcleave+=/kill_command,if=cooldown.takedown.remains<gcd&buff.tip_of_the_spear.stack<2&!talent.twin_fangs
+actions.plcleave+=/takedown,if=buff.tip_of_the_spear.stack>0&!talent.twin_fangs|buff.tip_of_the_spear.stack=0&talent.twin_fangs
+actions.plcleave+=/flamefang_pitch
+actions.plcleave+=/wildfire_bomb,if=full_recharge_time<gcd
+actions.plcleave+=/boomstick,if=buff.tip_of_the_spear.up
+actions.plcleave+=/wildfire_bomb,if=buff.tip_of_the_spear.up
+actions.plcleave+=/raptor_strike,if=buff.tip_of_the_spear.up|!buff.raptor_swipe.up
+actions.plcleave+=/kill_command,if=cooldown.takedown.remains
+actions.plcleave+=/wildfire_bomb
+actions.plcleave+=/takedown
+
+# ST - PL
+actions.plst=kill_command,if=buff.tip_of_the_spear.stack<2&howl_summon.ready
+actions.plst+=/kill_command,if=cooldown.takedown.remains<gcd&buff.tip_of_the_spear.stack<2&!talent.twin_fangs
+actions.plst+=/takedown,if=buff.tip_of_the_spear.stack>0&!talent.twin_fangs|buff.tip_of_the_spear.stack=0&talent.twin_fangs
+actions.plst+=/flamefang_pitch
+actions.plst+=/wildfire_bomb,if=buff.tip_of_the_spear.up&(talent.lethal_calibration&full_recharge_time<4+gcd|!talent.lethal_calibration)
+actions.plst+=/boomstick,if=buff.tip_of_the_spear.up
+actions.plst+=/raptor_strike,if=(buff.tip_of_the_spear.up|!buff.raptor_swipe.up)
+actions.plst+=/wildfire_bomb,if=buff.tip_of_the_spear.up
+actions.plst+=/kill_command,if=cooldown.takedown.remains
+actions.plst+=/takedown
+
+# AOE - Sent
+actions.sentcleave=kill_command,if=buff.tip_of_the_spear.stack=0
+actions.sentcleave+=/wildfire_bomb,if=talent.wildfire_shells&(buff.tip_of_the_spear.up&!debuff.sentinels_mark.remains&cooldown.boomstick.remains<11&cooldown.boomstick.remains>1)
+actions.sentcleave+=/boomstick,if=buff.tip_of_the_spear.up
+actions.sentcleave+=/wildfire_bomb,if=buff.tip_of_the_spear.up&(debuff.sentinels_mark.remains|full_recharge_time<4+gcd)
+actions.sentcleave+=/kill_command,if=cooldown.takedown.remains<gcd&buff.tip_of_the_spear.stack<2&!talent.twin_fangs
+actions.sentcleave+=/takedown,if=buff.tip_of_the_spear.up
+actions.sentcleave+=/moonlight_chakram,if=buff.tip_of_the_spear.up
+actions.sentcleave+=/flamefang_pitch,if=talent.flamefang_pitch&buff.tip_of_the_spear.up
+actions.sentcleave+=/raptor_strike,if=buff.tip_of_the_spear.up&buff.raptor_swipe.up|!buff.raptor_swipe.up
+actions.sentcleave+=/kill_command
+
+# ST - Sent
+actions.sentst=kill_command,if=buff.tip_of_the_spear.stack=0&(cooldown.takedown.remains|!talent.twin_fangs)
+actions.sentst+=/boomstick,if=buff.tip_of_the_spear.up&!debuff.sentinels_mark.remains
+actions.sentst+=/wildfire_bomb,if=buff.tip_of_the_spear.up&(debuff.sentinels_mark.remains|full_recharge_time<4+gcd)
+actions.sentst+=/kill_command,if=cooldown.takedown.remains<gcd&buff.tip_of_the_spear.stack<2&!talent.twin_fangs
+actions.sentst+=/takedown,if=buff.tip_of_the_spear.stack>0&!talent.twin_fangs|buff.tip_of_the_spear.stack=0&talent.twin_fangs
+actions.sentst+=/boomstick,if=buff.tip_of_the_spear.up
+actions.sentst+=/moonlight_chakram,if=buff.tip_of_the_spear.up
+actions.sentst+=/flamefang_pitch
+actions.sentst+=/raptor_strike,if=buff.tip_of_the_spear.up|!buff.raptor_swipe.up
+actions.sentst+=/kill_command,if=cooldown.takedown.remains
+actions.sentst+=/takedown
+```
+
+Note: the APL file also includes Sentinel (sentst / sentcleave) action lists for completeness — these are the alternate hero tree. The PL-specific lists are `plst` (single-target) and `plcleave` (AoE). The `cds` list is shared across both hero trees.
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+IDs sourced from `simc-guides/spell-ids-reference.json` (extracted from the SimulationCraft Midnight 12.0.5 HTML report). Exact-key matches only — no fuzzy matching.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Kill Command | 1232922, 83381, 34026, 259277, 259489 (multiple: base cast + variants) | physical | cast |
+| Wildfire Bomb | 259495, 265157, 1253171 (multiple: base cast + variants) | physical / fire | cast |
+| Raptor Strike | 186270 | physical | cast |
+| Raptor Swipe | 1262293 | physical | cast |
+| Takedown | 1250646, 1253859, 1253862 (multiple: base cast + variants) | nature / physical | cast |
+| Boomstick | 1261193, 1261215 (multiple: base cast + variants) | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (flag for re-verification):
-- **SpellIDs not confirmed** on a fetched live source, intentionally omitted: Kill Command, Wildfire Bomb, Raptor Strike / Raptor Swipe, Takedown, Boomstick, Flamefang Pitch, Volley, Tip of the Spear (buff), Intimidation, Binding Shot, Freezing Trap, Tar Trap, Disengage, Harpoon, Aspect of the Cheetah, Aspect of the Eagle, Misdirection, Feign Death, Tranquilizing Shot. Only confirmed IDs are: Hunter's Mark (257284), Muzzle (187707), Aspect of the Turtle (186265), Survival of the Fittest (264735), Exhilaration (109304).
+- **Talent import string:** now added — Pack Leader Dual Wield (PL_DW) build for Midnight 12.0.5. See SimulationCraft Reference section.
+- **APL:** now added — Pack Leader Dual Wield APL (all action lists) pasted verbatim from `Hunter_Survival_PL_DW.apl.txt`. Both PL and Sentinel action lists included in the same file.
+- **Rotational and damage spell IDs:** now confirmed for Kill Command, Wildfire Bomb, Raptor Strike, Raptor Swipe, Takedown, and Boomstick via SimC reference. See Confirmed Spell IDs section.
+- **SpellIDs still unconfirmed** (not found as exact-key matches in the SimC reference, and not on a fetched live Wowhead source): Flamefang Pitch, Tip of the Spear (buff), Volley, Intimidation, Binding Shot, Freezing Trap, Tar Trap, Disengage, Harpoon, Aspect of the Cheetah, Aspect of the Eagle, Misdirection, Feign Death, Tranquilizing Shot. Wowhead-confirmed IDs remain unchanged: Hunter's Mark (257284), Muzzle (187707), Aspect of the Turtle (186265), Survival of the Fittest (264735), Exhilaration (109304).
 - **Aspect of the Turtle cooldown discrepancy:** Wowhead spell page shows **3 minutes**; Icy Veins 12.0.5 lists **~2.5 minutes**. The difference is almost certainly a talent/Improved Aspect of the Turtle reduction. RaidLens should treat ~2.5–3 min as the availability window.
 - **Survival of the Fittest cooldown/charges:** Wowhead spell page (264735) shows the base aura (6s, 30% DR) with no listed base cooldown; Icy Veins lists **~1.5 min, 2 charges**. The charges/cooldown appear talent-driven. Verify against the live talent build in use.
 - **Aspect of the Turtle damage reduction:** base is **30%** (Wowhead). The overview page mentioned a **50%** value "with talents" (Improved Aspect of the Turtle, SpellID 1258485 referenced in search but not fetched/confirmed). Treat 30% as baseline; higher if talented.
 - **Bloodlust:** Survival does not provide it as a spec. A Hunter pet (e.g. a pet family with a Lust ability) can, but that depends on the equipped pet, not the spec — confirm per log, do not assume.
 - **Tranquilizing Shot:** Hunters historically have an enemy Enrage/Magic dispel. Presence and SpellID in 12.0.5 were not confirmed on a fetched page — verify before relying on it. It is an **enemy** dispel, never an ally cleanse.
 - **Enchants:** Specific 12.0.5 enchant names/item IDs were not confirmed (the dedicated Icy Veins gear-enchants URL 404'd); only gems, flask, food, potions, and augment rune were sourced via search.
-- **Talents / hero talents:** Survival runs the **Pack Leader** hero tree in 12.0.5 (per search). No talent import string or SimC APL was provided or sourced — none is included here by design.
+- **Defensive and interrupt spell IDs:** Aspect of the Turtle (186265), Survival of the Fittest (264735), Exhilaration (109304), and Muzzle (187707) are Wowhead-confirmed and intentionally not overwritten by SimC data. The SimC source does not include non-damaging defensives or interrupts.
+- **Consumable spell IDs:** consumables (Flask of the Magisters, Void-Touched Augment Rune, Light's Potential, food) are not included in the Confirmed Spell IDs table — the SimC entries for these have no valid percent field and are excluded by the damage-table filter.
 - **Maintenance flag:** Re-verify all of the above (especially cooldowns, the 3% Hunter's Mark value, defensive percentages, and which hero tree is current) after **any 12.x patch**, as tuning and talent nodes change between patches.

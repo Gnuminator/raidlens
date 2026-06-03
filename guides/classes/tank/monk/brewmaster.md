@@ -16,6 +16,7 @@
 > - https://www.wowhead.com/spell=218164/detox
 > - https://www.wowhead.com/spell=132578/invoke-niuzao-the-black-ox
 > - Wowhead spell pages confirmed via search result URLs (page body 403'd on direct fetch): spell=121253 (Keg Smash), spell=115181 (Breath of Fire), spell=205523 (Blackout Kick), spell=115546 (Provoke), spell=115399 (Black Ox Brew), spell=214326 (Exploding Keg)
+> - SimulationCraft Midnight 12.0.5 (simc-guides/Monk_Brewmaster.json), APL from Monk_Brewmaster.apl.txt (attributed to "Trivial" in file header), spell-ids-reference.json
 
 ---
 
@@ -131,21 +132,179 @@ Each defensive below includes a **RaidLens usage** note for judging correct use 
 
 Not sourced in this pass. The general Midnight tank consumable framework (a primary/Stamina-or-Versatility flask, an Agility/Versatility food, a combat potion, an augment rune, weapon oil/sharpening, and gear enchants) applies, but **no specific Patch 12.0.5 consumable names, item IDs, or enchant IDs were confirmed from a live source here.** See Known Gaps — do not inject specific consumable/enchant item IDs into analysis from this guide.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero trees covered:** Both **Master of Harmony** and **Shado-Pan** are modelled — the SimC APL contains a full separate action list for each hero tree, selected at runtime via `hero_tree.master_of_harmony` / `hero_tree.shadopan` conditionals.
+
+### Talent import string
+
+The same talent string is used for both hero-tree variants (the hero tree is selected in-game or via the SimC profile option, not encoded separately in this string):
+
+```
+CwQAAAAAAAAAAAAAAAAAAAAAAAAAAgZbzYGzM2mxGmZAAAAAAAYZBjYmBmhBzYMzMzwsMmZMzywymttxMmFAAYZWmWmtZWGAAIAzwGYmBMNGAAwA
+```
+
+### Metrics (SimC Patchwerk single-target)
+
+| Metric | Value |
+|--------|-------|
+| DPS | 86,194 |
+| DTPS | 40,807 |
+| HPS (self-healing) | 22,978 |
+
+These figures reflect the Brewmaster's role as a **tank**: the DPS is incidental to the active-mitigation rotation; DTPS and HPS are the survival-relevant outputs. Self-healing at ~27% of DTPS reflects the Stagger-plus-Celestial-Fortune loop working as intended.
+
+### Damage distribution (SimC, share of total)
+
+Where the SimC report showed a parenthesised value (e.g. "27.6% (42.6%)"), the parenthesised figure is used as it represents the fuller accounting including secondary procs.
+
+| Ability | Share |
+|---------|-------|
+| Tiger Palm | 42.6% |
+| Aspect of Harmony (_damage) | 17.5% |
+| Keg Smash | 11.7% |
+| Breath of Fire | 7.8% |
+| Blackout Kick | 7.7% |
+| Chi Burst (_damage) | 2.6% |
+| Special Delivery | 2.0% |
+| Stomp (Niuzao pet) | 0.9% |
+| Jan'alai's Flames | 0.7% |
+| Expel Harm (_damage) | 0.1% |
+
+**RaidLens interpretation:** Tiger Palm dominates Brewmaster's damage output because it is the primary `Blackout Combo` consumer and is pressed on nearly every Energy-surplus GCD. If a Brewmaster's Tiger Palm share is dramatically lower than expected over a pull, they may have been starving the GCD with movement or missing `Blackout Combo` windows. `Aspect of Harmony` (the Master of Harmony hero talent accumulator) accounting for ~17.5% confirms that hero-tree selection significantly shifts the damage profile — a Shado-Pan Brewmaster will show a different distribution.
+
+## Action Priority List — Brewmaster (Master of Harmony and Shado-Pan)
+
+The APL is attributed to **Trivial** (source file: `Monk_Brewmaster.apl.txt`). The default list dispatches to the appropriate hero-tree sub-list. Both sub-lists are reproduced verbatim below.
+
+### Action Priority List — Master of Harmony
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/potion
+
+actions=auto_attack
+actions+=/potion
+actions+=/call_action_list,name=race_actions
+actions+=/call_action_list,name=item_actions
+actions+=/run_action_list,name=master_of_harmony,if=hero_tree.master_of_harmony
+actions+=/run_action_list,name=shado_pan,if=hero_tree.shadopan
+
+actions.item_actions=use_items
+
+actions.master_of_harmony=black_ox_brew,if=cooldown.celestial_brew.charges_fractional<1
+actions.master_of_harmony+=/celestial_brew,if=buff.aspect_of_harmony_spender.up&!buff.empty_barrel.up
+actions.master_of_harmony+=/keg_smash,if=buff.aspect_of_harmony_spender.up&buff.empty_barrel.up
+actions.master_of_harmony+=/blackout_kick,if=talent.blackout_combo.enabled&!buff.blackout_combo.up
+actions.master_of_harmony+=/celestial_brew,if=!(apex.3&buff.empty_barrel.up)&buff.aspect_of_harmony_accumulator.value>0.3*health.max&cooldown.celestial_brew.charges_fractional>1.9
+actions.master_of_harmony+=/celestial_brew,if=!(apex.3&buff.empty_barrel.up)&target.time_to_die<15&buff.aspect_of_harmony_accumulator.value>0.2*health.max
+actions.master_of_harmony+=/purifying_brew,if=!(apex.1&buff.empty_barrel.up)
+actions.master_of_harmony+=/fortifying_brew,if=!(apex.3&buff.empty_barrel.up)
+actions.master_of_harmony+=/chi_burst
+actions.master_of_harmony+=/invoke_niuzao
+actions.master_of_harmony+=/tiger_palm,if=buff.blackout_combo.up&cooldown.blackout_kick.remains<1.3
+actions.master_of_harmony+=/exploding_keg,if=cooldown.keg_smash.charges_fractional<1
+actions.master_of_harmony+=/empty_the_cellar,if=cooldown.celestial_brew.remains>15
+actions.master_of_harmony+=/breath_of_fire,if=cooldown.blackout_kick.remains>1.5&!buff.empty_barrel.up&cooldown.keg_smash.charges<1+talent.stormstouts_last_keg.enabled
+actions.master_of_harmony+=/tiger_palm,if=buff.blackout_combo.up
+actions.master_of_harmony+=/keg_smash,if=talent.scalding_brew.enabled
+actions.master_of_harmony+=/keg_smash,if=buff.empty_barrel.up
+actions.master_of_harmony+=/keg_smash,if=cooldown.keg_smash.charges=1+talent.stormstouts_last_keg.enabled
+actions.master_of_harmony+=/breath_of_fire
+actions.master_of_harmony+=/empty_the_cellar
+actions.master_of_harmony+=/rushing_jade_wind
+actions.master_of_harmony+=/keg_smash
+actions.master_of_harmony+=/blackout_kick
+actions.master_of_harmony+=/tiger_palm,if=energy>50-energy.regen*2
+actions.master_of_harmony+=/expel_harm
+
+actions.race_actions=blood_fury
+actions.race_actions+=/berserking
+actions.race_actions+=/arcane_torrent
+actions.race_actions+=/lights_judgment
+actions.race_actions+=/fireblood
+actions.race_actions+=/ancestral_call
+actions.race_actions+=/bag_of_tricks
+```
+
+### Action Priority List — Shado-Pan
+
+```
+actions.shado_pan=black_ox_brew,if=!(apex.1&buff.empty_barrel.up)&cooldown.celestial_brew.charges_fractional<0.5
+actions.shado_pan+=/breath_of_fire,if=talent.salsalabims_strength.enabled&buff.invoke_niuzao_the_black_ox.up
+actions.shado_pan+=/keg_smash,if=talent.salsalabims_strength.enabled&buff.invoke_niuzao_the_black_ox.up
+actions.shado_pan+=/blackout_kick,if=talent.blackout_combo.enabled&!buff.blackout_combo.up
+actions.shado_pan+=/purifying_brew,if=!(apex.1&buff.empty_barrel.up)
+actions.shado_pan+=/fortifying_brew,if=!(apex.3&buff.empty_barrel.up)
+actions.shado_pan+=/chi_burst
+actions.shado_pan+=/invoke_niuzao
+actions.shado_pan+=/tiger_palm,if=buff.blackout_combo.up&cooldown.blackout_kick.remains<1.3
+actions.shado_pan+=/exploding_keg,if=cooldown.keg_smash.charges_fractional<1
+actions.shado_pan+=/empty_the_cellar,if=buff.empty_the_cellar.remains<1.5
+actions.shado_pan+=/tiger_palm,if=buff.blackout_combo.up
+actions.shado_pan+=/celestial_brew,if=!(apex.3&buff.empty_barrel.up)
+actions.shado_pan+=/breath_of_fire,if=active_enemies>2
+actions.shado_pan+=/keg_smash
+actions.shado_pan+=/empty_the_cellar
+actions.shado_pan+=/breath_of_fire
+actions.shado_pan+=/rushing_jade_wind
+actions.shado_pan+=/blackout_kick
+actions.shado_pan+=/tiger_palm,if=energy>65-energy.regen
+actions.shado_pan+=/expel_harm
+```
+
+**APL notes for RaidLens context:**
+- `Purifying Brew` and `Celestial Brew` are prioritised early in both lists, confirming their role as the primary survivability GCDs. In Master of Harmony the `aspect_of_harmony_accumulator` condition gates `Celestial Brew` usage around the `Empty Barrel` buff — do not expect the sim cadence to translate directly to raid encounters with heavy movement.
+- `Black Ox Brew` fires when brew charges are low (charges_fractional < 1 in MoH, < 0.5 in Shado-Pan), confirming it is a reactive refuel, not a proactive cooldown.
+- `invoke_niuzao` appears as a high-priority cast in both lists, fired after defensive brews are handled and before the offensive filler rotation.
+- `Fortifying Brew` appears in both APLs as a mid-priority rotation button (not a manual save), which reflects SimC's approach of spending it on cooldown in a patchwerk context. In an actual raid you should expect manual save behaviour for specific windows.
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+The following table lists abilities **named in this guide** that were found by **exact key match** in the SimC spell-ids-reference.json (extracted from the Midnight 12.0.5 SimC HTML report). IDs already confirmed from Wowhead are unchanged; this section adds SimC corroboration and new IDs for abilities previously unconfirmed.
+
+| Ability | Spell ID(s) | School | Type |
+|---------|-------------|--------|------|
+| Tiger Palm | 100780 | physical | cast |
+| Keg Smash | 121253 | physical | cast |
+| Blackout Kick | 100784, 228649, 205523 (multiple: base cast + variants) | physical | cast |
+| Breath of Fire | 115181, 123725 (multiple: base cast + variants) | fire | cast |
+| Exploding Keg | 325153, 388867 (multiple: base cast + variants) | fire | cast |
+| Black Ox Brew | 115399 | physical | cast |
+| Expel Harm | 115129, 451968, 322101 (multiple: base cast + variants) | nature | cast |
+| Chi Burst | 148135, 130654 (multiple: base cast + variants) | nature | cast |
+| Spinning Crane Kick | 101546, 107270 (multiple: base cast + variants) | physical | cast |
+| Special Delivery | 196733 | physical | other |
+| Empty the Cellar | 1263438 | physical | cast |
+| Aspect of Harmony | 450763 | nature | other |
+| Celestial Fortune | 216521 | nature | cast |
+| Celestial Infusion | 1241059 | physical | cast |
+| Touch of Death | 322109 | physical | cast |
+
+> **Exploding Keg ID note:** The guide's existing Wowhead-confirmed ID is 214326. The SimC report shows 325153 and 388867. These may represent a renamed or re-tooled version of the ability in Midnight patch 12.x. **Do not replace 214326 in WCL filter logic until verified against live WCL logs** — treat 325153/388867 as candidate IDs for the Midnight version.
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 **Confirmed SpellIDs (each from a live Wowhead page actually loaded — either via direct fetch or via the canonical spell-page URL surfaced in search):**
 Spear Hand Strike 116705, Mystic Touch 8647, Fortifying Brew 243435, Celestial Brew 322507, Purifying Brew 119582, Dampen Harm 122278, Diffuse Magic 122783, Paralysis 115078, Ring of Peace 116844, Leg Sweep 119381, Detox 218164, Invoke Niuzao 132578, Keg Smash 121253, Breath of Fire 115181, Blackout Kick 205523, Provoke 115546, Black Ox Brew 115399, Exploding Keg 214326, Blackout Combo (passive) 196736.
 
+**SimC-confirmed / newly added (Midnight 12.0.5, spell-ids-reference.json):**
+Tiger Palm 100780, Spinning Crane Kick 101546/107270 (multipleIds), Expel Harm 115129/451968/322101 (multipleIds), Chi Burst 148135/130654 (multipleIds), Special Delivery 196733, Empty the Cellar 1263438, Aspect of Harmony 450763, Celestial Fortune 216521, Celestial Infusion 1241059, Touch of Death 322109, Blackout Kick additional IDs 100784/228649 (multipleIds), Breath of Fire additional ID 123725 (multipleIds), Exploding Keg SimC IDs 325153/388867 (see note above re: discrepancy with Wowhead 214326). **Talent string added. APL added (Master of Harmony and Shado-Pan variants).**
+
 **Unconfirmed / flagged facts:**
 - **Direct-fetch limitation:** Wowhead guide pages and several spell pages returned no body (JS-rendered) or HTTP 403 on direct fetch. Keg Smash (121253), Breath of Fire (115181), Blackout Kick (205523), Provoke (115546), Black Ox Brew (115399), and Exploding Keg (214326) IDs come from the canonical Wowhead spell-page URLs returned by live search plus matching descriptions, not a fully rendered page body. Re-verify on the live spell pages if precision is critical.
-- **`Tiger Palm`, `Spinning Crane Kick`, `Touch of Death`, `Tiger's Lust`, `Transcendence`, `Roll`, `Touch of Karma`, `Rushing Jade Wind`, `Chi Burst`, `Expel Harm`, `Celestial Infusion`** — referenced by name from Icy Veins but their SpellIDs were NOT individually confirmed from a live spell page. IDs intentionally omitted.
-- **`Fortifying Brew` cooldown** — the live spell page shows **7 minutes** base; a secondary search summary stated 6 minutes (likely a talented value). Treat 7 min as base and assume talents may reduce it.
+- **`Blackout Combo` passive (196736)** — Wowhead-confirmed; NOT present in SimC spell-ids-reference.json (non-damaging passive, expected absence).
+- **`Rushing Jade Wind`** — referenced in the APL and Abilities Reference but its SpellID is NOT in the SimC spell-ids-reference.json (likely a maintenance buff rather than a damaging cast in the Patchwerk sim context). ID intentionally omitted.
+- **`Tiger's Lust`, `Transcendence`, `Roll`, `Touch of Karma`, `Celestial Brew` (322507), `Purifying Brew` (119582)** — SpellIDs from Wowhead; not present in SimC source (non-damaging utility/defensives — expected absence).
+- **`Fortifying Brew` cooldown** — the live spell page shows **7 minutes** base; a secondary search summary stated 6 minutes (likely a talented value). Treat 7 min as base and assume talents may reduce it. Note: `Fortifying Brew` appears in the SimC APL as a rotation button (spent on cooldown in patchwerk); its SimC abilities table entry showed a spell ID of 243435 in the "#1 ranked" row — that is a buff-uptime row, not a damage row, and was correctly excluded from the damage distribution table.
 - **Energy costs and exact cooldowns** for builders (Keg Smash ~40, Blackout Kick ~30/free, etc.) come from Icy Veins, not from confirmed per-spell pages; treat as approximate.
 - **`Celestial Brew` / `Purifying Brew` charges and recharge times** (2 charges, ~12s / ~20s) come from Icy Veins, not the spell pages directly; the spell pages list internal cooldowns of ~1s. Treat charge/recharge values as approximate and talent-dependent.
 - **`Mystic Touch` (8647)** — the spell page shows a server-side dummy aura; the "+Physical damage taken" effect is confirmed by Icy Veins and search summaries, not by the spell page text itself.
 - **`Detox` (218164)** — confirmed to remove Poison and Disease and shown as a no-cooldown / 10 Energy ability. The Brewmaster-vs-Mistweaver spec restriction is inferred (Mistweaver uses 115450); the loaded page did not explicitly list spec restrictions.
-- **Hero talents** (e.g., Master of Harmony, Shado-Pan / Celestial Conduit-style trees) are referenced in passing in sources but were NOT researched here; any hero-talent-specific defensive (e.g. Celestial Infusion as a Celestial Brew replacement) is only loosely characterized. Do not rely on this guide for hero-talent specifics.
+- **Hero talents** — Master of Harmony and Shado-Pan are now confirmed as the two hero tree variants from the SimC APL and JSON. Specific hero-talent node IDs and the exact Celestial Infusion mechanic (1241059) are now SimC-sourced. Cooldown values and interaction details remain unconfirmed from a live guide page.
 - **Consumables and enchants** — not sourced; no item IDs provided.
-- **No SimC profile / talent import string** was available; talent loadouts are described conceptually only.
+- **`Invoke Niuzao, the Black Ox` (132578)** — Wowhead-confirmed; NOT found in the SimC spell-ids-reference.json by exact key match. The SimC abilities table has a `pet - invoke_niuzao_the_black_ox` entry (no valid % share) and a `Stomp` entry (0.9%) which represents Niuzao's stomp damage; the cooldown/trigger spell itself is absent from the SimC source as expected for a non-damaging summon cast.
 
 **Maintenance flag:** Re-verify all SpellIDs, cooldowns, and percentages after **any 12.x patch** (next checkpoint: any patch after 12.0.5). Brewmaster received Midnight reworks/simplification, so older Dragonflight/War Within data must not be trusted as current.

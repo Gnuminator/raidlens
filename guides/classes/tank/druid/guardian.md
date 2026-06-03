@@ -19,6 +19,7 @@
 > - https://www.wowhead.com/spell=77758/thrash
 > - https://www.wowhead.com/spell=2908/soothe
 > - https://www.wowhead.com/spell=200851/rage-of-the-sleeper
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 
 ## Overview
 
@@ -46,13 +47,13 @@ Core abilities (Bear Form unless noted). SpellIDs listed only where confirmed on
 - **Thrash** (SpellID 77758) — AoE bleed and threat; ~6s cooldown; generates 5 Rage; applies a bleed in an 8-yard radius. Used on cooldown for both single-target and AoE.
 - **Ironfur** (SpellID 192081) — primary active mitigation. Costs 40 Rage, ~7s duration, increases Armor substantially (Agility-scaled). Stackable (multiple casts extend/refresh armor). Defensive Rage spender.
 - **Frenzied Regeneration** (SpellID 22842) — Rage-cost self-heal over a few seconds; also increases healing taken. Short cooldown / chargeable (see Defensives).
-- **Maul** — Rage spender for direct damage (offensive Rage dump). SpellID not confirmed this session.
-- **Raze / Ravage** — Rage spenders for damage (talent/build dependent). SpellIDs not confirmed this session.
-- **Swipe** — AoE filler. SpellID not confirmed this session.
-- **Moonfire** — ranged/DoT filler, used in AoE builds (and single-target via talents like Red Moon / Twin Moonfire). SpellID not confirmed this session.
+- **Maul** (SpellID 6807) — Rage spender for direct damage (offensive Rage dump).
+- **Raze / Ravage** (Ravage SpellID 441605) — Rage spenders for damage (talent/build dependent). Raze SpellID not found in SimC source.
+- **Swipe** (SpellID 213771) — AoE filler.
+- **Moonfire** (SpellIDs 8921, 164812, 155625 — multiple: base cast + variants) — ranged/DoT filler, used in AoE builds (and single-target via talents like Red Moon / Twin Moonfire).
 - **Growl** — single-target taunt. SpellID not confirmed this session.
-- **Bristling Fur** — talent; generates Rage from damage taken. SpellID not confirmed this session.
-- **Lunar Beam** — cooldown ability used in the rotation (damage + self-healing). SpellID not confirmed this session.
+- **Bristling Fur** (SpellID 155835) — talent; generates Rage from damage taken.
+- **Lunar Beam** (SpellIDs 204066, 414613, 1270292, 204069 — multiple: base cast + variants) — cooldown ability used in the rotation (damage + self-healing).
 
 Key passive/proc references: Gore (Mangle Rage proc), Soul of the Forest (extra Mangle Rage), Mastery (improves armor/self-healing scaling). Talent names vary by build; see Known Gaps.
 
@@ -99,7 +100,7 @@ For each: the RaidLens usage note explains how to judge whether the cooldown was
   - RaidLens usage: Primarily a throughput/Rage-throughput cooldown, but the +30% max health and 15% leech are meaningful survivability. Should be used roughly on cooldown over a fight; check that big use windows align with phases needing extra threat/EHP. Very low usage count relative to fight length is a flag.
 
 - **Heart of the Wild** (talent) — reworked in Midnight into a ~2-minute cooldown burst window (gives all Druid specs brief weaving). For Guardian it is mainly offensive but contributes leech/throughput.
-  - RaidLens usage: Talent-dependent and primarily a damage/throughput button. Judge by usage frequency vs its cooldown if talented, not as a survival defensive. SpellID NOT confirmed — see Known Gaps.
+  - RaidLens usage: Talent-dependent and primarily a damage/throughput button. Judge by usage frequency vs its cooldown if talented, not as a survival defensive. SpellIDs 1261868, 1261867 (multiple IDs confirmed via SimC source — see SimulationCraft Reference section).
 
 External / group defensives:
 - **Ironbark** (SpellID 102342) — ally-targeted ~20% DR, ~1.5-min CD (Restoration ability; Guardian access is talent-dependent — see Role in Raid and Known Gaps).
@@ -140,14 +141,149 @@ The following come from live search summaries of Icy Veins / Method / Wowhead 12
 
 All item IDs unconfirmed; treat the above as names only.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero tree covered: none specified in source (hero_tree: null in JSON; the APL uses Wild Guardian as a cooldown, suggesting Druid of the Claw or a Wild Guardian-adjacent build, but no hero tree is explicitly labelled in the SimC file).
+
+### Talent Import String — Guardian Druid (Default)
+
+```
+CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgZmxsYmZMzmZZgZbZgxMMaimZmFzMzMLjZeADAAAAgZYGLzAAAAQNzysMzMDAgFMDgFzgBsYZbAwMbwA
+```
+
+### Metrics (SimC, Patchwerk single-target)
+
+| Metric | Value |
+|--------|-------|
+| DPS (damage output) | 79,473 |
+| DTPS (damage taken per second) | 86,479 |
+| HPS (healing per second, self) | 25,781 |
+
+Note: DPS reflects the tank's damage contribution while actively tanking; it is not the spec's purpose. DTPS and HPS are the tank-relevant figures for survivability modelling.
+
+### Damage distribution (SimC, share of total)
+
+Note: Thrash, Mangle, Lunar Beam, and Wild Guardian appear in the SimC source but their percent column contained rank ordinals (#1–#4) rather than percentage values and could not be included in this table — they are likely the top damage contributors. The values below represent only the abilities for which SimC reported a clean percentage share.
+
+| Ability | Share |
+|---------|-------|
+| Maul | 16.5% |
+| Heart of the Wild (Cat) | 9.0% |
+| Red Moon | 7.2% |
+| Moonless Night | 7.1% |
+| Bear Melee | 5.1% |
+| Twin Claw | 1.5% |
+| Brambles | 1.4% |
+| Swipe | 1.4% |
+| Twilight Barrage | 0.8% |
+| Barkskin (+brambles) | 0.3% |
+| Rake | 0.2% |
+| Cat Melee | 0.1% |
+
+RaidLens interpretation: Maul is the dominant percentage-tracked offensive Rage spender (~16.5%), while the Heart of the Wild cat-form window (~9%) and the Red Moon / Moonless Night talent procs (~7% each) account for meaningful damage throughput — a player skipping Heart of the Wild or letting Red Moon fall off consistently is leaving significant output on the table. Bear Melee (~5%) confirms sustained auto-attack uptime on boss is a non-trivial contributor. The absence of Thrash, Mangle, Lunar Beam, and Wild Guardian from the percentage table (they ranked #1–#4) means the true top-ability breakdown requires a full SimC HTML report with clean percentage columns.
+
+## Action Priority List — Guardian Druid (Default)
+
+```
+actions.precombat=snapshot_stats
+# Executed before combat begins. Accepts non-harmful actions only.
+actions.precombat+=/bear_form,if=buff.bear_form.down&!talent.heart_of_the_wild.enabled
+actions.precombat+=/cat_form,if=buff.bear_form.down&talent.heart_of_the_wild.enabled
+actions.precombat+=/variable,name=algethar_puzzle_box_precombat_cast,value=3,if=equipped.algethar_puzzle_box
+actions.precombat+=/use_item,name=algethar_puzzle_box
+
+# Executed every time the actor is available.
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/call_action_list,name=cooldowns
+actions+=/call_action_list,name=bear
+
+actions.bear=bear_form,if=!buff.bear_form.up&!buff.feline_potential.up
+actions.bear+=/thrash,if=talent.lunar_calling.enabled
+actions.bear+=/maul,if=buff.ravage.up&rage>=40&!talent.killing_blow.enabled
+actions.bear+=/maul,if=buff.ravage.up&rage>=60&talent.killing_blow.enabled
+actions.bear+=/maul,if=rage>=55&!talent.fount_of_strength.enabled&talent.wild_guardian.enabled
+actions.bear+=/maul,if=!talent.fount_of_strength.enabled&!talent.wild_guardian.enabled&talent.raze.enabled
+actions.bear+=/maul,if=rage>=55&!talent.fount_of_strength.enabled&active_enemies<3&talent.killing_blow.enabled&!talent.wild_guardian.enabled&!talent.raze.enabled
+actions.bear+=/maul,if=rage>=55&!talent.fount_of_strength.enabled&active_enemies<2&!talent.killing_blow.enabled&!talent.wild_guardian.enabled&!talent.raze.enabled
+actions.bear+=/mangle,if=dot.red_moon.ticking
+actions.bear+=/rake,if=!buff.cat_form.up&talent.fluid_form.enabled&cooldown.heart_of_the_wild.up&talent.heart_of_the_wild.enabled&(active_enemies<=5&talent.moonkin_form.enabled|!talent.moonkin_form.enabled)&(rage<30&!talent.fount_of_strength.enabled|talent.fount_of_strength.enabled)
+actions.bear+=/cat_form,if=!buff.cat_form.up&!talent.fluid_form.enabled&cooldown.heart_of_the_wild.up&talent.heart_of_the_wild.enabled&(active_enemies<=5&talent.moonkin_form.enabled|!talent.moonkin_form.enabled)&(rage<30&!talent.fount_of_strength.enabled|talent.fount_of_strength.enabled)
+actions.bear+=/moonkin_form,if=!buff.moonkin_form.up&cooldown.heart_of_the_wild.up&active_enemies>=6&talent.moonkin_form.enabled
+actions.bear+=/thrash,target_if=refreshable|(dot.thrash.stack<5&talent.flashing_claws.rank=2|dot.thrash.stack<4&talent.flashing_claws.rank=1|dot.thrash.stack<3&!talent.flashing_claws.enabled)
+actions.bear+=/ironfur,if=!buff.ironfur.up&!buff.ravage.up&!target.cooldown.pause_action.remains&talent.wild_guardian.enabled
+actions.bear+=/ironfur,if=!buff.ironfur.up&!talent.wild_guardian.enabled|rage>=80&!talent.wild_guardian.enabled
+actions.bear+=/ferocious_bite,if=(buff.cat_form.up&buff.feline_potential.up&(buff.incarnation_guardian_of_ursoc.up|buff.berserk.up)&!dot.rip.refreshable)
+actions.bear+=/rake,if=!buff.cat_form.up&talent.fluid_form.enabled&buff.feline_potential_counter.stack=6&talent.wildpower_surge.enabled&active_enemies<=2
+actions.bear+=/rip,if=(buff.cat_form.up&buff.feline_potential.up)&active_enemies<=2
+actions.bear+=/red_moon,if=cooldown.mangle.up&!dot.red_moon.ticking&(!talent.convoke_the_spirits.enabled|talent.convoke_the_spirits.enabled&cooldown.convoke_the_spirits.remains>=5)
+actions.bear+=/moonfire,if=buff.galactic_guardian.up&buff.bear_form.up&talent.boundless_moonlight.enabled&!talent.red_moon.enabled&!talent.wild_guardian.enabled
+actions.bear+=/mangle,if=(((buff.incarnation_guardian_of_ursoc.up|buff.berserk.up)&buff.feline_potential_counter.stack<6&talent.wildpower_surge.enabled))
+actions.bear+=/shred,if=(buff.feline_potential_counter.stack=6&!buff.cat_form.up&!dot.rake.refreshable&talent.fluid_form.enabled)
+actions.bear+=/rake,if=(buff.feline_potential_counter.stack=6&!buff.cat_form.up&talent.fluid_form.enabled)
+actions.bear+=/maul,if=!buff.ravage.up&rage>=90&talent.fount_of_strength.enabled
+actions.bear+=/moonfire,if=(talent.lunation.enabled)&buff.bear_form.up&!talent.red_moon.enabled&!talent.raze.enabled&!talent.wild_guardian.enabled
+actions.bear+=/mangle,if=(buff.incarnation_guardian_of_ursoc.up|buff.berserk.up)|talent.red_moon.enabled&(cooldown.red_moon.remains>3&(((rage<88)&!talent.fount_of_strength.enabled)|((rage<83)&!talent.fount_of_strength.enabled&talent.soul_of_the_forest.enabled)|((rage<108)&talent.fount_of_strength.enabled)|((rage<103)&talent.fount_of_strength.enabled&talent.soul_of_the_forest.enabled)))
+actions.bear+=/mangle,if=!talent.red_moon.enabled&(((rage<88)&!talent.fount_of_strength.enabled)|((rage<83)&!talent.fount_of_strength.enabled&talent.soul_of_the_forest.enabled)|((rage<108)&talent.fount_of_strength.enabled)|((rage<103)&talent.fount_of_strength.enabled&talent.soul_of_the_forest.enabled))
+actions.bear+=/thrash
+actions.bear+=/swipe_bear,if=!talent.lunation.enabled|talent.lunation.enabled&talent.red_moon.enabled
+actions.bear+=/moonfire,if=(talent.lunation.enabled)&buff.bear_form.up&!talent.red_moon.enabled
+
+actions.cooldowns=use_items
+actions.cooldowns+=/potion,if=buff.lunar_beam.up
+actions.cooldowns+=/blood_fury
+actions.cooldowns+=/berserking
+actions.cooldowns+=/fireblood
+actions.cooldowns+=/ancestral_call
+actions.cooldowns+=/bristling_fur,if=!target.cooldown.pause_action.remains&cooldown.mangle.remains&cooldown.thrash.remains&(rage<60&talent.killing_blow.enabled|rage<40&!talent.killing_blow.enabled)&!buff.ravage.up
+actions.cooldowns+=/barkskin,if=buff.bear_form.up
+actions.cooldowns+=/lunar_beam,if=(cooldown.incarnation_guardian_of_ursoc.up|cooldown.berserk.up)|((cooldown.incarnation_guardian_of_ursoc.remains>60|cooldown.berserk.remains>60)&!talent.lunation.enabled|(cooldown.incarnation_guardian_of_ursoc.remains>30|cooldown.berserk.remains>30)&talent.lunation.enabled)
+actions.cooldowns+=/heart_of_the_wild,if=(active_enemies<=5&talent.moonkin_form.enabled&buff.cat_form.up|!talent.moonkin_form.enabled&buff.cat_form.up)|buff.moonkin_form.up&active_enemies>=6&talent.moonkin_form.enabled
+actions.cooldowns+=/convoke_the_spirits,if=buff.bear_form.up&(((buff.lunar_beam.up|cooldown.lunar_beam.remains>15)&talent.lunation.enabled)|!talent.lunation.enabled)
+actions.cooldowns+=/sundering_roar,if=(dot.thrash_bear.stack<5&talent.flashing_claws.rank=2|dot.thrash_bear.stack<4&talent.flashing_claws.rank=1|dot.thrash_bear.stack<3&!talent.flashing_claws.enabled)
+actions.cooldowns+=/berserk,if=!cooldown.heart_of_the_wild.up&(talent.heart_of_the_wild.enabled)|!talent.ravage.enabled|!talent.heart_of_the_wild.enabled
+actions.cooldowns+=/wild_guardian,if=(buff.ravage.up&talent.ravage.enabled)|!talent.ravage.enabled&buff.lunar_beam.up
+```
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Abilities named in this guide that were matched by exact key in spell-ids-reference.json:
+
+| Ability | Spell ID(s) | School | Type |
+|---------|-------------|--------|------|
+| Barkskin | 22812 | nature | cast |
+| Brambles | 213709, 203958 (multiple: base cast + variants) | nature | cast |
+| Bristling Fur | 155835 | nature | cast |
+| Heart of the Wild | 1261868, 1261867 (multiple: base cast + variants) | nature | cast |
+| Ironfur | 192081 | nature | cast |
+| Lunar Beam | 204066, 414613, 1270292, 204069 (multiple: base cast + variants) | arcane | cast |
+| Mangle | 33917 | physical | cast |
+| Maul | 6807 | physical | cast |
+| Moonfire | 8921, 164812, 155625 (multiple: base cast + variants) | arcane | cast |
+| Moonless Night | 400360 | arcane | cast |
+| Rake | 1822, 155722 (multiple: base cast + variants) | physical | cast |
+| Ravage | 441605 | physical | cast |
+| Red Moon | 1252871 | arcane | cast |
+| Swipe | 213771 | physical | cast |
+| Thrash | 77758, 192090 (multiple: base cast + variants) | physical | cast |
+| Twin Claw | 1271657 | physical | cast |
+| Twilight Barrage | 1281579 | shadowlight | other |
+| Wild Guardian | 1269658 | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
+Not matched (no exact key in reference): Raze, Growl, Rage of the Sleeper, Incarnation: Guardian of Ursoc, Skull Bash, Soothe, Stampeding Roar, Incapacitating Roar, Wild Charge, Ironbark. Previously Wowhead-confirmed IDs for these (Skull Bash 106839, Barkskin 22812, Survival Instincts 61336, Incarnation 102558, Soothe 2908, Rage of the Sleeper 200851, Ironfur 192081, Frenzied Regeneration 22842, Mangle 33917, Thrash 77758, Stampeding Roar 106898, Incapacitating Roar 99, Ironbark 102342, Mark of the Wild 1126, Rebirth 20484) are unchanged.
+
 ## Notes and Known Gaps
 
 - **Wowhead guide HTML did not render** through the fetch tool (JS-driven). Rotation/utility prose was sourced from Icy Veins 12.0.5 pages; all SpellIDs were independently confirmed on individual live Wowhead spell pages.
 - **Survival Instincts (61336):** confirmed name + ID, but the spell-page parser returned dummy effect values rather than a clean damage-reduction % and recharge time. The 2-charge / large-DR / recharge figures are from general spec knowledge and the Icy Veins guide ("our biggest defensive… 2 baseline charges"), NOT confirmed numerically this session. Re-verify exact DR %, duration, and recharge.
-- **Heart of the Wild SpellID NOT confirmed.** The page at spell=319454 resolved to "Call of the Elder Druid," not Heart of the Wild, so that ID was deliberately omitted. Re-verify the correct Midnight Heart of the Wild SpellID and cooldown.
+- **Heart of the Wild SpellID:** Previously unconfirmed. Now confirmed via SimC source: SpellIDs 1261868 and 1261867 (multiple IDs, base cast + variant). Cooldown value (~2 min) from spec knowledge; re-verify exact cooldown from live Wowhead.
 - **Ironbark (102342) is a Restoration ability.** Its availability to Guardian in 12.0.5 is talent-dependent and was not confirmed for Guardian specifically. Do not assume a Guardian has Ironbark without log confirmation.
-- **Unconfirmed SpellIDs (omitted intentionally):** Maul, Raze/Ravage, Swipe, Moonfire, Growl, Bristling Fur, Lunar Beam, Wild Charge, Travel Form, Dash, Mighty Bash, Typhoon. Names are correct to spec knowledge; numeric IDs were not fetched this session.
-- **Talent build / import string / SimC APL:** Not sourced. No user-provided SimC profile exists for this spec. Specific talent loadouts and exact rotational tuning (e.g., Red Moon vs Twin Moonfire conditions, hero tree choices like Druid of the Claw vs Wildstalker) were not fully captured.
+- **Talent import string:** Now added — see SimulationCraft Reference section. This is the SimC Patchwerk profile build; live min-max builds may differ. Re-verify against current community resources.
+- **APL:** Now added verbatim from SimC source (Druid_Guardian.apl.txt, labelled Trivial.txt in APL origin). Use as a reference for rotational intent; it does not replace player-tuned builds.
+- **Damage distribution (rotational spell IDs):** Confirmed via SimC source for Mangle (33917), Maul (6807), Swipe (213771), Moonfire (8921/164812/155625), Lunar Beam (204066/414613/1270292/204069), Thrash (77758/192090), Red Moon (1252871), Ravage (441605), Bristling Fur (155835), Brambles (213709/203958), and others — see Confirmed Spell IDs section. Thrash, Mangle, Lunar Beam, and Wild Guardian ranked #1–#4 in the SimC damage table but their percentage shares were not captured in the source; only rank ordinals were present.
+- **Unconfirmed SpellIDs (still omitted):** Raze, Growl, Wild Charge, Travel Form, Dash, Mighty Bash, Typhoon. Names are correct to spec knowledge; numeric IDs were not found in the SimC reference.
 - **Consumable/enchant item IDs:** Names from live search summaries; numeric item IDs unconfirmed (individual item pages not fetched). Enchant recommendations specifically not captured.
 - **Midnight rework caveat:** Guardian received a rework and talent shuffle in Midnight; Heart of the Wild is now a ~2-min burst CD. Some interactions are still settling across 12.x.
-- **Maintenance flag:** Re-verify all of the above (especially Survival Instincts numbers, Heart of the Wild ID, and Ironbark availability) after ANY 12.x patch. SpellIDs of confirmed abilities should remain stable; cooldowns, charges, and talent availability can change between patches.
+- **Maintenance flag:** Re-verify all of the above (especially Survival Instincts numbers and Ironbark availability) after ANY 12.x patch. SpellIDs of confirmed abilities should remain stable; cooldowns, charges, and talent availability can change between patches.

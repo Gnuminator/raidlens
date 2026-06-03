@@ -21,11 +21,15 @@ The per-spec section below lists each guide's **confirmed SpellID count**, the *
 
 ## ✅ SimC enrichment progress (2026-06-02)
 
-Christian supplied parsed SimulationCraft data (`simc-guides/` + raw `Trivial.txt`). **10 DPS guides enriched** so far, each gaining: a SimC **talent import string** (per hero tree), a **damage-distribution** table (filtered to real damage-% rows), and the **full SimC APL** embedded verbatim (extracted from `Trivial.txt` into `simc-guides/apl/`). Per-spec APL files for all 49 sims are in `simc-guides/apl/`.
+Christian supplied parsed SimulationCraft data (`simc-guides/` + raw `Trivial.txt`). Each enriched guide gains: a SimC **talent import string** (per hero tree), a **damage-distribution** table (filtered to real damage-% rows), the **full SimC APL** embedded verbatim (from `simc-guides/apl/`, 49 files), and a **Confirmed Spell IDs** table (exact-name match to `spell-ids-reference.json`, multi-id variants kept).
 
-Enriched: **Assassination Rogue, Frost DK, Balance Druid, Marksmanship Hunter, Fire Mage, Retribution Paladin, Shadow Priest, Destruction Warlock, Fury Warrior, Elemental Shaman.** (Havoc & Beast Mastery were already SimC-complete.)
+**29 of 39 guides enriched** (+ Havoc & Beast Mastery already SimC-complete = 31 done):
+- Batch 1 (10 DPS): Assassination Rogue, Frost DK, Balance Druid, Marksmanship Hunter, Fire Mage, Ret Paladin, Shadow Priest, Destruction Warlock, Fury Warrior, Elemental Shaman.
+- Batch 2 (19 tank/DPS): Blood DK, Unholy DK, Vengeance DH, Feral Druid, Guardian Druid, Devastation Evoker, Survival Hunter, Arcane Mage, Frost Mage, Brewmaster Monk, Windwalker Monk, Protection Paladin, Outlaw Rogue, Subtlety Rogue, Enhancement Shaman, Affliction Warlock, Demonology Warlock, Arms Warrior, Protection Warrior.
 
-Each of the 10 also now has a **Confirmed Spell IDs** table — damage/rotational ability IDs filled from `spell-ids-reference.json` (exact-name match, multi-id variants kept). Still open on these 10: **defensive/interrupt/utility spell IDs** (absent from the SimC source — see below) and **consumable/enchant item IDs**. The remaining ~27 guides still need the talent/APL/distribution pass and the ID fill.
+**8 guides CANNOT be SimC-enriched — no SimC data exists for them** (the report has no healer or Augmentation profiles): the 7 healers (Restoration Druid, Preservation Evoker, Mistweaver Monk, Holy Paladin, Discipline Priest, Holy Priest, Restoration Shaman) + Augmentation Evoker. They keep their live-researched guides.
+
+**SimC-vs-Wowhead ID discrepancies were FLAGGED, not overwritten** (verify live before using in filters): Dark Transformation (Wowhead 63560 / SimC 1233448), Avenging Wrath (31884 / 454351), Exploding Keg (214326 / 325153,388867), Shattering Star (SimC 1265804), Bear Form (SimC 5487). Still open on enriched guides: **defensive/interrupt/utility spell IDs** (absent from SimC — see below) and **consumable/enchant item IDs**.
 
 > **Spell IDs — RESOLVED for damage/rotational abilities via the SimC HTML report (2026-06-02).** The *text* `Trivial.txt` was not viable (only one clean Spelldata block; the rest were modifier-table noise). But the **HTML** report at simulationcraft.org/reports/MID1_Raid.html has ~1,688 clean `<h4>Spelldata>` blocks → **`simc-guides/spell-ids-reference.json`** (632 ability names with authoritative IDs, school, cast/buff type; multi-id variants kept and flagged). Regenerate with `node simc-guides/build-spell-ids-reference.js` (see header).
 >

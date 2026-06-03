@@ -20,6 +20,7 @@
 > - https://www.wowhead.com/spell=221562/asphyxiate
 > - https://www.icy-veins.com/wow/blood-death-knight-pve-tank-guide
 > - https://www.icy-veins.com/wow/blood-death-knight-pve-tank-rotation-cooldowns-abilities
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 
 ## Overview
 
@@ -161,16 +162,228 @@ Sourced from Icy Veins / Wowhead Midnight 12.0.5 consumables guidance. **Item na
 - **Weapon enchant / oils:** Sources state Midnight expanded oils/weapon enchants but most are "middling"; a specific recommended enchant by name was not pinned down this pass — flagged in Known Gaps.
 - **Stat priority:** Critical Strike has added value because Dance of Midnight procs off parries during Dancing Rune Weapon. Full ordered stat priority not captured this pass — flagged in Known Gaps.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero trees covered: **Deathbringer**, **San'layn**.
+
+Both variants share the same base class/spec talent choices; the hero-tree node block is the only meaningful difference between the two import strings.
+
+### Talent Import Strings
+
+**Deathbringer:**
+```
+CoPAAAAAAAAAAAAAAAAAAAAAAwYWmZmxMmZmhZZmZmmZxMjxMAAAAAzMzMzwMDzYMDAjZmZGAAgxsNwAWCWGmADLAmxMAAMzAMYA
+```
+
+**San'layn:**
+```
+CoPAAAAAAAAAAAAAAAAAAAAAAwYWmZmxMmZmhZZmZmmZxMjxMAAAAAzMzMzwMDzYMDAjZmZGAAADMwM20YZDklBsBYGzAAAmZwgB
+```
+
+### Metrics
+
+| Variant | DPS | DTPS | HPS |
+|---|---|---|---|
+| Deathbringer | 58,389 | 87,788 | 76,607 |
+| San'layn | 69,283 | 84,326 | 77,767 |
+
+> Note: These are SimC Patchwerk single-target numbers. DPS for Blood DK reflects damage output during active mitigation play, not an optimized damage spec. San'layn shows higher DPS and lower DTPS in this sim profile, but Deathbringer remains the favored raid-tier choice per community sources — survivability and utility factors beyond Patchwerk DPS drive that recommendation.
+
+### Damage Distribution (SimC, share of total)
+
+**Deathbringer** (damage % distribution, rows with "%" values only; parenthesised values used where main value is 0.0%):
+
+| Ability | % of Total Damage |
+|---|---|
+| Death Strike | 25.3% |
+| Blood Boil | 7.6% |
+| Blood Plague | 5.1% |
+| Death and Decay | 2.4% |
+| Dancing Rune Weapon | 2.1% |
+| Blood Boil (Boiling Point proc) | 1.1% |
+| Blood Mist | 1.1% |
+| Blood Draw | 0.2% |
+
+> Death Strike is far and away the largest single damage source at 25% of output — consistent with the spec spending most of its Runic Power on the survival button rather than on a dedicated DPS spender. Blood Boil and Blood Plague together account for ~13%, reflecting the disease-maintenance priority. For RaidLens, a Blood DK not casting Death Strike frequently is both wasting mitigation and dragging personal damage — both signals point to the same problem.
+
+**San'layn** (damage % distribution; note: major abilities — Death Strike, Dancing Rune Weapon, Death and Decay, Blood Plague, Blood Boil — appear as rank markers rather than percentages in this SimC output, indicating the damage table was captured in a rank/sort view rather than a percentage view; only rows with explicit "%" values are shown):
+
+| Ability | % of Total Damage |
+|---|---|
+| Blood Boil (Boiling Point proc) | 1.6% |
+| Heart Strike | 1.4% |
+| Voidstalker Sting | 1.2% |
+| Twilight Barrage | 1.1% |
+| Voidclaw | 0.6% |
+| Heart Strike (Bloodied Blade proc) | 0.1% |
+
+> San'layn percentage data is incomplete in this source — the major abilities are present in the sim but their relative share is expressed as rank rather than percent. The valid rows above confirm San'layn-specific procs (Voidstalker Sting, Twilight Barrage, Voidclaw) as meaningful contributors, and Heart Strike gains importance in San'layn play relative to Deathbringer. Do not read the low absolute values as meaning these are the only damage sources.
+
+### Action Priority List — Deathbringer
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/deaths_caress
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/use_items
+actions+=/use_item,name=light_company_guidon,use_off_gcd=1,if=cooldown.dancing_rune_weapon.remains>78|fight_remains<15
+actions+=/use_item,name=algethar_puzzle_box,if=fight_remains>122|cooldown.dancing_rune_weapon.remains>78|fight_remains<25
+actions+=/fireblood,if=fight_remains>120|cooldown.dancing_rune_weapon.remains>78|fight_remains<8
+actions+=/blood_fury,if=fight_remains>120|cooldown.dancing_rune_weapon.remains>78|fight_remains<12
+actions+=/berserking,if=cooldown.dancing_rune_weapon.remains>78|fight_remains<=15
+actions+=/ancestral_call,if=fight_remains>120|cooldown.dancing_rune_weapon.remains>78|fight_remains<15
+actions+=/potion,if=cooldown.dancing_rune_weapon.remains>78|fight_remains<=30
+actions+=/vampiric_blood,if=!buff.vampiric_blood.up
+actions+=/call_action_list,name=high_prio_actions
+actions+=/run_action_list,name=deathbringer,if=hero_tree.deathbringer
+actions+=/run_action_list,name=san_gift,if=hero_tree.sanlayn&buff.gift_of_the_sanlayn.up
+actions+=/run_action_list,name=sanlayn,if=hero_tree.sanlayn
+
+actions.deathbringer=death_strike,if=(runic_power.deficit<20|(runic_power.deficit<26&buff.dancing_rune_weapon.up))
+actions.deathbringer+=/death_and_decay,if=!buff.death_and_decay.up
+actions.deathbringer+=/reapers_mark
+actions.deathbringer+=/marrowrend,if=buff.exterminate.up
+actions.deathbringer+=/deaths_caress,if=(!buff.bone_shield.up|buff.bone_shield.remains<3|buff.bone_shield.stack<6)&rune<4
+actions.deathbringer+=/marrowrend,if=!buff.bone_shield.up|buff.bone_shield.remains<3|buff.bone_shield.stack<6
+actions.deathbringer+=/death_strike
+actions.deathbringer+=/blood_boil
+actions.deathbringer+=/consumption,empower_to=1,if=!buff.dancing_rune_weapon.up
+actions.deathbringer+=/heart_strike
+actions.deathbringer+=/consumption,empower_to=1
+actions.deathbringer+=/arcane_torrent,if=runic_power.deficit>20
+
+actions.high_prio_actions=raise_dead,use_off_gcd=1
+actions.high_prio_actions+=/death_strike,if=buff.coagulopathy.up&buff.coagulopathy.remains<=gcd
+actions.high_prio_actions+=/dancing_rune_weapon,if=!buff.exterminate.up&!debuff.reapers_mark_debuff.up&!buff.dancing_rune_weapon.up&(fight_remains>95|fight_remains<25|time>300)
+
+actions.san_gift=heart_strike,if=buff.essence_of_the_blood_queen.remains<1.5&buff.essence_of_the_blood_queen.remains
+actions.san_gift+=/death_strike,if=runic_power.deficit<36
+actions.san_gift+=/blood_boil,if=!drw.bp_ticking
+actions.san_gift+=/any_dnd,if=buff.crimson_scourge.remains
+actions.san_gift+=/heart_strike,if=buff.essence_of_the_blood_queen.stack<7
+actions.san_gift+=/death_strike
+actions.san_gift+=/blood_boil,if=buff.boiling_point.up&!buff.boiling_point_echo.up
+actions.san_gift+=/heart_strike
+actions.san_gift+=/blood_boil
+
+actions.sanlayn=deaths_caress,if=!buff.bone_shield.up|buff.bone_shield.remains<1.5|buff.bone_shield.stack<=1
+actions.sanlayn+=/blood_boil,if=dot.blood_plague.remains<3
+actions.sanlayn+=/heart_strike,if=(buff.essence_of_the_blood_queen.remains<1.5&buff.essence_of_the_blood_queen.remains&buff.vampiric_strike.remains)
+actions.sanlayn+=/death_strike,if=runic_power.deficit<20
+actions.sanlayn+=/deaths_caress,if=buff.bone_shield.stack<6
+actions.sanlayn+=/marrowrend,if=buff.bone_shield.stack<6
+actions.sanlayn+=/any_dnd,if=buff.crimson_scourge.remains
+actions.sanlayn+=/heart_strike,if=buff.vampiric_strike.up
+actions.sanlayn+=/death_strike
+actions.sanlayn+=/blood_boil,if=buff.boiling_point.up&!buff.boiling_point_echo.up
+actions.sanlayn+=/consumption,empower_to=1
+actions.sanlayn+=/heart_strike,if=rune>=2
+actions.sanlayn+=/blood_boil
+actions.sanlayn+=/heart_strike
+```
+
+### Action Priority List — San'layn
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/deaths_caress
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/use_items
+actions+=/use_item,name=light_company_guidon,use_off_gcd=1,if=cooldown.dancing_rune_weapon.remains>78|fight_remains<15
+actions+=/use_item,name=algethar_puzzle_box,if=fight_remains>122|cooldown.dancing_rune_weapon.remains>78|fight_remains<25
+actions+=/fireblood,if=fight_remains>120|cooldown.dancing_rune_weapon.remains>78|fight_remains<8
+actions+=/blood_fury,if=fight_remains>120|cooldown.dancing_rune_weapon.remains>78|fight_remains<12
+actions+=/berserking,if=cooldown.dancing_rune_weapon.remains>78|fight_remains<=15
+actions+=/ancestral_call,if=fight_remains>120|cooldown.dancing_rune_weapon.remains>78|fight_remains<15
+actions+=/potion,if=cooldown.dancing_rune_weapon.remains>78|fight_remains<=30
+actions+=/vampiric_blood,if=!buff.vampiric_blood.up
+actions+=/call_action_list,name=high_prio_actions
+actions+=/run_action_list,name=deathbringer,if=hero_tree.deathbringer
+actions+=/run_action_list,name=san_gift,if=hero_tree.sanlayn&buff.gift_of_the_sanlayn.up
+actions+=/run_action_list,name=sanlayn,if=hero_tree.sanlayn
+
+actions.deathbringer=death_strike,if=(runic_power.deficit<20|(runic_power.deficit<26&buff.dancing_rune_weapon.up))
+actions.deathbringer+=/death_and_decay,if=!buff.death_and_decay.up
+actions.deathbringer+=/reapers_mark
+actions.deathbringer+=/marrowrend,if=buff.exterminate.up
+actions.deathbringer+=/deaths_caress,if=(!buff.bone_shield.up|buff.bone_shield.remains<3|buff.bone_shield.stack<6)&rune<4
+actions.deathbringer+=/marrowrend,if=!buff.bone_shield.up|buff.bone_shield.remains<3|buff.bone_shield.stack<6
+actions.deathbringer+=/death_strike
+actions.deathbringer+=/blood_boil
+actions.deathbringer+=/consumption,empower_to=1,if=!buff.dancing_rune_weapon.up
+actions.deathbringer+=/heart_strike
+actions.deathbringer+=/consumption,empower_to=1
+actions.deathbringer+=/arcane_torrent,if=runic_power.deficit>20
+
+actions.high_prio_actions=raise_dead,use_off_gcd=1
+actions.high_prio_actions+=/death_strike,if=buff.coagulopathy.up&buff.coagulopathy.remains<=gcd
+actions.high_prio_actions+=/dancing_rune_weapon,if=!buff.exterminate.up&!debuff.reapers_mark_debuff.up&!buff.dancing_rune_weapon.up&(fight_remains>95|fight_remains<25|time>300)
+
+actions.san_gift=heart_strike,if=buff.essence_of_the_blood_queen.remains<1.5&buff.essence_of_the_blood_queen.remains
+actions.san_gift+=/death_strike,if=runic_power.deficit<36
+actions.san_gift+=/blood_boil,if=!drw.bp_ticking
+actions.san_gift+=/any_dnd,if=buff.crimson_scourge.remains
+actions.san_gift+=/heart_strike,if=buff.essence_of_the_blood_queen.stack<7
+actions.san_gift+=/death_strike
+actions.san_gift+=/blood_boil,if=buff.boiling_point.up&!buff.boiling_point_echo.up
+actions.san_gift+=/heart_strike
+actions.san_gift+=/blood_boil
+
+actions.sanlayn=deaths_caress,if=!buff.bone_shield.up|buff.bone_shield.remains<1.5|buff.bone_shield.stack<=1
+actions.sanlayn+=/blood_boil,if=dot.blood_plague.remains<3
+actions.sanlayn+=/heart_strike,if=(buff.essence_of_the_blood_queen.remains<1.5&buff.essence_of_the_blood_queen.remains&buff.vampiric_strike.remains)
+actions.sanlayn+=/death_strike,if=runic_power.deficit<20
+actions.sanlayn+=/deaths_caress,if=buff.bone_shield.stack<6
+actions.sanlayn+=/marrowrend,if=buff.bone_shield.stack<6
+actions.sanlayn+=/any_dnd,if=buff.crimson_scourge.remains
+actions.sanlayn+=/heart_strike,if=buff.vampiric_strike.up
+actions.sanlayn+=/death_strike
+actions.sanlayn+=/blood_boil,if=buff.boiling_point.up&!buff.boiling_point_echo.up
+actions.sanlayn+=/consumption,empower_to=1
+actions.sanlayn+=/heart_strike,if=rune>=2
+actions.sanlayn+=/blood_boil
+actions.sanlayn+=/heart_strike
+```
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Exact-key matches from spell-ids-reference.json for abilities named in this guide. IDs already present in the guide from Wowhead spell pages are noted; the SimC source independently confirms or adds entries for damaging abilities only.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Anti-Magic Shell | 444741, 48707 (multiple: base cast + variants) | shadow | cast |
+| Blood Boil | 50842 | shadowfrost | cast |
+| Blood Draw | 374606 | shadow | cast |
+| Blood Mist | 1263752 | shadow | cast |
+| Blood Plague | 55078 | shadow | cast |
+| Dancing Rune Weapon | 49028 | physical | cast |
+| Death and Decay | 43265, 52212, 1251951 (multiple: base cast + variants) | shadow | cast |
+| Death Strike | 49998, 45470 (multiple: base cast + variants) | physical | cast |
+| Death's Caress | 195292 | shadow | cast |
+| Heart Strike | 228645, 206930, 460501, 445504 (multiple: base cast + variants) | physical | cast |
+| Marrowrend | 195182 | physical | cast |
+| Raise Dead | 46585, 46584 (multiple: base cast + variants) | physical | cast |
+| Vampiric Blood | 55233 | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (names used, numeric IDs deliberately omitted to avoid fabrication):
-- Spell IDs NOT confirmed live this session (ability used by name only): Heart Strike, Blood Boil, Death and Decay, Death's Caress, Reaper's Mark, Raise Dead, Consumption, Purgatory, Strangulate.
+- Spell IDs NOT confirmed live this session (ability used by name only): Heart Strike (now confirmed via SimC — see table above), Blood Boil (now confirmed via SimC), Death and Decay (now confirmed via SimC), Death's Caress (now confirmed via SimC), Blood Plague (now confirmed via SimC), Raise Dead (now confirmed via SimC). Remaining unconfirmed: Reaper's Mark, Consumption, Purgatory, Strangulate.
+- Talent strings and APLs: **now added** (SimC Midnight 12.0.5, Deathbringer and San'layn variants; see SimulationCraft Reference section).
+- Rotational and damage spell IDs: **confirmed for all matched abilities** (Blood Boil, Blood Draw, Blood Mist, Blood Plague, Dancing Rune Weapon, Death and Decay, Death Strike, Death's Caress, Heart Strike, Marrowrend, Raise Dead, Vampiric Blood, Anti-Magic Shell) via spell-ids-reference.json. Defensive/interrupt/consumable spell IDs (Mind Freeze, Anti-Magic Zone, Rune Tap, Tombstone, Lichborne, Icebound Fortitude, Death Grip, Gorefiend's Grasp, etc.) are not present in the SimC damage-only source; Wowhead-confirmed IDs for these remain in the sections above and are authoritative.
 - Dancing Rune Weapon cooldown: live spell page (49028) shows **2 minutes**; Icy Veins references ~90s. The ~90s figure is treated as a talent-reduced value, not baseline. Re-verify which is the played value.
 - Rune Tap charges/cooldown structure is talent-dependent; the spell page shows a 1.5s inter-cast cooldown and 20% DR for 4s, but charge count was not shown.
 - Raid buffs/debuffs the spec brings: NOT confirmed. Do not assume a unique raid-wide percentage buff exists.
 - Targeted ally external: none confirmed; do not assume one exists.
 - Consumables: all item IDs omitted (none shown on fetched pages). Flask/phial name, specific weapon-enchant/oil name, and full ordered stat priority were not pinned down — re-fetch the Wowhead "enchants-gems-pve-tank" guide and Icy Veins gems/enchants/consumables page (the Icy Veins ".../gems-enchants-flasks" URL 404'd; correct slug is ".../gems-enchants-consumables").
-- Hero talent: Deathbringer favored over San'layn for raid in Midnight S1 per sources (not a hard mechanical fact — meta-dependent).
+- Hero talent: Deathbringer favored over San'layn for raid in Midnight S1 per sources (not a hard mechanical fact — meta-dependent). SimC metrics show San'layn with higher DPS and lower DTPS in Patchwerk single-target, which does not override the community/theorycrafting recommendation for Deathbringer in progression raiding.
+- San'layn damage distribution table: incomplete in this SimC source — major abilities (Death Strike, Dancing Rune Weapon, Death and Decay, Blood Boil, Blood Plague, Vampiric Strike) are expressed as rank markers (#1/#2/etc.) rather than percentage values in the captured JSON, so their relative damage share cannot be read directly.
 
 Wowhead's main JS-rendered guide pages did not return body text via fetch; ability/rotation prose came from Icy Veins (12.0.5) and individual Wowhead spell pages, which DID return data and were used for all confirmed IDs.
 

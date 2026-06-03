@@ -16,6 +16,7 @@
 > - https://www.wowhead.com/spell=48018/demonic-circle
 > - https://www.wowhead.com/spell=20707/soulstone
 > - https://www.wowhead.com/spell=5782/fear
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 
 This guide is written for RaidLens Mythic log analysis. It prioritizes correctness about the
 spec's interrupt, defensives, and utility so the analyzer can judge whether an ability was
@@ -249,14 +250,176 @@ analysis until verified.
 
 ---
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero tree(s) covered:** Diabolist
+
+### Diabolist — Talent Import String
+
+```
+CoQAAAAAAAAAAAAAAAAAAAAAAYmxMzoZjZ2mZGzyAAAAAAAAGzYYBGYb0CNsYMGLzyMzMmBAmZMzMzMDgZGzAAAYMzMjhhlZMgB
+```
+
+### Metrics
+
+Metrics not captured in source.
+
+### Damage distribution (SimC, share of total)
+
+The percent column uses the parenthesised value where the primary value is 0.0% (buffered/indirect
+damage that SimC assigns to the summoning cast rather than the pet action). Rows without a "%"
+character in their percent field are buff-uptime, duration, or rank entries and are excluded.
+
+| Ability | Share | Notes |
+|---|---|---|
+| Fel Firebolt (Wild Imps) | 20.0% | Wild Imp spam is the largest single source |
+| Burning Cleave (Demonic Tyrant) | 12.1% | Tyrant pet cleave during buff window |
+| Greater Felbolt (Grimoire: Imp Lord) | 5.2% | Diabolist hero-tree Imp Lord pet |
+| Diabolic Oculi | 5.4% | Diabolist hero-tree proc |
+| Hand of Gul'dan | 4.2% | Direct damage component of shard spender |
+| Shadow Nova (Lady Sacrolash) | 3.9% | Dominion of Argus summon |
+| Blaze (Grand Warlock Alythess) | 3.8% | Dominion of Argus summon |
+| Dreadbite (Dreadstalkers) | 3.7% | Dreadstalker bite attack |
+| Soul Barrage (Antoran Jailer) | 3.5% | Dominion of Argus summon |
+| Demonbolt | 3.5% | Player cast (Demonic Core consumer) |
+| Mind Sear (Antoran Inquisitor) | 3.3% | Dominion of Argus summon |
+| Gloom Slash (Vilefiend) | 3.0% | Vilefiend pet |
+
+**RaidLens interpretation:** Demonology's damage is overwhelmingly pet-delivered — Wild Imps,
+Demonic Tyrant, and the Diabolist hero-tree summons (Dominion of Argus demons) collectively
+dominate the distribution. Player-cast buttons (Demonbolt, Shadow Bolt, Hand of Gul'dan) account
+for only a modest share directly; their value is in generating the shards and procs that fuel pet
+summoning. A player with low overall damage is most likely losing uptime on Tyrant windows, Wild
+Imp generation, or Diabolist proc usage, not misusing filler casts.
+
+---
+
+### Action Priority List — Diabolist
+
+```
+actions.precombat=summon_pet
+actions.precombat+=/snapshot_stats
+actions.precombat+=/variable,name=in_opener,op=set,value=1
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_buff_duration,value=trinket.1.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_2_buff_duration,value=trinket.2.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.summon_demonic_tyrant.duration=0|cooldown.summon_demonic_tyrant.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.summon_demonic_tyrant.duration=0|cooldown.summon_demonic_tyrant.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=damage_trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&!variable.trinket_2_buffs&trinket.2.ilvl>trinket.1.ilvl
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_buff_duration)*(1.5+trinket.2.has_buff.intellect)*(variable.trinket_2_sync))>(((trinket.1.cooldown.duration%variable.trinket_1_buff_duration)*(1.5+trinket.1.has_buff.intellect)*(variable.trinket_1_sync))*(1+((trinket.1.ilvl-trinket.2.ilvl)%100)))
+actions.precombat+=/power_siphon
+actions.precombat+=/demonbolt,if=!buff.power_siphon.up&(talent.ruination&!talent.grimoire_imp_lord|talent.ruination&!talent.summon_doomguard)
+actions.precombat+=/shadow_bolt
+
+# Executed every time the actor is available.
+actions=potion,if=pet.demonic_tyrant.active|fight_remains<=30
+actions+=/invoke_external_buff,name=power_infusion,if=pet.demonic_tyrant.active
+actions+=/call_action_list,name=racials,if=pet.demonic_tyrant.active|fight_remains<22,use_off_gcd=1
+actions+=/call_action_list,name=items,use_off_gcd=1
+actions+=/call_action_list,name=diabolist,if=talent.diabolic_ritual
+actions+=/call_action_list,name=soulharvest,if=talent.demonic_soul
+
+actions.diabolist=power_siphon,if=buff.demonic_core.stack<=1|fight_remains<10
+actions.diabolist+=/hand_of_guldan,if=buff.dominion_of_argus.up
+actions.diabolist+=/grimoire_imp_lord
+actions.diabolist+=/grimoire_fel_ravager
+actions.diabolist+=/summon_doomguard
+actions.diabolist+=/call_dreadstalkers,if=talent.reign_of_tyranny&(cooldown.summon_demonic_tyrant.remains>=20+gcd.max|cooldown.summon_demonic_tyrant.remains<=12-gcd.max)
+actions.diabolist+=/call_dreadstalkers,if=!talent.reign_of_tyranny
+actions.diabolist+=/summon_demonic_tyrant,if=soul_shard=5
+actions.diabolist+=/implosion,if=buff.wild_imps.stack>=6&(active_enemies>2|talent.to_hell_and_back.enabled)
+actions.diabolist+=/ruination
+actions.diabolist+=/hand_of_guldan,if=soul_shard>=3&cooldown.summon_demonic_tyrant.remains>5|soul_shard=5
+actions.diabolist+=/infernal_bolt,if=soul_shard<3
+actions.diabolist+=/demonbolt,target_if=(!debuff.doom.up),if=soul_shard<4&buff.demonic_core.react&talent.doom
+actions.diabolist+=/demonbolt,if=soul_shard<4&buff.demonic_core.react
+actions.diabolist+=/shadow_bolt
+actions.diabolist+=/infernal_bolt
+
+actions.items=use_item,use_off_gcd=1,slot=trinket1,if=variable.trinket_1_buffs&(!pet.demonic_tyrant.active&trinket.1.cast_time>0|!trinket.1.cast_time>0)&(pet.demonic_tyrant.active|!talent.summon_demonic_tyrant|variable.trinket_priority=2&cooldown.summon_demonic_tyrant.remains>20&!pet.demonic_tyrant.active&trinket.2.cooldown.remains<cooldown.summon_demonic_tyrant.remains+5)&(!trinket.2.has_cooldown|trinket.2.cooldown.remains|variable.trinket_priority=1)|variable.trinket_1_buff_duration>=fight_remains
+actions.items+=/use_item,use_off_gcd=1,slot=trinket2,if=variable.trinket_2_buffs&(!pet.demonic_tyrant.active&trinket.2.cast_time>0|!trinket.2.cast_time>0)&(pet.demonic_tyrant.active|!talent.summon_demonic_tyrant|variable.trinket_priority=1&cooldown.summon_demonic_tyrant.remains>20&!pet.demonic_tyrant.active&trinket.1.cooldown.remains<cooldown.summon_demonic_tyrant.remains+5)&(!trinket.1.has_cooldown|trinket.1.cooldown.remains|variable.trinket_priority=2)|variable.trinket_2_buff_duration>=fight_remains
+actions.items+=/use_item,use_off_gcd=1,slot=trinket1,if=!variable.trinket_1_buffs&((variable.damage_trinket_priority=1|trinket.2.cooldown.remains)&(trinket.1.cast_time>0&!pet.demonic_tyrant.active|!trinket.1.cast_time>0)|(time<20&variable.trinket_2_buffs)|cooldown.summon_demonic_tyrant.remains_expected>20)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket2,if=!variable.trinket_2_buffs&((variable.damage_trinket_priority=2|trinket.1.cooldown.remains)&(trinket.2.cast_time>0&!pet.demonic_tyrant.active|!trinket.2.cast_time>0)|(time<20&variable.trinket_1_buffs)|cooldown.summon_demonic_tyrant.remains_expected>20)
+actions.items+=/use_item,slot=trinket1,if=!variable.trinket_1_buffs&(variable.damage_trinket_priority=1|trinket.2.cooldown.remains)
+actions.items+=/use_item,slot=trinket2,if=!variable.trinket_2_buffs&(variable.damage_trinket_priority=2|trinket.1.cooldown.remains)
+actions.items+=/use_item,use_off_gcd=1,slot=main_hand
+
+actions.racials=berserking,use_off_gcd=1
+actions.racials+=/blood_fury
+actions.racials+=/fireblood
+actions.racials+=/ancestral_call
+
+actions.soulharvest=power_siphon,if=buff.demonic_core.stack<=1|fight_remains<10
+actions.soulharvest+=/hand_of_guldan,if=buff.dominion_of_argus.up
+actions.soulharvest+=/grimoire_imp_lord
+actions.soulharvest+=/grimoire_fel_ravager
+actions.soulharvest+=/summon_doomguard
+actions.soulharvest+=/call_dreadstalkers
+actions.soulharvest+=/summon_demonic_tyrant
+actions.soulharvest+=/implosion,if=buff.wild_imps.stack>=6&(active_enemies>2|talent.to_hell_and_back.enabled)
+actions.soulharvest+=/hand_of_guldan
+actions.soulharvest+=/infernal_bolt,if=soul_shard<3
+actions.soulharvest+=/demonbolt,target_if=(!debuff.doom.up),if=soul_shard<4&buff.demonic_core.stack>=1&talent.doom
+actions.soulharvest+=/demonbolt,if=soul_shard<4&buff.demonic_core.stack>=2&!talent.doom
+actions.soulharvest+=/demonbolt,if=soul_shard<4&buff.demonic_core.react
+actions.soulharvest+=/shadow_bolt
+```
+
+---
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+The following table lists abilities named in this guide that have an exact key match in
+spell-ids-reference.json (extracted from the Midnight 12.0.5 SimC HTML report). IDs are taken
+verbatim from that source and must not be modified.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Shadow Bolt | 317791, 686 (multiple: base cast + variants) | shadow | cast |
+| Demonbolt | 264178 | shadowflame | cast |
+| Hand of Gul'dan | 105174, 86040 (multiple: base cast + variants) | shadowflame | cast |
+| Call Dreadstalkers | 104316, 193331, 193332 (multiple: base cast + variants) | shadow / shadowflame | cast |
+| Summon Demonic Tyrant | 265187 | shadow | cast |
+| Implosion | 196277, 196278 (multiple: base cast + variants) | shadowflame | cast |
+| Infernal Bolt | 434506 | fire | cast |
+| Grimoire: Imp Lord | 1276452 | shadow | cast |
+| Fel Firebolt (Wild Imp) | 104318 | fire | cast |
+| Felstorm (Felguard) | 89751, 89753 (multiple: base cast + variants) | physical | cast |
+| Legion Strike (Felguard) | 30213 | physical | cast |
+| Dreadbite (Dreadstalker) | 271971 | shadow | cast |
+| Bile Spit (Vilefiend) | 267997 | nature | cast |
+| Gloom Slash (Vilefiend) | 455491 | shadow | cast |
+| Headbutt (Vilefiend) | 267999 | physical | cast |
+| Greater Felbolt (Grimoire: Imp Lord) | 1277116 | fire | cast |
+| Blighted Maw | 1276960 | shadowstorm | cast |
+| Burning Cleave (Demonic Tyrant) | 1264093 | shadowflame | cast |
+| Diabolic Oculi | 1268709 | physical | cast |
+| Twilight Barrage | 1281579 | shadowlight | other |
+| Voidstalker Sting | 1271226 | shadow | other |
+| Wicked Cleave (Overlord) | 432120 | shadowflame | cast |
+| Chaos Salvo (Mother of Chaos) | 432569, 432596 (multiple: base cast + variants) | fire | cast |
+| Felseeker (Pit Lord) | 438973, 434404 (multiple: base cast + variants) | chaos | cast |
+| Shadow Nova (Lady Sacrolash) | 1282507 | shadow | other |
+| Soul Barrage (Antoran Jailer) | 1292384, 1292391 (multiple: base cast + variants) | magic / chaos | other / cast |
+| Mind Sear (Antoran Inquisitor) | 1280457, 1280460 (multiple: base cast + variants) | shadow | other |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell
+IDs (where known) remain in the sections above.
+
+---
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (omitted IDs / values rather than guessing):
 
 - **Implosion** — SpellID not confirmed live (Wowhead spell page returned 403 during research).
-  Name and role (AoE Wild-Imp spender) are well-sourced; the numeric ID is omitted.
+  Name and role (AoE Wild-Imp spender) are well-sourced; the numeric ID is omitted from the live
+  section. SimC source confirms IDs 196277 / 196278 — treat as high-confidence but not
+  Wowhead-verified.
 - **Power Siphon** — SpellID and cooldown not confirmed live (403). Role (sacrifice Wild Imps for
-  Demonic Core) is well-sourced.
+  Demonic Core) is well-sourced. SimC reference does not contain an exact match for "Power Siphon"
+  as a damaging action — ID remains unconfirmed.
 - **Healthstone / Create Healthstone** — SpellID not confirmed live (403). ~25% heal and multi-charge
   behavior cited from a guide, not a verified spell page.
 - **Singe Magic** — SpellID, cooldown, and exact dispel targeting (which schools, self vs. ally) not
@@ -264,21 +427,36 @@ Unconfirmed facts (omitted IDs / values rather than guessing):
 - **Banish** — SpellID and duration not confirmed live (403).
 - **Mortal Coil, Howl of Terror, Shadowfury** — SpellIDs and exact cooldowns not confirmed live;
   effects taken from the Icy Veins spell-summary page, not individual spell pages.
-- **Summon Doomguard, Grimoire: Imp Lord, Grimoire: Fel Ravager, Infernal Bolt** — these are
-  Midnight-era ability names taken from 12.0.5 rotation guides; individual spell pages and IDs were
-  not fetched. Treat names as current-build but IDs as unconfirmed.
+- **Summon Doomguard, Grimoire: Fel Ravager** — these are Midnight-era ability names taken from
+  12.0.5 rotation guides; individual spell pages and IDs were not fetched. SimC reference does not
+  contain exact key matches for these — IDs remain unconfirmed. The APL confirms both are used
+  (grimoire_fel_ravager, summon_doomguard actions).
+- **Infernal Bolt** — SimC source confirms SpellID 434506 (fire, cast). This supersedes the prior
+  "unconfirmed" status for the ID; Wowhead page was not fetched but SimC is authoritative for IDs.
+- **Grimoire: Imp Lord** — SimC source confirms SpellID 1276452 (shadow, cast). Supersedes prior
+  unconfirmed status.
 - **Unending Resolve talent value** — spell page shows 25%/8s/3-min baseline; the common ~40%
   talented value is from guide text, not the base spell page. Both are noted.
 - **Dark Pact** — 1-minute cooldown confirmed on the spell page; exact absorb amount and health
   sacrifice were not shown as concrete numbers on the page.
 - **Consumables and Enchants** — entire section unverified; no item IDs included.
-- **Talent import strings / SimC APL** — not available; not included. No user-provided SimC profile
-  exists for this spec.
+- **Talent import string** — NOW ADDED: Diabolist build string in SimulationCraft Reference section.
+- **SimC APL** — NOW ADDED: Full Diabolist action priority list in SimulationCraft Reference section.
+- **Rotational and pet damage spell IDs** — NOW CONFIRMED for abilities matched in
+  spell-ids-reference.json. See Confirmed Spell IDs table above. Defensive, interrupt, and
+  consumable IDs remain unconfirmed from SimC (non-damaging utility is absent from the SimC source
+  by design).
 
-Confirmed-live SpellIDs in this guide: 686 (Shadow Bolt), 264178 (Demonbolt), 105174 (Hand of
-Gul'dan), 104316 (Call Dreadstalkers), 265187 (Summon Demonic Tyrant), 104773 (Unending Resolve),
-108416 (Dark Pact), 89766 (Axe Toss / interrupt), 111771 (Demonic Gateway), 48018 (Demonic Circle),
-20707 (Soulstone), 5782 (Fear).
+Confirmed-live SpellIDs in this guide (Wowhead-sourced): 686 (Shadow Bolt), 264178 (Demonbolt),
+105174 (Hand of Gul'dan), 104316 (Call Dreadstalkers), 265187 (Summon Demonic Tyrant),
+104773 (Unending Resolve), 108416 (Dark Pact), 89766 (Axe Toss / interrupt), 111771 (Demonic
+Gateway), 48018 (Demonic Circle), 20707 (Soulstone), 5782 (Fear).
+
+Additional SpellIDs confirmed via SimulationCraft HTML (spell-ids-reference.json): see Confirmed
+Spell IDs table above for the full list including pet abilities (Fel Firebolt, Felstorm, Dreadbite,
+Gloom Slash, Burning Cleave, Diabolic Oculi, etc.) and Diabolist hero-tree abilities (Greater
+Felbolt, Twilight Barrage, Voidstalker Sting, Wicked Cleave, Chaos Salvo, Felseeker, Shadow Nova,
+Soul Barrage, Mind Sear, Blighted Maw).
 
 **Maintenance flag:** Re-verify every ID, cooldown, and ability name after ANY 12.x patch. Midnight
 notably reworked several Warlock abilities (Grimoire line, Summon Doomguard, Infernal Bolt) and

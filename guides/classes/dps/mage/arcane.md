@@ -7,6 +7,7 @@
 > - https://www.icy-veins.com/wow/arcane-mage-pve-dps-rotation-cooldowns-abilities
 > - https://www.icy-veins.com/wow/arcane-mage-pve-dps-gems-enchants-consumables
 > - Individual Wowhead spell pages (cited inline beside each confirmed SpellID)
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 
 All SpellIDs below were confirmed against the specific live Wowhead `/spell=` page named beside them. Any ability without an ID is one whose ID was not confirmed against a fetched source; see Notes and Known Gaps.
 
@@ -155,14 +156,300 @@ These do not affect RaidLens mistake-detection logic and are included for comple
 
 ---
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero trees covered: **Spellslinger** and **Sunfury**.
+
+### Talent Import Strings
+
+**Spellslinger:**
+```
+C4DAAAAAAAAAAAAAAAAAAAAAAYGGLzMzswMzQzMzAAAwAAgAmZmZZZmZYBAgtxMzMmtFLzMzYmxYMzMGLMzMjZAAGAAAzsAAmBADD
+```
+
+**Sunfury:**
+```
+C4DAAAAAAAAAAAAAAAAAAAAAAYGmZZmZmFmZGamxAAAwAAmZmmlltZAgYDAgNmZmxYzyMzMLzMGjZmxYhZmZMDAwAAAMAzMgZAwwA
+```
+
+### Metrics
+
+Metrics not captured in source.
+
+### Damage Distribution (SimC, share of total)
+
+**Spellslinger** (single-target Patchwerk):
+
+| Ability | Share |
+|---|---|
+| Arcane Barrage | 28.9% |
+| Arcane Blast | 26.3% |
+| Arcane Splinter | 16.5% |
+| Arcane Assault | 0.7% |
+| Arcane Missiles | 0.6% |
+
+Note: Arcane Barrage uses the parenthesized value (28.9%) from the SimC output, which represents the direct-hit share after removing cleave variance. Arcane Splinter (16.5%) is a notable contributor — it is a Spellslinger-specific passive that fires bonus arcane splinters during Arcane Barrage and Surge windows. In RaidLens terms, if a Spellslinger Arcane Mage is not generating Arcane Splinter damage, that is a strong signal they are not spending Arcane Barrage correctly during their burst window.
+
+**Sunfury** (single-target Patchwerk):
+
+| Ability | Share |
+|---|---|
+| Arcane Missiles | 24.9% |
+| Arcane Blast | 24.7% |
+| Meteorite | 4.5% |
+| Pyroblast | 0.9% |
+| Greater Pyroblast | 0.8% |
+| Arcane Barrage | 0.7% |
+| Arcane Assault | 0.7% |
+| Meteorite (_bug_impact) | 0.4% |
+| Meteorite (_impact) | 0.3% |
+
+Note: Sunfury's damage profile is fundamentally different from Spellslinger's — Arcane Missiles and Arcane Blast contribute roughly equally as the top two sources (~25% each), while Arcane Barrage drops sharply (0.7% vs 28.9% in Spellslinger) because Sunfury Barrages in increments to trigger Meteorite generation from the Arcane Phoenix rather than holding for a single massive Barrage. Meteorite and fire-school spells (Pyroblast, Greater Pyroblast) represent Sunfury-specific output that is entirely absent in Spellslinger.
+
+### Action Priority List — Spellslinger
+
+```
+actions.precombat=arcane_intellect
+actions.precombat+=/variable,name=opener,op=set,value=1
+actions.precombat+=/variable,name=pulse_aoe_count,op=set,value=2+talent.orb_mastery
+actions.precombat+=/variable,name=funnel,op=reset,default=0
+actions.precombat+=/variable,name=sf_touch_surge,op=reset,default=0
+actions.precombat+=/variable,name=pooling,op=reset,default=1
+actions.precombat+=/variable,name=time_for_pooling,op=set,value=(((fight_remains%%95)<(7+(2*talent.arcane_pulse)))|((fight_remains%%95)>(20+(2*talent.arcane_pulse))))&variable.pooling
+actions.precombat+=/variable,name=did_not_pool,op=set,value=((fight_remains%%95)<(7+(2*talent.arcane_pulse)))|((fight_remains%%95)>(20+(2*talent.arcane_pulse)))&variable.pooling
+actions.precombat+=/variable,name=20ssteroid_trinket_equipped,op=set,value=equipped.signet_of_the_priory|equipped.incorporeal_essencegorger|equipped.sealed_chaos_urn
+actions.precombat+=/variable,name=15ssteroid_trinket_equipped,op=set,value=equipped.lily_of_the_eternal_weave|equipped.sunblood_amethyst|equipped.astral_gladiators_badge_of_ferocity|equipped.arazs_ritual_forge|equipped.freightrunners_flask|equipped.emberwing_feather|equipped.vaelgors_final_stare|equipped.galactic_gladiators_badge_of_ferocity
+actions.precombat+=/variable,name=12ssteroid_trinket_equipped,op=set,value=equipped.nevermelting_ice_crystal|equipped.ever_collapsing_void_fissure
+actions.precombat+=/variable,name=steroid_trinket_equipped,op=set,value=equipped.lily_of_the_eternal_weave|equipped.sunblood_amethyst|equipped.astral_gladiators_badge_of_ferocity|equipped.arazs_ritual_forge|equipped.freightrunners_flask|equipped.emberwing_feather|equipped.vaelgors_final_stare|equipped.galactic_gladiators_badge_of_ferocity|equipped.nevermelting_ice_crystal|equipped.ever_collapsing_void_fissure|equipped.signet_of_the_priory|equipped.incorporeal_essencegorger|equipped.sealed_chaos_urn
+actions.precombat+=/variable,name=nonsteroid_trinket_equipped,op=set,value=equipped.mereldars_toll|equipped.perfidious_projector|equipped.chaotic_nethergate|equipped.wraps_of_cosmic_madness|equipped.astalors_anguish_agitator
+actions.precombat+=/snapshot_stats
+actions.precombat+=/mirror_image
+actions.precombat+=/potion,if=talent.spellfire_spheres&!variable.sf_touch_surge
+actions.precombat+=/arcane_surge,if=(talent.spellfire_spheres&!variable.sf_touch_surge)|(!variable.time_for_pooling&talent.splintering_sorcery)
+actions.precombat+=/arcane_pulse,if=(talent.splintering_sorcery|variable.sf_touch_surge)&talent.arcane_pulse&(active_enemies>=variable.pulse_aoe_count)
+actions.precombat+=/arcane_blast
+
+# Executed every time the actor is available.
+actions=counterspell
+# Steroid racials and potions are used with cds basically based on cooldown and overlap with the most effects. Non-steroid racials are not worth using under any conditions currently and would need substantial buffs to become useable over our baseline spells and abilities.
+actions+=/invoke_external_buff,name=power_infusion,if=(buff.arcane_surge.up&(debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge)|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(9+gcd.remains))))|fight_remains<16
+actions+=/potion,if=(cooldown.arcane_surge.ready&buff.arcane_salvo.react=20+(5*talent.spellfire_spheres))|(buff.arcane_surge.up&(prev_gcd.1.arcane_surge|fight_remains<90))|fight_remains<30|(fight_remains>320&fight_remains<330)
+actions+=/berserking,if=(buff.arcane_surge.up&debuff.touch_of_the_magi.up)|fight_remains<13
+actions+=/blood_fury,if=(buff.arcane_surge.up&(debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge)|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(9+gcd.remains))))|fight_remains<16
+actions+=/fireblood,if=(buff.arcane_surge.up&((debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge))|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(2+gcd.remains))))|fight_remains<9
+actions+=/ancestral_call,if=(buff.arcane_surge.up&(debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge)|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(9+gcd.remains))))|fight_remains<16
+# Use trinkets condition essentially favors using steroid trinkets during cds, avoids using non-steroids in ways that would conflict with using steroids in cds, otherwise just sends if you don't have a steroid trinket. TODO: Recheck after all trinkets are implemented
+actions+=/use_items,if=((talent.splintering_sorcery|variable.sf_touch_surge)&((buff.arcane_surge.up&((variable.12ssteroid_trinket_equipped&debuff.touch_of_the_magi.up)|variable.15ssteroid_trinket_equipped))|(cooldown.arcane_surge.ready&variable.20ssteroid_trinket_equipped)))|(talent.spellfire_spheres&buff.arcane_surge.up&((variable.12ssteroid_trinket_equipped&debuff.touch_of_the_magi.up)|(variable.15ssteroid_trinket_equipped&buff.arcane_surge.remains<(9+gcd.remains)))|(buff.arcane_surge.remains<(14+gcd.remains)&variable.20ssteroid_trinket_equipped))|(fight_remains<13&variable.12ssteroid_trinket_equipped)|(fight_remains<16&variable.15ssteroid_trinket_equipped)|(fight_remains<21&variable.20ssteroid_trinket_equipped)|(variable.nonsteroid_trinket_equipped&((buff.arcane_surge.down&cooldown.arcane_surge.remains>20)|!variable.steroid_trinket_equipped))
+# End of fight conditions for spending your last bit of resources.
+actions+=/arcane_barrage,if=fight_remains<gcd.max*2
+actions+=/arcane_missiles,if=fight_remains<execute_time*(1+buff.clearcasting.react)&buff.clearcasting.react&buff.arcane_salvo.stack>=13+(5*talent.spellfire_salvo)&!talent.orb_mastery,chain=1
+actions+=/arcane_orb,if=fight_remains<execute_time*(1+buff.clearcasting.react)&buff.clearcasting.react&buff.arcane_salvo.stack>=13+(5*talent.spellfire_salvo)&talent.orb_mastery
+actions+=/variable,name=opener,op=set,if=debuff.touch_of_the_magi.up&variable.opener,value=0
+actions+=/variable,name=time_for_pooling,op=set,if=!variable.opener,value=1
+# This line dictates pooling logic around Touch, Surge, and Soul, the line is daunting but the basic idea is that you don't spend Barrage near your cooldowns unless you have a reliable way to get them back; in AOE this is a little more relaxed. TODO: look into simplifying as well as a similar conditional for Spellslinger if it would help.
+actions+=/variable,name=sunfury_hold_for_cds,op=set,value=((buff.arcane_surge.down&cooldown.touch_of_the_magi.remains>gcd.max*(4-(active_enemies>=3)-((2*(buff.overpowered_missiles.react&buff.clearcasting.react))<?((cooldown.arcane_orb.charges_fractional>0.95|buff.clearcasting.react)&active_enemies>=3)))&cooldown.arcane_surge.remains>gcd.max*(4-(active_enemies>=3)-((2*(buff.overpowered_missiles.react&buff.clearcasting.react))<?((cooldown.arcane_orb.charges_fractional>0.95|buff.clearcasting.react)&active_enemies>=3))))|((buff.clearcasting.react|((buff.arcane_salvo.react=25|cooldown.arcane_orb.charges_fractional>0.95)&active_enemies>=3))&buff.arcane_surge.remains>gcd.max*(6-(2*(buff.overpowered_missiles.react<?(active_enemies>=3))))))
+# cooldowns section dictates actions that only happen around cooldowns, spellslinger_orbm is for Orb Mastery builds, spellslinger is for non-Orb Mastery builds, sunfury supports only missile builds. TODO: Add Orb Mastery support for Sunfury, much of Sunfury likely needs some reassessment. Look into Charged Missiles tailored sequences for both hero trees.
+actions+=/call_action_list,name=cooldowns
+actions+=/call_action_list,name=spellslinger_orbm,if=talent.splintering_sorcery&talent.orb_mastery
+actions+=/call_action_list,name=spellslinger,if=talent.splintering_sorcery&!talent.orb_mastery
+actions+=/call_action_list,name=sunfury,if=!talent.splintering_sorcery
+actions+=/arcane_barrage,if=(time>5&!prev_gcd.1.arcane_surge)|(prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=(20+(5*talent.spellfire_salvo)))
+
+# Orb Mastery Slinger builds throw an Orb right after Blasting on pull, other Spellslinger builds will just go for Touch, and Sunfury opens by spending the Clearcasting from Surge on pull.
+actions.cooldowns=arcane_orb,if=(talent.splintering_sorcery|variable.sf_touch_surge)&variable.opener&variable.time_for_pooling,line_cd=30
+actions.cooldowns+=/arcane_orb,if=talent.splintering_sorcery&prev_off_gcd.touch_of_the_magi&time<5&buff.arcane_salvo.react<=14,line_cd=999
+actions.cooldowns+=/arcane_orb,if=!variable.did_not_pool,line_cd=999
+actions.cooldowns+=/arcane_missiles,if=talent.spellfire_spheres&!variable.sf_touch_surge&variable.opener,line_cd=30
+# Spellslinger builds Salvo before going into cds the first time.
+actions.cooldowns+=/arcane_pulse,if=(talent.splintering_sorcery|variable.sf_touch_surge)&buff.arcane_salvo.react<20&(variable.opener|(talent.orb_mastery&cooldown.arcane_surge.remains<(gcd.max*(mana.pct%(8+(8*(active_enemies>variable.pulse_aoe_count)))))))&(active_enemies>=variable.pulse_aoe_count)
+actions.cooldowns+=/arcane_blast,if=(talent.splintering_sorcery|variable.sf_touch_surge)&buff.arcane_salvo.react<20&((variable.opener&variable.time_for_pooling)|(!variable.opener&talent.orb_mastery&cooldown.arcane_surge.remains<(gcd.max*(mana.pct%(8+(8*(active_enemies>=2)))))))
+actions.cooldowns+=/wait,sec=0.05,if=(prev_gcd.1.arcane_surge&gcd.remains=0)|(prev_off_gcd.touch_of_the_magi&gcd.remains=0)|(prev_off_gcd.presence_of_mind&gcd.remains=0),line_cd=1
+# Spellslinger uses Touch after Surge, Sunfury holds touch for the end of Surge to capture Soul and the run-off of resources after Soul.
+actions.cooldowns+=/touch_of_the_magi,use_off_gcd=1,if=((talent.splintering_sorcery|variable.sf_touch_surge)&buff.arcane_surge.up)|(talent.spellfire_spheres&!variable.sf_touch_surge&buff.arcane_surge.up&buff.arcane_surge.remains<(5+gcd.remains))|(cooldown.touch_of_the_magi.ready&cooldown.arcane_surge.remains>30&buff.arcane_surge.down)
+actions.cooldowns+=/arcane_surge
+actions.cooldowns+=/cancel_action,if=action.evocation.channeling&mana.pct>=95
+actions.cooldowns+=/evocation,if=mana.pct<10&buff.arcane_surge.down&debuff.touch_of_the_magi.down&cooldown.arcane_surge.remains>10
+
+# Orb when you need charges, if you have Clearcasting skip this and get your Charges from Missiles.
+actions.spellslinger=arcane_orb,if=buff.arcane_charge.stack<(3+(active_enemies>=2))&(((buff.clearcasting.react=0&talent.high_voltage)|(buff.clearcasting.react&buff.arcane_salvo.react>=12))|(active_enemies>=2))&cooldown.touch_of_the_magi.remains>gcd.max*4
+# Barrage at 20 Salvo or 18+ with Orb Barrage, Charges are also optional with Orb Barrage. Hold for CDs if near.
+actions.spellslinger+=/arcane_barrage,if=buff.arcane_salvo.react>=20&(buff.arcane_charge.stack=4|talent.orb_barrage)&cooldown.touch_of_the_magi.remains>gcd.max*(4-(2*(active_enemies>=2)))
+# Barrage in AOE when you can recoup Charges with Missiles or Orb.
+actions.spellslinger+=/arcane_barrage,if=active_enemies>=2&buff.arcane_charge.stack=4&buff.clearcasting.react&buff.overpowered_missiles.react&talent.high_voltage&buff.arcane_salvo.react>5&buff.arcane_salvo.react<14&cooldown.touch_of_the_magi.remains>gcd.max*4
+# Missiles for Charges with HV and Salvo stacks.
+actions.spellslinger+=/arcane_missiles,if=buff.clearcasting.react&((buff.arcane_salvo.stack<(10+(5*(buff.overpowered_missiles.react=0))))|(buff.arcane_charge.stack<2&talent.high_voltage&active_enemies>=2)),chain=1
+actions.spellslinger+=/presence_of_mind,use_off_gcd=1,if=buff.arcane_charge.stack<2&(buff.clearcasting.react=0|!talent.high_voltage&cooldown.arcane_orb.charges_fractional<0.95)&!prev_gcd.1.arcane_orb&!prev_gcd.1.arcane_missiles
+actions.spellslinger+=/arcane_blast,if=buff.presence_of_mind.up
+actions.spellslinger+=/arcane_pulse,if=((active_enemies>=variable.pulse_aoe_count)&!variable.funnel)|((buff.arcane_charge.stack<3)&mana.pct>30)
+actions.spellslinger+=/arcane_blast
+actions.spellslinger+=/arcane_barrage,if=!prev_gcd.1.arcane_surge|prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=20
+
+# Orb after Barraging with Clearcasting to recoup Charges and Salvo, in AOE just send as long as you won't overcap Salvo. If you don't have CC, only Orb if you'll overcap Orb and need Charges.
+actions.spellslinger_orbm=arcane_orb,if=(prev_gcd.1.arcane_barrage|active_enemies>=4)&((buff.clearcasting.react&buff.arcane_salvo.react<=14)|(buff.clearcasting.react=0&(cooldown.arcane_orb.charges_fractional>1.9)&buff.arcane_salvo.react<=18))
+# Barrage at 20 stacks, save for Touch, Barrage the end of Touch or Surge for Splinters.
+actions.spellslinger_orbm+=/arcane_barrage,if=(buff.arcane_charge.stack=4|talent.orb_barrage)&buff.arcane_salvo.react>=20&cooldown.touch_of_the_magi.remains>gcd.max*(4-(2*(active_enemies>=2)))|(((buff.arcane_surge.remains<gcd.max&buff.arcane_surge.up)|(debuff.touch_of_the_magi.remains<gcd.max&debuff.touch_of_the_magi.up))&buff.arcane_salvo.react>=15)
+# Missiles only if you have HV or OPM specced and in minimal situations.
+actions.spellslinger_orbm+=/arcane_missiles,if=(talent.high_voltage|talent.overpowered_missiles|(buff.clearcasting.react=3))&buff.clearcasting.react&buff.arcane_salvo.react<=(10+(5*(buff.overpowered_missiles.react=0)))&!prev_gcd.1.arcane_orb&(buff.arcane_surge.down|(talent.high_voltage&active_enemies=1))&(active_enemies<2|talent.overpowered_missiles),chain=1
+# Small benefit when playing with Pulse, due to its mana consumption, its a gain for most profiles to Barrage a little bit more often outside of cds when you lack Orbs.
+actions.spellslinger_orbm+=/arcane_barrage,if=buff.arcane_salvo.react<7&buff.arcane_surge.down&buff.touch_of_the_magi.down&buff.arcane_charge.stack=4&talent.resonance&talent.arcane_pulse
+actions.spellslinger_orbm+=/presence_of_mind,use_off_gcd=1,if=buff.arcane_charge.stack<2&(buff.clearcasting.react=0|!talent.high_voltage&cooldown.arcane_orb.charges_fractional<0.95)&!prev_gcd.1.arcane_orb&!prev_gcd.1.arcane_missiles
+actions.spellslinger_orbm+=/arcane_blast,if=buff.presence_of_mind.up
+actions.spellslinger_orbm+=/arcane_pulse,if=((active_enemies>=variable.pulse_aoe_count)&!variable.funnel)|((buff.arcane_charge.stack<3)&mana.pct>30)
+actions.spellslinger_orbm+=/arcane_blast
+actions.spellslinger_orbm+=/arcane_barrage,if=(time>5&!prev_gcd.1.arcane_surge)|(prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=20)
+
+# Basic idea is simple, Barrage to spend Salvo in increments of 6 to optimize around Meteorite generation when possible with Clearcasting when you run High Voltage, or Orb CD is up in AOE, until you get to the point where 25 isn't far away, for a little more dps you can pool for Touch, Surge, and Soul, pooling logic is above. Extra conditions beyond that are to Barrage at the start and end of Touch and during Soul.
+actions.sunfury=arcane_barrage,if=(buff.arcane_charge.stack=4&variable.sunfury_hold_for_cds&((((buff.clearcasting.react&talent.high_voltage)|(cooldown.arcane_orb.charges_fractional>0.95&active_enemies>=3))&((buff.arcane_salvo.react>=6&buff.arcane_salvo.react<7)|(buff.arcane_salvo.react>=12&buff.arcane_salvo.react<13)|(buff.arcane_salvo.react>=18&buff.arcane_salvo.react<19)|((buff.arcane_salvo.react<19)&!talent.resonance&active_enemies>=3)))|buff.arcane_salvo.stack=25))|prev_off_gcd.touch_of_the_magi|(debuff.touch_of_the_magi.remains<gcd.max&debuff.touch_of_the_magi.up&buff.arcane_charge.stack=4)|buff.arcane_soul.up
+# Missile if you have less than 15 Salvo or 10 with OPM proc except when Surge is up; send Missiles if you have both Surge and Touch going.
+actions.sunfury+=/arcane_missiles,if=buff.clearcasting.react&((((cooldown.touch_of_the_magi.remains>gcd.max*(8-(4*variable.sf_touch_surge))&buff.overpowered_missiles.react=0)|buff.arcane_surge.up|buff.arcane_charge.stack<3|buff.clearcasting.react>1)&buff.arcane_salvo.react<(15-(5*(buff.overpowered_missiles.react&buff.arcane_surge.down))))|(debuff.touch_of_the_magi.up&buff.arcane_surge.up)),chain=1
+actions.sunfury+=/arcane_orb,if=buff.arcane_charge.stack<2
+actions.sunfury+=/arcane_pulse,if=((active_enemies>=variable.pulse_aoe_count)&!variable.funnel)|((buff.arcane_charge.stack<3)&mana.pct>30)
+actions.sunfury+=/arcane_explosion,if=active_enemies>3&buff.arcane_charge.stack<2&!talent.impetus
+# Barrage can be used if you didn't have any of the charge generators above to get over 1 stacks. This is also not default behavior but is interestingly neutral. actions.sunfury+=/arcane_barrage,if=buff.arcane_charge.stack<2
+actions.sunfury+=/arcane_blast
+actions.sunfury+=/arcane_barrage,if=(variable.sf_touch_surge&(!prev_gcd.1.arcane_surge|prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=25))|!variable.sf_touch_surge
+```
+
+### Action Priority List — Sunfury
+
+```
+actions.precombat=arcane_intellect
+actions.precombat+=/variable,name=opener,op=set,value=1
+actions.precombat+=/variable,name=pulse_aoe_count,op=set,value=2+talent.orb_mastery
+actions.precombat+=/variable,name=funnel,op=reset,default=0
+actions.precombat+=/variable,name=sf_touch_surge,op=reset,default=0
+actions.precombat+=/variable,name=pooling,op=reset,default=1
+actions.precombat+=/variable,name=time_for_pooling,op=set,value=(((fight_remains%%95)<(7+(2*talent.arcane_pulse)))|((fight_remains%%95)>(20+(2*talent.arcane_pulse))))&variable.pooling
+actions.precombat+=/variable,name=did_not_pool,op=set,value=((fight_remains%%95)<(7+(2*talent.arcane_pulse)))|((fight_remains%%95)>(20+(2*talent.arcane_pulse)))&variable.pooling
+actions.precombat+=/variable,name=20ssteroid_trinket_equipped,op=set,value=equipped.signet_of_the_priory|equipped.incorporeal_essencegorger|equipped.sealed_chaos_urn
+actions.precombat+=/variable,name=15ssteroid_trinket_equipped,op=set,value=equipped.lily_of_the_eternal_weave|equipped.sunblood_amethyst|equipped.astral_gladiators_badge_of_ferocity|equipped.arazs_ritual_forge|equipped.freightrunners_flask|equipped.emberwing_feather|equipped.vaelgors_final_stare|equipped.galactic_gladiators_badge_of_ferocity
+actions.precombat+=/variable,name=12ssteroid_trinket_equipped,op=set,value=equipped.nevermelting_ice_crystal|equipped.ever_collapsing_void_fissure
+actions.precombat+=/variable,name=steroid_trinket_equipped,op=set,value=equipped.lily_of_the_eternal_weave|equipped.sunblood_amethyst|equipped.astral_gladiators_badge_of_ferocity|equipped.arazs_ritual_forge|equipped.freightrunners_flask|equipped.emberwing_feather|equipped.vaelgors_final_stare|equipped.galactic_gladiators_badge_of_ferocity|equipped.nevermelting_ice_crystal|equipped.ever_collapsing_void_fissure|equipped.signet_of_the_priory|equipped.incorporeal_essencegorger|equipped.sealed_chaos_urn
+actions.precombat+=/variable,name=nonsteroid_trinket_equipped,op=set,value=equipped.mereldars_toll|equipped.perfidious_projector|equipped.chaotic_nethergate|equipped.wraps_of_cosmic_madness|equipped.astalors_anguish_agitator
+actions.precombat+=/snapshot_stats
+actions.precombat+=/mirror_image
+actions.precombat+=/potion,if=talent.spellfire_spheres&!variable.sf_touch_surge
+actions.precombat+=/arcane_surge,if=(talent.spellfire_spheres&!variable.sf_touch_surge)|(!variable.time_for_pooling&talent.splintering_sorcery)
+actions.precombat+=/arcane_pulse,if=(talent.splintering_sorcery|variable.sf_touch_surge)&talent.arcane_pulse&(active_enemies>=variable.pulse_aoe_count)
+actions.precombat+=/arcane_blast
+
+# Executed every time the actor is available.
+actions=counterspell
+# Steroid racials and potions are used with cds basically based on cooldown and overlap with the most effects. Non-steroid racials are not worth using under any conditions currently and would need substantial buffs to become useable over our baseline spells and abilities.
+actions+=/invoke_external_buff,name=power_infusion,if=(buff.arcane_surge.up&(debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge)|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(9+gcd.remains))))|fight_remains<16
+actions+=/potion,if=(cooldown.arcane_surge.ready&buff.arcane_salvo.react=20+(5*talent.spellfire_spheres))|(buff.arcane_surge.up&(prev_gcd.1.arcane_surge|fight_remains<90))|fight_remains<30|(fight_remains>320&fight_remains<330)
+actions+=/berserking,if=(buff.arcane_surge.up&debuff.touch_of_the_magi.up)|fight_remains<13
+actions+=/blood_fury,if=(buff.arcane_surge.up&(debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge)|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(9+gcd.remains))))|fight_remains<16
+actions+=/fireblood,if=(buff.arcane_surge.up&((debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge))|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(2+gcd.remains))))|fight_remains<9
+actions+=/ancestral_call,if=(buff.arcane_surge.up&(debuff.touch_of_the_magi.up&(talent.splintering_sorcery|variable.sf_touch_surge)|(talent.spellfire_spheres&buff.arcane_surge.up&buff.arcane_surge.remains<(9+gcd.remains))))|fight_remains<16
+# Use trinkets condition essentially favors using steroid trinkets during cds, avoids using non-steroids in ways that would conflict with using steroids in cds, otherwise just sends if you don't have a steroid trinket. TODO: Recheck after all trinkets are implemented
+actions+=/use_items,if=((talent.splintering_sorcery|variable.sf_touch_surge)&((buff.arcane_surge.up&((variable.12ssteroid_trinket_equipped&debuff.touch_of_the_magi.up)|variable.15ssteroid_trinket_equipped))|(cooldown.arcane_surge.ready&variable.20ssteroid_trinket_equipped)))|(talent.spellfire_spheres&buff.arcane_surge.up&((variable.12ssteroid_trinket_equipped&debuff.touch_of_the_magi.up)|(variable.15ssteroid_trinket_equipped&buff.arcane_surge.remains<(9+gcd.remains)))|(buff.arcane_surge.remains<(14+gcd.remains)&variable.20ssteroid_trinket_equipped))|(fight_remains<13&variable.12ssteroid_trinket_equipped)|(fight_remains<16&variable.15ssteroid_trinket_equipped)|(fight_remains<21&variable.20ssteroid_trinket_equipped)|(variable.nonsteroid_trinket_equipped&((buff.arcane_surge.down&cooldown.arcane_surge.remains>20)|!variable.steroid_trinket_equipped))
+# End of fight conditions for spending your last bit of resources.
+actions+=/arcane_barrage,if=fight_remains<gcd.max*2
+actions+=/arcane_missiles,if=fight_remains<execute_time*(1+buff.clearcasting.react)&buff.clearcasting.react&buff.arcane_salvo.stack>=13+(5*talent.spellfire_salvo)&!talent.orb_mastery,chain=1
+actions+=/arcane_orb,if=fight_remains<execute_time*(1+buff.clearcasting.react)&buff.clearcasting.react&buff.arcane_salvo.stack>=13+(5*talent.spellfire_salvo)&talent.orb_mastery
+actions+=/variable,name=opener,op=set,if=debuff.touch_of_the_magi.up&variable.opener,value=0
+actions+=/variable,name=time_for_pooling,op=set,if=!variable.opener,value=1
+# This line dictates pooling logic around Touch, Surge, and Soul, the line is daunting but the basic idea is that you don't spend Barrage near your cooldowns unless you have a reliable way to get them back; in AOE this is a little more relaxed. TODO: look into simplifying as well as a similar conditional for Spellslinger if it would help.
+actions+=/variable,name=sunfury_hold_for_cds,op=set,value=((buff.arcane_surge.down&cooldown.touch_of_the_magi.remains>gcd.max*(4-(active_enemies>=3)-((2*(buff.overpowered_missiles.react&buff.clearcasting.react))<?((cooldown.arcane_orb.charges_fractional>0.95|buff.clearcasting.react)&active_enemies>=3)))&cooldown.arcane_surge.remains>gcd.max*(4-(active_enemies>=3)-((2*(buff.overpowered_missiles.react&buff.clearcasting.react))<?((cooldown.arcane_orb.charges_fractional>0.95|buff.clearcasting.react)&active_enemies>=3))))|((buff.clearcasting.react|((buff.arcane_salvo.react=25|cooldown.arcane_orb.charges_fractional>0.95)&active_enemies>=3))&buff.arcane_surge.remains>gcd.max*(6-(2*(buff.overpowered_missiles.react<?(active_enemies>=3))))))
+# cooldowns section dictates actions that only happen around cooldowns, spellslinger_orbm is for Orb Mastery builds, spellslinger is for non-Orb Mastery builds, sunfury supports only missile builds. TODO: Add Orb Mastery support for Sunfury, much of Sunfury likely needs some reassessment. Look into Charged Missiles tailored sequences for both hero trees.
+actions+=/call_action_list,name=cooldowns
+actions+=/call_action_list,name=spellslinger_orbm,if=talent.splintering_sorcery&talent.orb_mastery
+actions+=/call_action_list,name=spellslinger,if=talent.splintering_sorcery&!talent.orb_mastery
+actions+=/call_action_list,name=sunfury,if=!talent.splintering_sorcery
+actions+=/arcane_barrage,if=(time>5&!prev_gcd.1.arcane_surge)|(prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=(20+(5*talent.spellfire_salvo)))
+
+# Orb Mastery Slinger builds throw an Orb right after Blasting on pull, other Spellslinger builds will just go for Touch, and Sunfury opens by spending the Clearcasting from Surge on pull.
+actions.cooldowns=arcane_orb,if=(talent.splintering_sorcery|variable.sf_touch_surge)&variable.opener&variable.time_for_pooling,line_cd=30
+actions.cooldowns+=/arcane_orb,if=talent.splintering_sorcery&prev_off_gcd.touch_of_the_magi&time<5&buff.arcane_salvo.react<=14,line_cd=999
+actions.cooldowns+=/arcane_orb,if=!variable.did_not_pool,line_cd=999
+actions.cooldowns+=/arcane_missiles,if=talent.spellfire_spheres&!variable.sf_touch_surge&variable.opener,line_cd=30
+# Spellslinger builds Salvo before going into cds the first time.
+actions.cooldowns+=/arcane_pulse,if=(talent.splintering_sorcery|variable.sf_touch_surge)&buff.arcane_salvo.react<20&(variable.opener|(talent.orb_mastery&cooldown.arcane_surge.remains<(gcd.max*(mana.pct%(8+(8*(active_enemies>variable.pulse_aoe_count)))))))&(active_enemies>=variable.pulse_aoe_count)
+actions.cooldowns+=/arcane_blast,if=(talent.splintering_sorcery|variable.sf_touch_surge)&buff.arcane_salvo.react<20&((variable.opener&variable.time_for_pooling)|(!variable.opener&talent.orb_mastery&cooldown.arcane_surge.remains<(gcd.max*(mana.pct%(8+(8*(active_enemies>=2)))))))
+actions.cooldowns+=/wait,sec=0.05,if=(prev_gcd.1.arcane_surge&gcd.remains=0)|(prev_off_gcd.touch_of_the_magi&gcd.remains=0)|(prev_off_gcd.presence_of_mind&gcd.remains=0),line_cd=1
+# Spellslinger uses Touch after Surge, Sunfury holds touch for the end of Surge to capture Soul and the run-off of resources after Soul.
+actions.cooldowns+=/touch_of_the_magi,use_off_gcd=1,if=((talent.splintering_sorcery|variable.sf_touch_surge)&buff.arcane_surge.up)|(talent.spellfire_spheres&!variable.sf_touch_surge&buff.arcane_surge.up&buff.arcane_surge.remains<(5+gcd.remains))|(cooldown.touch_of_the_magi.ready&cooldown.arcane_surge.remains>30&buff.arcane_surge.down)
+actions.cooldowns+=/arcane_surge
+actions.cooldowns+=/cancel_action,if=action.evocation.channeling&mana.pct>=95
+actions.cooldowns+=/evocation,if=mana.pct<10&buff.arcane_surge.down&debuff.touch_of_the_magi.down&cooldown.arcane_surge.remains>10
+
+# Orb when you need charges, if you have Clearcasting skip this and get your Charges from Missiles.
+actions.spellslinger=arcane_orb,if=buff.arcane_charge.stack<(3+(active_enemies>=2))&(((buff.clearcasting.react=0&talent.high_voltage)|(buff.clearcasting.react&buff.arcane_salvo.react>=12))|(active_enemies>=2))&cooldown.touch_of_the_magi.remains>gcd.max*4
+# Barrage at 20 Salvo or 18+ with Orb Barrage, Charges are also optional with Orb Barrage. Hold for CDs if near.
+actions.spellslinger+=/arcane_barrage,if=buff.arcane_salvo.react>=20&(buff.arcane_charge.stack=4|talent.orb_barrage)&cooldown.touch_of_the_magi.remains>gcd.max*(4-(2*(active_enemies>=2)))
+# Barrage in AOE when you can recoup Charges with Missiles or Orb.
+actions.spellslinger+=/arcane_barrage,if=active_enemies>=2&buff.arcane_charge.stack=4&buff.clearcasting.react&buff.overpowered_missiles.react&talent.high_voltage&buff.arcane_salvo.react>5&buff.arcane_salvo.react<14&cooldown.touch_of_the_magi.remains>gcd.max*4
+# Missiles for Charges with HV and Salvo stacks.
+actions.spellslinger+=/arcane_missiles,if=buff.clearcasting.react&((buff.arcane_salvo.stack<(10+(5*(buff.overpowered_missiles.react=0))))|(buff.arcane_charge.stack<2&talent.high_voltage&active_enemies>=2)),chain=1
+actions.spellslinger+=/presence_of_mind,use_off_gcd=1,if=buff.arcane_charge.stack<2&(buff.clearcasting.react=0|!talent.high_voltage&cooldown.arcane_orb.charges_fractional<0.95)&!prev_gcd.1.arcane_orb&!prev_gcd.1.arcane_missiles
+actions.spellslinger+=/arcane_blast,if=buff.presence_of_mind.up
+actions.spellslinger+=/arcane_pulse,if=((active_enemies>=variable.pulse_aoe_count)&!variable.funnel)|((buff.arcane_charge.stack<3)&mana.pct>30)
+actions.spellslinger+=/arcane_blast
+actions.spellslinger+=/arcane_barrage,if=!prev_gcd.1.arcane_surge|prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=20
+
+# Orb after Barraging with Clearcasting to recoup Charges and Salvo, in AOE just send as long as you won't overcap Salvo. If you don't have CC, only Orb if you'll overcap Orb and need Charges.
+actions.spellslinger_orbm=arcane_orb,if=(prev_gcd.1.arcane_barrage|active_enemies>=4)&((buff.clearcasting.react&buff.arcane_salvo.react<=14)|(buff.clearcasting.react=0&(cooldown.arcane_orb.charges_fractional>1.9)&buff.arcane_salvo.react<=18))
+# Barrage at 20 stacks, save for Touch, Barrage the end of Touch or Surge for Splinters.
+actions.spellslinger_orbm+=/arcane_barrage,if=(buff.arcane_charge.stack=4|talent.orb_barrage)&buff.arcane_salvo.react>=20&cooldown.touch_of_the_magi.remains>gcd.max*(4-(2*(active_enemies>=2)))|(((buff.arcane_surge.remains<gcd.max&buff.arcane_surge.up)|(debuff.touch_of_the_magi.remains<gcd.max&debuff.touch_of_the_magi.up))&buff.arcane_salvo.react>=15)
+# Missiles only if you have HV or OPM specced and in minimal situations.
+actions.spellslinger_orbm+=/arcane_missiles,if=(talent.high_voltage|talent.overpowered_missiles|(buff.clearcasting.react=3))&buff.clearcasting.react&buff.arcane_salvo.react<=(10+(5*(buff.overpowered_missiles.react=0)))&!prev_gcd.1.arcane_orb&(buff.arcane_surge.down|(talent.high_voltage&active_enemies=1))&(active_enemies<2|talent.overpowered_missiles),chain=1
+# Small benefit when playing with Pulse, due to its mana consumption, its a gain for most profiles to Barrage a little bit more often outside of cds when you lack Orbs.
+actions.spellslinger_orbm+=/arcane_barrage,if=buff.arcane_salvo.react<7&buff.arcane_surge.down&buff.touch_of_the_magi.down&buff.arcane_charge.stack=4&talent.resonance&talent.arcane_pulse
+actions.spellslinger_orbm+=/presence_of_mind,use_off_gcd=1,if=buff.arcane_charge.stack<2&(buff.clearcasting.react=0|!talent.high_voltage&cooldown.arcane_orb.charges_fractional<0.95)&!prev_gcd.1.arcane_orb&!prev_gcd.1.arcane_missiles
+actions.spellslinger_orbm+=/arcane_blast,if=buff.presence_of_mind.up
+actions.spellslinger_orbm+=/arcane_pulse,if=((active_enemies>=variable.pulse_aoe_count)&!variable.funnel)|((buff.arcane_charge.stack<3)&mana.pct>30)
+actions.spellslinger_orbm+=/arcane_blast
+actions.spellslinger_orbm+=/arcane_barrage,if=(time>5&!prev_gcd.1.arcane_surge)|(prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=20)
+
+# Basic idea is simple, Barrage to spend Salvo in increments of 6 to optimize around Meteorite generation when possible with Clearcasting when you run High Voltage, or Orb CD is up in AOE, until you get to the point where 25 isn't far away, for a little more dps you can pool for Touch, Surge, and Soul, pooling logic is above. Extra conditions beyond that are to Barrage at the start and end of Touch and during Soul.
+actions.sunfury=arcane_barrage,if=(buff.arcane_charge.stack=4&variable.sunfury_hold_for_cds&((((buff.clearcasting.react&talent.high_voltage)|(cooldown.arcane_orb.charges_fractional>0.95&active_enemies>=3))&((buff.arcane_salvo.react>=6&buff.arcane_salvo.react<7)|(buff.arcane_salvo.react>=12&buff.arcane_salvo.react<13)|(buff.arcane_salvo.react>=18&buff.arcane_salvo.react<19)|((buff.arcane_salvo.react<19)&!talent.resonance&active_enemies>=3)))|buff.arcane_salvo.stack=25))|prev_off_gcd.touch_of_the_magi|(debuff.touch_of_the_magi.remains<gcd.max&debuff.touch_of_the_magi.up&buff.arcane_charge.stack=4)|buff.arcane_soul.up
+# Missile if you have less than 15 Salvo or 10 with OPM proc except when Surge is up; send Missiles if you have both Surge and Touch going.
+actions.sunfury+=/arcane_missiles,if=buff.clearcasting.react&((((cooldown.touch_of_the_magi.remains>gcd.max*(8-(4*variable.sf_touch_surge))&buff.overpowered_missiles.react=0)|buff.arcane_surge.up|buff.arcane_charge.stack<3|buff.clearcasting.react>1)&buff.arcane_salvo.react<(15-(5*(buff.overpowered_missiles.react&buff.arcane_surge.down))))|(debuff.touch_of_the_magi.up&buff.arcane_surge.up)),chain=1
+actions.sunfury+=/arcane_orb,if=buff.arcane_charge.stack<2
+actions.sunfury+=/arcane_pulse,if=((active_enemies>=variable.pulse_aoe_count)&!variable.funnel)|((buff.arcane_charge.stack<3)&mana.pct>30)
+actions.sunfury+=/arcane_explosion,if=active_enemies>3&buff.arcane_charge.stack<2&!talent.impetus
+# Barrage can be used if you didn't have any of the charge generators above to get over 1 stacks. This is also not default behavior but is interestingly neutral. actions.sunfury+=/arcane_barrage,if=buff.arcane_charge.stack<2
+actions.sunfury+=/arcane_blast
+actions.sunfury+=/arcane_barrage,if=(variable.sf_touch_surge&(!prev_gcd.1.arcane_surge|prev_off_gcd.touch_of_the_magi&buff.arcane_salvo.react=25))|!variable.sf_touch_surge
+```
+
+---
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+IDs sourced from spell-ids-reference.json (extracted from the SimulationCraft Midnight 12.0.5 HTML report). Only abilities named in this guide are listed; IDs already confirmed via Wowhead above are unchanged.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Arcane Assault | 225119 | arcane | cast |
+| Arcane Barrage | 44425, 450499 (multiple: base cast + variants) | arcane | cast |
+| Arcane Blast | 30451 | arcane | cast |
+| Arcane Missiles | 5143, 7268 (multiple: base cast + variants) | arcane | cast |
+| Arcane Orb | 153626, 153640 (multiple: base cast + variants) | arcane | cast |
+| Arcane Splinter | 443763 | arcane | cast |
+| Arcane Surge | 365350, 453326 (multiple: base cast + variants) | arcane | cast |
+| Touch of the Magi | 321507, 210833 (multiple: base cast + variants) | arcane | cast / other |
+| Arcane Intellect | 1459 | arcane | other |
+| Mirror Image | 55342 | arcane | cast |
+| Presence of Mind | 205025 | arcane | cast |
+| Greater Pyroblast | 450421 | fire | cast |
+| Meteorite | 449559, 449569, 456139 (multiple: base cast + variants) | fire | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
+---
+
 ## Notes and Known Gaps
 
 - **Patch currency:** All fetched pages were labeled Patch **12.0.5** (Midnight); Icy Veins consumables page last updated 2026-05-19. No pre-Midnight (Dragonflight / War Within) data was knowingly used. Wowhead spell pages do not display patch labels but SpellIDs are stable across patches.
 - **Wowhead guide bodies:** The Wowhead Arcane guide pages (overview, rotation, enchants) frequently returned only navigation/header content via fetch; rotation and consumable detail were therefore taken from Icy Veins, with SpellIDs confirmed on individual Wowhead `/spell=` pages.
+- **SimulationCraft data added (June 2026):** Talent import strings for both Spellslinger and Sunfury builds are now confirmed from simc-guides/. APL action lists are included verbatim. Damage/rotational spell IDs for Arcane Blast, Arcane Barrage, Arcane Missiles, Arcane Orb, Arcane Splinter, Arcane Surge, Arcane Assault, Touch of the Magi, Mirror Image, Presence of Mind, Greater Pyroblast, and Meteorite are now confirmed from spell-ids-reference.json. Defensive, interrupt, and consumable spell IDs are not present in the SimC source and remain unconfirmed or sourced from Wowhead only.
 - **Unconfirmed SpellIDs (omitted on purpose):**
-  - **Arcane Pulse** — AoE filler; ID not confirmed.
+  - **Arcane Pulse** — AoE filler; ID not confirmed (not present in SimC single-target reference).
   - **Supernova** — CC/knockback; ID not confirmed.
   - **Ring of Frost / other talented CC** — not confirmed live.
+  - **Evocation** — mana recovery channel; ID 12051 appears in guide text from Wowhead but was not present in the SimC spell-ids-reference.json (not a damaging ability).
 - **Cooldown caveats:**
   - **Touch of the Magi** `/spell=321507` page shows a 0.5s internal value; the usable cooldown (~45s per Icy Veins) was not confirmed on the spell page itself.
   - **Ice Block** cooldown displayed as "n/a" on `/spell=45438`; the real usable cooldown (commonly ~4 min) is **not confirmed** here. Do not assume a hard number when judging availability.

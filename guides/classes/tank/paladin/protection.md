@@ -18,6 +18,7 @@
 > - https://www.wowhead.com/spell=31884/avenging-wrath
 > - https://www.wowhead.com/spell=375576/divine-toll
 > - https://www.wowhead.com/spell=465/devotion-aura
+> - SimulationCraft Midnight 12.0.5 (simc-guides/), APL from Trivial.txt, spell-ids-reference.json
 
 ## Overview
 
@@ -66,7 +67,7 @@ Key passives/procs:
 
 ## Rotation / Priority
 
-This is a **logical priority list, not a DPS benchmark**. Exact ordering shifts with the talent build (Lightsmith vs. Templar/Herald). The goal is constant Shield of the Righteous uptime and Consecration maintenance while not Holy-Power-capping.
+This is a **logical priority list, not a DPS benchmark**. Exact ordering shifts with the talent build (Lightsmith vs. Templar/Herald of the Sun). The goal is constant Shield of the Righteous uptime and Consecration maintenance while not Holy-Power-capping.
 
 Opener (representative):
 1. Pre-place Consecration; open with a builder (Blessed Hammer) or pull with Hand of Reckoning.
@@ -142,16 +143,213 @@ Protection Paladin has an unusually large defensive toolkit. Every personal and 
 
 Not confirmed from a live source during this research pass. Tank consumable/enchant choices in 12.0.5 (versatility/armor flasks, stamina/armor food, weapon/gear enchants) were not loaded from a fetchable page, so no specific item IDs or product names are asserted here. **Do not infer pre-Midnight consumables as current.** See Known Gaps; re-verify against the live Wowhead Protection Paladin gearing/consumables sub-page before relying on this section.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero trees covered: **base (no hero tree)** and **Lightsmith**.
+
+> These are tank simulations. DPS/DTPS/HPS reflect the Protection Paladin's combined damage output, damage taken per second, and self-healing per second while tanking — not the spec's purpose, but useful as relative indicators of rotational activity.
+
+---
+
+### Variant 1 — Base (no hero tree)
+
+**Talent import string:**
+```
+CIEAAAAAAAAAAAAAAAAAAAAAAsMzAzyMLmZMDLLDzYmFbzYAAAAAAAAg0MziZMmxYmt2AgBADsNAAwMTbzMbzAEYzADWMzMAzMAALzAMzAG
+```
+
+**Metrics:**
+| Metric | Value |
+|--------|-------|
+| DPS | 73,839 |
+| DTPS | 95,567 |
+| HPS | 40,507 |
+
+**Damage distribution (SimC, share of total):**
+
+| Ability | Share |
+|---------|-------|
+| Empyrean Hammer | 19.4% |
+| Hammer of Light | 16.7% |
+| Refining Fire | 10.8% |
+| melee (auto-attack) | 7.5% |
+| Judgment | 4.7% |
+| Twilight Barrage | 0.9% |
+| Voidclaw | 0.5% |
+| Voidstalker Sting | 0.3% |
+
+For RaidLens: Empyrean Hammer and Hammer of Light together account for ~36% of the base build's damage output, confirming that Hammer of Light usage (gated on maintaining the Judgment debuff and Light's Deliverance stacks) is the dominant rotational damage priority.
+
+**Healing/absorb distribution (SimC, share of total healing):**
+
+| Source | Share |
+|--------|-------|
+| Word of Glory | 75.1% |
+| Bulwark of Order (absorb) | 11.9% |
+| Sacrosanct Crusade (heal) | 11.9% |
+| Sacrosanct Crusade (absorb) | 1.1% |
+
+---
+
+### Variant 2 — Lightsmith
+
+**Talent import string:**
+```
+CIEAAAAAAAAAAAAAAAAAAAAAAsMzAzyMLmZMDLLDzYmFbzYAAAAAAAAg0MziZMmxYmt2AgBADsNAAACwMzyySbzMWMwgFzMDwMDAmZAwMDyA
+```
+
+**Metrics:**
+| Metric | Value |
+|--------|-------|
+| DPS | 57,055 |
+| DTPS | 90,898 |
+| HPS | 42,138 |
+
+**Damage distribution (SimC, share of total):**
+
+| Ability | Share |
+|---------|-------|
+| Refining Fire | 9.5% |
+| melee (auto-attack) | 9.4% |
+| Sacred Weapon (proc damage) | 6.7% |
+| Judgment | 7.0% |
+| Lesser Weapon (proc damage) | 6.4% |
+| Twilight Barrage | 1.2% |
+| Voidclaw | 0.6% |
+| Voidstalker Sting | 0.4% |
+
+For RaidLens: the Lightsmith build trades Empyrean Hammer and Hammer of Light (Templar-tree abilities) for Sacred Weapon and Lesser Weapon procs from Holy Armaments, spreading damage more evenly across builders and weapon procs. Notably, overall DPS is ~22% lower than the base Templar-oriented profile, reflecting Lightsmith's emphasis on defensive/healing throughput over damage.
+
+**Healing/absorb distribution (SimC, share of total healing):**
+
+| Source | Share |
+|--------|-------|
+| Word of Glory | 77.6% |
+| Holy Bulwark (absorb) | 9.4% |
+| Bulwark of Order (absorb) | 7.8% |
+| Sacred Weapon (proc heal) | 3.9% |
+| Lesser Weapon (proc heal) | 0.7% |
+
+---
+
+### Action Priority List — Base (no hero tree)
+
+```
+actions.precombat=rite_of_sanctification
+actions.precombat+=/rite_of_adjuration
+actions.precombat+=/snapshot_stats
+actions.precombat+=/devotion_aura
+actions.precombat+=/lights_judgment
+actions.precombat+=/consecration
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/use_item,name=algethar_puzzle_box
+actions+=/use_items
+actions+=/potion,if=buff.avenging_wrath.up
+actions+=/avenging_wrath,if=cooldown.divine_toll.remains<=10
+actions+=/fireblood,if=buff.avenging_wrath.up
+actions+=/divine_toll,if=buff.avenging_wrath.up|(!talent.righteous_protector.enabled&cooldown.avenging_wrath.remains<30)
+actions+=/hammer_of_light,if=(!buff.undisputed_ruling.up|buff.hammer_of_light_ready.remains<5)&debuff.judgment.up
+actions+=/shield_of_the_righteous,if=!buff.hammer_of_light_ready.up|(!buff.hammer_of_light_ready.remains<5&buff.undisputed_ruling.up)|buff.hammer_of_light_free.up|prev_gcd.1.divine_toll
+actions+=/holy_armaments,if=next_armament=sacred_weapon&(buff.sacred_weapon.remains<6|!buff.sacred_weapon.up)
+actions+=/hammer_of_wrath,if=buff.hammer_of_light_ready.up&!debuff.judgment.up
+actions+=/judgment,if=buff.hammer_of_light_ready.up&!debuff.judgment.up
+actions+=/avengers_shield,if=buff.vanguard.up|(buff.avenging_wrath.up&apex.3)
+actions+=/holy_armaments,if=next_armament=holy_bulwark&cooldown.avenging_wrath.remains<5
+actions+=/consecration,if=buff.divine_guidance.stack>=5
+actions+=/hammer_of_wrath
+actions+=/judgment,if=full_recharge_time<=gcd*2
+actions+=/avengers_shield
+actions+=/hammer_of_the_righteous,if=buff.blessed_assurance.up
+actions+=/blessed_hammer,if=buff.blessed_assurance.up
+actions+=/judgment
+actions+=/holy_armaments,if=next_armament=holy_bulwark&charges=2
+actions+=/consecration,if=!consecration.up
+actions+=/blessed_hammer
+actions+=/hammer_of_the_righteous
+actions+=/arcane_torrent
+actions+=/word_of_glory,if=buff.shining_light_free.up
+actions+=/consecration
+```
+
+### Action Priority List — Lightsmith
+
+```
+actions.precombat=rite_of_sanctification
+actions.precombat+=/rite_of_adjuration
+actions.precombat+=/snapshot_stats
+actions.precombat+=/devotion_aura
+actions.precombat+=/lights_judgment
+actions.precombat+=/consecration
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/use_item,name=algethar_puzzle_box
+actions+=/use_items
+actions+=/potion,if=buff.avenging_wrath.up
+actions+=/avenging_wrath,if=cooldown.divine_toll.remains<=10
+actions+=/fireblood,if=buff.avenging_wrath.up
+actions+=/divine_toll,if=buff.avenging_wrath.up|(!talent.righteous_protector.enabled&cooldown.avenging_wrath.remains<30)
+actions+=/hammer_of_light,if=(!buff.undisputed_ruling.up|buff.hammer_of_light_ready.remains<5)&debuff.judgment.up
+actions+=/shield_of_the_righteous,if=!buff.hammer_of_light_ready.up|(!buff.hammer_of_light_ready.remains<5&buff.undisputed_ruling.up)|buff.hammer_of_light_free.up|prev_gcd.1.divine_toll
+actions+=/holy_armaments,if=next_armament=sacred_weapon&(buff.sacred_weapon.remains<6|!buff.sacred_weapon.up)
+actions+=/hammer_of_wrath,if=buff.hammer_of_light_ready.up&!debuff.judgment.up
+actions+=/judgment,if=buff.hammer_of_light_ready.up&!debuff.judgment.up
+actions+=/avengers_shield,if=buff.vanguard.up|(buff.avenging_wrath.up&apex.3)
+actions+=/holy_armaments,if=next_armament=holy_bulwark&cooldown.avenging_wrath.remains<5
+actions+=/consecration,if=buff.divine_guidance.stack>=5
+actions+=/hammer_of_wrath
+actions+=/judgment,if=full_recharge_time<=gcd*2
+actions+=/avengers_shield
+actions+=/hammer_of_the_righteous,if=buff.blessed_assurance.up
+actions+=/blessed_hammer,if=buff.blessed_assurance.up
+actions+=/judgment
+actions+=/holy_armaments,if=next_armament=holy_bulwark&charges=2
+actions+=/consecration,if=!consecration.up
+actions+=/blessed_hammer
+actions+=/hammer_of_the_righteous
+actions+=/arcane_torrent
+actions+=/word_of_glory,if=buff.shining_light_free.up
+actions+=/consecration
+```
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Spell IDs below are sourced from the SimulationCraft Midnight 12.0.5 Spelldata blocks (spell-ids-reference.json), matched by exact ability name. Abilities named in this guide but absent from the SimC source (non-damaging defensives, interrupts, utility) are not listed here — their IDs (where confirmed) remain in the sections above.
+
+| Ability | Spell ID(s) | School | Type |
+|---------|-------------|--------|------|
+| Avenger's Shield | 31935 | holy | cast |
+| Avenging Wrath | 454351 | holy | cast |
+| Consecration | 81297, 26573 (multiple: base cast + variants) | holy | cast |
+| Divine Toll | 375576 | holy | cast |
+| Empyrean Hammer | 431398 | holy | cast |
+| Hammer of Light | 427453 | holy | cast |
+| Hammer of the Righteous | 53595, 88263 (multiple: base cast + variants) | physical / holy | cast |
+| Hammer of Wrath | 24275, 1279408, 1241413 (multiple: base cast + variants) | holy | cast |
+| Judgment | 275779, 406957, 20271 (multiple: base cast + variants) | holy | cast |
+| Refining Fire | 469882 | holyfire | cast |
+| Shield of the Righteous | 53600 | holy | cast |
+| Word of Glory | 85673 | holy | cast |
+
+Note on Avenging Wrath: the guide references SpellID 31884 (from Wowhead); the SimC source records 454351. These may correspond to different variants of the same spell (e.g., the buff aura vs. the activating cast). Both IDs are noted here; treat 31884 as the Wowhead-confirmed buff aura and 454351 as the SimC cast event.
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 - **Unconfirmed SpellIDs (omitted on purpose):**
   - **Hand of Reckoning** (taunt) — could not load its spell page (Wowhead returned 403 during this session). Listed by name only.
   - **Cleanse Toxins** (Poison/Disease dispel) — could not load its spell page (403). Listed by name only; dispel scope (Poison + Disease, not Magic for Protection) is stated from class-design knowledge, not a fetched page this session — re-verify.
-  - **Word of Glory**, **Judgment**, **Consecration**, **Blessed Hammer**, **Hammer of the Righteous**, **Hammer of Light**, **Hammer of Wrath**, **Divine Steed**, **Hammer of Justice**, **Repentance**, the auras other than Devotion, and all talent/proc IDs (Shining Light, Vanguard) — not individually fetched and confirmed this session. Names are reliable; numeric IDs are intentionally omitted.
+  - **Blessed Hammer**, **Divine Steed**, **Hammer of Justice**, **Repentance**, the auras other than Devotion, and all talent/proc IDs (Shining Light, Vanguard) — not individually present in the SimC source and not fetched from Wowhead this session. Names are reliable; numeric IDs are intentionally omitted.
+  - **Rebuke** (SpellID 96231), **Ardent Defender** (SpellID 31850), **Guardian of Ancient Kings** (SpellID 86659), **Divine Shield** (SpellID 642), **Blessing of Protection** (SpellID 1022), **Blessing of Spellwarding** (SpellID 204018), **Blessing of Sacrifice** (SpellID 6940), **Lay on Hands** (SpellID 633), **Devotion Aura** (SpellID 465), **Blessing of Freedom** (SpellID 1044) — IDs confirmed from Wowhead live pages (see Sources above); these are NOT in the SimC source as expected (non-damaging utility absent from SimC).
+- **Rotational spell IDs confirmed via SimC:** Avenger's Shield (31935), Consecration (81297/26573), Divine Toll (375576), Empyrean Hammer (431398), Hammer of Light (427453), Hammer of the Righteous (53595/88263), Hammer of Wrath (24275/1279408/1241413), Judgment (275779/406957/20271), Refining Fire (469882), Shield of the Righteous (53600), Word of Glory (85673).
+- **Talent import strings:** now added (see SimulationCraft Reference section) for both base and Lightsmith builds.
+- **APL:** now added verbatim for both builds. Both builds share identical action list logic; the only difference is the talent string and the resulting proc/buff availability.
 - **Cooldown caveats:**
   - Blessing of Protection (1022) and Blessing of Spellwarding (204018): the Wowhead tooltip readout of "1.5 seconds" is the **global cooldown**, not the real ability cooldown (which is on the order of minutes). Exact current 12.0.5 cooldown not confirmed from a fetched page — flagged.
   - Guardian of Ancient Kings charge count (1 vs. 2) and Avenging Wrath duration/cooldown reduction depend on the player's talents (Empyrean Authority, Righteous Protector). Always check talents before judging availability.
-- **Rotation ordering** is a logical priority synthesized from Icy Veins / Method and is NOT a DPS benchmark; it varies by talent hero spec (Lightsmith vs. Templar/Herald of the Sun).
+- **Rotation ordering** is a logical priority synthesized from Icy Veins / Method and is NOT a DPS benchmark; it varies by talent hero spec (Lightsmith vs. Templar/Herald of the Sun). The SimC APL confirms Avenging Wrath → Divine Toll → Hammer of Light as the opener sequence.
 - **Consumables and Enchants** section is unsourced this pass — must be filled from a live gearing page before use.
-- **Talent import strings / SimC APL** were not available (no user-provided profile) and are intentionally absent.
 - **Maintenance flag:** Re-verify all values, especially defensive cooldowns and Guardian of Ancient Kings charges, after any 12.x patch (12.0.7 PTR data already exists as of this writing). Patch baseline for this guide: **12.0.5**.
