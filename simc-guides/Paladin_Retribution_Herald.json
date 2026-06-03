@@ -1,0 +1,202 @@
+{
+  "class": "Paladin",
+  "spec": "Retribution",
+  "hero_tree": "Herald",
+  "metrics": {},
+  "abilities": {
+    "Blade of Justice": {
+      "damage": "1.567",
+      "percent": "0.000"
+    },
+    "Blade of Justice (_walk_into_light)": {
+      "damage": "3,799 (8,121)",
+      "percent": "3.4% (7.2%)"
+    },
+    "Consecration (blade_of_justice)": {
+      "damage": "0 (929)",
+      "percent": "0.0% (0.8%)"
+    },
+    "Dawnlight": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Divine Storm": {
+      "damage": "743 (800)",
+      "percent": "0.7% (0.7%)"
+    },
+    "Divine Toll": {
+      "damage": "1.890",
+      "percent": "0.000"
+    },
+    "Execution Sentence": {
+      "damage": "1.138",
+      "percent": "0.005"
+    },
+    "Execution Sentence (_init)": {
+      "damage": "1,057",
+      "percent": "0.9%"
+    },
+    "Expurgation": {
+      "damage": "9,550",
+      "percent": "8.5%"
+    },
+    "Final Verdict": {
+      "damage": "23,737",
+      "percent": "21.2%"
+    },
+    "Hammer of Wrath": {
+      "damage": "2.185",
+      "percent": "0.000"
+    },
+    "Hammer of Wrath (_second_sunrise)": {
+      "damage": "293",
+      "percent": "0.3%"
+    },
+    "Highlord's Judgment": {
+      "damage": "3,960",
+      "percent": "3.5%"
+    },
+    "Judgment": {
+      "damage": "1.765",
+      "percent": "0.000"
+    },
+    "melee": {
+      "damage": "12,035",
+      "percent": "10.7%"
+    },
+    "Sun Sear": {
+      "damage": "982",
+      "percent": "0.9%"
+    },
+    "Sun's Avatar": {
+      "damage": "3,711",
+      "percent": "3.3%"
+    },
+    "Templar Slash": {
+      "damage": "1,861",
+      "percent": "1.7%"
+    },
+    "Templar Strike": {
+      "damage": "10.840",
+      "percent": "0.000"
+    },
+    "Voidclaw": {
+      "damage": "346",
+      "percent": "0.3%"
+    },
+    "Wake of Ashes": {
+      "damage": "0.685",
+      "percent": "0.000"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "122.32s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Avenging Wrath": {
+      "damage": "1.055",
+      "percent": "0.000"
+    },
+    "Dawnlight (_aoe)": {
+      "damage": "212.8",
+      "percent": "1.40s"
+    },
+    "Fireblood": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Royal Roast": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Art of War": {
+      "damage": "31.5",
+      "percent": "13.0"
+    },
+    "Blessing of An'she": {
+      "damage": "18.0",
+      "percent": "3.5"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Born in Sunlight": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Divine Purpose": {
+      "damage": "12.7",
+      "percent": "2.0"
+    },
+    "Divine Resonance": {
+      "damage": "5.3",
+      "percent": "0.0"
+    },
+    "Empyrean Legacy": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.5"
+    },
+    "Rush of Light": {
+      "damage": "3.4",
+      "percent": "91.7"
+    },
+    "Templar Strikes": {
+      "damage": "21.2",
+      "percent": "0.0"
+    },
+    "Umbral Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Art of War wasted": {
+      "damage": "1.2",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "34.0",
+      "percent": "14.0"
+    },
+    "Holy Power Cap": {
+      "damage": "16.37%",
+      "percent": "9.38%"
+    },
+    "Consecration (_tick_blade_of_justice)": {
+      "damage": "143.815",
+      "percent": "0.000"
+    },
+    "Holy Power": {
+      "damage": "0.0",
+      "percent": "1.01"
+    }
+  },
+  "spelldata": {},
+  "talents": "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQzy2MzsMMzAAAAAAwoMmhZGbDz2wMbzYMmZYGLsNMgZZ2mZmtGEAAwCgBAjZYGMjxsAMzMMmxgB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

@@ -1,0 +1,366 @@
+{
+  "class": "Demon_Hunter",
+  "spec": "Devourer",
+  "hero_tree": "Void-Scarred",
+  "metrics": {},
+  "abilities": {
+    "Burning Blades": {
+      "damage": "1,249",
+      "percent": "1.2%"
+    },
+    "Consume": {
+      "damage": "2,746",
+      "percent": "2.6%"
+    },
+    "Cull": {
+      "damage": "1.428",
+      "percent": "0.001"
+    },
+    "Devour": {
+      "damage": "6,255",
+      "percent": "6.0%"
+    },
+    "Heaven's Glaive (_missile)": {
+      "damage": "0 (359)",
+      "percent": "0.0% (0.3%)"
+    },
+    "Pierce the Veil": {
+      "damage": "4.848",
+      "percent": "0.108"
+    },
+    "Predator's Wake": {
+      "damage": "5.359",
+      "percent": "4.289"
+    },
+    "Reap": {
+      "damage": "0.171",
+      "percent": "0.001"
+    },
+    "Reaper's Toll": {
+      "damage": "0 (1,960)",
+      "percent": "0.0% (1.9%)"
+    },
+    "The Hunt": {
+      "damage": "11.356",
+      "percent": "0.001"
+    },
+    "Vengeful Retreat": {
+      "damage": "0 (128)",
+      "percent": "0.0% (0.1%)"
+    },
+    "Void Ray": {
+      "damage": "0 (21,328)",
+      "percent": "0.0% (20.6%)"
+    },
+    "Voidblade": {
+      "damage": "12.545",
+      "percent": "0.002"
+    },
+    "Voidstalker Sting": {
+      "damage": "770",
+      "percent": "0.7%"
+    },
+    "Voidsurge": {
+      "damage": "6.4",
+      "percent": "19.1"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Consume Soul (_lesser)": {
+      "damage": "408.2",
+      "percent": "0.73s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blooming Feast": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Void Metamorphosis (metamorphosis)": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.4",
+      "percent": "301.43s"
+    },
+    "Soul Immolation": {
+      "damage": "18.487",
+      "percent": "7.002"
+    },
+    "Void Metamorphosis (void_buildup)": {
+      "damage": "1,262.9",
+      "percent": "0.22s"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Collapsing Star": {
+      "damage": "1.6",
+      "percent": "0.0"
+    },
+    "Collapsing Star (_stacking)": {
+      "damage": "6.4",
+      "percent": "162.8"
+    },
+    "Deepening Temptation": {
+      "damage": "1.0",
+      "percent": "12.9"
+    },
+    "Demonsurge (_demonic_intensity)": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Demonsurge (_demonsurge)": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Feast of Souls": {
+      "damage": "9.2",
+      "percent": "399.0"
+    },
+    "Hasty Hunt": {
+      "damage": "3.9",
+      "percent": "6.2"
+    },
+    "Hungering Slash": {
+      "damage": "12.9",
+      "percent": "9.7"
+    },
+    "Masterful Hunt": {
+      "damage": "3.7",
+      "percent": "6.1"
+    },
+    "Moment of Craving": {
+      "damage": "37.1",
+      "percent": "0.0"
+    },
+    "Nullsight": {
+      "damage": "3.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Haste)": {
+      "damage": "0.2",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "1.3",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Precision of the Dragonhawk": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Riftwalker's Temptation": {
+      "damage": "9.0",
+      "percent": "4.9"
+    },
+    "Rolling Torment": {
+      "damage": "6.1",
+      "percent": "0.0"
+    },
+    "Soul Fragments": {
+      "damage": "62.5",
+      "percent": "349.2"
+    },
+    "Student of Suffering": {
+      "damage": "453239",
+      "percent": "#1"
+    },
+    "vengeful_retreat_movement": {
+      "damage": "6.4",
+      "percent": "0.0"
+    },
+    "Versatile Hunt": {
+      "damage": "1.0",
+      "percent": "1.6"
+    },
+    "Void Metamorphosis (_stack)": {
+      "damage": "7.0",
+      "percent": "233.1"
+    },
+    "Voidrush": {
+      "damage": "22.6",
+      "percent": "0.0"
+    },
+    "Voidstep": {
+      "damage": "6.4",
+      "percent": "0.0"
+    },
+    "Volatile Instinct": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Shattered Souls: consume": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Shattered Souls: cull_damage": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Shattered Souls: devour": {
+      "damage": "2.3",
+      "percent": "0.0"
+    },
+    "Shattered Souls: pierce_the_veil_damage": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Shattered Souls: reap_damage": {
+      "damage": "3.2",
+      "percent": "0.0"
+    },
+    "Shattered Souls: reapers_toll_damage": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Shattered Souls: void_ray_tick": {
+      "damage": "118.9",
+      "percent": "64.0"
+    },
+    "Shattered Souls: void_ray_tick_meta": {
+      "damage": "68.8",
+      "percent": "34.0"
+    },
+    "Shattered Souls: voidblade_damage": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Shattered Souls: voidstep": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Soul Fragment": {
+      "damage": "411.9",
+      "percent": "299.0"
+    },
+    "Soul Fragment from Consume": {
+      "damage": "73.7",
+      "percent": "38.0"
+    },
+    "Soul Fragment from Devour": {
+      "damage": "58.2",
+      "percent": "40.0"
+    },
+    "Soul Fragment from Entropy": {
+      "damage": "25.5",
+      "percent": "21.0"
+    },
+    "Soul Fragment from Reaper's Toll": {
+      "damage": "12.8",
+      "percent": "10.0"
+    },
+    "Soul Fragment from Shattered Souls": {
+      "damage": "201.3",
+      "percent": "125.0"
+    },
+    "Soul Fragment from Soul Immolation": {
+      "damage": "27.7",
+      "percent": "15.0"
+    },
+    "Soul Fragment from Soul Splitter": {
+      "damage": "12.7",
+      "percent": "3.0"
+    },
+    "Soul Fragment overflow": {
+      "damage": "22.1",
+      "percent": "2.0"
+    },
+    "Undying Embers": {
+      "damage": "2.3",
+      "percent": "0.0"
+    },
+    "Demonsurge (voidsurge_pierce_the_veil)": {
+      "damage": "6.4",
+      "percent": "5.0"
+    },
+    "Demonsurge (voidsurge_predators_wake)": {
+      "damage": "6.4",
+      "percent": "5.0"
+    },
+    "Demonsurge (voidsurge_reapers_toll)": {
+      "damage": "6.4",
+      "percent": "5.0"
+    },
+    "Voidsurge: Volatile Instinct": {
+      "damage": "6.4",
+      "percent": "5.0"
+    },
+    "Fury Cap": {
+      "damage": "0.64%",
+      "percent": "0.39%"
+    },
+    "Voidrage": {
+      "damage": "1242956",
+      "percent": "#1"
+    },
+    "Untethered Fury": {
+      "damage": "452411",
+      "percent": "#2"
+    },
+    "Metamorphosis": {
+      "damage": "191427",
+      "percent": "#3"
+    },
+    "Soul Rending": {
+      "damage": "204909",
+      "percent": "#1"
+    },
+    "Immolation Aura": {
+      "damage": "427916",
+      "percent": "#2"
+    },
+    "Flamebound": {
+      "damage": "452413",
+      "percent": "#2"
+    },
+    "Void Metamorphosis": {
+      "damage": "1217607",
+      "percent": "#3"
+    },
+    "Shattered Souls": {
+      "damage": "1227619",
+      "percent": "#1"
+    },
+    "Meteoric Rise": {
+      "damage": "1253377",
+      "percent": "#1"
+    },
+    "Swift Erasure": {
+      "damage": "1253668",
+      "percent": "#1"
+    },
+    "Demonic Wards": {
+      "damage": "1277736",
+      "percent": "#1"
+    },
+    "Blur": {
+      "damage": "212800",
+      "percent": "#3"
+    },
+    "Pursuit of Angriness": {
+      "damage": "452404",
+      "percent": "#3"
+    }
+  },
+  "spelldata": {},
+  "talents": "CgcBAAAAAAAAAAAAAAAAAAAAAAA2MmZmZmZmxwMAAAAAAAegxsNYGAAAAAAAAmxMMmZmZMzMzMzsNzYsplNAEwAMjZmZZmZa2mZbmZMMA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

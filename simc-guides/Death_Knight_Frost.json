@@ -1,0 +1,402 @@
+{
+  "class": "Death_Knight",
+  "spec": "Frost",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "auto_attack_mh": {
+      "damage": "10,929",
+      "percent": "8.4%"
+    },
+    "Breath of Sindragosa": {
+      "damage": "1.642",
+      "percent": "0.000"
+    },
+    "Empower Rune Weapon": {
+      "damage": "0.371",
+      "percent": "0.000"
+    },
+    "Frost Fever": {
+      "damage": "3,341",
+      "percent": "2.6%"
+    },
+    "Frost Strike": {
+      "damage": "8,151",
+      "percent": "6.3%"
+    },
+    "Frostreaper": {
+      "damage": "3,749",
+      "percent": "2.9%"
+    },
+    "Frostwyrm's Fury": {
+      "damage": "2.981",
+      "percent": "0.000"
+    },
+    "Howling Blast": {
+      "damage": "6,468 (7,739)",
+      "percent": "5.0% (5.9%)"
+    },
+    "Hyperpyrexia": {
+      "damage": "2,280",
+      "percent": "1.8%"
+    },
+    "Icy Death Torrent": {
+      "damage": "3,293",
+      "percent": "2.5%"
+    },
+    "Obliterate": {
+      "damage": "18,995 (48,123)",
+      "percent": "14.6% (37.0%)"
+    },
+    "Raise Dead": {
+      "damage": "0.000",
+      "percent": "0.000"
+    },
+    "Reaper's Mark": {
+      "damage": "0.779",
+      "percent": "0.000"
+    },
+    "Remorseless Winter (_frozen_dominion)": {
+      "damage": "0 (1,973)",
+      "percent": "0.0% (1.5%)"
+    },
+    "Anti-Magic Shell": {
+      "damage": "6.7",
+      "percent": "0.0"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Frost Shield": {
+      "damage": "1.0",
+      "percent": "183.5"
+    },
+    "Pillar of Frost": {
+      "damage": "0.960",
+      "percent": "0.000"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "308.28s"
+    },
+    "Unholy Strength": {
+      "damage": "53365",
+      "percent": "#1"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.1",
+      "percent": "114.5"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bind in Darkness": {
+      "damage": "49.3",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Bonegrinder (_crit)": {
+      "damage": "18.0",
+      "percent": "40.2"
+    },
+    "Bonegrinder (_frost)": {
+      "damage": "14.7",
+      "percent": "2.6"
+    },
+    "Charge!": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Chosen of Frostbrood (FWF)": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Chosen of Frostbrood (Haste)": {
+      "damage": "3.7",
+      "percent": "3.6"
+    },
+    "Cryogenic Chamber": {
+      "damage": "6.9",
+      "percent": "42.0"
+    },
+    "Dark Talons": {
+      "damage": "18.6",
+      "percent": "21.8"
+    },
+    "Empowered Strikes": {
+      "damage": "35.5",
+      "percent": "0.1"
+    },
+    "Enduring Strength": {
+      "damage": "377195",
+      "percent": "#1"
+    },
+    "Enduring Strength (_builder)": {
+      "damage": "7.0",
+      "percent": "55.5"
+    },
+    "Exterminate": {
+      "damage": "14.0",
+      "percent": "0.0"
+    },
+    "Frozen Dominion": {
+      "damage": "7.0",
+      "percent": "0.0"
+    },
+    "Icy Onslaught": {
+      "damage": "19.8",
+      "percent": "6.4"
+    },
+    "Icy Talons": {
+      "damage": "1.0",
+      "percent": "199.1"
+    },
+    "Killing Machine": {
+      "damage": "51124",
+      "percent": "#3"
+    },
+    "Killing Streak": {
+      "damage": "2.0",
+      "percent": "111.1"
+    },
+    "Death Knight Frost 12.0 Class Set 4pc (mid1_4pc_buff)": {
+      "damage": "7.0",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Remorseless Winter": {
+      "damage": "1233152",
+      "percent": "#4"
+    },
+    "Rime": {
+      "damage": "59057",
+      "percent": "#1"
+    },
+    "Rune Carved Plates (_magical)": {
+      "damage": "11.6",
+      "percent": "96.2"
+    },
+    "Rune Carved Plates (_physical)": {
+      "damage": "7.7",
+      "percent": "191.3"
+    },
+    "Rune Mastery": {
+      "damage": "374585",
+      "percent": "#1"
+    },
+    "Swift and Painful": {
+      "damage": "469169",
+      "percent": "#1"
+    },
+    "Killing Machine spent on Obliterate": {
+      "damage": "162.1",
+      "percent": "120.0"
+    },
+    "Killing Machine wasted: Critical auto attacks": {
+      "damage": "4.4",
+      "percent": "0.0"
+    },
+    "Killing Machine wasted: Empower Rune Weapon": {
+      "damage": "2.1",
+      "percent": "0.0"
+    },
+    "Killing Machine wasted: Exterminate": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Killing Machine wasted: Frost Strike": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Killing Machine wasted: Grim Reaper": {
+      "damage": "0.7",
+      "percent": "0.0"
+    },
+    "Killing Machine wasted: Howling Blades": {
+      "damage": "2.7",
+      "percent": "0.0"
+    },
+    "Killing Machine wasted: Howling Blast": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Killing Machine: Critical auto attacks": {
+      "damage": "54.2",
+      "percent": "28.0"
+    },
+    "Killing Machine: Empower Rune Weapon": {
+      "damage": "33.6",
+      "percent": "23.0"
+    },
+    "Killing Machine: Exterminate": {
+      "damage": "20.8",
+      "percent": "16.0"
+    },
+    "Killing Machine: Frost Strike": {
+      "damage": "22.5",
+      "percent": "13.0"
+    },
+    "Killing Machine: Grim Reaper": {
+      "damage": "6.4",
+      "percent": "2.0"
+    },
+    "Killing Machine: Howling Blades": {
+      "damage": "12.0",
+      "percent": "1.0"
+    },
+    "Killing Machine: Howling Blast": {
+      "damage": "13.2",
+      "percent": "6.0"
+    },
+    "Razorice from Arctic Assault": {
+      "damage": "112.9",
+      "percent": "84.0"
+    },
+    "Rune ready": {
+      "damage": "199.0",
+      "percent": "147.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "30.7",
+      "percent": "11.0"
+    },
+    "Runic Power Cap": {
+      "damage": "16.23%",
+      "percent": "6.69%"
+    },
+    "ghoul - Energy Cap": {
+      "damage": "109.09%",
+      "percent": "92.48%"
+    },
+    "Smothering Offense": {
+      "damage": "435005",
+      "percent": "#2"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Veteran of the Third War": {
+      "damage": "48263",
+      "percent": "#1"
+    },
+    "Death Pact": {
+      "damage": "48743",
+      "percent": "#4"
+    },
+    "Death Strike": {
+      "damage": "49998",
+      "percent": "#2"
+    },
+    "Razorice": {
+      "damage": "51714",
+      "percent": "#1"
+    },
+    "Stoneskin Gargoyle": {
+      "damage": "62157",
+      "percent": "#1"
+    },
+    "Death and Decay": {
+      "damage": "188290",
+      "percent": "#3"
+    },
+    "Permafrost": {
+      "damage": "207200",
+      "percent": "#1"
+    },
+    "Frigid Resolve": {
+      "damage": "1265859",
+      "percent": "#2"
+    },
+    "Rune of Sanguination": {
+      "damage": "326808",
+      "percent": "#1"
+    },
+    "Rune of Spellwarding": {
+      "damage": "326867",
+      "percent": "#1"
+    },
+    "Lethargy": {
+      "damage": "326868",
+      "percent": "#1"
+    },
+    "Rune of Hysteria": {
+      "damage": "333113",
+      "percent": "#2"
+    },
+    "Unending Thirst": {
+      "damage": "326982",
+      "percent": "#2"
+    },
+    "Rune of Unending Thirst": {
+      "damage": "326984",
+      "percent": "#1"
+    },
+    "Famine": {
+      "damage": "327092",
+      "percent": "#1"
+    },
+    "Pestilence": {
+      "damage": "327093",
+      "percent": "#1"
+    },
+    "Death": {
+      "damage": "327095",
+      "percent": "#1"
+    },
+    "War": {
+      "damage": "327096",
+      "percent": "#1"
+    },
+    "Bonegrinder": {
+      "damage": "377103",
+      "percent": "#1"
+    },
+    "A Feast of Souls": {
+      "damage": "440861",
+      "percent": "#1"
+    },
+    "Wave of Souls": {
+      "damage": "443404",
+      "percent": "#1"
+    },
+    "Null Magic": {
+      "damage": "454842",
+      "percent": "#1"
+    },
+    "Brittle": {
+      "damage": "374557",
+      "percent": "#3"
+    }
+  },
+  "spelldata": {},
+  "talents": "CsPAAAAAAAAAAAAAAAAAAAAAAMDwMjZMDY2mZmZmZZmZkZMmZYGGPgZGMzMzMDAAAAAAAAAjZbgBsAWGmQGLYmxMzAzAYYmBYmBD",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

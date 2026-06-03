@@ -1,0 +1,246 @@
+{
+  "class": "Rogue",
+  "spec": "Assassination",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "Ambush": {
+      "damage": "2,824",
+      "percent": "2.6%"
+    },
+    "Amplifying Poison": {
+      "damage": "6,987",
+      "percent": "6.4%"
+    },
+    "Auto Attack": {
+      "damage": "0 (11,949)",
+      "percent": "0.0% (11.0%)"
+    },
+    "Deadly Poison (_driver)": {
+      "damage": "0 (9,389)",
+      "percent": "0.0% (8.7%)"
+    },
+    "Deathmark": {
+      "damage": "969",
+      "percent": "0.9%"
+    },
+    "Envenom": {
+      "damage": "13.1",
+      "percent": "66.5"
+    },
+    "Garrote": {
+      "damage": "12,399",
+      "percent": "11.4%"
+    },
+    "Hand of Fate": {
+      "damage": "0 (9,514)",
+      "percent": "0.0% (8.8%)"
+    },
+    "Internal Bleeding": {
+      "damage": "2,100",
+      "percent": "1.9%"
+    },
+    "Kingsbane": {
+      "damage": "5.2",
+      "percent": "466.9"
+    },
+    "Periodic": {
+      "damage": "36.1",
+      "percent": "35,206"
+    },
+    "Mutilate": {
+      "damage": "0 (8,320)",
+      "percent": "0.0% (7.7%)"
+    },
+    "Rupture": {
+      "damage": "10,253",
+      "percent": "9.5%"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.9",
+      "percent": "121.51s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blood Fury": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Implacable Strikes": {
+      "damage": "5.2",
+      "percent": "60.81s"
+    },
+    "Light's Potential": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Slice and Dice (recuperator)": {
+      "damage": "97.6",
+      "percent": "3.00s"
+    },
+    "Stealth": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Thistle Tea": {
+      "damage": "0.6",
+      "percent": "5.67s"
+    },
+    "Thistle Tea (_auto)": {
+      "damage": "5.5",
+      "percent": "38.39s"
+    },
+    "Vanish": {
+      "damage": "1.9",
+      "percent": "0.0"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "121.5"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.3"
+    },
+    "Blindside": {
+      "damage": "30.3",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Cold Blood": {
+      "damage": "74.0",
+      "percent": "54.0"
+    },
+    "Lucky Coin (fatebound_coin_flips)": {
+      "damage": "10.9",
+      "percent": "68.1"
+    },
+    "Fatebound Coin (Heads)": {
+      "damage": "20.4",
+      "percent": "45.4"
+    },
+    "Fatebound Coin (Tails)": {
+      "damage": "20.4",
+      "percent": "45.9"
+    },
+    "(fatebound_) Lucky Coin": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Finish the Job": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Frenzied Focus": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Hasty Hunt": {
+      "damage": "3.9",
+      "percent": "6.2"
+    },
+    "Implacable": {
+      "damage": "12.1",
+      "percent": "0.0"
+    },
+    "Implacable (_tracker)": {
+      "damage": "12.7",
+      "percent": "53.9"
+    },
+    "Improved Garrote": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Improved Garrote (_aura)": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Inspiring Strike": {
+      "damage": "12.7",
+      "percent": "53.9"
+    },
+    "Masterful Hunt": {
+      "damage": "3.8",
+      "percent": "6.0"
+    },
+    "Precision of the Dragonhawk": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Regicide's Reward": {
+      "damage": "5.2",
+      "percent": "0.0"
+    },
+    "Slice and Dice": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Versatile Hunt": {
+      "damage": "0.9",
+      "percent": "1.5"
+    },
+    "Amplifying Poison Consumed": {
+      "damage": "60.3",
+      "percent": "43.0"
+    },
+    "Cold Blood envenom": {
+      "damage": "73.6",
+      "percent": "52.0"
+    },
+    "Controlled Chaos": {
+      "damage": "12.9",
+      "percent": "4.0"
+    },
+    "Rapid Injection Applied": {
+      "damage": "66.5",
+      "percent": "46.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "65.5",
+      "percent": "34.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "65.2",
+      "percent": "33.0"
+    },
+    "Energy Cap": {
+      "damage": "1.27%",
+      "percent": "0.00%"
+    },
+    "Energy": {
+      "damage": "250.0",
+      "percent": "31.08"
+    },
+    "Combo Points": {
+      "damage": "0.0",
+      "percent": "1.90"
+    }
+  },
+  "spelldata": {},
+  "talents": "CMQAAAAAAAAAAAAAAAAAAAAAAYmZMbzgBAAAAAmlBbzAAAAAAabbmZmZmZMmZmZ2mZZmZGMmZmZMzYYAMwCMjRjZBklBsZAwMzgB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

@@ -1,0 +1,238 @@
+{
+  "class": "Mage",
+  "spec": "Frost",
+  "hero_tree": "Spellslinger",
+  "metrics": {},
+  "abilities": {
+    "Flurry": {
+      "damage": "0.330",
+      "percent": "0.000"
+    },
+    "Frost Splinter": {
+      "damage": "17,082",
+      "percent": "14.8%"
+    },
+    "Frostbolt": {
+      "damage": "3,109",
+      "percent": "2.7%"
+    },
+    "Frozen Orb": {
+      "damage": "1.121",
+      "percent": "0.000"
+    },
+    "Glacial Spike": {
+      "damage": "6,467",
+      "percent": "5.6%"
+    },
+    "Hand of Frost": {
+      "damage": "12.8",
+      "percent": "51.9"
+    },
+    "Ice Lance": {
+      "damage": "6,667 (46,015)",
+      "percent": "5.8% (39.8%)"
+    },
+    "Ray of Frost": {
+      "damage": "0.001",
+      "percent": "0.000"
+    },
+    "pet - water_elemental": {
+      "damage": "3013 / 3013",
+      "percent": ""
+    },
+    "Water Jet": {
+      "damage": "943",
+      "percent": "0.8%"
+    },
+    "Waterbolt": {
+      "damage": "2,070",
+      "percent": "1.8%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "0.00s"
+    },
+    "Summon Water Elemental": {
+      "damage": "0.000",
+      "percent": "0.000"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "123.0"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Brain Freeze": {
+      "damage": "26.6",
+      "percent": "14.0"
+    },
+    "Brainstorm": {
+      "damage": "16.1",
+      "percent": "10.0"
+    },
+    "Fingers of Frost": {
+      "damage": "60.3",
+      "percent": "38.0"
+    },
+    "Glacial Spike!": {
+      "damage": "12.4",
+      "percent": "0.4"
+    },
+    "Hasty Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Masterful Hunt": {
+      "damage": "3.8",
+      "percent": "6.1"
+    },
+    "Nullsight": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "Overflowing Energy": {
+      "damage": "12.8",
+      "percent": "12.1"
+    },
+    "Permafrost Lances": {
+      "damage": "10.7",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Crit)": {
+      "damage": "1.3",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Precision of the Dragonhawk": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Splinterstorm": {
+      "damage": "8.1",
+      "percent": "0.0"
+    },
+    "Thermal Void": {
+      "damage": "25.5",
+      "percent": "0.0"
+    },
+    "Versatile Hunt": {
+      "damage": "1.0",
+      "percent": "1.6"
+    },
+    "Brain Freeze from Frostbolt": {
+      "damage": "11.5",
+      "percent": "3.0"
+    },
+    "Brain Freeze from Frozen Orb": {
+      "damage": "10.7",
+      "percent": "8.0"
+    },
+    "Brain Freeze from Glacial Spike": {
+      "damage": "4.4",
+      "percent": "0.0"
+    },
+    "Fingers of Frost from Flurry": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "Fingers of Frost from Frostbolt": {
+      "damage": "6.0",
+      "percent": "0.0"
+    },
+    "Fingers of Frost from Frozen Orb": {
+      "damage": "10.7",
+      "percent": "8.0"
+    },
+    "Fingers of Frost from Frozen Orb Bolt": {
+      "damage": "9.4",
+      "percent": "1.0"
+    },
+    "Fingers of Frost from Glacial Spike": {
+      "damage": "14.6",
+      "percent": "9.0"
+    },
+    "Fingers of Frost from Ray of Frost": {
+      "damage": "16.0",
+      "percent": "14.0"
+    },
+    "Freezing applied": {
+      "damage": "585.1",
+      "percent": "441.0"
+    },
+    "Freezing applied (Flurry)": {
+      "damage": "145.7",
+      "percent": "88.0"
+    },
+    "Freezing applied (Frost Splinter)": {
+      "damage": "204.9",
+      "percent": "126.0"
+    },
+    "Freezing applied (Frostbolt)": {
+      "damage": "45.9",
+      "percent": "24.0"
+    },
+    "Freezing applied (Glacial Assault)": {
+      "damage": "17.5",
+      "percent": "4.0"
+    },
+    "Freezing applied (Glacial Spike)": {
+      "damage": "42.2",
+      "percent": "30.0"
+    },
+    "Freezing applied (Hand of Frost)": {
+      "damage": "64.7",
+      "percent": "41.0"
+    },
+    "Freezing applied (Ray of Frost)": {
+      "damage": "64.3",
+      "percent": "56.0"
+    },
+    "Freezing overflow": {
+      "damage": "70.8",
+      "percent": "13.0"
+    },
+    "Mana Cap": {
+      "damage": "40.37%",
+      "percent": "36.96%"
+    },
+    "Mana": {
+      "damage": "245,000.0",
+      "percent": "2,693.49"
+    }
+  },
+  "spelldata": {},
+  "talents": "CAEAAAAAAAAAAAAAAAAAAAAAAYGGLzMzsMmZmYmZmZMjZWMzMzMjZAAAgZmZWWmZaDAAAAAAsBw2yYmZGMLzDYMDLAAAMzCwMhBMDGA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

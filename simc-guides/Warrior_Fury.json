@@ -1,0 +1,246 @@
+{
+  "class": "Warrior",
+  "spec": "Fury",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "auto_attack_mh": {
+      "damage": "6,670",
+      "percent": "5.8%"
+    },
+    "auto_attack_oh": {
+      "damage": "3,219",
+      "percent": "2.8%"
+    },
+    "Bladestorm": {
+      "damage": "3.152",
+      "percent": "0.001"
+    },
+    "Bloodbath": {
+      "damage": "1.585",
+      "percent": "0.001"
+    },
+    "Bloodbath (_dot)": {
+      "damage": "1,359",
+      "percent": "1.2%"
+    },
+    "Bloodthirst": {
+      "damage": "0.627",
+      "percent": "0.001"
+    },
+    "Charge (_impact)": {
+      "damage": "2",
+      "percent": "0.0%"
+    },
+    "Crushing Blow": {
+      "damage": "6.581",
+      "percent": "0.002"
+    },
+    "Deep Wounds": {
+      "damage": "3,440",
+      "percent": "3.0%"
+    },
+    "Execute": {
+      "damage": "1.029",
+      "percent": "0.001"
+    },
+    "Gushing Wound": {
+      "damage": "1,991",
+      "percent": "1.7%"
+    },
+    "Odyn's Fury": {
+      "damage": "0.919",
+      "percent": "0.001"
+    },
+    "Periodic": {
+      "damage": "49.3",
+      "percent": "16,507"
+    },
+    "Raging Blow": {
+      "damage": "6.119",
+      "percent": "0.001"
+    },
+    "Rampage": {
+      "damage": "0 (21,201)",
+      "percent": "0.0% (18.6%)"
+    },
+    "Rend": {
+      "damage": "10.721",
+      "percent": "0.001"
+    },
+    "Rend (_dot)": {
+      "damage": "1,880",
+      "percent": "1.6%"
+    },
+    "Slayer's Strike": {
+      "damage": "11,014",
+      "percent": "9.6%"
+    },
+    "Storm Bolt": {
+      "damage": "19.838",
+      "percent": "0.016"
+    },
+    "Voidclaw": {
+      "damage": "353",
+      "percent": "0.3%"
+    },
+    "Whirlwind": {
+      "damage": "0 (71)",
+      "percent": "0.0% (0.1%)"
+    },
+    "Wrecking Throw": {
+      "damage": "4.513",
+      "percent": "0.001"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Berserker Stance": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Bloodthirst Heal": {
+      "damage": "108.1",
+      "percent": "2.77s"
+    },
+    "Charge": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Recklessness": {
+      "damage": "0.680",
+      "percent": "0.001"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "122.5"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Berserk": {
+      "damage": "1.1",
+      "percent": "109.3"
+    },
+    "Bloodborne": {
+      "damage": "1.6",
+      "percent": "106.5"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Enrage": {
+      "damage": "2.2",
+      "percent": "165.9"
+    },
+    "Executioner": {
+      "damage": "4.7",
+      "percent": "43.5"
+    },
+    "Executioner's Wrath": {
+      "damage": "19.1",
+      "percent": "33.6"
+    },
+    "Fierce Followthrough": {
+      "damage": "47.2",
+      "percent": "0.0"
+    },
+    "Frenzied Focus": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Frenzy": {
+      "damage": "7.6",
+      "percent": "99.2"
+    },
+    "Genius Insight": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Hasty Hunt": {
+      "damage": "3.7",
+      "percent": "6.0"
+    },
+    "Heart of Ancient Hunger": {
+      "damage": "7.6",
+      "percent": "3.5"
+    },
+    "Imminent Demise": {
+      "damage": "6.7",
+      "percent": "24.2"
+    },
+    "Masterful Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Scent of Blood": {
+      "damage": "38.5",
+      "percent": "68.6"
+    },
+    "Sudden Death": {
+      "damage": "28.0",
+      "percent": "3.2"
+    },
+    "Versatile Hunt": {
+      "damage": "1.0",
+      "percent": "1.6"
+    },
+    "Violent Euphoria": {
+      "damage": "6.9",
+      "percent": "0.0"
+    },
+    "Wild Strikes": {
+      "damage": "13.8",
+      "percent": "12.7"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "33.4",
+      "percent": "15.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "26.7",
+      "percent": "9.0"
+    },
+    "Rage Cap": {
+      "damage": "4.87%",
+      "percent": "1.56%"
+    },
+    "Bloodthirst (_bladestorm_unhinged)": {
+      "damage": "55.605",
+      "percent": "27.102"
+    },
+    "Bloodbath (_bladestorm_unhinged)": {
+      "damage": "44.671",
+      "percent": "11.927"
+    },
+    "Rage": {
+      "damage": "0.0",
+      "percent": "22.12"
+    }
+  },
+  "spelldata": {},
+  "talents": "CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjxMsMzMzMDjZmZGzMzsMzMGzMbDzMAAQMWWGYBMBzwEYG2AmZ2Y2GAAMzYYMzMMYA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

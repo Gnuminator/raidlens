@@ -1,0 +1,294 @@
+{
+  "class": "Monk",
+  "spec": "Windwalker",
+  "hero_tree": "Conduit",
+  "metrics": {},
+  "abilities": {
+    "auto_attack": {
+      "damage": "0 (11,975)",
+      "percent": "0.0% (11.3%)"
+    },
+    "Blackout Kick": {
+      "damage": "3,732 (4,628)",
+      "percent": "3.5% (4.4%)"
+    },
+    "Celestial Conduit": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Courage of the White Tiger": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Courage of the White Tiger (_celestial)": {
+      "damage": "286",
+      "percent": "0.3%"
+    },
+    "Empowered Tiger Lightning": {
+      "damage": "1,609",
+      "percent": "1.5%"
+    },
+    "Expel Harm (_damage)": {
+      "damage": "302",
+      "percent": "0.3%"
+    },
+    "Fists of Fury": {
+      "damage": "27,526 (33,657)",
+      "percent": "26.0% (31.8%)"
+    },
+    "Flight of the Red Crane (_damage_celestial)": {
+      "damage": "338",
+      "percent": "0.3%"
+    },
+    "Rising Sun Kick": {
+      "damage": "0 (20,049)",
+      "percent": "0.0% (18.9%)"
+    },
+    "Rushing Wind Kick": {
+      "damage": "15.4",
+      "percent": "0.0"
+    },
+    "Spinning Crane Kick": {
+      "damage": "6.4",
+      "percent": "0.0"
+    },
+    "Strength of the Black Ox (_damage_celestial)": {
+      "damage": "700",
+      "percent": "0.7%"
+    },
+    "Tiger Palm": {
+      "damage": "983",
+      "percent": "0.9%"
+    },
+    "Touch of Death": {
+      "damage": "1,036",
+      "percent": "1.0%"
+    },
+    "Touch of Karma": {
+      "damage": "1,948",
+      "percent": "1.8%"
+    },
+    "Whirling Dragon Punch": {
+      "damage": "22.1",
+      "percent": "41.0"
+    },
+    "Zenith": {
+      "damage": "4.7",
+      "percent": "0.0"
+    },
+    "pet - xuen_the_white_tiger": {
+      "damage": "4234 / 821",
+      "percent": ""
+    },
+    "Crackling Tiger Lightning": {
+      "damage": "2,087",
+      "percent": "0.4%"
+    },
+    "melee_main_hand": {
+      "damage": "2,147",
+      "percent": "0.4%"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "122.16s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Berserking": {
+      "damage": "2.0",
+      "percent": "0.0"
+    },
+    "Celestial Conduit (_heal)": {
+      "damage": "14.7",
+      "percent": "17.19s"
+    },
+    "Expel Harm": {
+      "damage": "17.9",
+      "percent": "16.37s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Invoke Xuen, the White Tiger": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "307.49s"
+    },
+    "Akil'zon's Cry of Victory": {
+      "damage": "4.4",
+      "percent": "1.2"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "114.8"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Blessing of the Capybara": {
+      "damage": "4.4",
+      "percent": "1.1"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Combat Wisdom": {
+      "damage": "18.2",
+      "percent": "2.3"
+    },
+    "Blackout Kick! (combo_breaker)": {
+      "damage": "21.6",
+      "percent": "4.7"
+    },
+    "Crane Stance": {
+      "damage": "9.5",
+      "percent": "0.0"
+    },
+    "Dance of Chi-Ji": {
+      "damage": "6.0",
+      "percent": "1.2"
+    },
+    "Frenzied Focus": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Genius Insight": {
+      "damage": "8.2",
+      "percent": "8.6"
+    },
+    "Hasty Hunt": {
+      "damage": "3.9",
+      "percent": "6.3"
+    },
+    "Heart of the Jade Serpent": {
+      "damage": "15.5",
+      "percent": "0.0"
+    },
+    "Heart of the Jade Serpent (_unity_within)": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Heart of the Jade Serpent (_yulons_avatar)": {
+      "damage": "4.7",
+      "percent": "0.0"
+    },
+    "Hit Combo": {
+      "damage": "1.0",
+      "percent": "235.2"
+    },
+    "Masterful Hunt": {
+      "damage": "3.7",
+      "percent": "6.1"
+    },
+    "Momentum Boost (_damage)": {
+      "damage": "34.9",
+      "percent": "138.5"
+    },
+    "Momentum Boost (_speed)": {
+      "damage": "18.6",
+      "percent": "16.1"
+    },
+    "Ox Stance": {
+      "damage": "9.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Haste)": {
+      "damage": "0.2",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "1.3",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Serpent Stance": {
+      "damage": "9.5",
+      "percent": "0.0"
+    },
+    "Strength of the Black Ox": {
+      "damage": "15.4",
+      "percent": "2.6"
+    },
+    "Teachings of the Monastery": {
+      "damage": "41.5",
+      "percent": "32.2"
+    },
+    "Tiger Stance": {
+      "damage": "9.5",
+      "percent": "0.0"
+    },
+    "Tigereye Brew (_1)": {
+      "damage": "3.1",
+      "percent": "97.5"
+    },
+    "Unity Within": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Versatile Hunt": {
+      "damage": "0.9",
+      "percent": "1.5"
+    },
+    "Zenith Stomp": {
+      "damage": "4.7",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "43.4",
+      "percent": "17.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "36.4",
+      "percent": "15.0"
+    },
+    "Teachings of the Monastery - Rising Sun Kick Reset": {
+      "damage": "16.5",
+      "percent": "3.0"
+    },
+    "Xuen's Battlegear CD SCK Half-Second Reduction": {
+      "damage": "6.4",
+      "percent": "1.0"
+    },
+    "delayed_aa_channel": {
+      "damage": "128.2",
+      "percent": "84.0"
+    },
+    "Energy Cap": {
+      "damage": "28.08%",
+      "percent": "17.14%"
+    },
+    "Energy": {
+      "damage": "150.0",
+      "percent": "10.10"
+    },
+    "Chi": {
+      "damage": "0.0",
+      "percent": "0.64"
+    }
+  },
+  "spelldata": {},
+  "talents": "C0QAAAAAAAAAAAAAAAAAAAAAAMzYM2GGsMzMbzAAAAAAAAAAAAsMMCzYbYAzYYmZmhZZYGmlZCAYzMbjhZmZGAALmZZWGTQAAYAMDALjBMzMLG",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

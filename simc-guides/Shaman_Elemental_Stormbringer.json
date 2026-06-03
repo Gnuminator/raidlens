@@ -1,0 +1,266 @@
+{
+  "class": "Shaman",
+  "spec": "Elemental",
+  "hero_tree": "Stormbringer",
+  "metrics": {},
+  "abilities": {
+    "Ascendance": {
+      "damage": "0.390",
+      "percent": "0.000"
+    },
+    "Elemental Blast": {
+      "damage": "13,352 (18,406)",
+      "percent": "10.5% (14.5%)"
+    },
+    "Elemental Blast (_foe)": {
+      "damage": "1,807 (3,182)",
+      "percent": "1.4% (2.5%)"
+    },
+    "Flame Shock": {
+      "damage": "23.304",
+      "percent": "7.706"
+    },
+    "Periodic": {
+      "damage": "41.4",
+      "percent": "3,849"
+    },
+    "Lava Burst": {
+      "damage": "1.713",
+      "percent": "0.000"
+    },
+    "Lightning Bolt": {
+      "damage": "20,478 (40,755)",
+      "percent": "16.1% (32.1%)"
+    },
+    "Lightning Rod": {
+      "damage": "7,763",
+      "percent": "6.1%"
+    },
+    "Tempest": {
+      "damage": "18.1",
+      "percent": "1.4"
+    },
+    "pet - primal_storm_elemental": {
+      "damage": "19512 / 6262",
+      "percent": ""
+    },
+    "Call Lightning": {
+      "damage": "1,834",
+      "percent": "0.5%"
+    },
+    "Stormfury": {
+      "damage": "7,810",
+      "percent": "2.0%"
+    },
+    "Wind Gust": {
+      "damage": "6.8",
+      "percent": "43.5"
+    },
+    "pet - primal_fire_elemental": {
+      "damage": "31656 / 7369",
+      "percent": ""
+    },
+    "Fire Blast": {
+      "damage": "24,432",
+      "percent": "4.5%"
+    },
+    "Immolate": {
+      "damage": "3,861",
+      "percent": "0.7%"
+    },
+    "Meteor": {
+      "damage": "3,363",
+      "percent": "0.6%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "emberwing_feather": {
+      "damage": "3.0",
+      "percent": "120.69s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Lightning Shield": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Nature's Swiftness": {
+      "damage": "0.360",
+      "percent": "0.000"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Stormkeeper": {
+      "damage": "1.353",
+      "percent": "0.000"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "92.6"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Amirdrassil's Swiftness": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Elemental Blast: Critical Strike": {
+      "damage": "31.7",
+      "percent": "14.0"
+    },
+    "Elemental Blast: Haste": {
+      "damage": "31.4",
+      "percent": "15.0"
+    },
+    "Elemental Blast: Mastery": {
+      "damage": "31.7",
+      "percent": "15.0"
+    },
+    "Emberwing Burn (Crit)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Mastery)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Vers)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Heatwave": {
+      "damage": "3.0",
+      "percent": "3.0"
+    },
+    "Fire Elemental": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Lava Surge": {
+      "damage": "22.0",
+      "percent": "15.0"
+    },
+    "Master of the Elements": {
+      "damage": "64.0",
+      "percent": "0.0"
+    },
+    "Nordrassil's Sagacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Power of the Maelstrom": {
+      "damage": "9.5",
+      "percent": "0.1"
+    },
+    "Precision of the Dragonhawk": {
+      "damage": "8.2",
+      "percent": "8.5"
+    },
+    "Shaladrassil's Strength": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Storm Elemental": {
+      "damage": "6.8",
+      "percent": "0.0"
+    },
+    "Teldrassil's Tenacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Thunderous Velocity": {
+      "damage": "6.8",
+      "percent": "0.0"
+    },
+    "Unlimited Power": {
+      "damage": "14.0",
+      "percent": "16.8"
+    },
+    "primal_storm_elemental - primal_storm_elemental: Call Lightning": {
+      "damage": "6.8",
+      "percent": "0.0"
+    },
+    "Aftershock": {
+      "damage": "7.7",
+      "percent": "0.0"
+    },
+    "Ascendance: Elemental Blast": {
+      "damage": "7.9",
+      "percent": "2.0"
+    },
+    "Ascendance: Lava Burst": {
+      "damage": "16.0",
+      "percent": "10.0"
+    },
+    "Ascendance: Lightning Bolt": {
+      "damage": "16.6",
+      "percent": "8.0"
+    },
+    "Ascendance: Tempest": {
+      "damage": "5.9",
+      "percent": "2.0"
+    },
+    "Lava Surge: During Lava Burst": {
+      "damage": "4.5",
+      "percent": "0.0"
+    },
+    "Lava Surge: Wasted": {
+      "damage": "0.0",
+      "percent": "0.0"
+    },
+    "Master of the Elements: Elemental Blast": {
+      "damage": "10.6",
+      "percent": "1.0"
+    },
+    "Master of the Elements: Flame Shock": {
+      "damage": "0.4",
+      "percent": "0.0"
+    },
+    "Master of the Elements: Lightning Bolt": {
+      "damage": "41.5",
+      "percent": "24.0"
+    },
+    "Master of the Elements: Tempest": {
+      "damage": "11.2",
+      "percent": "4.0"
+    },
+    "PotM: Tempest": {
+      "damage": "2.7",
+      "percent": "0.0"
+    },
+    "Mana Cap": {
+      "damage": "82.38%",
+      "percent": "78.87%"
+    },
+    "Mana": {
+      "damage": "250,000.0",
+      "percent": "230.22"
+    },
+    "Maelstrom": {
+      "damage": "10.0",
+      "percent": "9.45"
+    }
+  },
+  "spelldata": {},
+  "talents": "CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAzMbLzMzMzMLbbDMmZAAAAAbmZbzMzwmhFmtZmGamNAYWmZmxYbxEmZ2GLzMzMGWmlZsYmhZWAAGAzMzMGGG",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

@@ -1,0 +1,202 @@
+{
+  "class": "Mage",
+  "spec": "Arcane",
+  "hero_tree": "Spellslinger",
+  "metrics": {},
+  "abilities": {
+    "Arcane Assault": {
+      "damage": "745",
+      "percent": "0.7%"
+    },
+    "Arcane Barrage": {
+      "damage": "28,088 (31,583)",
+      "percent": "25.7% (28.9%)"
+    },
+    "Arcane Blast": {
+      "damage": "28,831",
+      "percent": "26.3%"
+    },
+    "Arcane Missiles": {
+      "damage": "641",
+      "percent": "0.6%"
+    },
+    "Arcane Orb": {
+      "damage": "0.197",
+      "percent": "0.000"
+    },
+    "Arcane Splinter": {
+      "damage": "18,075",
+      "percent": "16.5%"
+    },
+    "Arcane Surge": {
+      "damage": "3.340",
+      "percent": "0.000"
+    },
+    "Mirror Image": {
+      "damage": "0.000",
+      "percent": "0.000"
+    },
+    "Touch of the Magi": {
+      "damage": "2.851",
+      "percent": "0.000"
+    },
+    "Arcane Intellect": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Berserking": {
+      "damage": "2.0",
+      "percent": "0.0"
+    },
+    "Flask of Thalassian Resistance": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Presence of Mind": {
+      "damage": "8.677",
+      "percent": "0.000"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "113.1"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcane Charge": {
+      "damage": "49.2",
+      "percent": "372.4"
+    },
+    "Arcane Salvo": {
+      "damage": "49.8",
+      "percent": "617.0"
+    },
+    "Arcanoweave Audacity": {
+      "damage": "7.0",
+      "percent": "14.6"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Brainstorm": {
+      "damage": "17.4",
+      "percent": "22.2"
+    },
+    "Clearcasting": {
+      "damage": "9.9",
+      "percent": "31.7"
+    },
+    "Intuition": {
+      "damage": "45.8",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.2",
+      "percent": "8.6"
+    },
+    "Nullsight": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "Overflowing Energy": {
+      "damage": "14.1",
+      "percent": "17.2"
+    },
+    "Arcane Salvo applied": {
+      "damage": "1129.8",
+      "percent": "853.0"
+    },
+    "Arcane Salvo applied (Arcane Barrage)": {
+      "damage": "223.4",
+      "percent": "145.0"
+    },
+    "Arcane Salvo applied (Arcane Blast)": {
+      "damage": "307.6",
+      "percent": "238.0"
+    },
+    "Arcane Salvo applied (Arcane Missiles)": {
+      "damage": "17.3",
+      "percent": "0.0"
+    },
+    "Arcane Salvo applied (Arcane Orb)": {
+      "damage": "261.1",
+      "percent": "190.0"
+    },
+    "Arcane Salvo applied (Arcane Splinter)": {
+      "damage": "320.4",
+      "percent": "213.0"
+    },
+    "Arcane Salvo overflow": {
+      "damage": "164.7",
+      "percent": "92.0"
+    },
+    "Mana Cap": {
+      "damage": "9.47%",
+      "percent": "5.38%"
+    },
+    "Arcane Barrage Arcane Charge 0": {
+      "damage": "0.75%",
+      "percent": "0.00%"
+    },
+    "Arcane Barrage Arcane Charge 1": {
+      "damage": "1.28%",
+      "percent": "0.00%"
+    },
+    "Arcane Barrage Arcane Charge 2": {
+      "damage": "0.40%",
+      "percent": "0.00%"
+    },
+    "Arcane Barrage Arcane Charge 3": {
+      "damage": "0.42%",
+      "percent": "0.00%"
+    },
+    "Arcane Barrage Arcane Charge 4": {
+      "damage": "97.16%",
+      "percent": "86.36%"
+    },
+    "Arcane Blast Arcane Charge 0": {
+      "damage": "2.87%",
+      "percent": "0.00%"
+    },
+    "Arcane Blast Arcane Charge 1": {
+      "damage": "8.89%",
+      "percent": "3.97%"
+    },
+    "Arcane Blast Arcane Charge 2": {
+      "damage": "2.24%",
+      "percent": "0.00%"
+    },
+    "Arcane Blast Arcane Charge 3": {
+      "damage": "9.23%",
+      "percent": "4.38%"
+    },
+    "Arcane Blast Arcane Charge 4": {
+      "damage": "76.78%",
+      "percent": "69.66%"
+    },
+    "Mana": {
+      "damage": "352,883.1",
+      "percent": "17,952.81"
+    }
+  },
+  "spelldata": {},
+  "talents": "C4DAAAAAAAAAAAAAAAAAAAAAAYGGLzMzswMzQzMzAAAwAAgAmZmZZZmZYBAgtxMzMmtFLzMzYmxYMzMGLMzMjZAAGAAAzsAAmBADD",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

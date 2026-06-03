@@ -1,0 +1,426 @@
+{
+  "class": "Warlock",
+  "spec": "Demonology",
+  "hero_tree": "Diabolist",
+  "metrics": {},
+  "abilities": {
+    "Blighted Maw": {
+      "damage": "2,425",
+      "percent": "2.0%"
+    },
+    "Demonbolt": {
+      "damage": "4,180",
+      "percent": "3.5%"
+    },
+    "Diabolic Oculi": {
+      "damage": "0 (6,456)",
+      "percent": "0.0% (5.4%)"
+    },
+    "Hand of Gul'dan": {
+      "damage": "0 (4,964)",
+      "percent": "0.0% (4.2%)"
+    },
+    "Implosion": {
+      "damage": "0 (1,925)",
+      "percent": "0.0% (1.6%)"
+    },
+    "Infernal Bolt": {
+      "damage": "8.5",
+      "percent": "0.0"
+    },
+    "Ruination": {
+      "damage": "8.5",
+      "percent": "0.0"
+    },
+    "Shadow Bolt": {
+      "damage": "2,109",
+      "percent": "1.8%"
+    },
+    "Twilight Barrage": {
+      "damage": "612",
+      "percent": "0.5%"
+    },
+    "Voidstalker Sting": {
+      "damage": "855",
+      "percent": "0.7%"
+    },
+    "pet - felguard": {
+      "damage": "4878 / 4878",
+      "percent": ""
+    },
+    "Felstorm": {
+      "damage": "699",
+      "percent": "0.6%"
+    },
+    "Legion Strike": {
+      "damage": "1,222",
+      "percent": "1.0%"
+    },
+    "melee": {
+      "damage": "1,154",
+      "percent": "0.7%"
+    },
+    "pet - grimoire_imp_lord (grimoire)": {
+      "damage": "31831 / 6200",
+      "percent": ""
+    },
+    "Greater Felbolt": {
+      "damage": "31,831",
+      "percent": "5.2%"
+    },
+    "pet - dreadstalker": {
+      "damage": "9438 / 7949",
+      "percent": ""
+    },
+    "Dreadbite": {
+      "damage": "5,155",
+      "percent": "3.7%"
+    },
+    "pet - vilefiend (vilefiend)": {
+      "damage": "8772 / 6445",
+      "percent": ""
+    },
+    "Bile Spit": {
+      "damage": "1,879",
+      "percent": "1.2%"
+    },
+    "Periodic": {
+      "damage": "73.2",
+      "percent": "2,912"
+    },
+    "Gloom Slash": {
+      "damage": "4,842",
+      "percent": "3.0%"
+    },
+    "Headbutt": {
+      "damage": "897",
+      "percent": "0.6%"
+    },
+    "pet - wild_imp": {
+      "damage": "24162 / 23839",
+      "percent": ""
+    },
+    "Fel Firebolt": {
+      "damage": "24,162",
+      "percent": "20.0%"
+    },
+    "pet - demonic_tyrant": {
+      "damage": "41915 / 14327",
+      "percent": ""
+    },
+    "Burning Cleave": {
+      "damage": "41,915",
+      "percent": "12.1%"
+    },
+    "pet - antoran_inquisitor": {
+      "damage": "14239 / 3911",
+      "percent": ""
+    },
+    "Mind Sear": {
+      "damage": "14,239",
+      "percent": "3.3%"
+    },
+    "pet - antoran_jailer": {
+      "damage": "15190 / 4170",
+      "percent": ""
+    },
+    "Soul Barrage": {
+      "damage": "15,190",
+      "percent": "3.5%"
+    },
+    "pet - overlord": {
+      "damage": "39603 / 2980",
+      "percent": ""
+    },
+    "Wicked Cleave": {
+      "damage": "39,603",
+      "percent": "2.5%"
+    },
+    "pet - mother_of_chaos": {
+      "damage": "27311 / 2730",
+      "percent": ""
+    },
+    "Chaos Salvo": {
+      "damage": "27,311",
+      "percent": "2.3%"
+    },
+    "pet - pit_lord": {
+      "damage": "37002 / 2665",
+      "percent": ""
+    },
+    "Felseeker": {
+      "damage": "37,002",
+      "percent": "2.2%"
+    },
+    "pet - lady_sacrolash": {
+      "damage": "23537 / 4672",
+      "percent": ""
+    },
+    "Shadow Nova": {
+      "damage": "23,537",
+      "percent": "3.9%"
+    },
+    "pet - grand_warlock_alythess": {
+      "damage": "23160 / 4558",
+      "percent": ""
+    },
+    "Blaze": {
+      "damage": "23,160",
+      "percent": "3.8%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blood Fury": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Call Dreadstalkers": {
+      "damage": "15.1",
+      "percent": "20.51s"
+    },
+    "Call Dreadstalkers (_summon_1)": {
+      "damage": "15.1",
+      "percent": "20.51s"
+    },
+    "Call Dreadstalkers (_summon_2)": {
+      "damage": "15.1",
+      "percent": "20.51s"
+    },
+    "Dominion of Argus: Antoran Inquisitor": {
+      "damage": "7.4",
+      "percent": "36.99s"
+    },
+    "Dominion of Argus: Antoran Jailer": {
+      "damage": "7.4",
+      "percent": "37.55s"
+    },
+    "Dominion of Argus: Grand Warlock Alythess": {
+      "damage": "4.9",
+      "percent": "50.96s"
+    },
+    "Dominion of Argus: Lady Sacrolash": {
+      "damage": "4.9",
+      "percent": "50.75s"
+    },
+    "emberwing_feather": {
+      "damage": "2.9",
+      "percent": "125.70s"
+    },
+    "Summon Felguard (felguard)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Grimoire: Imp Lord": {
+      "damage": "3.0",
+      "percent": "120.88s"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "305.32s"
+    },
+    "Summon Demonic Tyrant": {
+      "damage": "5.2",
+      "percent": "63.08s"
+    },
+    "Summon Gloomhound": {
+      "damage": "15.1",
+      "percent": "20.51s"
+    },
+    "Summon Mother of Chaos": {
+      "damage": "8.5",
+      "percent": "35.00s"
+    },
+    "Summon Overlord": {
+      "damage": "8.5",
+      "percent": "35.08s"
+    },
+    "Summon Pit Lord": {
+      "damage": "8.5",
+      "percent": "35.05s"
+    },
+    "Wild Imp (_summon)": {
+      "damage": "278.6",
+      "percent": "1.06s"
+    },
+    "Wild Imp (_summon_alternate)": {
+      "damage": "82.4",
+      "percent": "6.74s"
+    },
+    "Abyssal Dominion": {
+      "damage": "5.2",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "111.9"
+    },
+    "Alnsight": {
+      "damage": "7.4",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Demonic Art: Mother of Chaos": {
+      "damage": "8.6",
+      "percent": "0.0"
+    },
+    "Demonic Art: Overlord": {
+      "damage": "8.6",
+      "percent": "0.0"
+    },
+    "Demonic Art: Pit Lord": {
+      "damage": "8.6",
+      "percent": "0.0"
+    },
+    "Demonic Core": {
+      "damage": "28.2",
+      "percent": "37.7"
+    },
+    "Demonic Oculi": {
+      "damage": "26.1",
+      "percent": "58.4"
+    },
+    "Diabolic Ritual: Mother of Chaos": {
+      "damage": "8.9",
+      "percent": "0.0"
+    },
+    "Diabolic Ritual: Overlord": {
+      "damage": "8.9",
+      "percent": "0.0"
+    },
+    "Diabolic Ritual: Pit Lord": {
+      "damage": "8.9",
+      "percent": "0.0"
+    },
+    "Dominion of Argus": {
+      "damage": "5.2",
+      "percent": "51.4"
+    },
+    "dreadstalkers": {
+      "damage": "10.1",
+      "percent": "20.0"
+    },
+    "Emberwing Burn (Crit)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Mastery)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Vers)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Heatwave": {
+      "damage": "2.9",
+      "percent": "2.9"
+    },
+    "grimoire_imp_lord": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Hellbent Commander": {
+      "damage": "1.1",
+      "percent": "456.7"
+    },
+    "Might of the Void": {
+      "damage": "8.2",
+      "percent": "8.6"
+    },
+    "Mind's Eyes": {
+      "damage": "17.1",
+      "percent": "8.3"
+    },
+    "pet_movement": {
+      "damage": "19.1",
+      "percent": "95.7"
+    },
+    "Potion of Recklessness (Crit)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "tyrant": {
+      "damage": "5.2",
+      "percent": "0.0"
+    },
+    "Tyrant's Oblation": {
+      "damage": "5.2",
+      "percent": "0.0"
+    },
+    "vilefiend": {
+      "damage": "15.1",
+      "percent": "0.0"
+    },
+    "wild_imps": {
+      "damage": "1.0",
+      "percent": "360.0"
+    },
+    "demonic_tyrant - demonic_tyrant: Demonic Power": {
+      "damage": "5.2",
+      "percent": "174.0"
+    },
+    "vilefiend - vilefiend: Mark of Shatug": {
+      "damage": "15.1",
+      "percent": "0.0"
+    },
+    "Carnivorous Stalkers": {
+      "damage": "86.1",
+      "percent": "50.0"
+    },
+    "demonic_core_dogs": {
+      "damage": "30.1",
+      "percent": "22.0"
+    },
+    "demonic_core_imps_fade": {
+      "damage": "24.3",
+      "percent": "13.0"
+    },
+    "demonic_core_imps_implosion": {
+      "damage": "11.5",
+      "percent": "1.0"
+    },
+    "Infernal Rapidity": {
+      "damage": "81.5",
+      "percent": "44.0"
+    },
+    "Mana Cap": {
+      "damage": "23.45%",
+      "percent": "18.70%"
+    },
+    "Mana": {
+      "damage": "245,000.0",
+      "percent": "1,714.09"
+    },
+    "Soul Shard": {
+      "damage": "5.0",
+      "percent": "0.85"
+    }
+  },
+  "spelldata": {},
+  "talents": "CoQAAAAAAAAAAAAAAAAAAAAAAYmxMzoZjZ2mZGzyAAAAAAAAGzYYBGYb0CNsYMGLzyMzMmBAmZMzMzMDgZGzAAAYMzMjhhlZMgB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

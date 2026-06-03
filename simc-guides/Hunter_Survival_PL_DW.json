@@ -1,0 +1,302 @@
+{
+  "class": "Hunter",
+  "spec": "Survival",
+  "hero_tree": "PL_DW",
+  "metrics": {},
+  "abilities": {
+    "auto_attack_mh": {
+      "damage": "9,544",
+      "percent": "8.0%"
+    },
+    "auto_attack_oh": {
+      "damage": "4,650",
+      "percent": "3.9%"
+    },
+    "Boar Charge": {
+      "damage": "3,917 (8,616)",
+      "percent": "3.3% (7.3%)"
+    },
+    "Boomstick": {
+      "damage": "3.473",
+      "percent": "0.001"
+    },
+    "Raptor Strike": {
+      "damage": "13,698 (30,448)",
+      "percent": "11.5% (25.6%)"
+    },
+    "Stampede (_tick)": {
+      "damage": "2,045",
+      "percent": "1.7%"
+    },
+    "Takedown": {
+      "damage": "0.985",
+      "percent": "0.001"
+    },
+    "Wildfire Bomb": {
+      "damage": "0.877",
+      "percent": "0.001"
+    },
+    "pet - duck": {
+      "damage": "35489 / 35489",
+      "percent": ""
+    },
+    "Claw": {
+      "damage": "2,101",
+      "percent": "1.8%"
+    },
+    "Kill Command": {
+      "damage": "0.449",
+      "percent": "0.001"
+    },
+    "melee": {
+      "damage": "2,084",
+      "percent": "0.3%"
+    },
+    "Strike As One": {
+      "damage": "20,553 (23,242)",
+      "percent": "17.3% (19.6%)"
+    },
+    "pet - bear": {
+      "damage": "10688 / 2869",
+      "percent": ""
+    },
+    "Rend Flesh": {
+      "damage": "6,369",
+      "percent": "1.4%"
+    },
+    "pet - dire_beast": {
+      "damage": "2084 / 385",
+      "percent": ""
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "122.34s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Call Pet 1 (summon_pet)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.1",
+      "percent": "108.1"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Amirdrassil's Swiftness": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Bloodseeker": {
+      "damage": "7.7",
+      "percent": "0.0"
+    },
+    "Endurance Training": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Frenzied Focus": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Hogstrider": {
+      "damage": "7.2",
+      "percent": "7.2"
+    },
+    "Howl of the Pack Leader (_bear)": {
+      "damage": "6.9",
+      "percent": "0.0"
+    },
+    "Howl of the Pack Leader (_boar)": {
+      "damage": "7.3",
+      "percent": "0.0"
+    },
+    "Howl of the Pack Leader (_cooldown)": {
+      "damage": "17.3",
+      "percent": "0.0"
+    },
+    "Howl of the Pack Leader (_wyvern)": {
+      "damage": "7.6",
+      "percent": "0.0"
+    },
+    "Mongoose Fury": {
+      "damage": "259388",
+      "percent": "#2"
+    },
+    "Nordrassil's Sagacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Raptor Swipe!": {
+      "damage": "61.8",
+      "percent": "0.0"
+    },
+    "Shaladrassil's Strength": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Shrapnel Bomb": {
+      "damage": "37.3",
+      "percent": "1.5"
+    },
+    "Stampede": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Stampede! (_incoming)": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Teldrassil's Tenacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Tip of the Spear": {
+      "damage": "1280140",
+      "percent": "#1"
+    },
+    "Tip of the Spear (_boomstick)": {
+      "damage": "8.0",
+      "percent": "0.0"
+    },
+    "Wyvern's Cry": {
+      "damage": "7.5",
+      "percent": "170.0"
+    },
+    "bear - bear: Bear Summon": {
+      "damage": "6.9",
+      "percent": "0.0"
+    },
+    "bear - bear: Pet Damage": {
+      "damage": "6.9",
+      "percent": "0.0"
+    },
+    "dire_beast - dire_beast: Pet Damage": {
+      "damage": "6.9",
+      "percent": "0.0"
+    },
+    "duck - duck: Bloodseeker": {
+      "damage": "7.7",
+      "percent": "0.0"
+    },
+    "Dire Beast": {
+      "damage": "13.7",
+      "percent": "10.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "42.8",
+      "percent": "18.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "35.8",
+      "percent": "15.0"
+    },
+    "delayed_aa_channel": {
+      "damage": "36.2",
+      "percent": "22.0"
+    },
+    "duck - wild_hunt": {
+      "damage": "34.49%",
+      "percent": "30.70%"
+    },
+    "Focus Cap": {
+      "damage": "3.51%",
+      "percent": "2.08%"
+    },
+    "duck - Focus Cap": {
+      "damage": "0.00%",
+      "percent": "0.00%"
+    },
+    "Keen Eyesight": {
+      "damage": "378004",
+      "percent": "#1"
+    },
+    "Combat Experience": {
+      "damage": "1268871",
+      "percent": "#1"
+    },
+    "Lunge": {
+      "damage": "378934",
+      "percent": "#1"
+    },
+    "Precision Strikes": {
+      "damage": "1267003",
+      "percent": "#2"
+    },
+    "Lethal Barbs": {
+      "damage": "1264781",
+      "percent": "#3"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Sharpened Fangs": {
+      "damage": "1264775",
+      "percent": "#1"
+    },
+    "Killer Companion": {
+      "damage": "378955",
+      "percent": "#1"
+    },
+    "Strike as One": {
+      "damage": "1251717",
+      "percent": "#2"
+    },
+    "Master's Call": {
+      "damage": "54216",
+      "percent": "#4"
+    },
+    "Posthaste": {
+      "damage": "118922",
+      "percent": "#1"
+    },
+    "Aspect of the Turtle": {
+      "damage": "186265",
+      "percent": "#4"
+    },
+    "Primal Surge": {
+      "damage": "1272154",
+      "percent": "#2"
+    },
+    "Survival of the Fittest": {
+      "damage": "264735",
+      "percent": "#1"
+    },
+    "Focus": {
+      "damage": "100.0",
+      "percent": "14.70"
+    }
+  },
+  "spelldata": {},
+  "talents": "C8PAAAAAAAAAAAAAAAAAAAAAAMgxMGWgNYGGawiZmZmZYZAAAAAAwMmZmx2MGzYGWGTzAAAAwAAjllZmZxMzMYMGwMbAGGjZmNDA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

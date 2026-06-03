@@ -1,0 +1,382 @@
+{
+  "class": "Shaman",
+  "spec": "Enhancement",
+  "hero_tree": "Totemic",
+  "metrics": {},
+  "abilities": {
+    "Crash Lightning": {
+      "damage": "6.1",
+      "percent": "1.5"
+    },
+    "Doom Winds (_damage)": {
+      "damage": "3,238",
+      "percent": "2.9%"
+    },
+    "Flame Shock": {
+      "damage": "3,723",
+      "percent": "3.3%"
+    },
+    "Periodic": {
+      "damage": "213.5",
+      "percent": "2,427"
+    },
+    "Flametongue Attack": {
+      "damage": "4,999",
+      "percent": "4.4%"
+    },
+    "Flametongue Attack (_imbuement_mastery)": {
+      "damage": "1,524",
+      "percent": "1.4%"
+    },
+    "Lava Lash": {
+      "damage": "102.9",
+      "percent": "11.3"
+    },
+    "Lightning Bolt": {
+      "damage": "309.7",
+      "percent": "50.77%"
+    },
+    "main_hand": {
+      "damage": "34.9",
+      "percent": "4.5"
+    },
+    "offhand": {
+      "damage": "34.7",
+      "percent": "4.5"
+    },
+    "Primordial Storm": {
+      "damage": "98.0",
+      "percent": "16.06%"
+    },
+    "Ride the Lightning": {
+      "damage": "0 (5,151)",
+      "percent": "0.0% (4.6%)"
+    },
+    "Stormblast": {
+      "damage": "30.0",
+      "percent": "10.5"
+    },
+    "Stormstrike": {
+      "damage": "80.8",
+      "percent": "2.7"
+    },
+    "Sundering": {
+      "damage": "40.0",
+      "percent": "13.5"
+    },
+    "Thorim's Invocation": {
+      "damage": "0 (3,335)",
+      "percent": "0.0% (3.0%)"
+    },
+    "Voltaic Blaze": {
+      "damage": "6.7",
+      "percent": "0.0"
+    },
+    "Windfury Attack": {
+      "damage": "122.1",
+      "percent": "13.8"
+    },
+    "pet - surging_totem": {
+      "damage": "36448 / 15952",
+      "percent": ""
+    },
+    "Surging Bolt": {
+      "damage": "17,879",
+      "percent": "6.9%"
+    },
+    "Tremor": {
+      "damage": "6,915",
+      "percent": "2.7%"
+    },
+    "Tremor (_es)": {
+      "damage": "11,654",
+      "percent": "4.5%"
+    },
+    "pet - fiery_wolf (Fire)": {
+      "damage": "873 / 236",
+      "percent": ""
+    },
+    "melee": {
+      "damage": "910",
+      "percent": "0.1%"
+    },
+    "pet - searing_totem": {
+      "damage": "11223 / 6249",
+      "percent": ""
+    },
+    "Searing Bolt": {
+      "damage": "4,740",
+      "percent": "2.3%"
+    },
+    "Searing Volley": {
+      "damage": "6,483",
+      "percent": "3.2%"
+    },
+    "pet - lightning_wolf (Lightning)": {
+      "damage": "910 / 129",
+      "percent": ""
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "122.64s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blood Fury": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Doom Winds": {
+      "damage": "1.622",
+      "percent": "0.000"
+    },
+    "Flametongue Weapon": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Blood Knights": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Lightning Shield": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Surging Totem": {
+      "damage": "0.445",
+      "percent": "0.000"
+    },
+    "Windfury Weapon": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "119.1"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Amplification Core": {
+      "damage": "5.5",
+      "percent": "0.0"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Converging Storms": {
+      "damage": "31.2",
+      "percent": "6.8"
+    },
+    "Crackling Surge": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Elemental Overflow": {
+      "damage": "5.5",
+      "percent": "0.0"
+    },
+    "Hasty Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Hot Hand": {
+      "damage": "10.9",
+      "percent": "0.0"
+    },
+    "Lively Totems": {
+      "damage": "15.1",
+      "percent": "4.5"
+    },
+    "Maelstrom Weapon": {
+      "damage": "72.1",
+      "percent": "517.7"
+    },
+    "Masterful Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Molten Weapon": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Static Accumulation": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Storm Unleashed": {
+      "damage": "12.0",
+      "percent": "0.2"
+    },
+    "Stormsurge": {
+      "damage": "33.6",
+      "percent": "6.9"
+    },
+    "Surging Elements": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Totemic Rebound": {
+      "damage": "5.4",
+      "percent": "46.1"
+    },
+    "Versatile Hunt": {
+      "damage": "0.9",
+      "percent": "1.5"
+    },
+    "Whirling Air": {
+      "damage": "5.5",
+      "percent": "0.0"
+    },
+    "Whirling Earth": {
+      "damage": "5.5",
+      "percent": "0.0"
+    },
+    "Whirling Fire": {
+      "damage": "5.5",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "32.7",
+      "percent": "12.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "32.7",
+      "percent": "15.0"
+    },
+    "Windfury: Unruly Winds": {
+      "damage": "226.2",
+      "percent": "154.0"
+    },
+    "Mana Cap": {
+      "damage": "39.99%",
+      "percent": "36.05%"
+    },
+    "Primordial Fire": {
+      "damage": "2.0",
+      "percent": "0.0"
+    },
+    "Primordial Frost": {
+      "damage": "2.0",
+      "percent": "0.0"
+    },
+    "Primordial Lightning": {
+      "damage": "2.0",
+      "percent": "0.0"
+    },
+    "Stormstrike (_mh)": {
+      "damage": "20.4",
+      "percent": "0.4"
+    },
+    "Stormstrike Off-Hand": {
+      "damage": "20.3",
+      "percent": "0.6"
+    },
+    "Sundering (_splitstream)": {
+      "damage": "14.1",
+      "percent": "1.8"
+    },
+    "Total": {
+      "damage": "226.2",
+      "percent": "154.0"
+    },
+    "Ascendance": {
+      "damage": "88.3",
+      "percent": "6.7"
+    },
+    "Crash Lightning (_proc)": {
+      "damage": "37.2",
+      "percent": "2.9"
+    },
+    "Overflow Stacks": {
+      "damage": "0.0",
+      "percent": "64.1"
+    },
+    "Actual Stacks": {
+      "damage": "614.5",
+      "percent": "0.0"
+    },
+    "Lightning Bolt (_ti)": {
+      "damage": "202.3",
+      "percent": "33.17%"
+    },
+    "Total Spent": {
+      "damage": "610.0",
+      "percent": "100.00%"
+    },
+    "0": {
+      "damage": "1",
+      "percent": "2"
+    },
+    "(0.00%)": {
+      "damage": "0.03",
+      "percent": ""
+    },
+    "(0.04%)": {
+      "damage": "0.15",
+      "percent": ""
+    },
+    "(0.21%)": {
+      "damage": "0.37",
+      "percent": ""
+    },
+    "(0.51%)": {
+      "damage": "4.50",
+      "percent": ""
+    },
+    "(6.32%)": {
+      "damage": "6.12",
+      "percent": ""
+    },
+    "(8.58%)": {
+      "damage": "8.02",
+      "percent": ""
+    },
+    "(11.24%)": {
+      "damage": "9.26",
+      "percent": ""
+    },
+    "(12.99%)": {
+      "damage": "9.99",
+      "percent": ""
+    },
+    "(14.02%)": {
+      "damage": "32.86",
+      "percent": ""
+    },
+    "Mana": {
+      "damage": "250,000.0",
+      "percent": "736.59"
+    }
+  },
+  "spelldata": {},
+  "talents": "CcQAAAAAAAAAAAAAAAAAAAAAAMzMjZmZmZmZmZmZmZGAAAAAAAAAYB2gZsox2AYmgNAsMjZMWWmBmZ2GLzMzMMWGzAAYAGzMxMDAMGA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

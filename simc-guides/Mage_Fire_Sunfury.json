@@ -1,0 +1,242 @@
+{
+  "class": "Mage",
+  "spec": "Fire",
+  "hero_tree": "Sunfury",
+  "metrics": {},
+  "abilities": {
+    "Burnout": {
+      "damage": "5,948",
+      "percent": "5.3%"
+    },
+    "Fire Blast": {
+      "damage": "0.066",
+      "percent": "0.000"
+    },
+    "Fireball": {
+      "damage": "5,801",
+      "percent": "5.2%"
+    },
+    "Ignite": {
+      "damage": "30,139",
+      "percent": "26.9%"
+    },
+    "Intensifying Flame": {
+      "damage": "8,523",
+      "percent": "7.6%"
+    },
+    "Meteorite": {
+      "damage": "0 (5,099)",
+      "percent": "0.0% (4.6%)"
+    },
+    "Mirror Image": {
+      "damage": "0.000",
+      "percent": "0.000"
+    },
+    "Pyroblast": {
+      "damage": "3,125",
+      "percent": "0.8%"
+    },
+    "Scorch": {
+      "damage": "6,315",
+      "percent": "5.6%"
+    },
+    "pet - arcane_phoenix": {
+      "damage": "14208 / 3942",
+      "percent": ""
+    },
+    "Arcane Barrage": {
+      "damage": "2,538",
+      "percent": "0.6%"
+    },
+    "Arcane Surge": {
+      "damage": "1,928",
+      "percent": "0.5%"
+    },
+    "Greater Pyroblast": {
+      "damage": "2,896",
+      "percent": "0.7%"
+    },
+    "Meteorite (_bug_impact)": {
+      "damage": "2,673",
+      "percent": "0.7%"
+    },
+    "Meteorite (_impact)": {
+      "damage": "1,049",
+      "percent": "0.3%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blood Fury": {
+      "damage": "2.8",
+      "percent": "0.0"
+    },
+    "Combustion": {
+      "damage": "3.679",
+      "percent": "0.000"
+    },
+    "emberwing_feather": {
+      "damage": "2.8",
+      "percent": "121.12s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Quel'dorei Medley": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Meteorite (_exceptional)": {
+      "damage": "33.7",
+      "percent": "7.08s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "94.3"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Brainstorm": {
+      "damage": "6.6",
+      "percent": "151.1"
+    },
+    "Emberwing Burn (Crit)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Mastery)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Vers)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Heatwave": {
+      "damage": "2.8",
+      "percent": "2.8"
+    },
+    "Feel the Burn": {
+      "damage": "23.7",
+      "percent": "100.5"
+    },
+    "Fevered Incantation": {
+      "damage": "72.9",
+      "percent": "336.0"
+    },
+    "Fiery Rush": {
+      "damage": "5.1",
+      "percent": "0.0"
+    },
+    "Fired Up": {
+      "damage": "8.6",
+      "percent": "29.7"
+    },
+    "Glorious Incandescence": {
+      "damage": "38.0",
+      "percent": "1.1"
+    },
+    "Heat Shimmer": {
+      "damage": "14.5",
+      "percent": "2.2"
+    },
+    "Heating Up": {
+      "damage": "160.6",
+      "percent": "0.0"
+    },
+    "Hot Streak!": {
+      "damage": "157.7",
+      "percent": "0.0"
+    },
+    "Hyperthermia": {
+      "damage": "5.1",
+      "percent": "0.0"
+    },
+    "Hyperthermia (_damage)": {
+      "damage": "5.0",
+      "percent": "15.9"
+    },
+    "Lesser Time Warp": {
+      "damage": "5.1",
+      "percent": "0.0"
+    },
+    "Mana Cascade": {
+      "damage": "6.0",
+      "percent": "151.4"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Overflowing Energy": {
+      "damage": "19.7",
+      "percent": "17.2"
+    },
+    "Spellfire Sphere": {
+      "damage": "6.1",
+      "percent": "34.0"
+    },
+    "Direct Ignite applications": {
+      "damage": "1.0",
+      "percent": "1.0"
+    },
+    "Heating Up converted with Fire Blast": {
+      "damage": "39.4",
+      "percent": "22.0"
+    },
+    "Heating Up generated": {
+      "damage": "160.6",
+      "percent": "125.0"
+    },
+    "Heating Up removed": {
+      "damage": "2.5",
+      "percent": "0.0"
+    },
+    "Hot Streak procs": {
+      "damage": "157.7",
+      "percent": "122.0"
+    },
+    "Hot Streak spell crits": {
+      "damage": "319.1",
+      "percent": "247.0"
+    },
+    "Hot Streak spell crits wasted": {
+      "damage": "0.8",
+      "percent": "0.0"
+    },
+    "Hot Streak spells used": {
+      "damage": "398.5",
+      "percent": "311.0"
+    },
+    "Mana Cap": {
+      "damage": "13.67%",
+      "percent": "7.77%"
+    },
+    "Mana": {
+      "damage": "246,437.5",
+      "percent": "4,167.61"
+    }
+  },
+  "spelldata": {},
+  "talents": "C8DAAAAAAAAAAAAAAAAAAAAAAYGGLzMzswMDZmZGAAAGAwMz0sssMDAwmZmx2wYmBAAAAAsZmZmZAAwYGzYmZMz2AwMDxMGDmhB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

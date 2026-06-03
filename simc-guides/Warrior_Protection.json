@@ -1,0 +1,346 @@
+{
+  "class": "Warrior",
+  "spec": "Protection",
+  "hero_tree": null,
+  "metrics": {
+    "dps": "84394",
+    "dtps": "37953",
+    "hps": "28808"
+  },
+  "abilities": {
+    "auto_attack_mh": {
+      "damage": "4,219 (11,304)",
+      "percent": "5.0% (13.4%)"
+    },
+    "Charge (_impact)": {
+      "damage": "3",
+      "percent": "0.0%"
+    },
+    "Deep Wounds": {
+      "damage": "782",
+      "percent": "0.9%"
+    },
+    "Execute": {
+      "damage": "0 (3,228)",
+      "percent": "0.0% (3.8%)"
+    },
+    "Ravager (_whirling_blade)": {
+      "damage": "1,284",
+      "percent": "1.5%"
+    },
+    "Rend (_dot)": {
+      "damage": "1,610",
+      "percent": "1.9%"
+    },
+    "Revenge": {
+      "damage": "3,000 (3,477)",
+      "percent": "3.6% (4.1%)"
+    },
+    "Shield Charge": {
+      "damage": "0.468",
+      "percent": "0.001"
+    },
+    "Shield Slam": {
+      "damage": "0.914",
+      "percent": "0.001"
+    },
+    "Thunder Blast": {
+      "damage": "0.448",
+      "percent": "0.001"
+    },
+    "Thunder Clap": {
+      "damage": "0.366",
+      "percent": "0.001"
+    },
+    "Tough as Nails": {
+      "damage": "1,240",
+      "percent": "1.5%"
+    },
+    "Voidclaw": {
+      "damage": "333",
+      "percent": "0.4%"
+    },
+    "Voidstalker Sting": {
+      "damage": "178",
+      "percent": "0.2%"
+    },
+    "Wrecking Throw": {
+      "damage": "8.880",
+      "percent": "0.001"
+    },
+    "MID1_Warrior_Protection": {
+      "damage": "28808",
+      "percent": ""
+    },
+    "Ignore Pain": {
+      "damage": "2.513",
+      "percent": "0.001"
+    },
+    "Leech": {
+      "damage": "8,583",
+      "percent": "29.8%"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "121.88s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Avatar": {
+      "damage": "0.607",
+      "percent": "0.001"
+    },
+    "Avatar (_avatar_of_the_storm)": {
+      "damage": "2.0",
+      "percent": "79.19s"
+    },
+    "Battle Stance": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Charge": {
+      "damage": "100",
+      "percent": "#1"
+    },
+    "Demoralizing Shout": {
+      "damage": "0.654",
+      "percent": "0.001"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Ignore Pain (_violent_outburst)": {
+      "damage": "13.590",
+      "percent": "1.058"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "0.00s"
+    },
+    "Shield Block": {
+      "damage": "0.498",
+      "percent": "0.001"
+    },
+    "Shield Wall": {
+      "damage": "871",
+      "percent": "#1"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "113.6"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Brace For Impact": {
+      "damage": "1.0",
+      "percent": "107.1"
+    },
+    "Burst of Power": {
+      "damage": "13.0",
+      "percent": "1.8"
+    },
+    "Combat Analysis": {
+      "damage": "1.0",
+      "percent": "58.5"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Phalanx": {
+      "damage": "82.8",
+      "percent": "31.3"
+    },
+    "Potion of Recklessness (Haste)": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Ravager": {
+      "damage": "23.1",
+      "percent": "4.8"
+    },
+    "Revenge!": {
+      "damage": "5302",
+      "percent": "#2"
+    },
+    "Seeing Red": {
+      "damage": "21.2",
+      "percent": "0.0"
+    },
+    "Sudden Death": {
+      "damage": "12.3",
+      "percent": "2.2"
+    },
+    "Violent Outburst": {
+      "damage": "20.2",
+      "percent": "0.0"
+    },
+    "Wild Strikes": {
+      "damage": "15.7",
+      "percent": "9.3"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "41.9",
+      "percent": "18.0"
+    },
+    "parry_haste": {
+      "damage": "12.8",
+      "percent": "3.0"
+    },
+    "Rage Cap": {
+      "damage": "0.08%",
+      "percent": "0.00%"
+    },
+    "Focused Vigor": {
+      "damage": "384067",
+      "percent": "#2"
+    },
+    "Enduring Alacrity": {
+      "damage": "384063",
+      "percent": "#1"
+    },
+    "Reinforced Plates": {
+      "damage": "382939",
+      "percent": "#2"
+    },
+    "One-Handed Weapon Specialization": {
+      "damage": "382895",
+      "percent": "#3"
+    },
+    "Protection Warrior": {
+      "damage": "1258163",
+      "percent": "#3"
+    },
+    "Leeching Strikes": {
+      "damage": "382258",
+      "percent": "#1"
+    },
+    "Devastate": {
+      "damage": "20243",
+      "percent": "#3"
+    },
+    "Rallying Cry": {
+      "damage": "97462",
+      "percent": "#1"
+    },
+    "Victory Rush": {
+      "damage": "118779",
+      "percent": "#1"
+    },
+    "Xavaric's Magnum Opus": {
+      "damage": "207472",
+      "percent": "#1"
+    },
+    "Devastator": {
+      "damage": "236282",
+      "percent": "#2"
+    },
+    "Rethu's Incessant Courage": {
+      "damage": "242597",
+      "percent": "#1"
+    },
+    "Condemn": {
+      "damage": "317320",
+      "percent": "#3"
+    },
+    "Seismic Reverberation": {
+      "damage": "335758",
+      "percent": "#3"
+    },
+    "Fueled by Violence": {
+      "damage": "383103",
+      "percent": "#1"
+    },
+    "Spell Reflection": {
+      "damage": "385391",
+      "percent": "#1"
+    },
+    "Defensive Stance": {
+      "damage": "386208",
+      "percent": "#1"
+    },
+    "Unyielding Stance": {
+      "damage": "1235047",
+      "percent": "#1"
+    },
+    "One Against Many": {
+      "damage": "429637",
+      "percent": "#1"
+    },
+    "Lightning Strike": {
+      "damage": "435791",
+      "percent": "#2"
+    },
+    "Avatar of the Storm": {
+      "damage": "437134",
+      "percent": "#3"
+    },
+    "Wrecked": {
+      "damage": "447513",
+      "percent": "#2"
+    },
+    "Punish": {
+      "damage": "275335",
+      "percent": "#1"
+    },
+    "Celeritous Conclusion": {
+      "damage": "1270843",
+      "percent": "#1"
+    },
+    "Violent Euphoria": {
+      "damage": "1270731",
+      "percent": "#1"
+    },
+    "Heroic Leap": {
+      "damage": "6544",
+      "percent": "#2"
+    },
+    "Intervene": {
+      "damage": "3411",
+      "percent": "#1"
+    },
+    "Health": {
+      "damage": "1,102,560.0",
+      "percent": "37,399.09"
+    },
+    "Rage": {
+      "damage": "0.0",
+      "percent": "17.42"
+    }
+  },
+  "spelldata": {},
+  "talents": "CkEAAAAAAAAAAAAAAAAAAAAAA02AAAzMDzMzMzMzmxsMjxYmGGDLzMzMDGzMAAAAYZAYGDwAbwyiRjZAMbYmNYGzMY2GAMzAAwMgB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

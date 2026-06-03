@@ -1,0 +1,234 @@
+{
+  "class": "Warlock",
+  "spec": "Destruction",
+  "hero_tree": "Hellcaller",
+  "metrics": {},
+  "abilities": {
+    "Blackened Soul": {
+      "damage": "1.9",
+      "percent": "0.0"
+    },
+    "Chaos Bolt": {
+      "damage": "22,039",
+      "percent": "3.6%"
+    },
+    "Conflagrate": {
+      "damage": "11,936",
+      "percent": "10.7%"
+    },
+    "Embers of Nihilam": {
+      "damage": "0 (5,219)",
+      "percent": "0.0% (4.7%)"
+    },
+    "Incinerate": {
+      "damage": "15,944",
+      "percent": "14.2%"
+    },
+    "Malevolence (_proc)": {
+      "damage": "1,288",
+      "percent": "1.1%"
+    },
+    "Shadowburn": {
+      "damage": "14,157",
+      "percent": "12.7%"
+    },
+    "Soul Fire": {
+      "damage": "5,407",
+      "percent": "4.8%"
+    },
+    "Summon Infernal": {
+      "damage": "0 (41)",
+      "percent": "0.0% (0.0%)"
+    },
+    "Voidstalker Sting": {
+      "damage": "1,250",
+      "percent": "1.1%"
+    },
+    "Wither (_direct)": {
+      "damage": "234 (6,819)",
+      "percent": "0.2% (6.1%)"
+    },
+    "pet - sayaad": {
+      "damage": "1035 / 1035",
+      "percent": ""
+    },
+    "Lash of Pain": {
+      "damage": "370",
+      "percent": "0.3%"
+    },
+    "melee": {
+      "damage": "2,442",
+      "percent": "0.8%"
+    },
+    "pet - overfiend": {
+      "damage": "22039 / 3997",
+      "percent": ""
+    },
+    "pet - infernal": {
+      "damage": "9595 / 3487",
+      "percent": ""
+    },
+    "Immolation": {
+      "damage": "7,154",
+      "percent": "2.3%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Malevolence": {
+      "damage": "8.0",
+      "percent": "6.1"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "300.29s"
+    },
+    "Summon Sayaad (sayaad)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Summon Infernal (_summon_main)": {
+      "damage": "3.7",
+      "percent": "90.71s"
+    },
+    "Summon Overfiend": {
+      "damage": "6.9",
+      "percent": "0.0"
+    },
+    "Whiplash": {
+      "damage": "50.4",
+      "percent": "6.00s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "110.2"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Backdraft": {
+      "damage": "44.5",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Chaotic Inferno (_buff)": {
+      "damage": "13.3",
+      "percent": "0.0"
+    },
+    "Conflagration of Chaos": {
+      "damage": "84.9",
+      "percent": "64.0"
+    },
+    "Crashing Chaos": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Fiendish Cruelty": {
+      "damage": "15.5",
+      "percent": "8.0"
+    },
+    "Flashpoint": {
+      "damage": "12.2",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Nullsight": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Crit)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Reverse Entropy": {
+      "damage": "13.9",
+      "percent": "5.0"
+    },
+    "Vision of Nihilam": {
+      "damage": "5.5",
+      "percent": "97.4"
+    },
+    "infernal - infernal: Immolation": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Avatar of Destruction": {
+      "damage": "6.9",
+      "percent": "5.0"
+    },
+    "Bleakheart Tactics": {
+      "damage": "14.2",
+      "percent": "2.0"
+    },
+    "Chaotic Inferno": {
+      "damage": "13.4",
+      "percent": "7.0"
+    },
+    "Devil Fruit": {
+      "damage": "8.6",
+      "percent": "2.0"
+    },
+    "Echo of Sargeras": {
+      "damage": "11.2",
+      "percent": "5.0"
+    },
+    "Echo of Sargeras (_cb)": {
+      "damage": "53.9",
+      "percent": "41.0"
+    },
+    "Echo of Sargeras (_sb)": {
+      "damage": "37.7",
+      "percent": "25.0"
+    },
+    "Mark of Peroth'arn": {
+      "damage": "14.9",
+      "percent": "2.0"
+    },
+    "Seeds of Their Demise": {
+      "damage": "12.2",
+      "percent": "6.0"
+    },
+    "Mana Cap": {
+      "damage": "12.48%",
+      "percent": "7.18%"
+    },
+    "Mana": {
+      "damage": "245,000.0",
+      "percent": "2,045.75"
+    },
+    "Soul Shard": {
+      "damage": "4.0",
+      "percent": "0.44"
+    }
+  },
+  "spelldata": {},
+  "talents": "CsQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjhZmZmlZxMzMLGjFzAAgZmxMzsYBGYWMaMDgZL2YAAgxAjNAgZGYmxYAAAYmZmBAwYYA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

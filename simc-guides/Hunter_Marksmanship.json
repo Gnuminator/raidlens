@@ -1,0 +1,222 @@
+{
+  "class": "Hunter",
+  "spec": "Marksmanship",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "Aimed Shot": {
+      "damage": "0.989",
+      "percent": "0.001"
+    },
+    "Arcane Shot": {
+      "damage": "9,998",
+      "percent": "7.8%"
+    },
+    "Arcane Shot (_unload)": {
+      "damage": "4,681",
+      "percent": "3.7%"
+    },
+    "Black Arrow": {
+      "damage": "1.902",
+      "percent": "0.001"
+    },
+    "Bleak Arrows": {
+      "damage": "2,850",
+      "percent": "2.2%"
+    },
+    "Let Fly!": {
+      "damage": "1,011",
+      "percent": "0.8%"
+    },
+    "Master Marksman": {
+      "damage": "10,070",
+      "percent": "7.9%"
+    },
+    "Rapid Fire": {
+      "damage": "1.112",
+      "percent": "0.001"
+    },
+    "Steady Shot": {
+      "damage": "1,488",
+      "percent": "1.2%"
+    },
+    "Wailing Arrow": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "pet - dark_minion": {
+      "damage": "11443 / 3636",
+      "percent": ""
+    },
+    "Blighted Arrow": {
+      "damage": "9,159",
+      "percent": "2.3%"
+    },
+    "Shoot": {
+      "damage": "2,284",
+      "percent": "0.6%"
+    },
+    "algethar_puzzle_box": {
+      "damage": "1.9",
+      "percent": "151.47s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blood Fury": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Trueshot": {
+      "damage": "22.050",
+      "percent": "0.001"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Amirdrassil's Swiftness": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Bullseye": {
+      "damage": "1.0",
+      "percent": "91.4"
+    },
+    "Deathblow": {
+      "damage": "343248",
+      "percent": "#1"
+    },
+    "Focus Fire": {
+      "damage": "8.2",
+      "percent": "0.1"
+    },
+    "Lock and Load": {
+      "damage": "9.8",
+      "percent": "0.3"
+    },
+    "Might of the Void": {
+      "damage": "8.2",
+      "percent": "8.6"
+    },
+    "Nordrassil's Sagacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Precise Shots": {
+      "damage": "260242",
+      "percent": "#1"
+    },
+    "Shaladrassil's Strength": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Teldrassil's Tenacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Umbral Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Withering Fire": {
+      "damage": "466991",
+      "percent": "#1"
+    },
+    "Dark Minion": {
+      "damage": "5.6",
+      "percent": "2.0"
+    },
+    "Spotter's Mark": {
+      "damage": "1215057",
+      "percent": "#1"
+    },
+    "Surging Shots Rapid Fire reset": {
+      "damage": "8.3",
+      "percent": "0.0"
+    },
+    "Windrunner Quiver": {
+      "damage": "473523",
+      "percent": "#2"
+    },
+    "delayed_aa_channel": {
+      "damage": "14.9",
+      "percent": "5.0"
+    },
+    "Focus Cap": {
+      "damage": "19.43%",
+      "percent": "5.97%"
+    },
+    "The Bell Tolls": {
+      "damage": "467644",
+      "percent": "#3"
+    },
+    "Keen Eyesight": {
+      "damage": "378004",
+      "percent": "#1"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Beast Cleave": {
+      "damage": "118459",
+      "percent": "#1"
+    },
+    "Posthaste": {
+      "damage": "118922",
+      "percent": "#1"
+    },
+    "Trick Shots": {
+      "damage": "257621",
+      "percent": "#4"
+    },
+    "Hunter Marksmanship 12.0 Class Set 2pc": {
+      "damage": "1264828",
+      "percent": "#2"
+    },
+    "Kill Cleave": {
+      "damage": "389448",
+      "percent": "#1"
+    },
+    "Aspect of the Hydra": {
+      "damage": "470945",
+      "percent": "#1"
+    },
+    "Sentinel's Mark": {
+      "damage": "1266960",
+      "percent": "#1"
+    },
+    "Shadow Thrash": {
+      "damage": "1264485",
+      "percent": "#1"
+    },
+    "Focus": {
+      "damage": "65.0",
+      "percent": "7.63"
+    }
+  },
+  "spelldata": {},
+  "talents": "C4PAAAAAAAAAAAAAAAAAAAAAAYzsMwAGwMsFYWAAAAAAAAAmxMmhZMzMmBjpZMzM22YMzyMzMzMzyYmlBDAAwYmZmZmZAyGMAbMDA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

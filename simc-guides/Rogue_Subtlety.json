@@ -1,0 +1,242 @@
+{
+  "class": "Rogue",
+  "spec": "Subtlety",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "Auto Attack": {
+      "damage": "0 (8,164)",
+      "percent": "0.0% (6.6%)"
+    },
+    "Backstab": {
+      "damage": "2,052 (2,750)",
+      "percent": "1.7% (2.2%)"
+    },
+    "Coup de Grace": {
+      "damage": "6,641 (15,152)",
+      "percent": "5.4% (12.3%)"
+    },
+    "Eviscerate": {
+      "damage": "19,041 (34,712)",
+      "percent": "15.4% (28.1%)"
+    },
+    "Instant Poison": {
+      "damage": "736",
+      "percent": "0.6%"
+    },
+    "Lashe Macabre": {
+      "damage": "7,531",
+      "percent": "6.1%"
+    },
+    "Secret Technique": {
+      "damage": "0 (22,134)",
+      "percent": "0.0% (17.9%)"
+    },
+    "Shadow Blades": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Shadowstrike": {
+      "damage": "8,719 (12,475)",
+      "percent": "7.1% (10.1%)"
+    },
+    "Shuriken Storm": {
+      "damage": "96",
+      "percent": "0.1%"
+    },
+    "Twilight Barrage": {
+      "damage": "591",
+      "percent": "0.5%"
+    },
+    "Unseen Blade": {
+      "damage": "4,697",
+      "percent": "3.8%"
+    },
+    "Voidstalker Sting": {
+      "damage": "697",
+      "percent": "0.6%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Slice and Dice (recuperator)": {
+      "damage": "98.4",
+      "percent": "3.00s"
+    },
+    "Shadow Dance": {
+      "damage": "16.4",
+      "percent": "0.0"
+    },
+    "Stealth": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Vanish": {
+      "damage": "2.8",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "112.5"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Ancient Arts": {
+      "damage": "47.2",
+      "percent": "0.5"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Charge!": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Cold Blood": {
+      "damage": "61.1",
+      "percent": "32.3"
+    },
+    "Disorienting Strikes": {
+      "damage": "16.2",
+      "percent": "0.0"
+    },
+    "Escalating Blade": {
+      "damage": "18.0",
+      "percent": "60.5"
+    },
+    "Find Weakness": {
+      "damage": "1.8",
+      "percent": "92.8"
+    },
+    "Flawless Form": {
+      "damage": "3.0",
+      "percent": "108.8"
+    },
+    "Hasty Hunt": {
+      "damage": "3.8",
+      "percent": "6.1"
+    },
+    "Master of Shadows": {
+      "damage": "18.5",
+      "percent": "0.7"
+    },
+    "Masterful Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Might of the Void": {
+      "damage": "8.2",
+      "percent": "8.6"
+    },
+    "Premeditation": {
+      "damage": "20.2",
+      "percent": "0.0"
+    },
+    "Shadow Focus": {
+      "damage": "20.2",
+      "percent": "0.0"
+    },
+    "Shadow Techniques": {
+      "damage": "50.4",
+      "percent": "360.6"
+    },
+    "Silent Storm": {
+      "damage": "2.4",
+      "percent": "17.8"
+    },
+    "Slice and Dice": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Supercharge (_1)": {
+      "damage": "16.4",
+      "percent": "0.0"
+    },
+    "Supercharge (_2)": {
+      "damage": "16.4",
+      "percent": "0.0"
+    },
+    "Versatile Hunt": {
+      "damage": "0.9",
+      "percent": "1.4"
+    },
+    "Cold Blood coup_de_grace_damage_3": {
+      "damage": "0.0",
+      "percent": "0.0"
+    },
+    "Cold Blood eviscerate": {
+      "damage": "38.0",
+      "percent": "19.0"
+    },
+    "Cold Blood eviscerate_bonus": {
+      "damage": "38.0",
+      "percent": "19.0"
+    },
+    "Cold Blood eviscerate_coup_de_grace_bonus": {
+      "damage": "10.1",
+      "percent": "2.0"
+    },
+    "Cold Blood secret_technique": {
+      "damage": "12.6",
+      "percent": "6.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "70.9",
+      "percent": "39.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "70.8",
+      "percent": "40.0"
+    },
+    "Supercharger coup_de_grace": {
+      "damage": "7.2",
+      "percent": "0.0"
+    },
+    "Supercharger eviscerate": {
+      "damage": "11.0",
+      "percent": "2.0"
+    },
+    "Supercharger secret_technique": {
+      "damage": "14.4",
+      "percent": "10.0"
+    },
+    "Energy Cap": {
+      "damage": "24.68%",
+      "percent": "19.81%"
+    },
+    "Energy": {
+      "damage": "100.0",
+      "percent": "33.34"
+    },
+    "Combo Points": {
+      "damage": "0.0",
+      "percent": "3.04"
+    }
+  },
+  "spelldata": {},
+  "talents": "CUQAAAAAAAAAAAAAAAAAAAAAAAgx2MAAAAAwsMGLTMbbjxMjZwMzMzYMbDzYbbmZmZmZMYMz2AAAAwgxAGzmhBGYW0CtYDzAmZwMGA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

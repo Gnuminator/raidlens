@@ -1,0 +1,218 @@
+{
+  "class": "Evoker",
+  "spec": "Devastation",
+  "hero_tree": "FS",
+  "metrics": {},
+  "abilities": {
+    "Azure Sweep": {
+      "damage": "1265872",
+      "percent": "#1"
+    },
+    "Consume Flame": {
+      "damage": "31,538",
+      "percent": "27.8%"
+    },
+    "Disintegrate": {
+      "damage": "34,931 (45,980)",
+      "percent": "30.8% (40.5%)"
+    },
+    "Dragonrage": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Eternity Surge": {
+      "damage": "5,774 (6,796)",
+      "percent": "5.1% (6.0%)"
+    },
+    "Fire Breath": {
+      "damage": "444249",
+      "percent": "#4"
+    },
+    "Periodic": {
+      "damage": "273.0",
+      "percent": "6,622"
+    },
+    "Living Flame": {
+      "damage": "2,506",
+      "percent": "2.2%"
+    },
+    "Twin Flame": {
+      "damage": "4,882",
+      "percent": "4.3%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Tip the Scales": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Verdant Embrace": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "109.8"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Ancient Flame": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Burnout": {
+      "damage": "9.7",
+      "percent": "28.9"
+    },
+    "Essence Burst": {
+      "damage": "49.6",
+      "percent": "6.5"
+    },
+    "Iridescence: Blue": {
+      "damage": "19.6",
+      "percent": "0.0"
+    },
+    "Iridescence: Red": {
+      "damage": "16.8",
+      "percent": "5.6"
+    },
+    "Leaping Flames": {
+      "damage": "22.4",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Nullsight": {
+      "damage": "3.2",
+      "percent": "0.0"
+    },
+    "Power Swell": {
+      "damage": "31.5",
+      "percent": "10.5"
+    },
+    "Risen Fury": {
+      "damage": "2.7",
+      "percent": "0.0"
+    },
+    "Rising Fury": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Scarlet Adaptation": {
+      "damage": "9.9",
+      "percent": "0.0"
+    },
+    "Azure Essence Burst": {
+      "damage": "14.5",
+      "percent": "8.0"
+    },
+    "Essence Well": {
+      "damage": "16.8",
+      "percent": "8.0"
+    },
+    "Overwritten Leaping Flames": {
+      "damage": "12.9",
+      "percent": "7.0"
+    },
+    "Ruby Essence Burst": {
+      "damage": "8.8",
+      "percent": "1.0"
+    },
+    "Titanic Precision Azure Essence Burst": {
+      "damage": "0.2",
+      "percent": "0.0"
+    },
+    "Titanic Precision Ruby Essence Burst": {
+      "damage": "2.8",
+      "percent": "0.0"
+    },
+    "Essence Cap": {
+      "damage": "3.73%",
+      "percent": "1.24%"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Azure Strike": {
+      "damage": "362969",
+      "percent": "#1"
+    },
+    "Source of Magic": {
+      "damage": "369459",
+      "percent": "#2"
+    },
+    "Inherent Resistance": {
+      "damage": "375544",
+      "percent": "#1"
+    },
+    "Draconic Legacy": {
+      "damage": "376166",
+      "percent": "#1"
+    },
+    "Attuned to the Dream": {
+      "damage": "376930",
+      "percent": "#1"
+    },
+    "Regenerative Magic": {
+      "damage": "387787",
+      "percent": "#1"
+    },
+    "Energizing Flame": {
+      "damage": "400006",
+      "percent": "#1"
+    },
+    "Conduit of Flame": {
+      "damage": "444843",
+      "percent": "#1"
+    },
+    "Fulminous Roar": {
+      "damage": "1218447",
+      "percent": "#1"
+    },
+    "Refined Essence": {
+      "damage": "1261452",
+      "percent": "#1"
+    },
+    "Mana": {
+      "damage": "245,500.0",
+      "percent": "2,599.24"
+    },
+    "Essence": {
+      "damage": "5.0",
+      "percent": "0.41"
+    }
+  },
+  "spelldata": {},
+  "talents": "CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgZmZwMDGMgBjZamZmJjxyMzMzwMzMzAmxMzYmZbmZwMwMmB2ALgZYCsFsMMAmZGG",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

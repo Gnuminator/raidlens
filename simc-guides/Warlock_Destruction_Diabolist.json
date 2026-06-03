@@ -1,0 +1,326 @@
+{
+  "class": "Warlock",
+  "spec": "Destruction",
+  "hero_tree": "Diabolist",
+  "metrics": {},
+  "abilities": {
+    "Chaos Bolt": {
+      "damage": "19,332",
+      "percent": "3.0%"
+    },
+    "Conflagrate": {
+      "damage": "11,528",
+      "percent": "10.0%"
+    },
+    "Diabolic Oculi": {
+      "damage": "0 (9,986)",
+      "percent": "0.0% (8.7%)"
+    },
+    "Embers of Nihilam": {
+      "damage": "0 (5,458)",
+      "percent": "0.0% (4.7%)"
+    },
+    "Immolate (_direct)": {
+      "damage": "334 (3,550)",
+      "percent": "0.3% (3.1%)"
+    },
+    "Incinerate": {
+      "damage": "13,469",
+      "percent": "11.7%"
+    },
+    "Infernal Bolt": {
+      "damage": "7.4",
+      "percent": "0.0"
+    },
+    "Ruination": {
+      "damage": "7.4",
+      "percent": "0.0"
+    },
+    "Shadowburn": {
+      "damage": "14,522",
+      "percent": "12.6%"
+    },
+    "Soul Fire": {
+      "damage": "5,174",
+      "percent": "4.5%"
+    },
+    "Summon Infernal": {
+      "damage": "0 (42)",
+      "percent": "0.0% (0.0%)"
+    },
+    "Twilight Barrage": {
+      "damage": "751",
+      "percent": "0.6%"
+    },
+    "Voidstalker Sting": {
+      "damage": "1,063",
+      "percent": "0.9%"
+    },
+    "pet - sayaad": {
+      "damage": "959 / 959",
+      "percent": ""
+    },
+    "Lash of Pain": {
+      "damage": "359",
+      "percent": "0.3%"
+    },
+    "melee": {
+      "damage": "1,414",
+      "percent": "0.1%"
+    },
+    "pet - overfiend": {
+      "damage": "19332 / 3508",
+      "percent": ""
+    },
+    "pet - infernal": {
+      "damage": "11968 / 4300",
+      "percent": ""
+    },
+    "Immolation": {
+      "damage": "3,433",
+      "percent": "0.4%"
+    },
+    "pet - overlord": {
+      "damage": "38343 / 2405",
+      "percent": ""
+    },
+    "Wicked Cleave": {
+      "damage": "38,343",
+      "percent": "2.1%"
+    },
+    "pet - mother_of_chaos": {
+      "damage": "28386 / 2278",
+      "percent": ""
+    },
+    "Chaos Salvo": {
+      "damage": "28,386",
+      "percent": "2.0%"
+    },
+    "pet - pit_lord": {
+      "damage": "38165 / 2268",
+      "percent": ""
+    },
+    "Felseeker": {
+      "damage": "38,165",
+      "percent": "2.0%"
+    },
+    "pet - infernal_fragment": {
+      "damage": "4847 / 576",
+      "percent": ""
+    },
+    "pet - diabolic_imp": {
+      "damage": "1036 / 174",
+      "percent": ""
+    },
+    "Diabolic Bolt": {
+      "damage": "1,036",
+      "percent": "0.2%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Diabolic Imp (_summon)": {
+      "damage": "7.3",
+      "percent": "39.95s"
+    },
+    "emberwing_feather": {
+      "damage": "3.0",
+      "percent": "125.37s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Infernal Fragmentation (_summon_fragment)": {
+      "damage": "6.8",
+      "percent": "92.00s"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "300.32s"
+    },
+    "Summon Sayaad (sayaad)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Summon Infernal (_summon_main)": {
+      "damage": "3.7",
+      "percent": "91.87s"
+    },
+    "Summon Mother of Chaos": {
+      "damage": "7.4",
+      "percent": "39.76s"
+    },
+    "Summon Overfiend": {
+      "damage": "6.9",
+      "percent": "0.0"
+    },
+    "Summon Overlord": {
+      "damage": "7.4",
+      "percent": "39.81s"
+    },
+    "Summon Pit Lord": {
+      "damage": "7.4",
+      "percent": "39.76s"
+    },
+    "Whiplash": {
+      "damage": "50.4",
+      "percent": "6.00s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "110.3"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.3"
+    },
+    "Backdraft": {
+      "damage": "41.0",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Chaotic Inferno (_buff)": {
+      "damage": "13.8",
+      "percent": "0.2"
+    },
+    "Conflagration of Chaos": {
+      "damage": "80.0",
+      "percent": "60.0"
+    },
+    "Crashing Chaos": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Demonic Art: Mother of Chaos": {
+      "damage": "7.5",
+      "percent": "0.0"
+    },
+    "Demonic Art: Overlord": {
+      "damage": "7.5",
+      "percent": "0.0"
+    },
+    "Demonic Art: Pit Lord": {
+      "damage": "7.5",
+      "percent": "0.0"
+    },
+    "Demonic Oculi": {
+      "damage": "23.1",
+      "percent": "72.8"
+    },
+    "Diabolic Ritual: Mother of Chaos": {
+      "damage": "7.8",
+      "percent": "0.0"
+    },
+    "Diabolic Ritual: Overlord": {
+      "damage": "7.8",
+      "percent": "0.0"
+    },
+    "Diabolic Ritual: Pit Lord": {
+      "damage": "7.8",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Crit)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Mastery)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Vers)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Heatwave": {
+      "damage": "3.0",
+      "percent": "3.0"
+    },
+    "Fiendish Cruelty": {
+      "damage": "14.2",
+      "percent": "7.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Mind's Eyes": {
+      "damage": "19.3",
+      "percent": "3.0"
+    },
+    "Potion of Recklessness (Crit)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Reverse Entropy": {
+      "damage": "14.0",
+      "percent": "5.0"
+    },
+    "Vision of Nihilam": {
+      "damage": "7.1",
+      "percent": "94.5"
+    },
+    "infernal - infernal: Immolation": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "infernal_fragment - infernal_fragment: Immolation": {
+      "damage": "3.4",
+      "percent": "0.0"
+    },
+    "Avatar of Destruction": {
+      "damage": "6.9",
+      "percent": "6.0"
+    },
+    "Chaotic Inferno": {
+      "damage": "14.0",
+      "percent": "7.0"
+    },
+    "Echo of Sargeras": {
+      "damage": "10.0",
+      "percent": "4.0"
+    },
+    "Echo of Sargeras (_cb)": {
+      "damage": "54.2",
+      "percent": "39.0"
+    },
+    "Echo of Sargeras (_sb)": {
+      "damage": "37.4",
+      "percent": "25.0"
+    },
+    "Mana Cap": {
+      "damage": "21.73%",
+      "percent": "16.71%"
+    },
+    "Mana": {
+      "damage": "245,000.0",
+      "percent": "1,767.11"
+    },
+    "Soul Shard": {
+      "damage": "4.0",
+      "percent": "0.46"
+    }
+  },
+  "spelldata": {},
+  "talents": "CsQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjhZmZmlZxMzMLGjFzAAgZmxMzsYBzMjZWWGNzMsNsNbNWYAAgxAjNAMzMzAzMGDAAAzMzMAAGDD",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

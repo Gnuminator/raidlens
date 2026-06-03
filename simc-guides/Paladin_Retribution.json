@@ -1,0 +1,202 @@
+{
+  "class": "Paladin",
+  "spec": "Retribution",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "Blade of Justice": {
+      "damage": "0.852",
+      "percent": "0.000"
+    },
+    "Consecration (blade_of_justice)": {
+      "damage": "0 (975)",
+      "percent": "0.0% (0.9%)"
+    },
+    "Divine Storm": {
+      "damage": "763",
+      "percent": "0.7%"
+    },
+    "Divine Toll": {
+      "damage": "1.021",
+      "percent": "0.000"
+    },
+    "Empyrean Hammer": {
+      "damage": "11,998",
+      "percent": "10.7%"
+    },
+    "Execution Sentence": {
+      "damage": "1.276",
+      "percent": "0.003"
+    },
+    "Execution Sentence (_init)": {
+      "damage": "1,089",
+      "percent": "1.0%"
+    },
+    "Expurgation": {
+      "damage": "8,449",
+      "percent": "7.5%"
+    },
+    "Final Verdict": {
+      "damage": "21,943",
+      "percent": "19.6%"
+    },
+    "Hammer of Light": {
+      "damage": "12,316",
+      "percent": "11.0%"
+    },
+    "Hammer of Wrath": {
+      "damage": "2.964",
+      "percent": "0.000"
+    },
+    "Highlord's Judgment": {
+      "damage": "5,278",
+      "percent": "4.7%"
+    },
+    "Judgment": {
+      "damage": "2.060",
+      "percent": "0.000"
+    },
+    "melee": {
+      "damage": "0 (8,282)",
+      "percent": "0.0% (7.4%)"
+    },
+    "Voidclaw": {
+      "damage": "360",
+      "percent": "0.3%"
+    },
+    "Wake of Ashes": {
+      "damage": "0.773",
+      "percent": "0.000"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "122.46s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Avenging Wrath": {
+      "damage": "1.112",
+      "percent": "0.000"
+    },
+    "Fireblood": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Royal Roast": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Sacrosanct Crusade (_heal)": {
+      "damage": "21.5",
+      "percent": "14.13s"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Art of War": {
+      "damage": "26.9",
+      "percent": "9.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Divine Hammer": {
+      "damage": "10.2",
+      "percent": "0.0"
+    },
+    "Divine Purpose": {
+      "damage": "14.5",
+      "percent": "2.0"
+    },
+    "Empyrean Legacy": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Light's Deliverance (hammer_of_light_free)": {
+      "damage": "11.3",
+      "percent": "0.0"
+    },
+    "Hammer of Light (_ready)": {
+      "damage": "21.6",
+      "percent": "0.0"
+    },
+    "Light's Deliverance": {
+      "damage": "12.3",
+      "percent": "582.3"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Rush of Light": {
+      "damage": "7.5",
+      "percent": "38.6"
+    },
+    "Sacrosanct Crusade": {
+      "damage": "13.6",
+      "percent": "18.2"
+    },
+    "Sanctification": {
+      "damage": "1.9",
+      "percent": "87.2"
+    },
+    "Shake the Heavens": {
+      "damage": "1.0",
+      "percent": "18.2"
+    },
+    "Umbral Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Undisputed Ruling": {
+      "damage": "14.0",
+      "percent": "7.5"
+    },
+    "Art of War wasted": {
+      "damage": "0.7",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "29.1",
+      "percent": "9.0"
+    },
+    "Templar Light's Judicator LD additional stacks": {
+      "damage": "96.2",
+      "percent": "54.0"
+    },
+    "Holy Power Cap": {
+      "damage": "12.25%",
+      "percent": "6.03%"
+    },
+    "Consecration (_tick_blade_of_justice)": {
+      "damage": "143.636",
+      "percent": "0.000"
+    },
+    "Holy Power": {
+      "damage": "0.0",
+      "percent": "1.22"
+    }
+  },
+  "spelldata": {},
+  "talents": "CYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQz22MzsMMzAAAAAAwoMmhZGbDz2wMbzYMmZYGbsNMAAkZm2mZ2mBAsBYAwYGmBzYMbYZGMMmxgB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

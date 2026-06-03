@@ -1,0 +1,190 @@
+{
+  "class": "Evoker",
+  "spec": "Devastation",
+  "hero_tree": "SC",
+  "metrics": {},
+  "abilities": {
+    "Azure Strike": {
+      "damage": "135",
+      "percent": "0.1%"
+    },
+    "Azure Sweep": {
+      "damage": "18.9",
+      "percent": "0.1"
+    },
+    "Bombardments": {
+      "damage": "13,079",
+      "percent": "11.8%"
+    },
+    "Deep Breath": {
+      "damage": "0 (10,647)",
+      "percent": "0.0% (9.6%)"
+    },
+    "Disintegrate": {
+      "damage": "50,375 (60,107)",
+      "percent": "45.3% (54.0%)"
+    },
+    "Dragonrage": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Eternity Surge": {
+      "damage": "5,047 (5,796)",
+      "percent": "4.5% (5.2%)"
+    },
+    "Fire Breath": {
+      "damage": "6,585",
+      "percent": "5.9%"
+    },
+    "Periodic": {
+      "damage": "285.5",
+      "percent": "3,732"
+    },
+    "Living Flame": {
+      "damage": "1,050",
+      "percent": "0.9%"
+    },
+    "pet - dracthyr_commando": {
+      "damage": "44279 / 2439",
+      "percent": ""
+    },
+    "Pyre": {
+      "damage": "44,279",
+      "percent": "2.2%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Hover": {
+      "damage": "8.3",
+      "percent": "17.1"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Tip the Scales": {
+      "damage": "2.8",
+      "percent": "0.0"
+    },
+    "Verdant Embrace": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "108.3"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.3"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Burnout": {
+      "damage": "8.8",
+      "percent": "33.5"
+    },
+    "Essence Burst": {
+      "damage": "29.9",
+      "percent": "3.9"
+    },
+    "Imminent Destruction": {
+      "damage": "8.9",
+      "percent": "4.1"
+    },
+    "Leaping Flames": {
+      "damage": "16.6",
+      "percent": "0.0"
+    },
+    "Mass Disintegrate (_stacks)": {
+      "damage": "30.1",
+      "percent": "5.4"
+    },
+    "Mass Disintegrate (_ticks)": {
+      "damage": "31.0",
+      "percent": "4.4"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Nullsight": {
+      "damage": "3.1",
+      "percent": "0.0"
+    },
+    "Power Swell": {
+      "damage": "27.7",
+      "percent": "7.8"
+    },
+    "Risen Fury": {
+      "damage": "2.7",
+      "percent": "0.0"
+    },
+    "Rising Fury": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Scarlet Adaptation": {
+      "damage": "7.2",
+      "percent": "0.0"
+    },
+    "Strafing Run": {
+      "damage": "6.7",
+      "percent": "0.0"
+    },
+    "Unrelenting Siege": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "dracthyr_commando - dracthyr_commando: Deep Breath": {
+      "damage": "13.0",
+      "percent": "0.0"
+    },
+    "Azure Essence Burst": {
+      "damage": "15.7",
+      "percent": "7.0"
+    },
+    "Overwritten Leaping Flames": {
+      "damage": "9.6",
+      "percent": "4.0"
+    },
+    "Ruby Essence Burst": {
+      "damage": "5.1",
+      "percent": "0.0"
+    },
+    "Essence Cap": {
+      "damage": "5.34%",
+      "percent": "0.92%"
+    },
+    "Mana": {
+      "damage": "245,500.0",
+      "percent": "1,102.03"
+    },
+    "Essence": {
+      "damage": "5.0",
+      "percent": "0.38"
+    }
+  },
+  "spelldata": {},
+  "talents": "CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMDMDzgBmZGjZaYmpZMWmxMzMz8AzMzAmxMGzMLzMDMwYwCsMGN2GQmBBbYGMzghB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

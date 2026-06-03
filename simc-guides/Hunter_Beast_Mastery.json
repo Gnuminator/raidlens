@@ -1,0 +1,322 @@
+{
+  "class": "Hunter",
+  "spec": "Beast",
+  "hero_tree": "Mastery",
+  "metrics": {},
+  "abilities": {
+    "Auto Shot": {
+      "damage": "1,468",
+      "percent": "1.2%"
+    },
+    "Barbed Shot": {
+      "damage": "0.842",
+      "percent": "0.001"
+    },
+    "Boar Charge": {
+      "damage": "2,572 (5,665)",
+      "percent": "2.1% (4.7%)"
+    },
+    "Cobra Shot": {
+      "damage": "14,817",
+      "percent": "12.2%"
+    },
+    "Stampede (_tick)": {
+      "damage": "3,779",
+      "percent": "3.1%"
+    },
+    "pet - duck": {
+      "damage": "19525 / 19525",
+      "percent": ""
+    },
+    "Bestial Wrath": {
+      "damage": "0.882",
+      "percent": "0.001"
+    },
+    "Bloodshed": {
+      "damage": "10,422",
+      "percent": "4.3%"
+    },
+    "Claw": {
+      "damage": "2,162",
+      "percent": "1.8%"
+    },
+    "Kill Command": {
+      "damage": "1.512",
+      "percent": "0.001"
+    },
+    "melee": {
+      "damage": "4,041",
+      "percent": "0.5%"
+    },
+    "Stomp": {
+      "damage": "2,103",
+      "percent": "0.9%"
+    },
+    "Stomp (thundering_hooves)": {
+      "damage": "679",
+      "percent": "0.6%"
+    },
+    "pet - animal_companion": {
+      "damage": "17367 / 17367",
+      "percent": ""
+    },
+    "pet - natures_ally_pet": {
+      "damage": "26993 / 13567",
+      "percent": ""
+    },
+    "pet - dire_beast": {
+      "damage": "10919 / 8663",
+      "percent": ""
+    },
+    "pet - bear": {
+      "damage": "11690 / 4175",
+      "percent": ""
+    },
+    "Rend Flesh": {
+      "damage": "3,655",
+      "percent": "1.1%"
+    },
+    "pet - fenryr": {
+      "damage": "28643 / 4026",
+      "percent": ""
+    },
+    "Ravenous Leap": {
+      "damage": "18,040",
+      "percent": "2.1%"
+    },
+    "pet - hati": {
+      "damage": "10039 / 1399",
+      "percent": ""
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "124.10s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blood Fury": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Call Pet 1 (summon_pet)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Amirdrassil's Swiftness": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Bloody Frenzy": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Endurance Training": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Hogstrider": {
+      "damage": "8.2",
+      "percent": "8.2"
+    },
+    "Howl of the Pack Leader (_bear)": {
+      "damage": "7.9",
+      "percent": "0.0"
+    },
+    "Howl of the Pack Leader (_boar)": {
+      "damage": "8.2",
+      "percent": "0.0"
+    },
+    "Howl of the Pack Leader (_cooldown)": {
+      "damage": "15.2",
+      "percent": "0.0"
+    },
+    "Howl of the Pack Leader (_wyvern)": {
+      "damage": "8.5",
+      "percent": "0.0"
+    },
+    "Huntmaster's Call": {
+      "damage": "8.0",
+      "percent": "52.3"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.5"
+    },
+    "Nature's Ally": {
+      "damage": "1273065",
+      "percent": "#1"
+    },
+    "Nordrassil's Sagacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Radiant Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Shaladrassil's Strength": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Stampede": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Stampede! (_incoming)": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Summon Fenryr": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "Summon Hati": {
+      "damage": "3.5",
+      "percent": "0.0"
+    },
+    "Teldrassil's Tenacity": {
+      "damage": "3.5",
+      "percent": "0.7"
+    },
+    "Wyvern's Cry": {
+      "damage": "8.4",
+      "percent": "325.9"
+    },
+    "animal_companion - animal_companion: Bestial Wrath": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "bear - bear: Bear Summon": {
+      "damage": "7.8",
+      "percent": "0.0"
+    },
+    "bear - bear: Bestial Wrath": {
+      "damage": "7.6",
+      "percent": "0.0"
+    },
+    "bear - bear: Pet Damage": {
+      "damage": "7.8",
+      "percent": "0.0"
+    },
+    "dire_beast - dire_beast: Bestial Wrath": {
+      "damage": "8.7",
+      "percent": "1.9"
+    },
+    "dire_beast - dire_beast: Pet Damage": {
+      "damage": "6.6",
+      "percent": "0.0"
+    },
+    "duck - duck: Bestial Wrath": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "fenryr - fenryr: Bestial Wrath": {
+      "damage": "3.4",
+      "percent": "0.0"
+    },
+    "fenryr - fenryr: Pet Damage": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "hati - hati: Bestial Wrath": {
+      "damage": "3.4",
+      "percent": "0.5"
+    },
+    "hati - hati: Pet Damage": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "natures_ally_pet - natures_ally_pet: Bestial Wrath (_apex)": {
+      "damage": "10.3",
+      "percent": "0.0"
+    },
+    "Dire Beast": {
+      "damage": "52.4",
+      "percent": "34.0"
+    },
+    "Dire Command": {
+      "damage": "17.8",
+      "percent": "9.0"
+    },
+    "duck - wild_hunt": {
+      "damage": "80.09%",
+      "percent": "77.19%"
+    },
+    "Focus Cap": {
+      "damage": "9.06%",
+      "percent": "5.75%"
+    },
+    "duck - Focus Cap": {
+      "damage": "0.51%",
+      "percent": "0.12%"
+    },
+    "Keen Eyesight": {
+      "damage": "378004",
+      "percent": "#1"
+    },
+    "Command": {
+      "damage": "21563",
+      "percent": "#1"
+    },
+    "Better Together": {
+      "damage": "472357",
+      "percent": "#1"
+    },
+    "Master's Call": {
+      "damage": "54216",
+      "percent": "#4"
+    },
+    "Posthaste": {
+      "damage": "118922",
+      "percent": "#1"
+    },
+    "Survival of the Fittest": {
+      "damage": "264735",
+      "percent": "#1"
+    },
+    "Pack Mentality": {
+      "damage": "472358",
+      "percent": "#1"
+    },
+    "Bear Summon": {
+      "damage": "1225858",
+      "percent": "#1"
+    },
+    "Pet Damage": {
+      "damage": "1284992",
+      "percent": "#1"
+    },
+    "Focus": {
+      "damage": "100.0",
+      "percent": "18.38"
+    }
+  },
+  "spelldata": {},
+  "talents": "C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsBzwQDbAAYG2GzsNzwMmZYYmxYmxMzYGzwMzYGzgx0MAAAAAmBAAgxMzMgZ2AbwsA2GA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

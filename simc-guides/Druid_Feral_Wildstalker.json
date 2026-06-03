@@ -1,0 +1,318 @@
+{
+  "class": "Druid",
+  "spec": "Feral",
+  "hero_tree": "Wildstalker",
+  "metrics": {},
+  "abilities": {
+    "Bloodseeker Vines": {
+      "damage": "-",
+      "percent": "53.04%"
+    },
+    "Cat Melee": {
+      "damage": "9,165",
+      "percent": "7.2%"
+    },
+    "Convoke the Spirits": {
+      "damage": "391528",
+      "percent": "#2"
+    },
+    "Periodic": {
+      "damage": "140.0",
+      "percent": "19,438"
+    },
+    "Feral Frenzy": {
+      "damage": "96.91%",
+      "percent": "97.10%"
+    },
+    "Ferocious Bite": {
+      "damage": "69.41%",
+      "percent": "-"
+    },
+    "Lunar Inspiration": {
+      "damage": "69.65%",
+      "percent": "72.71%"
+    },
+    "Rake": {
+      "damage": "63.81%",
+      "percent": "79.40%"
+    },
+    "Rip": {
+      "damage": "-",
+      "percent": "60.02%"
+    },
+    "Shred": {
+      "damage": "51.64%",
+      "percent": "-"
+    },
+    "Unseen Slash": {
+      "damage": "77.72%",
+      "percent": "70.08%"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "139.03s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Berserk": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Cat Form": {
+      "damage": "106840",
+      "percent": "#2"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Prowl": {
+      "damage": "5215",
+      "percent": "#3"
+    },
+    "Regrowth": {
+      "damage": "4.1",
+      "percent": "55.37s"
+    },
+    "Rejuvenation": {
+      "damage": "4.1",
+      "percent": "56.11s"
+    },
+    "Shadowmeld": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Tiger's Fury": {
+      "damage": "5217",
+      "percent": "#1"
+    },
+    "Akil'zon's Cry of Victory": {
+      "damage": "4.4",
+      "percent": "1.2"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "104.9"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Blessing of the Capybara": {
+      "damage": "4.4",
+      "percent": "1.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Clearcasting": {
+      "damage": "135700",
+      "percent": "#3"
+    },
+    "Flash of Clarity": {
+      "damage": "27.7",
+      "percent": "42.8"
+    },
+    "Forestwalk": {
+      "damage": "400126",
+      "percent": "#2"
+    },
+    "Frantic Momentum": {
+      "damage": "16.0",
+      "percent": "11.1"
+    },
+    "Implant": {
+      "damage": "440118",
+      "percent": "#1"
+    },
+    "Lycara's Teachings (Haste)": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Overflowing Power": {
+      "damage": "14.3",
+      "percent": "31.0"
+    },
+    "Predatory Swiftness": {
+      "damage": "1.0",
+      "percent": "89.6"
+    },
+    "Savage Fury": {
+      "damage": "449646",
+      "percent": "#1"
+    },
+    "Stalking Predator": {
+      "damage": "10.4",
+      "percent": "0.0"
+    },
+    "Strategic Infusion": {
+      "damage": "10.4",
+      "percent": "1.0"
+    },
+    "Sudden Ambush": {
+      "damage": "25.1",
+      "percent": "2.0"
+    },
+    "Tiger's Tenacity": {
+      "damage": "10.4",
+      "percent": "0.0"
+    },
+    "Unseen Predator's Craving": {
+      "damage": "1.3",
+      "percent": "75.2"
+    },
+    "Clearcasting (Wasted)": {
+      "damage": "27.0",
+      "percent": "5.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "77.4",
+      "percent": "42.0"
+    },
+    "delayed_aa_channel": {
+      "damage": "20.9",
+      "percent": "14.0"
+    },
+    "Energy Cap": {
+      "damage": "2.54%",
+      "percent": "1.01%"
+    },
+    "Killer Instinct": {
+      "damage": "108299",
+      "percent": "#4"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Bond with Nature": {
+      "damage": "439929",
+      "percent": "#1"
+    },
+    "Feline Swiftness": {
+      "damage": "131768",
+      "percent": "#1"
+    },
+    "Feral Druid": {
+      "damage": "137011",
+      "percent": "#6"
+    },
+    "Tireless Energy": {
+      "damage": "383352",
+      "percent": "#2"
+    },
+    "Bear Form Passive": {
+      "damage": "1178",
+      "percent": "#2"
+    },
+    "Carnivorous Instinct": {
+      "damage": "390902",
+      "percent": "#2"
+    },
+    "Druid Feral 12.0 Class Set 4pc": {
+      "damage": "1264813",
+      "percent": "#3"
+    },
+    "Barkskin": {
+      "damage": "22812",
+      "percent": "#1"
+    },
+    "Frenzied Regeneration": {
+      "damage": "22842",
+      "percent": "#2"
+    },
+    "Survival Instincts": {
+      "damage": "61336",
+      "percent": "#1"
+    },
+    "Primal Wrath": {
+      "damage": "285381",
+      "percent": "#2"
+    },
+    "Symbiotic Blooms": {
+      "damage": "439530",
+      "percent": "#2"
+    },
+    "Harmonious Constitution": {
+      "damage": "440116",
+      "percent": "#1"
+    },
+    "Echo of Frenzied Regeneration": {
+      "damage": "1269645",
+      "percent": "#2"
+    },
+    "Lycara's Teachings": {
+      "damage": "378989",
+      "percent": "#1"
+    },
+    "Dash": {
+      "damage": "1850",
+      "percent": "#1"
+    },
+    "Wild Charge": {
+      "damage": "102401",
+      "percent": "#2"
+    },
+    "Moonfire": {
+      "damage": "155625",
+      "percent": "#3"
+    },
+    "Swipe": {
+      "damage": "-",
+      "percent": "-"
+    },
+    "Improved Shred": {
+      "damage": "343232",
+      "percent": "#1"
+    },
+    "Bursting Growth": {
+      "damage": "60.07%",
+      "percent": "-"
+    },
+    "Rampancy": {
+      "damage": "51.18%",
+      "percent": "-"
+    },
+    "Unseen Swipe": {
+      "damage": "-",
+      "percent": "-"
+    },
+    "Energy": {
+      "damage": "140.0",
+      "percent": "22.49"
+    },
+    "Combo Points": {
+      "damage": "0.0",
+      "percent": "1.30"
+    }
+  },
+  "spelldata": {},
+  "talents": "CcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZwMzMzMmtFPwyMbzYGzMDAAAALBzGMmZUzYWYmZGjZmZAAAAAAAGAAAABAz2MLNbzssBmZAWMDGAAzMAYA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

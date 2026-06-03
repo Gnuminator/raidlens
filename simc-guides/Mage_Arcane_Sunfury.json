@@ -1,0 +1,242 @@
+{
+  "class": "Mage",
+  "spec": "Arcane",
+  "hero_tree": "Sunfury",
+  "metrics": {},
+  "abilities": {
+    "Arcane Assault": {
+      "damage": "803",
+      "percent": "0.7%"
+    },
+    "Arcane Barrage": {
+      "damage": "3,960",
+      "percent": "0.7%"
+    },
+    "Arcane Blast": {
+      "damage": "26,899",
+      "percent": "24.7%"
+    },
+    "Arcane Missiles": {
+      "damage": "27,154",
+      "percent": "24.9%"
+    },
+    "Arcane Orb": {
+      "damage": "23.383",
+      "percent": "0.000"
+    },
+    "Arcane Surge": {
+      "damage": "0.373",
+      "percent": "0.000"
+    },
+    "Meteorite": {
+      "damage": "0 (4,954)",
+      "percent": "0.0% (4.5%)"
+    },
+    "Mirror Image": {
+      "damage": "0.000",
+      "percent": "0.000"
+    },
+    "Touch of the Magi": {
+      "damage": "3.114",
+      "percent": "0.000"
+    },
+    "pet - arcane_phoenix": {
+      "damage": "19928 / 4083",
+      "percent": ""
+    },
+    "Greater Pyroblast": {
+      "damage": "4,414",
+      "percent": "0.8%"
+    },
+    "Meteorite (_bug_impact)": {
+      "damage": "2,192",
+      "percent": "0.4%"
+    },
+    "Meteorite (_impact)": {
+      "damage": "1,574",
+      "percent": "0.3%"
+    },
+    "Pyroblast": {
+      "damage": "4,863",
+      "percent": "0.9%"
+    },
+    "Arcane Intellect": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of Thalassian Resistance": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Meteorite (_exceptional)": {
+      "damage": "24.2",
+      "percent": "9.58s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "112.0"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.7"
+    },
+    "Arcane Charge": {
+      "damage": "52.6",
+      "percent": "371.3"
+    },
+    "Arcane Salvo": {
+      "damage": "37.9",
+      "percent": "607.9"
+    },
+    "Arcane Soul": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Arcanoweave Audacity": {
+      "damage": "7.0",
+      "percent": "14.7"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Brainstorm": {
+      "damage": "15.2",
+      "percent": "46.8"
+    },
+    "Clearcasting": {
+      "damage": "31.4",
+      "percent": "33.0"
+    },
+    "Entropic Embrace": {
+      "damage": "5.6",
+      "percent": "1.6"
+    },
+    "Intuition": {
+      "damage": "26.8",
+      "percent": "0.0"
+    },
+    "Lesser Time Warp": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Mana Cascade": {
+      "damage": "4.5",
+      "percent": "216.2"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Nullsight": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "Overflowing Energy": {
+      "damage": "15.2",
+      "percent": "18.7"
+    },
+    "Overpowered Missiles": {
+      "damage": "13.9",
+      "percent": "1.9"
+    },
+    "Spellfire Sphere": {
+      "damage": "4.6",
+      "percent": "22.5"
+    },
+    "Arcane Salvo applied": {
+      "damage": "1033.9",
+      "percent": "679.0"
+    },
+    "Arcane Salvo applied (Arcane Blast)": {
+      "damage": "216.8",
+      "percent": "136.0"
+    },
+    "Arcane Salvo applied (Arcane Missiles)": {
+      "damage": "385.4",
+      "percent": "252.0"
+    },
+    "Arcane Salvo applied (Arcane Orb)": {
+      "damage": "102.6",
+      "percent": "64.0"
+    },
+    "Arcane Salvo applied (Arcane Soul)": {
+      "damage": "67.4",
+      "percent": "40.0"
+    },
+    "Arcane Salvo applied (Overpowered Missiles)": {
+      "damage": "261.8",
+      "percent": "51.0"
+    },
+    "Arcane Salvo overflow": {
+      "damage": "205.9",
+      "percent": "88.0"
+    },
+    "Mana Cap": {
+      "damage": "18.21%",
+      "percent": "9.51%"
+    },
+    "Arcane Barrage Arcane Charge 0": {
+      "damage": "2.45%",
+      "percent": "1.43%"
+    },
+    "Arcane Barrage Arcane Charge 1": {
+      "damage": "0.76%",
+      "percent": "0.00%"
+    },
+    "Arcane Barrage Arcane Charge 2": {
+      "damage": "0.03%",
+      "percent": "0.00%"
+    },
+    "Arcane Barrage Arcane Charge 3": {
+      "damage": "0.12%",
+      "percent": "0.00%"
+    },
+    "Arcane Barrage Arcane Charge 4": {
+      "damage": "96.64%",
+      "percent": "90.00%"
+    },
+    "Arcane Blast Arcane Charge 0": {
+      "damage": "0.23%",
+      "percent": "0.00%"
+    },
+    "Arcane Blast Arcane Charge 1": {
+      "damage": "0.25%",
+      "percent": "0.00%"
+    },
+    "Arcane Blast Arcane Charge 2": {
+      "damage": "1.83%",
+      "percent": "0.00%"
+    },
+    "Arcane Blast Arcane Charge 3": {
+      "damage": "6.98%",
+      "percent": "0.00%"
+    },
+    "Arcane Blast Arcane Charge 4": {
+      "damage": "90.71%",
+      "percent": "79.57%"
+    },
+    "Mana": {
+      "damage": "0.0",
+      "percent": "13,572.70"
+    }
+  },
+  "spelldata": {},
+  "talents": "C4DAAAAAAAAAAAAAAAAAAAAAAYGmZZmZmFmZGamxAAAwAAmZmmlltZAgYDAgNmZmxYzyMzMLzMGjZmxYhZmZMDAwAAAMAzMgZAwwA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

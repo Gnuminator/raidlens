@@ -1,0 +1,54 @@
+{
+  "class": "Death_Knight",
+  "spec": "Blood",
+  "hero_tree": "Deathbringer",
+  "metrics": {
+    "dps": "58389",
+    "dtps": "87788",
+    "hps": "76607"
+  },
+  "abilities": {
+    "auto_attack_mh": {
+      "damage": "5,784",
+      "percent": "9.9%"
+    },
+    "Blood Boil": {
+      "damage": "4,417",
+      "percent": "7.6%"
+    },
+    "Blood Boil (_boiling_point)": {
+      "damage": "654",
+      "percent": "1.1%"
+    },
+    "Blood Draw": {
+      "damage": "93",
+      "percent": "0.2%"
+    },
+    "Blood Mist": {
+      "damage": "629",
+      "percent": "1.1%"
+    },
+    "Blood Plague": {
+      "damage": "2,951",
+      "percent": "5.1%"
+    },
+    "Dancing Rune Weapon": {
+      "damage": "0 (1,221)",
+      "percent": "0.0% (2.1%)"
+    },
+    "Death and Decay": {
+      "damage": "0 (1,402)",
+      "percent": "0.0% (2.4%)"
+    },
+    "Death Strike": {
+      "damage": "14,771",
+      "percent": "25.3%"
+    }
+  },
+  "spelldata": {},
+  "talents": "CoPAAAAAAAAAAAAAAAAAAAAAAwYWmZmxMmZmhZZmZmmZxMjxMAAAAAzMzMzwMDzYMDAjZmZGAAgxsNwAWCWGmADLAmxMAAMzAMYA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

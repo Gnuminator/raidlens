@@ -1,0 +1,354 @@
+{
+  "class": "Demon_Hunter",
+  "spec": "Devourer",
+  "hero_tree": "Annihilator",
+  "metrics": {},
+  "abilities": {
+    "Catastrophe": {
+      "damage": "2,696",
+      "percent": "2.7%"
+    },
+    "Collapsing Star": {
+      "damage": "11.403",
+      "percent": "0.008"
+    },
+    "Consume": {
+      "damage": "1261710",
+      "percent": "#1"
+    },
+    "Cull": {
+      "damage": "1.523",
+      "percent": "0.013"
+    },
+    "Devour": {
+      "damage": "1288123",
+      "percent": "#1"
+    },
+    "Heaven's Glaive (_missile)": {
+      "damage": "0 (371)",
+      "percent": "0.0% (0.4%)"
+    },
+    "Reap": {
+      "damage": "0.228",
+      "percent": "0.004"
+    },
+    "Void Ray": {
+      "damage": "0 (21,035)",
+      "percent": "0.0% (20.9%)"
+    },
+    "Voidblade": {
+      "damage": "6.447",
+      "percent": "0.001"
+    },
+    "Voidfall Meteor": {
+      "damage": "0 (9,257)",
+      "percent": "0.0% (9.2%)"
+    },
+    "Voidstalker Sting": {
+      "damage": "868",
+      "percent": "0.9%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Consume Soul (_lesser)": {
+      "damage": "625.0",
+      "percent": "0.48s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blooming Feast": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Void Metamorphosis (metamorphosis)": {
+      "damage": "4.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.4",
+      "percent": "300.63s"
+    },
+    "Soul Immolation": {
+      "damage": "28.138",
+      "percent": "13.434"
+    },
+    "Void Metamorphosis (void_buildup)": {
+      "damage": "1,571.2",
+      "percent": "0.18s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "113.0"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Collapsing Star (_stacking)": {
+      "damage": "5.9",
+      "percent": "398.2"
+    },
+    "Dark Matter": {
+      "damage": "4.5",
+      "percent": "0.0"
+    },
+    "Emptiness": {
+      "damage": "4.5",
+      "percent": "395.2"
+    },
+    "Feast of Souls": {
+      "damage": "10.6",
+      "percent": "614.4"
+    },
+    "Frenzied Focus": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Genius Insight": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Hasty Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Impending Apocalypse": {
+      "damage": "4.4",
+      "percent": "10.2"
+    },
+    "Masterful Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Moment of Craving": {
+      "damage": "35.4",
+      "percent": "1.4"
+    },
+    "Nullsight": {
+      "damage": "3.4",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Haste)": {
+      "damage": "0.0",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Rolling Torment": {
+      "damage": "3.6",
+      "percent": "0.0"
+    },
+    "Soul Fragments": {
+      "damage": "34.8",
+      "percent": "597.3"
+    },
+    "Versatile Hunt": {
+      "damage": "0.9",
+      "percent": "1.5"
+    },
+    "Void Metamorphosis (_stack)": {
+      "damage": "4.8",
+      "percent": "221.5"
+    },
+    "Voidfall (_building)": {
+      "damage": "29.6",
+      "percent": "53.3"
+    },
+    "Voidfall (_final_hour)": {
+      "damage": "16.9",
+      "percent": "66.9"
+    },
+    "Voidfall (_spending)": {
+      "damage": "28.2",
+      "percent": "0.8"
+    },
+    "Shattered Souls: collapsing_star_damage": {
+      "damage": "1.3",
+      "percent": "0.0"
+    },
+    "Shattered Souls: consume": {
+      "damage": "3.9",
+      "percent": "0.0"
+    },
+    "Shattered Souls: cull_damage": {
+      "damage": "1.6",
+      "percent": "0.0"
+    },
+    "Shattered Souls: devour": {
+      "damage": "6.7",
+      "percent": "0.0"
+    },
+    "Shattered Souls: meteor_shower_damage": {
+      "damage": "4.2",
+      "percent": "0.0"
+    },
+    "Shattered Souls: reap_damage": {
+      "damage": "1.2",
+      "percent": "0.0"
+    },
+    "Shattered Souls: void_ray_tick": {
+      "damage": "75.9",
+      "percent": "38.0"
+    },
+    "Shattered Souls: void_ray_tick_meta": {
+      "damage": "110.2",
+      "percent": "64.0"
+    },
+    "Shattered Souls: voidblade_damage": {
+      "damage": "0.7",
+      "percent": "0.0"
+    },
+    "Shattered Souls: voidfall_meteor_damage": {
+      "damage": "4.5",
+      "percent": "0.0"
+    },
+    "Shattered Souls: world_killer_damage": {
+      "damage": "2.2",
+      "percent": "0.0"
+    },
+    "Soul Fragment": {
+      "damage": "632.5",
+      "percent": "472.0"
+    },
+    "Soul Fragment from Consume": {
+      "damage": "97.2",
+      "percent": "60.0"
+    },
+    "Soul Fragment from Devour": {
+      "damage": "168.5",
+      "percent": "116.0"
+    },
+    "Soul Fragment from Entropy": {
+      "damage": "25.5",
+      "percent": "21.0"
+    },
+    "Soul Fragment from Shattered Souls": {
+      "damage": "212.4",
+      "percent": "134.0"
+    },
+    "Soul Fragment from Soul Immolation": {
+      "damage": "14.4",
+      "percent": "12.0"
+    },
+    "Soul Fragment from Soul Splitter": {
+      "damage": "16.9",
+      "percent": "4.0"
+    },
+    "Soul Fragment from Star Fragments": {
+      "damage": "47.3",
+      "percent": "30.0"
+    },
+    "Soul Fragment from Void Metamorphosis": {
+      "damage": "22.5",
+      "percent": "15.0"
+    },
+    "Soul Fragment from World Killer": {
+      "damage": "27.9",
+      "percent": "18.0"
+    },
+    "Soul Fragment overflow": {
+      "damage": "287.6",
+      "percent": "168.0"
+    },
+    "Voidfall from Builder": {
+      "damage": "41.5",
+      "percent": "21.0"
+    },
+    "Voidfall from Mass Acceleration": {
+      "damage": "4.5",
+      "percent": "3.0"
+    },
+    "Voidfall from Meteoric Rise": {
+      "damage": "36.8",
+      "percent": "28.0"
+    },
+    "Fury Cap": {
+      "damage": "4.54%",
+      "percent": "2.16%"
+    },
+    "Voidrage": {
+      "damage": "1242956",
+      "percent": "#1"
+    },
+    "Metamorphosis": {
+      "damage": "191427",
+      "percent": "#3"
+    },
+    "Shear": {
+      "damage": "203782",
+      "percent": "#2"
+    },
+    "Felblade": {
+      "damage": "213243",
+      "percent": "#3"
+    },
+    "Immolation Aura": {
+      "damage": "427916",
+      "percent": "#2"
+    },
+    "Fracture": {
+      "damage": "263642",
+      "percent": "#4"
+    },
+    "Flamebound": {
+      "damage": "452413",
+      "percent": "#2"
+    },
+    "Student of Suffering": {
+      "damage": "453239",
+      "percent": "#1"
+    },
+    "Void Metamorphosis": {
+      "damage": "1217607",
+      "percent": "#3"
+    },
+    "Shattered Souls": {
+      "damage": "1227619",
+      "percent": "#1"
+    },
+    "Meteoric Rise": {
+      "damage": "1253377",
+      "percent": "#1"
+    },
+    "Swift Erasure": {
+      "damage": "1253668",
+      "percent": "#1"
+    },
+    "Voidfall": {
+      "damage": "1256322",
+      "percent": "#3"
+    },
+    "Demonic Wards": {
+      "damage": "1277736",
+      "percent": "#1"
+    },
+    "Blur": {
+      "damage": "212800",
+      "percent": "#3"
+    }
+  },
+  "spelldata": {},
+  "talents": "CgcBAAAAAAAAAAAAAAAAAAAAAAA2MmZmZmZmBzMAAAAAAALzYAzAAAAAAAAwMGMmZmZMzMzYmFzYsotNmZmZ2abmZGAjZAIwMzgxMA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

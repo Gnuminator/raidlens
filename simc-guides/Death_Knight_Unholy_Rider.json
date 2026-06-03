@@ -1,0 +1,374 @@
+{
+  "class": "Death_Knight",
+  "spec": "Unholy",
+  "hero_tree": "Rider",
+  "metrics": {},
+  "abilities": {
+    "Army of the Damned": {
+      "damage": "0 (11,406)",
+      "percent": "0.0% (9.3%)"
+    },
+    "auto_attack_mh": {
+      "damage": "3,130",
+      "percent": "2.6%"
+    },
+    "Death Coil": {
+      "damage": "4,474 (8,539)",
+      "percent": "3.7% (7.0%)"
+    },
+    "Dread Plague": {
+      "damage": "1240996",
+      "percent": "#4"
+    },
+    "Festering Scythe": {
+      "damage": "13.4",
+      "percent": "0.0"
+    },
+    "Festering Strike": {
+      "damage": "349",
+      "percent": "0.3%"
+    },
+    "Infected Claws": {
+      "damage": "1241786",
+      "percent": "#4"
+    },
+    "Lesser Ghoul": {
+      "damage": "1242998",
+      "percent": "#2"
+    },
+    "Necrotic Coil": {
+      "damage": "0 (8,011)",
+      "percent": "0.0% (6.5%)"
+    },
+    "Pestilence": {
+      "damage": "327093",
+      "percent": "#1"
+    },
+    "Putrefy": {
+      "damage": "0 (12,350)",
+      "percent": "0.0% (10.1%)"
+    },
+    "Raise Dead": {
+      "damage": "0.000",
+      "percent": "0.000"
+    },
+    "Rider's Champion": {
+      "damage": "0 (16,088)",
+      "percent": "0.0% (13.1%)"
+    },
+    "Scourge Strike": {
+      "damage": "8,184",
+      "percent": "6.7%"
+    },
+    "Soul Reaper": {
+      "damage": "1241521",
+      "percent": "#2"
+    },
+    "Summon Gargoyle": {
+      "damage": "0 (5,110)",
+      "percent": "0.0% (4.2%)"
+    },
+    "Virulent Plague": {
+      "damage": "191587",
+      "percent": "#5"
+    },
+    "Army of the Dead": {
+      "damage": "1.088",
+      "percent": "0.000"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Berserking": {
+      "damage": "2.0",
+      "percent": "0.0"
+    },
+    "Dark Transformation": {
+      "damage": "1233448",
+      "percent": "#4"
+    },
+    "Lesser Ghoul (fk_ghoul)": {
+      "damage": "40.6",
+      "percent": "7.27s"
+    },
+    "Army of the Damned (fk_reanimation_magus)": {
+      "damage": "40.5",
+      "percent": "7.27s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Frost Shield": {
+      "damage": "1.0",
+      "percent": "147.9"
+    },
+    "Army of the Damned (magus_of_the_dead)": {
+      "damage": "3.7",
+      "percent": "90.37s"
+    },
+    "Outbreak": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Outbreak (_aoe)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.4",
+      "percent": "312.51s"
+    },
+    "Lesser Ghoul (sr_ghoul)": {
+      "damage": "14.5",
+      "percent": "28.03s"
+    },
+    "Sweeping Claws (_aoe)": {
+      "damage": "647.6",
+      "percent": "0.45s"
+    },
+    "Anti-Magic Shell (_horsemen)": {
+      "damage": "10.1",
+      "percent": "30.71s"
+    },
+    "Chains of Ice": {
+      "damage": "444828",
+      "percent": "#3"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.1",
+      "percent": "129.5"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Apocalyptic Conquest": {
+      "damage": "7.7",
+      "percent": "0.0"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Blighted": {
+      "damage": "47.6",
+      "percent": "15.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Charge!": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Clawing Shadows": {
+      "damage": "1.0",
+      "percent": "118.9"
+    },
+    "Commander of the Dead": {
+      "damage": "390264",
+      "percent": "#1"
+    },
+    "Death and Decay": {
+      "damage": "188290",
+      "percent": "#3"
+    },
+    "Festering Scythe (_tt)": {
+      "damage": "1.7",
+      "percent": "11.6"
+    },
+    "Forbidden Knowledge": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Forbidden Ritual": {
+      "damage": "4.2",
+      "percent": "69.3"
+    },
+    "Forbidden Sacrifice": {
+      "damage": "2.6",
+      "percent": "59.6"
+    },
+    "Icy Talons": {
+      "damage": "1.2",
+      "percent": "85.4"
+    },
+    "Lesser Ghoul (_counter)": {
+      "damage": "1.1",
+      "percent": "280.2"
+    },
+    "Mograine's Might": {
+      "damage": "444505",
+      "percent": "#3"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Reaping": {
+      "damage": "7.0",
+      "percent": "0.0"
+    },
+    "Rune Mastery": {
+      "damage": "374585",
+      "percent": "#1"
+    },
+    "Runic Corruption": {
+      "damage": "30.9",
+      "percent": "21.0"
+    },
+    "Sudden Doom": {
+      "damage": "62.6",
+      "percent": "6.8"
+    },
+    "Unholy Aura": {
+      "damage": "4.2",
+      "percent": "69.3"
+    },
+    "gargoyle - gargoyle: Dark Empowerment": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "ghoul - ghoul: Dark Transformation": {
+      "damage": "7.0",
+      "percent": "0.0"
+    },
+    "ghoul - ghoul: Unholy Devotion": {
+      "damage": "10.3",
+      "percent": "52.0"
+    },
+    "mograine - mograine: Death and Decay": {
+      "damage": "8.6",
+      "percent": "0.0"
+    },
+    "Rune ready": {
+      "damage": "114.6",
+      "percent": "84.0"
+    },
+    "Runic Corruption from Runic Power Spent": {
+      "damage": "51.9",
+      "percent": "30.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "24.7",
+      "percent": "6.0"
+    },
+    "Runic Power Cap": {
+      "damage": "16.95%",
+      "percent": "5.29%"
+    },
+    "ghoul - Energy Cap": {
+      "damage": "15.17%",
+      "percent": "6.08%"
+    },
+    "lesser_ghoul - Energy Cap": {
+      "damage": "328.56%",
+      "percent": "0.00%"
+    },
+    "Veteran of the Third War": {
+      "damage": "48263",
+      "percent": "#1"
+    },
+    "Death Strike": {
+      "damage": "49998",
+      "percent": "#2"
+    },
+    "Razorice": {
+      "damage": "51714",
+      "percent": "#1"
+    },
+    "Unholy Strength": {
+      "damage": "53365",
+      "percent": "#1"
+    },
+    "Stoneskin Gargoyle": {
+      "damage": "62157",
+      "percent": "#1"
+    },
+    "Remorseless Winter": {
+      "damage": "1233152",
+      "percent": "#4"
+    },
+    "Permafrost": {
+      "damage": "207200",
+      "percent": "#1"
+    },
+    "Necrotic Strike": {
+      "damage": "223829",
+      "percent": "#2"
+    },
+    "Rune of Sanguination": {
+      "damage": "326808",
+      "percent": "#1"
+    },
+    "Rune of Spellwarding": {
+      "damage": "326867",
+      "percent": "#1"
+    },
+    "Lethargy": {
+      "damage": "326868",
+      "percent": "#1"
+    },
+    "Rune of Hysteria": {
+      "damage": "333113",
+      "percent": "#2"
+    },
+    "Unending Thirst": {
+      "damage": "326982",
+      "percent": "#2"
+    },
+    "Rune of Unending Thirst": {
+      "damage": "326984",
+      "percent": "#1"
+    },
+    "Famine": {
+      "damage": "327092",
+      "percent": "#1"
+    },
+    "Death": {
+      "damage": "327095",
+      "percent": "#1"
+    },
+    "War": {
+      "damage": "327096",
+      "percent": "#3"
+    },
+    "Frenzied Bloodthirst": {
+      "damage": "434075",
+      "percent": "#2"
+    },
+    "Infliction of Sorrow": {
+      "damage": "434143",
+      "percent": "#1"
+    },
+    "Null Magic": {
+      "damage": "454842",
+      "percent": "#1"
+    },
+    "Mastery: Dreadblade": {
+      "damage": "77515",
+      "percent": "#4"
+    },
+    "Brittle": {
+      "damage": "374557",
+      "percent": "#3"
+    }
+  },
+  "spelldata": {},
+  "talents": "CwPAAAAAAAAAAAAAAAAAAAAAAAwMjZMDDz2MzMTzmZmZMjBAAAAAAAgZGmZAw2MmZ2mZGjZAbmFDDZgZjhGLAYGAGzMjZAmZmxYA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

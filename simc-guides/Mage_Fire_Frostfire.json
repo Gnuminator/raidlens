@@ -1,0 +1,190 @@
+{
+  "class": "Mage",
+  "spec": "Fire",
+  "hero_tree": "Frostfire",
+  "metrics": {},
+  "abilities": {
+    "Burnout": {
+      "damage": "6,032",
+      "percent": "5.3%"
+    },
+    "Fire Blast": {
+      "damage": "0.039",
+      "percent": "0.000"
+    },
+    "Frostfire Bolt": {
+      "damage": "28,556",
+      "percent": "24.9%"
+    },
+    "Periodic": {
+      "damage": "405.0",
+      "percent": "170"
+    },
+    "Ignite": {
+      "damage": "28,779",
+      "percent": "25.1%"
+    },
+    "Intensifying Flame": {
+      "damage": "7,825",
+      "percent": "6.8%"
+    },
+    "Meteor": {
+      "damage": "2.585",
+      "percent": "0.000"
+    },
+    "Mirror Image": {
+      "damage": "0.000",
+      "percent": "0.000"
+    },
+    "Pyroblast": {
+      "damage": "24,226 (26,061)",
+      "percent": "21.1% (22.7%)"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blood Fury": {
+      "damage": "2.8",
+      "percent": "0.0"
+    },
+    "Combustion": {
+      "damage": "3.534",
+      "percent": "0.000"
+    },
+    "emberwing_feather": {
+      "damage": "2.8",
+      "percent": "121.10s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Quel'dorei Medley": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.1",
+      "percent": "127.1"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Brainstorm": {
+      "damage": "9.1",
+      "percent": "91.6"
+    },
+    "Emberwing Burn (Crit)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Mastery)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Vers)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Heatwave": {
+      "damage": "2.8",
+      "percent": "2.8"
+    },
+    "Feel the Burn": {
+      "damage": "32.8",
+      "percent": "56.8"
+    },
+    "Fevered Incantation": {
+      "damage": "44.4",
+      "percent": "280.6"
+    },
+    "Fiery Rush": {
+      "damage": "5.2",
+      "percent": "0.0"
+    },
+    "Fired Up": {
+      "damage": "7.3",
+      "percent": "21.0"
+    },
+    "Frostfire Empowerment": {
+      "damage": "26.3",
+      "percent": "8.9"
+    },
+    "Heating Up": {
+      "damage": "108.4",
+      "percent": "0.0"
+    },
+    "Hot Streak!": {
+      "damage": "100.7",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Overflowing Energy": {
+      "damage": "30.8",
+      "percent": "29.5"
+    },
+    "Direct Ignite applications": {
+      "damage": "1.1",
+      "percent": "1.0"
+    },
+    "Heating Up converted with Fire Blast": {
+      "damage": "30.9",
+      "percent": "17.0"
+    },
+    "Heating Up generated": {
+      "damage": "108.4",
+      "percent": "82.0"
+    },
+    "Heating Up removed": {
+      "damage": "7.7",
+      "percent": "0.0"
+    },
+    "Hot Streak procs": {
+      "damage": "100.7",
+      "percent": "76.0"
+    },
+    "Hot Streak spell crits": {
+      "damage": "271.8",
+      "percent": "215.0"
+    },
+    "Hot Streak spell crits wasted": {
+      "damage": "62.7",
+      "percent": "41.0"
+    },
+    "Hot Streak spells used": {
+      "damage": "353.7",
+      "percent": "281.0"
+    },
+    "Mana Cap": {
+      "damage": "0.46%",
+      "percent": "0.00%"
+    },
+    "Mana": {
+      "damage": "245,250.0",
+      "percent": "4,939.74"
+    }
+  },
+  "spelldata": {},
+  "talents": "C8DAAAAAAAAAAAAAAAAAAAAAAYGGLzMzswMDZmZGAAAmZZGzMLzCEAAwiZmx2YmZGAAAAAgNzMzMDAAGzYmZmZmZ2AmZADzYMYwA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

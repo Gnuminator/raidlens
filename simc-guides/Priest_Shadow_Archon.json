@@ -1,0 +1,322 @@
+{
+  "class": "Priest",
+  "spec": "Shadow",
+  "hero_tree": "Archon",
+  "metrics": {},
+  "abilities": {
+    "Halo": {
+      "damage": "0.168",
+      "percent": "0.000"
+    },
+    "Horrific Vision": {
+      "damage": "21.9",
+      "percent": "1.3"
+    },
+    "Idol of C'Thun": {
+      "damage": "0 (2,067)",
+      "percent": "0.0% (1.9%)"
+    },
+    "Mind Blast": {
+      "damage": "0.916",
+      "percent": "0.000"
+    },
+    "Mind Flay": {
+      "damage": "11,222",
+      "percent": "10.5%"
+    },
+    "Mind Flay: Insanity": {
+      "damage": "19.7",
+      "percent": "1.2"
+    },
+    "Shadow Weaving": {
+      "damage": "104",
+      "percent": "0.1%"
+    },
+    "Shadow Word: Death": {
+      "damage": "52.656",
+      "percent": "0.000"
+    },
+    "Shadow Word: Madness": {
+      "damage": "15,138",
+      "percent": "14.2%"
+    },
+    "Periodic": {
+      "damage": "330.7",
+      "percent": "4,958"
+    },
+    "Shadow Word: Pain": {
+      "damage": "6,508",
+      "percent": "6.1%"
+    },
+    "Shadowy Apparitions": {
+      "damage": "0 (10,450)",
+      "percent": "0.0% (9.8%)"
+    },
+    "Tentacle Slam": {
+      "damage": "0.001",
+      "percent": "0.000"
+    },
+    "Twilight Barrage": {
+      "damage": "543",
+      "percent": "0.5%"
+    },
+    "Vampiric Touch": {
+      "damage": "3,306",
+      "percent": "3.1%"
+    },
+    "Vision of N'Zoth": {
+      "damage": "19.5",
+      "percent": "0.3"
+    },
+    "Void Apparitions": {
+      "damage": "0 (8,763)",
+      "percent": "0.0% (8.2%)"
+    },
+    "Void Bolt": {
+      "damage": "2,361",
+      "percent": "2.2%"
+    },
+    "Void Volley": {
+      "damage": "17.484",
+      "percent": "0.000"
+    },
+    "Voidform": {
+      "damage": "1.565",
+      "percent": "0.000"
+    },
+    "Voidstalker Sting": {
+      "damage": "787",
+      "percent": "0.7%"
+    },
+    "pet - shadowfiend": {
+      "damage": "1723 / 185",
+      "percent": ""
+    },
+    "melee": {
+      "damage": "1,723",
+      "percent": "0.2%"
+    },
+    "pet - thing_from_beyond": {
+      "damage": "5664 / 4685",
+      "percent": ""
+    },
+    "Void Spike": {
+      "damage": "5,664",
+      "percent": "4.4%"
+    },
+    "MID1_Priest_Shadow_Archon": {
+      "damage": "201",
+      "percent": ""
+    },
+    "Mental Fortitude": {
+      "damage": "1.0",
+      "percent": "502.5"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Halo (_heal_shadow)": {
+      "damage": "20.9",
+      "percent": "14.07s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Power Infusion": {
+      "damage": "2.614",
+      "percent": "1.049"
+    },
+    "Shadow Word: Madness (_heal)": {
+      "damage": "285.5",
+      "percent": "1.05s"
+    },
+    "Shadowform": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "tentacle_slam_dots": {
+      "damage": "21.4",
+      "percent": "15.09s"
+    },
+    "Vampiric Touch (_heal)": {
+      "damage": "218.0",
+      "percent": "1.37s"
+    },
+    "Adroit Intuition": {
+      "damage": "8.6",
+      "percent": "5.3"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.1",
+      "percent": "119.5"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Genius Insight": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Idol of Yogg-Saron": {
+      "damage": "11.4",
+      "percent": "219.9"
+    },
+    "Idol of Y'Shaarj": {
+      "damage": "3.7",
+      "percent": "0.0"
+    },
+    "Insidious Ire": {
+      "damage": "4.5",
+      "percent": "94.5"
+    },
+    "Nullsight": {
+      "damage": "3.2",
+      "percent": "0.0"
+    },
+    "Power Surge": {
+      "damage": "5.3",
+      "percent": "0.0"
+    },
+    "Screams of the Void": {
+      "damage": "40.9",
+      "percent": "35.6"
+    },
+    "Shadowy Insight": {
+      "damage": "26.5",
+      "percent": "0.0"
+    },
+    "Shattered Psyche": {
+      "damage": "39.3",
+      "percent": "230.0"
+    },
+    "Sustained Potency": {
+      "damage": "3.4",
+      "percent": "7.8"
+    },
+    "Thing from Beyond": {
+      "damage": "9.1",
+      "percent": "3.9"
+    },
+    "Twist of Fate": {
+      "damage": "1.0",
+      "percent": "104.7"
+    },
+    "Horrific Vision from Tentacle Slam": {
+      "damage": "5.0",
+      "percent": "4.0"
+    },
+    "Idol of C'Thun from Tentacle Slam": {
+      "damage": "8.8",
+      "percent": "7.0"
+    },
+    "Idol of Y'Shaarj from Tentacle Slam": {
+      "damage": "3.8",
+      "percent": "3.0"
+    },
+    "Idol of Yogg-Saron from Tentacle Slam": {
+      "damage": "2.5",
+      "percent": "2.0"
+    },
+    "Idol spell from Tentacle Slam": {
+      "damage": "21.4",
+      "percent": "17.0"
+    },
+    "Mind Flay: Insanity casts that did not channel for full ticks": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Shadowfiend procs from Shadow Word: Death casts": {
+      "damage": "1.9",
+      "percent": "0.0"
+    },
+    "Shadowy Apparition from Idol of C'Thun": {
+      "damage": "22.0",
+      "percent": "11.0"
+    },
+    "Shadowy Apparition from Idol of N'Zoth": {
+      "damage": "44.4",
+      "percent": "35.0"
+    },
+    "Shadowy Apparition from Idol of Y'Shaarj": {
+      "damage": "3.8",
+      "percent": "3.0"
+    },
+    "Shadowy Apparition from Idol of Yogg-Saron": {
+      "damage": "13.0",
+      "percent": "10.0"
+    },
+    "Shadowy Apparition from Mind Flay: Insanity": {
+      "damage": "20.7",
+      "percent": "16.0"
+    },
+    "Shadowy Apparition from Shadow Word: Madness": {
+      "damage": "76.4",
+      "percent": "60.0"
+    },
+    "Shadowy Apparition from Tormented Spirits": {
+      "damage": "51.0",
+      "percent": "37.0"
+    },
+    "Shadowy Insight procs": {
+      "damage": "26.5",
+      "percent": "19.0"
+    },
+    "Shadowy Insight procs lost to overflow": {
+      "damage": "0.0",
+      "percent": "0.0"
+    },
+    "Thing from Beyond procs": {
+      "damage": "13.0",
+      "percent": "10.0"
+    },
+    "Vision of N'Zoth from Tentacle Slam": {
+      "damage": "1.3",
+      "percent": "1.0"
+    },
+    "Void Apparition procs": {
+      "damage": "69.6",
+      "percent": "38.0"
+    },
+    "Void Tendril proc from Idol of C'Thun": {
+      "damage": "22.0",
+      "percent": "11.0"
+    },
+    "Mana Cap": {
+      "damage": "60.69%",
+      "percent": "56.29%"
+    },
+    "Mana": {
+      "damage": "250,000.0",
+      "percent": "847.38"
+    },
+    "Insanity": {
+      "damage": "6.0",
+      "percent": "8.35"
+    }
+  },
+  "spelldata": {},
+  "talents": "CIQAAAAAAAAAAAAAAAAAAAAAAMMjZGAAAAAAAAAAAgxMMjxyMDzsNzwMsNzMmZmxGyMWMTDwMAzsZGmNDAZMWAwMQGzMzY2GzstMAzED",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

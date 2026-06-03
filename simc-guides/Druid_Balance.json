@@ -1,0 +1,282 @@
+{
+  "class": "Druid",
+  "spec": "Balance",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "Ascendant Eclipses": {
+      "damage": "0 (3,509)",
+      "percent": "0.0% (3.1%)"
+    },
+    "Astral Smolder": {
+      "damage": "11,146",
+      "percent": "10.0%"
+    },
+    "Fury of Elune": {
+      "damage": "1.389",
+      "percent": "0.000"
+    },
+    "Moonfire": {
+      "damage": "8921",
+      "percent": "#3"
+    },
+    "Periodic": {
+      "damage": "267.2",
+      "percent": "4,153"
+    },
+    "Shooting Stars": {
+      "damage": "1272339",
+      "percent": "#2"
+    },
+    "Starfire": {
+      "damage": "197628",
+      "percent": "#2"
+    },
+    "Starsurge": {
+      "damage": "29,072 (32,522)",
+      "percent": "26.0% (29.1%)"
+    },
+    "Starsurge (Cascade)": {
+      "damage": "8,836",
+      "percent": "7.9%"
+    },
+    "Sundered Firmament": {
+      "damage": "9.0",
+      "percent": "0.0"
+    },
+    "Sunfire": {
+      "damage": "93402",
+      "percent": "#3"
+    },
+    "Sunseeker Mushroom": {
+      "damage": "802 (1,313)",
+      "percent": "0.7% (1.2%)"
+    },
+    "Twilight Barrage": {
+      "damage": "565",
+      "percent": "0.5%"
+    },
+    "Wrath": {
+      "damage": "190984",
+      "percent": "#2"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Lunar Eclipse (eclipse)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Incarnation: Chosen of Elune": {
+      "damage": "4.0",
+      "percent": "0.0"
+    },
+    "Lunar Eclipse": {
+      "damage": "9.6",
+      "percent": "29.60s"
+    },
+    "Moonkin Form": {
+      "damage": "24858",
+      "percent": "#13"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "104.6"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Ascendant Fires": {
+      "damage": "13.8",
+      "percent": "4.7"
+    },
+    "Ascendant Stars": {
+      "damage": "13.5",
+      "percent": "5.0"
+    },
+    "Balance of All Things (Arcane)": {
+      "damage": "13.5",
+      "percent": "1.0"
+    },
+    "Balance of All Things (Nature)": {
+      "damage": "4.0",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Eclipse (Lunar)": {
+      "damage": "48518",
+      "percent": "#1"
+    },
+    "Eclipse (Solar)": {
+      "damage": "48517",
+      "percent": "#3"
+    },
+    "Hasty Hunt": {
+      "damage": "3.7",
+      "percent": "6.1"
+    },
+    "Lycara's Teachings (Haste)": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Masterful Hunt": {
+      "damage": "3.9",
+      "percent": "6.3"
+    },
+    "Might of the Void": {
+      "damage": "8.2",
+      "percent": "8.6"
+    },
+    "Nullsight": {
+      "damage": "3.2",
+      "percent": "0.0"
+    },
+    "Parting Skies": {
+      "damage": "9.5",
+      "percent": "0.0"
+    },
+    "Solstice": {
+      "damage": "51.0",
+      "percent": "0.0"
+    },
+    "Starlord": {
+      "damage": "279709",
+      "percent": "#1"
+    },
+    "Touch the Cosmos": {
+      "damage": "18.0",
+      "percent": "2.0"
+    },
+    "Umbral Embrace": {
+      "damage": "393763",
+      "percent": "#1"
+    },
+    "Versatile Hunt": {
+      "damage": "0.9",
+      "percent": "1.5"
+    },
+    "Wrath (False Astral)": {
+      "damage": "4.6",
+      "percent": "0.0"
+    },
+    "Fungal Growth": {
+      "damage": "27.08%",
+      "percent": "7.79%"
+    },
+    "Astral Power Cap": {
+      "damage": "0.60%",
+      "percent": "0.00%"
+    },
+    "Atmospheric Exposure": {
+      "damage": "58.58%",
+      "percent": "50.09%"
+    },
+    "Stellar Amplification": {
+      "damage": "98.40%",
+      "percent": "97.74%"
+    },
+    "Feline Swiftness": {
+      "damage": "131768",
+      "percent": "#1"
+    },
+    "Balance Druid": {
+      "damage": "137013",
+      "percent": "#6"
+    },
+    "Bear Form Passive": {
+      "damage": "1178",
+      "percent": "#2"
+    },
+    "Moon Guardian": {
+      "damage": "429520",
+      "percent": "#1"
+    },
+    "Barkskin": {
+      "damage": "22812",
+      "percent": "#1"
+    },
+    "Frenzied Regeneration": {
+      "damage": "22842",
+      "percent": "#2"
+    },
+    "Survival Instincts": {
+      "damage": "61336",
+      "percent": "#1"
+    },
+    "Wild Surges": {
+      "damage": "406890",
+      "percent": "#2"
+    },
+    "Lunar Beam": {
+      "damage": "204066",
+      "percent": "#1"
+    },
+    "Boundless Moonlight": {
+      "damage": "424058",
+      "percent": "#2"
+    },
+    "Convoke the Spirits": {
+      "damage": "391528",
+      "percent": "#2"
+    },
+    "Balance of All Things": {
+      "damage": "394050",
+      "percent": "#1"
+    },
+    "Echo of Frenzied Regeneration": {
+      "damage": "1269645",
+      "percent": "#2"
+    },
+    "Lycara's Teachings": {
+      "damage": "378991",
+      "percent": "#2"
+    },
+    "Ursine Vigor": {
+      "damage": "393903",
+      "percent": "#2"
+    },
+    "Bear Form": {
+      "damage": "5487",
+      "percent": "#14"
+    },
+    "Wild Charge": {
+      "damage": "102401",
+      "percent": "#2"
+    },
+    "Prowl": {
+      "damage": "5215",
+      "percent": "#3"
+    },
+    "Astral Power": {
+      "damage": "66.0",
+      "percent": "8.60"
+    }
+  },
+  "spelldata": {},
+  "talents": "CYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWoMbNjxMDwsYmZmZhBjZZmlZYmZswyMLzMGzshhBYstMzgxsNCMBAAAYxMzMzgNDjxAAwMDMA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

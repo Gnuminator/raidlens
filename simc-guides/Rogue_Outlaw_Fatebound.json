@@ -1,0 +1,262 @@
+{
+  "class": "Rogue",
+  "spec": "Outlaw",
+  "hero_tree": "Fatebound",
+  "metrics": {},
+  "abilities": {
+    "Auto Attack": {
+      "damage": "0 (18,895)",
+      "percent": "0.0% (14.8%)"
+    },
+    "Between the Eyes": {
+      "damage": "3.0",
+      "percent": "50.7"
+    },
+    "Blade Rush": {
+      "damage": "27.7",
+      "percent": "0.8"
+    },
+    "Dispatch": {
+      "damage": "18,130 (25,968)",
+      "percent": "14.3% (20.4%)"
+    },
+    "Hand of Fate": {
+      "damage": "0 (14,094)",
+      "percent": "0.0% (11.1%)"
+    },
+    "Instant Poison": {
+      "damage": "2,807",
+      "percent": "2.2%"
+    },
+    "Main Gauche": {
+      "damage": "9,390",
+      "percent": "7.4%"
+    },
+    "Pistol Shot": {
+      "damage": "3,796 (9,862)",
+      "percent": "3.0% (7.8%)"
+    },
+    "Sinister Strike": {
+      "damage": "4,242 (6,776)",
+      "percent": "3.3% (5.3%)"
+    },
+    "Adrenaline Rush": {
+      "damage": "9.9",
+      "percent": "0.0"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Keep It Rolling": {
+      "damage": "4.0",
+      "percent": "77.86s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Preparation": {
+      "damage": "2.0",
+      "percent": "242.15s"
+    },
+    "Slice and Dice (recuperator)": {
+      "damage": "99.5",
+      "percent": "3.00s"
+    },
+    "Roll the Bones": {
+      "damage": "5.4",
+      "percent": "2.4"
+    },
+    "Slice and Dice": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Stealth": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Thistle Tea (_auto)": {
+      "damage": "4.2",
+      "percent": "47.86s"
+    },
+    "Acrobatic Strikes": {
+      "damage": "1.0",
+      "percent": "697.8"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "132.6"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.3"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Deadly Pursuit": {
+      "damage": "5.8",
+      "percent": "124.6"
+    },
+    "Deadly Pursuit (_cdr)": {
+      "damage": "4.9",
+      "percent": "0.0"
+    },
+    "Deadly Pursuit (_tracker)": {
+      "damage": "5.8",
+      "percent": "11.6"
+    },
+    "Double Trouble": {
+      "damage": "3.3",
+      "percent": "0.0"
+    },
+    "Lucky Coin (fatebound_coin_flips)": {
+      "damage": "15.0",
+      "percent": "76.9"
+    },
+    "Fatebound Coin (Heads)": {
+      "damage": "26.6",
+      "percent": "66.3"
+    },
+    "Fatebound Coin (Tails)": {
+      "damage": "25.9",
+      "percent": "65.6"
+    },
+    "(fatebound_) Lucky Coin": {
+      "damage": "12.2",
+      "percent": "0.0"
+    },
+    "Gravedigger": {
+      "damage": "11.0",
+      "percent": "0.0"
+    },
+    "Jackpot": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Loaded Dice": {
+      "damage": "7.2",
+      "percent": "2.7"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "One of a Kind": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Opportunity": {
+      "damage": "29.8",
+      "percent": "26.9"
+    },
+    "Palmed Bullets": {
+      "damage": "4.6",
+      "percent": "64.0"
+    },
+    "Precision of the Dragonhawk": {
+      "damage": "8.1",
+      "percent": "8.7"
+    },
+    "Supercharge (_1)": {
+      "damage": "9.9",
+      "percent": "0.0"
+    },
+    "Supercharge (_2)": {
+      "damage": "9.9",
+      "percent": "0.0"
+    },
+    "Triple Threat": {
+      "damage": "2.5",
+      "percent": "0.0"
+    },
+    "Umbral Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Whirl of Blades": {
+      "damage": "24.9",
+      "percent": "3.6"
+    },
+    "Zero In": {
+      "damage": "49.9",
+      "percent": "349.5"
+    },
+    "Controlled Chaos": {
+      "damage": "19.3",
+      "percent": "10.0"
+    },
+    "Roll the Bones Lost: double_trouble": {
+      "damage": "1.9",
+      "percent": "0.0"
+    },
+    "Roll the Bones Lost: one_of_a_kind": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Roll the Bones: double_trouble": {
+      "damage": "3.3",
+      "percent": "0.0"
+    },
+    "Roll the Bones: jackpot": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Roll the Bones: one_of_a_kind": {
+      "damage": "0.5",
+      "percent": "0.0"
+    },
+    "Roll the Bones: triple_threat": {
+      "damage": "2.5",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "46.8",
+      "percent": "20.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "67.9",
+      "percent": "34.0"
+    },
+    "Supercharger between_the_eyes": {
+      "damage": "15.9",
+      "percent": "8.0"
+    },
+    "Supercharger dispatch": {
+      "damage": "3.9",
+      "percent": "0.0"
+    },
+    "Energy Cap": {
+      "damage": "2.95%",
+      "percent": "1.32%"
+    },
+    "Energy": {
+      "damage": "212.0",
+      "percent": "30.28"
+    },
+    "Combo Points": {
+      "damage": "1.4",
+      "percent": "3.11"
+    }
+  },
+  "spelldata": {},
+  "talents": "CQQAAAAAAAAAAAAAAAAAAAAAAAgx2MGjZmZmtZmZmZMmFGmZZaZw2MAAAAAgZbbmZGmZmZGzMzyAAAAwAYgNYGjGzGgtJswAgZmBG",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

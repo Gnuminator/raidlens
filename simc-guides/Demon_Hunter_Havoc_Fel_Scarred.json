@@ -1,0 +1,354 @@
+{
+  "class": "Demon_Hunter",
+  "spec": "Havoc",
+  "hero_tree": "Fel-Scarred",
+  "metrics": {},
+  "abilities": {
+    "Annihilation": {
+      "damage": "0 (8,974)",
+      "percent": "0.0% (7.5%)"
+    },
+    "auto_attack_mh": {
+      "damage": "3,889",
+      "percent": "3.2%"
+    },
+    "auto_attack_oh": {
+      "damage": "1,900",
+      "percent": "1.6%"
+    },
+    "Blade Dance": {
+      "damage": "0.714",
+      "percent": "0.001"
+    },
+    "Burning Blades": {
+      "damage": "21,842",
+      "percent": "18.2%"
+    },
+    "Chaos Strike": {
+      "damage": "0 (4,871)",
+      "percent": "0.0% (4.1%)"
+    },
+    "Death Sweep": {
+      "damage": "1.247",
+      "percent": "0.001"
+    },
+    "Demon Blades": {
+      "damage": "3,038",
+      "percent": "2.5%"
+    },
+    "Demonsurge": {
+      "damage": "15.3",
+      "percent": "40.3"
+    },
+    "Eye Beam": {
+      "damage": "0.796",
+      "percent": "0.001"
+    },
+    "Fel Rush": {
+      "damage": "33.002",
+      "percent": "0.004"
+    },
+    "Felblade": {
+      "damage": "3.673",
+      "percent": "0.001"
+    },
+    "Heaven's Glaive (_missile)": {
+      "damage": "0 (514)",
+      "percent": "0.0% (0.4%)"
+    },
+    "Immolation Aura": {
+      "damage": "2.194",
+      "percent": "0.026"
+    },
+    "Metamorphosis (_impact)": {
+      "damage": "96",
+      "percent": "0.1%"
+    },
+    "Soulscar": {
+      "damage": "5,579",
+      "percent": "4.6%"
+    },
+    "The Hunt": {
+      "damage": "2.555",
+      "percent": "0.001"
+    },
+    "Throw Glaive (_sb_slash_proc_throw)": {
+      "damage": "0 (1,355)",
+      "percent": "0.0% (1.1%)"
+    },
+    "Vengeful Retreat": {
+      "damage": "3.851",
+      "percent": "0.001"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.9",
+      "percent": "125.51s"
+    },
+    "Arcane Torrent": {
+      "damage": "0.2",
+      "percent": "165.58s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Consume Soul (_lesser)": {
+      "damage": "27.5",
+      "percent": "13.22s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blooming Feast": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Metamorphosis": {
+      "damage": "5.823",
+      "percent": "0.002"
+    },
+    "pick_up_fragment": {
+      "damage": "14.3",
+      "percent": "16.10s"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "0.00s"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "122.2"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.3"
+    },
+    "Eye Beam (blind_fury)": {
+      "damage": "15.3",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Cycle of Hatred": {
+      "damage": "1.0",
+      "percent": "14.3"
+    },
+    "Demonsurge (_demonic_intensity)": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Empowered Eye Beam": {
+      "damage": "5.2",
+      "percent": "0.0"
+    },
+    "Eternal Hunt": {
+      "damage": "15.2",
+      "percent": "0.0"
+    },
+    "fel_rush_movement": {
+      "damage": "7.1",
+      "percent": "0.0"
+    },
+    "Furious Gaze": {
+      "damage": "15.2",
+      "percent": "0.0"
+    },
+    "Inertia": {
+      "damage": "16.3",
+      "percent": "1.9"
+    },
+    "Inertia (_trigger)": {
+      "damage": "18.5",
+      "percent": "0.0"
+    },
+    "Initiative": {
+      "damage": "14.3",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "out_of_range": {
+      "damage": "18.2",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Crit)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Student of Suffering": {
+      "damage": "15.3",
+      "percent": "0.0"
+    },
+    "Tactical Retreat": {
+      "damage": "13.3",
+      "percent": "0.0"
+    },
+    "vengeful_retreat_movement": {
+      "damage": "13.3",
+      "percent": "0.0"
+    },
+    "Annihilation in Serrated Glaive": {
+      "damage": "75.0",
+      "percent": "55.0"
+    },
+    "Chaos Strike in Serrated Glaive": {
+      "damage": "55.9",
+      "percent": "39.0"
+    },
+    "Delayed AA out of range": {
+      "damage": "9.3",
+      "percent": "0.0"
+    },
+    "Demonsurge (_abyssal_gaze)": {
+      "damage": "2.8",
+      "percent": "2.0"
+    },
+    "Demonsurge (_annihilation)": {
+      "damage": "17.9",
+      "percent": "13.0"
+    },
+    "Demonsurge (_consuming_fire)": {
+      "damage": "2.8",
+      "percent": "2.0"
+    },
+    "Demonsurge (_death_sweep)": {
+      "damage": "18.0",
+      "percent": "14.0"
+    },
+    "Demonsurge: Volatile Instinct": {
+      "damage": "14.2",
+      "percent": "11.0"
+    },
+    "Eye Beam canceled": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "21.7",
+      "percent": "6.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "18.2",
+      "percent": "4.0"
+    },
+    "Soul Fragment": {
+      "damage": "29.2",
+      "percent": "15.0"
+    },
+    "Soul Fragment from Demonic Appetite": {
+      "damage": "28.1",
+      "percent": "14.0"
+    },
+    "Soul Fragment from Soul Splitter": {
+      "damage": "1.1",
+      "percent": "0.0"
+    },
+    "Soul Fragment overflow": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Throw Glaive in Serrated Glaive": {
+      "damage": "160.6",
+      "percent": "112.0"
+    },
+    "Undying Embers": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "delayed_aa_cast": {
+      "damage": "5.2",
+      "percent": "4.0"
+    },
+    "delayed_aa_channel": {
+      "damage": "27.0",
+      "percent": "16.0"
+    },
+    "Fury Cap": {
+      "damage": "4.71%",
+      "percent": "0.28%"
+    },
+    "Arcane Acuity": {
+      "damage": "154742",
+      "percent": "#1"
+    },
+    "Furious": {
+      "damage": "1266326",
+      "percent": "#3"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Untethered Fury": {
+      "damage": "452411",
+      "percent": "#1"
+    },
+    "Mark of the Wild": {
+      "damage": "1126",
+      "percent": "#1"
+    },
+    "Soul Rending": {
+      "damage": "204909",
+      "percent": "#1"
+    },
+    "Blur": {
+      "damage": "212800",
+      "percent": "#3"
+    },
+    "Reaver's Mark": {
+      "damage": "442624",
+      "percent": "#1"
+    },
+    "Void Metamorphosis": {
+      "damage": "1217607",
+      "percent": "#3"
+    },
+    "Soul Immolation": {
+      "damage": "1242475",
+      "percent": "#1"
+    },
+    "Demon Hide": {
+      "damage": "428241",
+      "percent": "#2"
+    },
+    "Demonic Wards": {
+      "damage": "278386",
+      "percent": "#1"
+    },
+    "Throw Glaive": {
+      "damage": "0.588",
+      "percent": "0.001"
+    },
+    "Abyssal Gaze": {
+      "damage": "3.725",
+      "percent": "0.002"
+    },
+    "Fury": {
+      "damage": "20.0",
+      "percent": "26.28"
+    }
+  },
+  "spelldata": {},
+  "talents": "CEkAAAAAAAAAAAAAAAAAAAAAAYgZmZMjZmZmhJjZGAAAAAAwsZMbzMmZmtZmx2sNPwMMGzYZgtZxMGmNNNmZGDbAAAAAAAAMzgBAAAgB",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

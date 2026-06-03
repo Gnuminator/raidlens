@@ -1,0 +1,382 @@
+{
+  "class": "Demon_Hunter",
+  "spec": "Vengeance",
+  "hero_tree": "Aldrachi_Reaver",
+  "metrics": {
+    "dps": "79591",
+    "dtps": "73610",
+    "hps": "53099"
+  },
+  "abilities": {
+    "auto_attack_mh": {
+      "damage": "6,262",
+      "percent": "7.9%"
+    },
+    "auto_attack_oh": {
+      "damage": "3,038",
+      "percent": "3.8%"
+    },
+    "Fel Devastation": {
+      "damage": "70.486",
+      "percent": "0.012"
+    },
+    "Felblade": {
+      "damage": "18.306",
+      "percent": "0.002"
+    },
+    "Fiery Brand": {
+      "damage": "207771",
+      "percent": "#1"
+    },
+    "Fracture": {
+      "damage": "1.026",
+      "percent": "0.001"
+    },
+    "Immolation Aura": {
+      "damage": "1.491",
+      "percent": "0.001"
+    },
+    "Infernal Strike": {
+      "damage": "0 (1,360)",
+      "percent": "0.0% (1.7%)"
+    },
+    "Periodic": {
+      "damage": "14.2",
+      "percent": "8,472"
+    },
+    "Prismatic Focusing Iris": {
+      "damage": "1,963",
+      "percent": "2.5%"
+    },
+    "Reaver's Glaive": {
+      "damage": "1283344",
+      "percent": "#2"
+    },
+    "Demon Spikes (retaliation)": {
+      "damage": "284",
+      "percent": "0.4%"
+    },
+    "Sigil of Flame": {
+      "damage": "2.140",
+      "percent": "0.001"
+    },
+    "Sigil of Spite": {
+      "damage": "1.115",
+      "percent": "0.001"
+    },
+    "Soul Carver": {
+      "damage": "11.300",
+      "percent": "0.001"
+    },
+    "Soul Cleave": {
+      "damage": "228478",
+      "percent": "#2"
+    },
+    "Spirit Bomb": {
+      "damage": "4.093",
+      "percent": "0.001"
+    },
+    "Throw Glaive": {
+      "damage": "95.742",
+      "percent": "0.006"
+    },
+    "Vengeful Retreat": {
+      "damage": "20.061",
+      "percent": "0.001"
+    },
+    "Voidstalker Sting": {
+      "damage": "705",
+      "percent": "0.9%"
+    },
+    "Wounded Quarry": {
+      "damage": "442806",
+      "percent": "#1"
+    },
+    "MID1_Demon_Hunter_Vengeance_Aldrachi_Reaver": {
+      "damage": "53099",
+      "percent": ""
+    },
+    "Consume Soul (_lesser)": {
+      "damage": "29,359",
+      "percent": "55.3%"
+    },
+    "Fel Devastation (_heal)": {
+      "damage": "1,274",
+      "percent": "2.4%"
+    },
+    "Frailty": {
+      "damage": "247456",
+      "percent": "#1"
+    },
+    "Leech": {
+      "damage": "9,922",
+      "percent": "18.7%"
+    },
+    "Soul Cleave (_heal)": {
+      "damage": "3,305",
+      "percent": "6.2%"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Demon Spikes": {
+      "damage": "1.330",
+      "percent": "0.001"
+    },
+    "Disrupt": {
+      "damage": "74.880",
+      "percent": "45.339"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Silvermoon Parade": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Metamorphosis": {
+      "damage": "5.283",
+      "percent": "0.001"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "124.8"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Art of the Glaive": {
+      "damage": "10.8",
+      "percent": "436.1"
+    },
+    "Art of the Glaive (_first)": {
+      "damage": "28.1",
+      "percent": "0.0"
+    },
+    "Art of the Glaive (_second_glaive_flurry)": {
+      "damage": "14.6",
+      "percent": "0.0"
+    },
+    "Art of the Glaive (_second_rending_strike)": {
+      "damage": "13.3",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Glaive Flurry": {
+      "damage": "28.1",
+      "percent": "0.0"
+    },
+    "Hasty Hunt": {
+      "damage": "3.9",
+      "percent": "6.2"
+    },
+    "Masterful Hunt": {
+      "damage": "3.8",
+      "percent": "6.2"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "out_of_range": {
+      "damage": "6.6",
+      "percent": "0.0"
+    },
+    "Rending Strike": {
+      "damage": "28.1",
+      "percent": "0.0"
+    },
+    "Seething Anger": {
+      "damage": "14.2",
+      "percent": "84.4"
+    },
+    "Soul Fragments": {
+      "damage": "38.5",
+      "percent": "411.6"
+    },
+    "Thrill of the Fight (_damage)": {
+      "damage": "27.8",
+      "percent": "0.0"
+    },
+    "Thrill of the Fight (_haste)": {
+      "damage": "1.0",
+      "percent": "26.9"
+    },
+    "Umbral Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Untethered Rage": {
+      "damage": "13.7",
+      "percent": "8.0"
+    },
+    "vengeful_retreat_movement": {
+      "damage": "7.1",
+      "percent": "0.0"
+    },
+    "Versatile Hunt": {
+      "damage": "0.9",
+      "percent": "1.5"
+    },
+    "Void's Embrace": {
+      "damage": "4.6",
+      "percent": "0.9"
+    },
+    "Warblade's Hunger": {
+      "damage": "82.7",
+      "percent": "446.9"
+    },
+    "Delayed AA out of range": {
+      "damage": "4.4",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "28.9",
+      "percent": "10.0"
+    },
+    "Skyfury (Off Hand)": {
+      "damage": "27.7",
+      "percent": "10.0"
+    },
+    "Soul Fragment": {
+      "damage": "451.2",
+      "percent": "338.0"
+    },
+    "Soul Fragment from Aldrachi Tactics": {
+      "damage": "27.9",
+      "percent": "21.0"
+    },
+    "Soul Fragment from Broken Spirit": {
+      "damage": "20.6",
+      "percent": "6.0"
+    },
+    "Soul Fragment from Fallout": {
+      "damage": "26.7",
+      "percent": "20.0"
+    },
+    "Soul Fragment from Fracture": {
+      "damage": "188.1",
+      "percent": "146.0"
+    },
+    "Soul Fragment from Fracture (Meta)": {
+      "damage": "56.3",
+      "percent": "32.0"
+    },
+    "Soul Fragment from Sigil of Spite": {
+      "damage": "24.9",
+      "percent": "20.0"
+    },
+    "Soul Fragment from Soul Carver": {
+      "damage": "28.4",
+      "percent": "24.0"
+    },
+    "Soul Fragment from Soul Splitter": {
+      "damage": "15.8",
+      "percent": "4.0"
+    },
+    "Soul Fragment from Wounded Quarry": {
+      "damage": "62.5",
+      "percent": "32.0"
+    },
+    "Soul Fragment overflow": {
+      "damage": "88.5",
+      "percent": "45.0"
+    },
+    "Unhindered Assault": {
+      "damage": "7.1",
+      "percent": "2.0"
+    },
+    "Wounded Quarry Accumulator Reset": {
+      "damage": "1.2",
+      "percent": "1.0"
+    },
+    "delayed_aa_channel": {
+      "damage": "5.3",
+      "percent": "0.0"
+    },
+    "parry_haste": {
+      "damage": "12.0",
+      "percent": "2.0"
+    },
+    "Fury Cap": {
+      "damage": "0.53%",
+      "percent": "0.00%"
+    },
+    "Tempered Steel": {
+      "damage": "1265800",
+      "percent": "#3"
+    },
+    "Furious": {
+      "damage": "1266326",
+      "percent": "#3"
+    },
+    "Keen Edge": {
+      "damage": "1272138",
+      "percent": "#4"
+    },
+    "Xavaric's Magnum Opus": {
+      "damage": "207472",
+      "percent": "#1"
+    },
+    "Charred Warblades": {
+      "damage": "213010",
+      "percent": "#1"
+    },
+    "Rethu's Incessant Courage": {
+      "damage": "242597",
+      "percent": "#1"
+    },
+    "Reaver's Mark": {
+      "damage": "442679",
+      "percent": "#2"
+    },
+    "Incorruptible Spirit": {
+      "damage": "442736",
+      "percent": "#1"
+    },
+    "Soul Sunder": {
+      "damage": "452436",
+      "percent": "#1"
+    },
+    "Void Metamorphosis": {
+      "damage": "1217607",
+      "percent": "#3"
+    },
+    "Soul Immolation": {
+      "damage": "1242475",
+      "percent": "#1"
+    },
+    "Meteoric Rise": {
+      "damage": "1253377",
+      "percent": "#1"
+    },
+    "Demonic Wards": {
+      "damage": "203513",
+      "percent": "#2"
+    },
+    "Health": {
+      "damage": "755,100.0",
+      "percent": "83,113.99"
+    },
+    "Fury": {
+      "damage": "33.0",
+      "percent": "14.57"
+    }
+  },
+  "spelldata": {},
+  "talents": "CUkAAAAAAAAAAAAAAAAAAAAAAAAYMzMjhZkZmZGDzMzMDGzMmxMmZwMmZsMmZZMmBAAAgZZGMMW2YCDzMjFAAAAMwAAgZGgBAAAwA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

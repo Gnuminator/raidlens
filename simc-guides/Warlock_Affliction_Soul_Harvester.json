@@ -1,0 +1,230 @@
+{
+  "class": "Warlock",
+  "spec": "Affliction",
+  "hero_tree": "Soul_Harvester",
+  "metrics": {},
+  "abilities": {
+    "Agony": {
+      "damage": "8,683",
+      "percent": "7.6%"
+    },
+    "Corruption (_direct)": {
+      "damage": "11 (4,892)",
+      "percent": "0.0% (4.3%)"
+    },
+    "Dark Harvest": {
+      "damage": "0 (4,679)",
+      "percent": "0.0% (4.1%)"
+    },
+    "Demonic Soul": {
+      "damage": "8,432",
+      "percent": "7.4%"
+    },
+    "Drain Soul": {
+      "damage": "17,676",
+      "percent": "15.5%"
+    },
+    "Haunt": {
+      "damage": "6,575",
+      "percent": "5.8%"
+    },
+    "Shadow of Nathreza": {
+      "damage": "5,006",
+      "percent": "4.4%"
+    },
+    "Shadowbolt Volley": {
+      "damage": "69.8",
+      "percent": "44.0"
+    },
+    "Shared Fate": {
+      "damage": "1,531",
+      "percent": "1.3%"
+    },
+    "Soul Anathema": {
+      "damage": "4,477",
+      "percent": "3.9%"
+    },
+    "Unstable Affliction": {
+      "damage": "23,701",
+      "percent": "20.7%"
+    },
+    "Voidstalker Sting": {
+      "damage": "1,124",
+      "percent": "1.0%"
+    },
+    "Wicked Reaping": {
+      "damage": "8,393",
+      "percent": "7.3%"
+    },
+    "pet - sayaad": {
+      "damage": "932 / 932",
+      "percent": ""
+    },
+    "Lash of Pain": {
+      "damage": "351",
+      "percent": "0.3%"
+    },
+    "melee": {
+      "damage": "581",
+      "percent": "0.5%"
+    },
+    "pet - darkglare": {
+      "damage": "27332 / 6450",
+      "percent": ""
+    },
+    "Eye Beam": {
+      "damage": "27,332",
+      "percent": "5.6%"
+    },
+    "pet - desperate_soul": {
+      "damage": "0 / 4708",
+      "percent": ""
+    },
+    "Wrath of Nathreza": {
+      "damage": "0 (4,708)",
+      "percent": "4.1%"
+    },
+    "pet - demonic_soul": {
+      "damage": "31978 / 5021",
+      "percent": ""
+    },
+    "Soul Swipe": {
+      "damage": "19,188",
+      "percent": "2.6% (4.4%)"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "emberwing_feather": {
+      "damage": "2.9",
+      "percent": "120.94s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Manifested Demonic Soul (_summon)": {
+      "damage": "3.5",
+      "percent": "71.68s"
+    },
+    "Light's Potential": {
+      "damage": "1.4",
+      "percent": "0.0"
+    },
+    "Summon Sayaad (sayaad)": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Summon Darkglare": {
+      "damage": "2.9",
+      "percent": "120.87s"
+    },
+    "Summon Desperate Soul": {
+      "damage": "16.0",
+      "percent": "18.01s"
+    },
+    "Whiplash": {
+      "damage": "50.4",
+      "percent": "6.00s"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.1",
+      "percent": "136.2"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.9"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Cascading Calamity": {
+      "damage": "1.1",
+      "percent": "104.1"
+    },
+    "Darkglare Presence": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Crit)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Mastery)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Burn (Vers)": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Emberwing Heatwave": {
+      "damage": "2.9",
+      "percent": "2.9"
+    },
+    "Manifested Demonic Soul": {
+      "damage": "3.4",
+      "percent": "0.2"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Nightfall": {
+      "damage": "15.7",
+      "percent": "11.0"
+    },
+    "Shard Instability": {
+      "damage": "27.8",
+      "percent": "17.0"
+    },
+    "Succulent Soul": {
+      "damage": "39.0",
+      "percent": "27.0"
+    },
+    "Fatal Echoes": {
+      "damage": "10.1",
+      "percent": "4.0"
+    },
+    "Manifested Avarice": {
+      "damage": "3.5",
+      "percent": "1.0"
+    },
+    "Ravenous Afflictions": {
+      "damage": "6.3",
+      "percent": "1.0"
+    },
+    "wrath_of_nathreza": {
+      "damage": "16.0",
+      "percent": "6.0"
+    },
+    "Mana Cap": {
+      "damage": "0.61%",
+      "percent": "0.00%"
+    },
+    "Mana": {
+      "damage": "245,000.0",
+      "percent": "2,481.54"
+    },
+    "Soul Shard": {
+      "damage": "3.0",
+      "percent": "0.23"
+    }
+  },
+  "spelldata": {},
+  "talents": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZhhZmZmlBAAYmZZ2MzsMzAAjllBGwEMDbBG2GAAAmBAAwMDzMjxwwMmZmxgZmZGAwMwA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

@@ -1,0 +1,262 @@
+{
+  "class": "Monk",
+  "spec": "Windwalker",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "auto_attack": {
+      "damage": "0 (12,487)",
+      "percent": "0.0% (10.6%)"
+    },
+    "Blackout Kick": {
+      "damage": "4,945 (5,667)",
+      "percent": "4.2% (4.8%)"
+    },
+    "Expel Harm (_damage)": {
+      "damage": "507",
+      "percent": "0.4%"
+    },
+    "Fists of Fury": {
+      "damage": "30,493 (35,615)",
+      "percent": "25.7% (30.1%)"
+    },
+    "Flurry Strikes": {
+      "damage": "0 (15,929)",
+      "percent": "0.0% (13.5%)"
+    },
+    "Rising Sun Kick": {
+      "damage": "0 (18,799)",
+      "percent": "0.0% (15.9%)"
+    },
+    "Rushing Wind Kick": {
+      "damage": "12.2",
+      "percent": "0.0"
+    },
+    "Spinning Crane Kick": {
+      "damage": "17.2",
+      "percent": "0.0"
+    },
+    "Tiger Palm": {
+      "damage": "100780",
+      "percent": "#2"
+    },
+    "Touch of Death": {
+      "damage": "1,009",
+      "percent": "0.8%"
+    },
+    "Touch of Karma": {
+      "damage": "1,936",
+      "percent": "1.6%"
+    },
+    "Whirling Dragon Punch": {
+      "damage": "15.4",
+      "percent": "43.1"
+    },
+    "Zenith": {
+      "damage": "1249625",
+      "percent": "#2"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.9",
+      "percent": "122.06s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Berserking": {
+      "damage": "2.0",
+      "percent": "0.0"
+    },
+    "Expel Harm": {
+      "damage": "18.2",
+      "percent": "15.57s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Potion of Recklessness": {
+      "damage": "1.5",
+      "percent": "302.64s"
+    },
+    "Akil'zon's Cry of Victory": {
+      "damage": "4.4",
+      "percent": "1.2"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "126.2"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Blessing of the Capybara": {
+      "damage": "4.4",
+      "percent": "1.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Combat Wisdom": {
+      "damage": "18.5",
+      "percent": "2.0"
+    },
+    "Blackout Kick! (combo_breaker)": {
+      "damage": "19.2",
+      "percent": "1.3"
+    },
+    "Dance of Chi-Ji": {
+      "damage": "13.2",
+      "percent": "3.9"
+    },
+    "Flurry Charge": {
+      "damage": "29.7",
+      "percent": "187.1"
+    },
+    "Genius Insight": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Hit Combo": {
+      "damage": "1.0",
+      "percent": "225.2"
+    },
+    "Momentum Boost (_damage)": {
+      "damage": "29.0",
+      "percent": "115.4"
+    },
+    "Momentum Boost (_speed)": {
+      "damage": "22.1",
+      "percent": "6.6"
+    },
+    "Potion of Recklessness (Haste)": {
+      "damage": "1.3",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Mastery)": {
+      "damage": "0.2",
+      "percent": "0.0"
+    },
+    "Potion of Recklessness (Vers Penalty)": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Flurry Charge (stand_ready)": {
+      "damage": "6.4",
+      "percent": "0.0"
+    },
+    "Teachings of the Monastery": {
+      "damage": "34.8",
+      "percent": "19.3"
+    },
+    "Tigereye Brew (_1)": {
+      "damage": "7.0",
+      "percent": "90.5"
+    },
+    "Zenith Stomp": {
+      "damage": "6.4",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "36.2",
+      "percent": "14.0"
+    },
+    "Teachings of the Monastery - Rising Sun Kick Reset": {
+      "damage": "12.1",
+      "percent": "2.0"
+    },
+    "Xuen's Battlegear CD SCK Half-Second Reduction": {
+      "damage": "17.2",
+      "percent": "9.0"
+    },
+    "delayed_aa_channel": {
+      "damage": "56.1",
+      "percent": "37.0"
+    },
+    "Energy Cap": {
+      "damage": "30.83%",
+      "percent": "21.43%"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Chi Proficiency": {
+      "damage": "450426",
+      "percent": "#1"
+    },
+    "Martial Instincts": {
+      "damage": "450427",
+      "percent": "#2"
+    },
+    "Inner Peace": {
+      "damage": "397768",
+      "percent": "#1"
+    },
+    "Ascension": {
+      "damage": "115396",
+      "percent": "#1"
+    },
+    "Fortifying Brew": {
+      "damage": "120954",
+      "percent": "#1"
+    },
+    "Weapons of Order": {
+      "damage": "310454",
+      "percent": "#2"
+    },
+    "Calming Presence": {
+      "damage": "388664",
+      "percent": "#1"
+    },
+    "Vivacious Vivification": {
+      "damage": "392883",
+      "percent": "#2"
+    },
+    "Yu'lon's Grace": {
+      "damage": "414131",
+      "percent": "#1"
+    },
+    "Courage of the White Tiger": {
+      "damage": "443087",
+      "percent": "#2"
+    },
+    "Efficient Training": {
+      "damage": "450989",
+      "percent": "#1"
+    },
+    "Jadefire Stomp": {
+      "damage": "457974",
+      "percent": "#2"
+    },
+    "Martial Agility": {
+      "damage": "1272685",
+      "percent": "#1"
+    },
+    "Energy": {
+      "damage": "150.0",
+      "percent": "9.76"
+    },
+    "Chi": {
+      "damage": "0.0",
+      "percent": "0.57"
+    }
+  },
+  "spelldata": {},
+  "talents": "C0QAAAAAAAAAAAAAAAAAAAAAAMzMD2mxgtZGbzAAAAAAAAAAAAsMMCzYbYAzYYmZmhZZYGmlZCAYxMbjhZmZGAAbAoZZWamZmFAMwMDAsMGwAG",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

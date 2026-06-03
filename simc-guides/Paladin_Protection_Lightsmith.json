@@ -1,0 +1,298 @@
+{
+  "class": "Paladin",
+  "spec": "Protection",
+  "hero_tree": "Lightsmith",
+  "metrics": {
+    "dps": "57055",
+    "dtps": "90898",
+    "hps": "42138"
+  },
+  "abilities": {
+    "Avenger's Shield": {
+      "damage": "0.847",
+      "percent": "0.000"
+    },
+    "Consecration": {
+      "damage": "12.387",
+      "percent": "0.000"
+    },
+    "Divine Toll": {
+      "damage": "0.926",
+      "percent": "0.000"
+    },
+    "Hammer of the Righteous": {
+      "damage": "0.130",
+      "percent": "0.000"
+    },
+    "Hammer of Wrath": {
+      "damage": "0.120",
+      "percent": "0.000"
+    },
+    "Judgment": {
+      "damage": "3,454 (3,989)",
+      "percent": "6.1% (7.0%)"
+    },
+    "Lesser Weapon (_proc_damage)": {
+      "damage": "3,645",
+      "percent": "6.4%"
+    },
+    "melee": {
+      "damage": "5,385",
+      "percent": "9.4%"
+    },
+    "Refining Fire": {
+      "damage": "5,410",
+      "percent": "9.5%"
+    },
+    "Sacred Weapon (_proc_damage)": {
+      "damage": "3,834",
+      "percent": "6.7%"
+    },
+    "Shield of the Righteous": {
+      "damage": "1.457",
+      "percent": "0.000"
+    },
+    "Twilight Barrage": {
+      "damage": "667",
+      "percent": "1.2%"
+    },
+    "Voidclaw": {
+      "damage": "337",
+      "percent": "0.6%"
+    },
+    "Voidstalker Sting": {
+      "damage": "224",
+      "percent": "0.4%"
+    },
+    "MID1_Paladin_Protection_Lightsmith": {
+      "damage": "42138",
+      "percent": ""
+    },
+    "bulwark_of_order_absorb": {
+      "damage": "3,277",
+      "percent": "7.8%"
+    },
+    "holy_bulwark_absorb": {
+      "damage": "3,977",
+      "percent": "9.4%"
+    },
+    "Lesser Weapon (_proc_heal)": {
+      "damage": "298",
+      "percent": "0.7%"
+    },
+    "Sacred Weapon (_proc_heal)": {
+      "damage": "1,632",
+      "percent": "3.9%"
+    },
+    "Word of Glory": {
+      "damage": "32,691",
+      "percent": "77.6%"
+    },
+    "algethar_puzzle_box": {
+      "damage": "3.0",
+      "percent": "121.91s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Avenging Wrath": {
+      "damage": "0.862",
+      "percent": "0.000"
+    },
+    "Devotion Aura": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Blooming Feast": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Holy Bulwark (Holy Armaments)": {
+      "damage": "2.421",
+      "percent": "0.000"
+    },
+    "holy_bulwark": {
+      "damage": "5.6",
+      "percent": "49.97s"
+    },
+    "Light of the Titans": {
+      "damage": "30.0",
+      "percent": "9.49s"
+    },
+    "Light of the Titans (_hot)": {
+      "damage": "30.0",
+      "percent": "9.49s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Rite of Sanctification": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "sacred_weapon": {
+      "damage": "11.6",
+      "percent": "26.73s"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Blessed Assurance": {
+      "damage": "76.9",
+      "percent": "91.9"
+    },
+    "Blessing of the Forge": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Bulwark of Order": {
+      "damage": "51.0",
+      "percent": "5.0"
+    },
+    "Divine Purpose": {
+      "damage": "25.4",
+      "percent": "5.0"
+    },
+    "Divine Resonance": {
+      "damage": "5.4",
+      "percent": "0.0"
+    },
+    "Faith's Armor": {
+      "damage": "12.6",
+      "percent": "126.2"
+    },
+    "fake_solidarity": {
+      "damage": "7.0",
+      "percent": "4.6"
+    },
+    "fake_solidarity_bulwark": {
+      "damage": "4.6",
+      "percent": "0.9"
+    },
+    "Holy Bulwark": {
+      "damage": "4.6",
+      "percent": "1.0"
+    },
+    "Holy Bulwark (_absorb)": {
+      "damage": "50.6",
+      "percent": "5.3"
+    },
+    "Lesser Bulwark": {
+      "damage": "4.3",
+      "percent": "6.1"
+    },
+    "Lesser Weapon": {
+      "damage": "8.9",
+      "percent": "0.0"
+    },
+    "Light-Blessed Shield (light_blessed_shield)": {
+      "damage": "51.0",
+      "percent": "87.8"
+    },
+    "Masterwork: Bulwark": {
+      "damage": "3.5",
+      "percent": "0.0"
+    },
+    "Masterwork: Weapon": {
+      "damage": "9.5",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.2",
+      "percent": "8.5"
+    },
+    "Sacred Weapon": {
+      "damage": "6.4",
+      "percent": "5.2"
+    },
+    "Shining Light (_free)": {
+      "damage": "11.3",
+      "percent": "50.7"
+    },
+    "Shining Light (_stacks)": {
+      "damage": "46.6",
+      "percent": "46.2"
+    },
+    "Strength in Adversity": {
+      "damage": "56.0",
+      "percent": "0.0"
+    },
+    "Umbral Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Valor": {
+      "damage": "29.9",
+      "percent": "0.0"
+    },
+    "Vanguard": {
+      "damage": "8.7",
+      "percent": "2.2"
+    },
+    "Avenger's Shield: Grand Crusader": {
+      "damage": "16.0",
+      "percent": "3.0"
+    },
+    "Avenger's Shield: Grand Crusader wasted": {
+      "damage": "0.4",
+      "percent": "0.0"
+    },
+    "Divine Inspiration": {
+      "damage": "4.2",
+      "percent": "0.0"
+    },
+    "Grand Crusader: Reflection of Radiance Holy Bulwark": {
+      "damage": "3.5",
+      "percent": "0.0"
+    },
+    "Grand Crusader: Reflection of Radiance Sacred Weapon": {
+      "damage": "3.4",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "33.6",
+      "percent": "15.0"
+    },
+    "parry_haste": {
+      "damage": "13.0",
+      "percent": "2.0"
+    },
+    "Avenger's Shield (_dt)": {
+      "damage": "41.394",
+      "percent": "1.122"
+    },
+    "Avenger's Shield (_dr)": {
+      "damage": "11.536",
+      "percent": "0.000"
+    },
+    "Health": {
+      "damage": "629,440.0",
+      "percent": "87,882.85"
+    },
+    "Holy Power": {
+      "damage": "0.0",
+      "percent": "1.14"
+    }
+  },
+  "spelldata": {},
+  "talents": "CIEAAAAAAAAAAAAAAAAAAAAAAsMzAzyMLmZMDLLDzYmFbzYAAAAAAAAg0MziZMmxYmt2AgBADsNAAACwMzyySbzMWMwgFzMDwMDAmZAwMDyA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

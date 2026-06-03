@@ -1,0 +1,190 @@
+{
+  "class": "Warrior",
+  "spec": "Arms",
+  "hero_tree": null,
+  "metrics": {},
+  "abilities": {
+    "auto_attack_mh": {
+      "damage": "6,005",
+      "percent": "5.6%"
+    },
+    "Bladestorm": {
+      "damage": "5.361",
+      "percent": "0.001"
+    },
+    "Charge (_impact)": {
+      "damage": "2",
+      "percent": "0.0%"
+    },
+    "Colossus Smash": {
+      "damage": "0.786",
+      "percent": "0.001"
+    },
+    "Deep Wounds": {
+      "damage": "9,634",
+      "percent": "9.0%"
+    },
+    "Execute": {
+      "damage": "0 (20,505)",
+      "percent": "0.0% (19.1%)"
+    },
+    "Fatal Mark (fatality)": {
+      "damage": "2,098",
+      "percent": "2.0%"
+    },
+    "Mortal Strike": {
+      "damage": "1.078",
+      "percent": "0.001"
+    },
+    "Overpower": {
+      "damage": "1.820",
+      "percent": "0.001"
+    },
+    "Rend": {
+      "damage": "14.949",
+      "percent": "8.950"
+    },
+    "Rend (_dot)": {
+      "damage": "2,183",
+      "percent": "2.0%"
+    },
+    "Slam": {
+      "damage": "3,510 (9,947)",
+      "percent": "3.3% (9.2%)"
+    },
+    "Slayer's Strike": {
+      "damage": "8,714",
+      "percent": "8.1%"
+    },
+    "Storm Bolt": {
+      "damage": "27.109",
+      "percent": "0.009"
+    },
+    "Wrecking Throw": {
+      "damage": "69.623",
+      "percent": "0.019"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Avatar": {
+      "damage": "0.784",
+      "percent": "0.001"
+    },
+    "Battle Stance": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Charge": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Flask of the Shattered Sun": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "103.1"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Executioner": {
+      "damage": "4.2",
+      "percent": "35.4"
+    },
+    "Executioner's Precision": {
+      "damage": "31.7",
+      "percent": "18.5"
+    },
+    "Fierce Followthrough": {
+      "damage": "33.0",
+      "percent": "0.0"
+    },
+    "Frenzied Focus": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Heart of Ancient Hunger": {
+      "damage": "7.6",
+      "percent": "3.6"
+    },
+    "Heroic Might": {
+      "damage": "10.6",
+      "percent": "0.0"
+    },
+    "Heroic Might (_accumulator)": {
+      "damage": "11.4",
+      "percent": "18.3"
+    },
+    "Imminent Demise": {
+      "damage": "5.8",
+      "percent": "19.8"
+    },
+    "Martial Prowess": {
+      "damage": "53.8",
+      "percent": "68.3"
+    },
+    "Master of Warfare": {
+      "damage": "1.0",
+      "percent": "28.6"
+    },
+    "Master of Warfare (_proc)": {
+      "damage": "29.8",
+      "percent": "0.0"
+    },
+    "Sudden Death": {
+      "damage": "23.0",
+      "percent": "3.0"
+    },
+    "Violent Euphoria": {
+      "damage": "6.0",
+      "percent": "0.0"
+    },
+    "Wild Strikes": {
+      "damage": "14.2",
+      "percent": "10.7"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "27.0",
+      "percent": "9.0"
+    },
+    "Tactician": {
+      "damage": "46.6",
+      "percent": "24.0"
+    },
+    "Rage Cap": {
+      "damage": "8.29%",
+      "percent": "0.00%"
+    },
+    "Rage": {
+      "damage": "0.0",
+      "percent": "14.23"
+    }
+  },
+  "spelldata": {},
+  "talents": "CcEAAAAAAAAAAAAAAAAAAAAAAAzMzsMzMzMDAAAghphxYmxyMzMzgxMDAAAAgZWmZAZMWWGYBMgZYCZGsBMjNz2YwMGgZGAmxwA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

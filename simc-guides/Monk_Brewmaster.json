@@ -1,0 +1,330 @@
+{
+  "class": "Monk",
+  "spec": "Brewmaster",
+  "hero_tree": null,
+  "metrics": {
+    "dps": "86194",
+    "dtps": "40807",
+    "hps": "22978"
+  },
+  "abilities": {
+    "Aspect of Harmony (_damage)": {
+      "damage": "5,131 (15,099)",
+      "percent": "6.0% (17.5%)"
+    },
+    "auto_attack": {
+      "damage": "0 (2,411)",
+      "percent": "0.0% (2.8%)"
+    },
+    "Blackout Kick": {
+      "damage": "5,317 (6,647)",
+      "percent": "6.2% (7.7%)"
+    },
+    "Breath of Fire": {
+      "damage": "5,483 (6,679)",
+      "percent": "6.4% (7.8%)"
+    },
+    "Chi Burst (_damage)": {
+      "damage": "2,251",
+      "percent": "2.6%"
+    },
+    "Empty the Cellar": {
+      "damage": "2.5",
+      "percent": "0.0"
+    },
+    "Expel Harm (_damage)": {
+      "damage": "58",
+      "percent": "0.1%"
+    },
+    "Exploding Keg": {
+      "damage": "2.5",
+      "percent": "0.0"
+    },
+    "Jan'alai's Flames": {
+      "damage": "586",
+      "percent": "0.7%"
+    },
+    "Keg Smash": {
+      "damage": "5,164 (10,120)",
+      "percent": "6.0% (11.7%)"
+    },
+    "Special Delivery": {
+      "damage": "1,225 (1,757)",
+      "percent": "1.4% (2.0%)"
+    },
+    "Stomp": {
+      "damage": "3,237",
+      "percent": "0.9%"
+    },
+    "Tiger Palm": {
+      "damage": "23,742 (36,694)",
+      "percent": "27.6% (42.6%)"
+    },
+    "pet - invoke_niuzao_the_black_ox": {
+      "damage": "4434 / 1065",
+      "percent": ""
+    },
+    "melee_main_hand": {
+      "damage": "1,197",
+      "percent": "0.3%"
+    },
+    "MID1_Monk_Brewmaster": {
+      "damage": "22978",
+      "percent": ""
+    },
+    "Celestial Fortune": {
+      "damage": "3,881",
+      "percent": "16.9%"
+    },
+    "Celestial Infusion": {
+      "damage": "9.6",
+      "percent": "9.1"
+    },
+    "Chi Burst (_heal)": {
+      "damage": "1,448",
+      "percent": "6.3%"
+    },
+    "Expel Harm": {
+      "damage": "140",
+      "percent": "0.6%"
+    },
+    "Gai Plin's Imperial Brew": {
+      "damage": "5,822",
+      "percent": "25.3%"
+    },
+    "Gift of the Ox (_expire)": {
+      "damage": "954",
+      "percent": "4.2%"
+    },
+    "Gift of the Ox (_trigger)": {
+      "damage": "1,747",
+      "percent": "7.6%"
+    },
+    "Harmonic Surge (_heal_tiger_palm)": {
+      "damage": "1,369",
+      "percent": "6.0%"
+    },
+    "Refreshing Drink": {
+      "damage": "11.2",
+      "percent": "9.7"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Black Ox Brew": {
+      "damage": "4.9",
+      "percent": "65.68s"
+    },
+    "Flask of the Magisters": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Fortifying Brew": {
+      "damage": "120954",
+      "percent": "#1"
+    },
+    "Invoke Niuzao, the Black Ox": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Draught of Rampant Abandon": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Purifying Brew": {
+      "damage": "119582",
+      "percent": "#1"
+    },
+    "Alnscorned Essence": {
+      "damage": "5.2",
+      "percent": "112.8"
+    },
+    "Alnsight": {
+      "damage": "7.3",
+      "percent": "3.8"
+    },
+    "Aspect of Harmony (_accumulator)": {
+      "damage": "12.5",
+      "percent": "925.4"
+    },
+    "Aspect of Harmony (_spender)": {
+      "damage": "9.6",
+      "percent": "9.1"
+    },
+    "Balanced Stratagem (_magic)": {
+      "damage": "34.8",
+      "percent": "189.1"
+    },
+    "Balanced Stratagem (_physical)": {
+      "damage": "43.2",
+      "percent": "0.6"
+    },
+    "Blackout Combo": {
+      "damage": "228563",
+      "percent": "#1"
+    },
+    "Blessing of the Capybara": {
+      "damage": "4.3",
+      "percent": "1.2"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Celestial Flames": {
+      "damage": "13.8",
+      "percent": "6.0"
+    },
+    "Counterstrike": {
+      "damage": "45.7",
+      "percent": "24.4"
+    },
+    "Elusive Brawler": {
+      "damage": "71.0",
+      "percent": "187.0"
+    },
+    "Empty Barrel": {
+      "damage": "1265307",
+      "percent": "#3"
+    },
+    "Fuel on the Fire": {
+      "damage": "2.5",
+      "percent": "0.0"
+    },
+    "Gift of the Ox": {
+      "damage": "3.0",
+      "percent": "46.3"
+    },
+    "Potential Energy (harmonic_surge)": {
+      "damage": "43.7",
+      "percent": "24.5"
+    },
+    "Heavy Stagger (_stagger)": {
+      "damage": "14.8",
+      "percent": "0.0"
+    },
+    "Light Stagger (_stagger)": {
+      "damage": "47.7",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.1",
+      "percent": "8.6"
+    },
+    "Moderate Stagger (_stagger)": {
+      "damage": "58.3",
+      "percent": "0.0"
+    },
+    "none_stagger": {
+      "damage": "0.1",
+      "percent": "0.0"
+    },
+    "Pretense of Instability": {
+      "damage": "28.5",
+      "percent": "37.5"
+    },
+    "Radiant Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Shuffle": {
+      "damage": "2.0",
+      "percent": "142.4"
+    },
+    "Training of Niuzao": {
+      "damage": "121.0",
+      "percent": "0.0"
+    },
+    "Blackout Combo - Keg Smash": {
+      "damage": "7.0",
+      "percent": "1.0"
+    },
+    "Blackout Combo - Tiger Palm": {
+      "damage": "87.4",
+      "percent": "67.0"
+    },
+    "Elusive Footwork": {
+      "damage": "31.7",
+      "percent": "10.0"
+    },
+    "Sal'salabim Breath of Fire Reset": {
+      "damage": "49.4",
+      "percent": "34.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "17.9",
+      "percent": "4.0"
+    },
+    "delayed_aa_cast": {
+      "damage": "9.9",
+      "percent": "8.0"
+    },
+    "Energy Cap": {
+      "damage": "14.55%",
+      "percent": "9.97%"
+    },
+    "Eyes of the Eagle": {
+      "damage": "1236701",
+      "percent": "#2"
+    },
+    "Martial Instincts": {
+      "damage": "450427",
+      "percent": "#3"
+    },
+    "Pressure Point": {
+      "damage": "278577",
+      "percent": "#1"
+    },
+    "Ancient Teachings": {
+      "damage": "388023",
+      "percent": "#1"
+    },
+    "Expeditious Fortification": {
+      "damage": "388813",
+      "percent": "#1"
+    },
+    "Press the Advantage": {
+      "damage": "418359",
+      "percent": "#2"
+    },
+    "Manifestation": {
+      "damage": "450875",
+      "percent": "#1"
+    },
+    "Way of a Thousand Strikes": {
+      "damage": "450965",
+      "percent": "#1"
+    },
+    "Overwhelming Force": {
+      "damage": "451024",
+      "percent": "#1"
+    },
+    "Path of Resurgence": {
+      "damage": "451084",
+      "percent": "#1"
+    },
+    "Predictive Training": {
+      "damage": "451230",
+      "percent": "#1"
+    },
+    "Balanced Stratagem": {
+      "damage": "451514",
+      "percent": "#1"
+    },
+    "Wisdom of the Wall": {
+      "damage": "1272821",
+      "percent": "#1"
+    }
+  },
+  "spelldata": {},
+  "talents": "CwQAAAAAAAAAAAAAAAAAAAAAAAAAAgZbzYGzM2mxGmZAAAAAAAYZBjYmBmhBzYMzMzwsMmZMzywymttxMmFAAYZWmWmtZWGAAIAzwGYmBMNGAAwA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}

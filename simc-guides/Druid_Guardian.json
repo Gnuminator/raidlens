@@ -1,0 +1,342 @@
+{
+  "class": "Druid",
+  "spec": "Guardian",
+  "hero_tree": null,
+  "metrics": {
+    "dps": "79473",
+    "dtps": "86479",
+    "hps": "25781"
+  },
+  "abilities": {
+    "Barkskin (+brambles)": {
+      "damage": "261",
+      "percent": "0.3%"
+    },
+    "Bear Melee": {
+      "damage": "4,014",
+      "percent": "5.1%"
+    },
+    "Brambles": {
+      "damage": "1,083",
+      "percent": "1.4%"
+    },
+    "Cat Melee": {
+      "damage": "40",
+      "percent": "0.1%"
+    },
+    "Galactic Guardian": {
+      "damage": "42.8",
+      "percent": "23.0"
+    },
+    "Periodic": {
+      "damage": "133.9",
+      "percent": "2,887"
+    },
+    "Heart of the Wild (Cat)": {
+      "damage": "7,239",
+      "percent": "9.0%"
+    },
+    "Lunar Beam": {
+      "damage": "204066",
+      "percent": "#2"
+    },
+    "Mangle": {
+      "damage": "33917",
+      "percent": "#4"
+    },
+    "Maul": {
+      "damage": "2,179 (13,051)",
+      "percent": "2.8% (16.5%)"
+    },
+    "Moonless Night": {
+      "damage": "5,650",
+      "percent": "7.1%"
+    },
+    "Rake": {
+      "damage": "151",
+      "percent": "0.2%"
+    },
+    "Red Moon": {
+      "damage": "5,730",
+      "percent": "7.2%"
+    },
+    "Swipe": {
+      "damage": "1,125",
+      "percent": "1.4%"
+    },
+    "Thrash": {
+      "damage": "192090",
+      "percent": "#4"
+    },
+    "Twilight Barrage": {
+      "damage": "642",
+      "percent": "0.8%"
+    },
+    "Twin Claw": {
+      "damage": "1,202",
+      "percent": "1.5%"
+    },
+    "Wild Guardian": {
+      "damage": "1269614",
+      "percent": "#1"
+    },
+    "MID1_Druid_Guardian": {
+      "damage": "25781",
+      "percent": ""
+    },
+    "Brambles (absorb)": {
+      "damage": "583",
+      "percent": "2.3%"
+    },
+    "After the Wildfire": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Leech": {
+      "damage": "3,701",
+      "percent": "14.4%"
+    },
+    "Lunar Beam (Heal)": {
+      "damage": "2,888",
+      "percent": "11.2%"
+    },
+    "Lunar Wrath (Heal)": {
+      "damage": "2,878",
+      "percent": "11.2%"
+    },
+    "Nature's Guardian": {
+      "damage": "1,603",
+      "percent": "6.2%"
+    },
+    "Strike for the Heart": {
+      "damage": "12,585",
+      "percent": "48.8%"
+    },
+    "algethar_puzzle_box": {
+      "damage": "2.0",
+      "percent": "122.18s"
+    },
+    "Void-Touched": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Bear Form": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Bristling Fur": {
+      "damage": "4.8",
+      "percent": "0.0"
+    },
+    "Cat Form": {
+      "damage": "48629",
+      "percent": "#5"
+    },
+    "Echo of Ironfur": {
+      "damage": "2.8",
+      "percent": "13.2"
+    },
+    "Flask of the Blood Knights": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Harandar Celebration": {
+      "damage": "1.0",
+      "percent": "0.00s"
+    },
+    "Heart of the Wild": {
+      "damage": "3.0",
+      "percent": "122.22s"
+    },
+    "Incarnation: Guardian of Ursoc": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Ironfur": {
+      "damage": "19.0",
+      "percent": "0.0"
+    },
+    "Light's Potential": {
+      "damage": "1.5",
+      "percent": "0.0"
+    },
+    "Algeth'ar Puzzle": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Arcanoweave Insight": {
+      "damage": "5.9",
+      "percent": "5.2"
+    },
+    "Barkskin": {
+      "damage": "22812",
+      "percent": "#1"
+    },
+    "Bloodlust": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Celestial Might": {
+      "damage": "22.6",
+      "percent": "7.0"
+    },
+    "Dream of Cenarius": {
+      "damage": "5.3",
+      "percent": "8.9"
+    },
+    "Gift of an Ancient Guardian": {
+      "damage": "19.0",
+      "percent": "0.0"
+    },
+    "Gift of Frenzied Regeneration": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Gift of Ironfur": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Gift of Maul": {
+      "damage": "2.9",
+      "percent": "0.0"
+    },
+    "Gore": {
+      "damage": "32.7",
+      "percent": "7.7"
+    },
+    "Killing Strikes": {
+      "damage": "441825",
+      "percent": "#1"
+    },
+    "Lunar Wrath": {
+      "damage": "19.0",
+      "percent": "23.7"
+    },
+    "Lycara's Teachings (Crit)": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Lycara's Teachings (Haste)": {
+      "damage": "1.0",
+      "percent": "0.0"
+    },
+    "Lycara's Teachings (Vers)": {
+      "damage": "3.0",
+      "percent": "0.0"
+    },
+    "Might of the Void": {
+      "damage": "8.2",
+      "percent": "8.6"
+    },
+    "Persistence": {
+      "damage": "1251407",
+      "percent": "#1"
+    },
+    "Ravage": {
+      "damage": "24.0",
+      "percent": "14.0"
+    },
+    "Umbral Plume": {
+      "damage": "6.5",
+      "percent": "0.0"
+    },
+    "Skyfury (Main Hand)": {
+      "damage": "31.2",
+      "percent": "11.0"
+    },
+    "Rage Cap": {
+      "damage": "1.52%",
+      "percent": "0.00%"
+    },
+    "Killer Instinct": {
+      "damage": "108299",
+      "percent": "#4"
+    },
+    "Feline Swiftness": {
+      "damage": "131768",
+      "percent": "#1"
+    },
+    "Guardian Druid": {
+      "damage": "137010",
+      "percent": "#6"
+    },
+    "Bear Form Passive": {
+      "damage": "1178",
+      "percent": "#2"
+    },
+    "Ursoc's Spirit": {
+      "damage": "449182",
+      "percent": "#2"
+    },
+    "Bear Form Passive 2": {
+      "damage": "21178",
+      "percent": "#3"
+    },
+    "Frenzied Regeneration": {
+      "damage": "22842",
+      "percent": "#2"
+    },
+    "Survival Instincts": {
+      "damage": "61336",
+      "percent": "#1"
+    },
+    "Convoke the Spirits": {
+      "damage": "391528",
+      "percent": "#2"
+    },
+    "Lunar Insight": {
+      "damage": "429530",
+      "percent": "#1"
+    },
+    "Empowered Shapeshifting": {
+      "damage": "441689",
+      "percent": "#5"
+    },
+    "Echo of Frenzied Regeneration": {
+      "damage": "1269645",
+      "percent": "#2"
+    },
+    "Moonkin Form": {
+      "damage": "24858",
+      "percent": "#3"
+    },
+    "Moonfire": {
+      "damage": "164812",
+      "percent": "#6"
+    },
+    "Forestwalk": {
+      "damage": "400126",
+      "percent": "#2"
+    },
+    "Lycara's Teachings": {
+      "damage": "378992",
+      "percent": "#1"
+    },
+    "Wild Charge": {
+      "damage": "102401",
+      "percent": "#2"
+    },
+    "Prowl": {
+      "damage": "5215",
+      "percent": "#3"
+    },
+    "Health": {
+      "damage": "667,704.6",
+      "percent": "74,104.63"
+    },
+    "Rage": {
+      "damage": "0.0",
+      "percent": "12.73"
+    },
+    "Energy": {
+      "damage": "120.0",
+      "percent": "0.23"
+    }
+  },
+  "spelldata": {},
+  "talents": "CgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgZmxsYmZMzmZZgZbZgxMMaimZmFzMzMLjZeADAAAAgZYGLzAAAAQNzysMzMDAgFMDgFzgBsYZbAwMbwA",
+  "set_bonuses": [],
+  "passive_effects": [],
+  "dynamic_effects": [],
+  "buffs": {}
+}
