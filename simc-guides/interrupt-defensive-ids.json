@@ -1,0 +1,753 @@
+{
+  "_meta": {
+    "purpose": "Authoritative interrupt + personal self-defensive spell IDs per class/spec for WoW Midnight 12.0.5.",
+    "source": "Live web research (wowhead.com, wowdb.com, warcraft.wiki.gg, icy-veins) cross-referenced; confirmed-from-fetched-page only.",
+    "why": "The SimC HTML report (spell-ids-reference.json) lacks non-damaging defensives/interrupts because a Patchwerk DPS sim never presses them. This file fills that gap.",
+    "note": "Interrupts are class-wide unless appliesTo restricts them. Defensives are personal/self only (externals like Ironbark/Pain Suppression and group tools like Zephyr/Time Dilation excluded). Some entries are passives (e.g. Nature's Guardian, Cheat Death, Second Wind) that will NOT appear as cast events in logs.",
+    "knownDiscrepanciesVsDefensiveMap": [
+      {
+        "ability": "Alter Time",
+        "specs": "Arcane/Fire/Frost Mage",
+        "referenceId": 108978,
+        "defensiveMapId": 342245,
+        "note": "Both real — 108978 activate vs 342245 the rewind/return cast. Verify which appears as the player cast event before changing DEFENSIVE_SPELL_IDS."
+      },
+      {
+        "ability": "Die by the Sword",
+        "specs": "Arms Warrior",
+        "referenceId": 236385,
+        "defensiveMapId": 118038,
+        "note": "Conflict — 118038 is the long-standing ID; 236385 also resolves to die-by-the-sword on Wowhead. Verify live before changing DEFENSIVE_SPELL_IDS."
+      }
+    ],
+    "usage": "Reference/documentation. NOT yet wired into the analyzer. DEFENSIVE_SPELL_IDS in boss-knowledge.js (Step 9) remains the functional source; reconcile deliberately. Interrupt tracking currently keys off boss abilities + WCL events, so per-spec interrupt IDs here are reference/future-use."
+  },
+  "interrupts": {
+    "Death Knight": [
+      {
+        "name": "Mind Freeze",
+        "id": 47528,
+        "appliesTo": "all"
+      }
+    ],
+    "Demon Hunter": [
+      {
+        "name": "Disrupt",
+        "id": 183752,
+        "appliesTo": "all"
+      }
+    ],
+    "Druid": [
+      {
+        "name": "Skull Bash",
+        "id": 106839,
+        "appliesTo": "Feral, Guardian"
+      }
+    ],
+    "Evoker": [
+      {
+        "name": "Quell",
+        "id": 351338,
+        "appliesTo": "all"
+      }
+    ],
+    "Hunter": [
+      {
+        "name": "Counter Shot",
+        "id": 147362,
+        "appliesTo": "Beast Mastery, Marksmanship"
+      },
+      {
+        "name": "Muzzle",
+        "id": 187707,
+        "appliesTo": "Survival"
+      }
+    ],
+    "Mage": [
+      {
+        "name": "Counterspell",
+        "id": 2139,
+        "appliesTo": "all"
+      }
+    ],
+    "Monk": [
+      {
+        "name": "Spear Hand Strike",
+        "id": 116705,
+        "appliesTo": "Brewmaster, Windwalker"
+      }
+    ],
+    "Paladin": [
+      {
+        "name": "Rebuke",
+        "id": 96231,
+        "appliesTo": "Protection, Retribution (Holy does NOT have Rebuke as of patch 12.0 — replaced by Armory of Light passive)"
+      },
+      {
+        "name": "Avenger's Shield",
+        "id": 31935,
+        "appliesTo": "Protection (silences and interrupts non-player targets for 3 sec; not a traditional spell-lockout but functions as an interrupt)"
+      }
+    ],
+    "Priest": [
+      {
+        "name": "Silence",
+        "id": 15487,
+        "appliesTo": "Shadow"
+      }
+    ],
+    "Rogue": [
+      {
+        "name": "Kick",
+        "id": 1766,
+        "appliesTo": "all"
+      }
+    ],
+    "Shaman": [
+      {
+        "name": "Wind Shear",
+        "id": 254410,
+        "appliesTo": "all"
+      }
+    ],
+    "Warlock": [
+      {
+        "name": "Spell Lock",
+        "id": 19647,
+        "appliesTo": "Affliction, Destruction (Felhunter pet via Command Demon)"
+      },
+      {
+        "name": "Axe Toss",
+        "id": 89766,
+        "appliesTo": "Demonology (Felguard pet)"
+      }
+    ],
+    "Warrior": [
+      {
+        "name": "Pummel",
+        "id": 6552,
+        "appliesTo": "all"
+      }
+    ]
+  },
+  "defensivesBySpec": {
+    "Blood": [
+      {
+        "name": "Icebound Fortitude",
+        "id": 48792
+      },
+      {
+        "name": "Anti-Magic Shell",
+        "id": 48707
+      },
+      {
+        "name": "Lichborne",
+        "id": 49039
+      },
+      {
+        "name": "Vampiric Blood",
+        "id": 55233
+      },
+      {
+        "name": "Rune Tap",
+        "id": 194679
+      },
+      {
+        "name": "Bone Shield",
+        "id": 195181
+      },
+      {
+        "name": "Death Pact",
+        "id": 48743
+      }
+    ],
+    "Frost": [
+      {
+        "name": "Ice Block",
+        "id": 45438
+      },
+      {
+        "name": "Ice Cold",
+        "id": 414658
+      },
+      {
+        "name": "Alter Time",
+        "id": 108978
+      },
+      {
+        "name": "Ice Barrier",
+        "id": 11426
+      },
+      {
+        "name": "Cold Snap",
+        "id": 235219
+      }
+    ],
+    "Unholy": [
+      {
+        "name": "Icebound Fortitude",
+        "id": 48792
+      },
+      {
+        "name": "Anti-Magic Shell",
+        "id": 48707
+      },
+      {
+        "name": "Lichborne",
+        "id": 49039
+      },
+      {
+        "name": "Death Pact",
+        "id": 48743
+      }
+    ],
+    "Havoc": [
+      {
+        "name": "Blur",
+        "id": 198589
+      },
+      {
+        "name": "Netherwalk",
+        "id": 196555
+      }
+    ],
+    "Vengeance": [
+      {
+        "name": "Demon Spikes",
+        "id": 203720
+      },
+      {
+        "name": "Soul Barrier",
+        "id": 263648
+      },
+      {
+        "name": "Fiery Brand",
+        "id": 204021
+      }
+    ],
+    "Balance": [
+      {
+        "name": "Barkskin",
+        "id": 22812
+      },
+      {
+        "name": "Renewal",
+        "id": 108238
+      }
+    ],
+    "Feral": [
+      {
+        "name": "Barkskin",
+        "id": 22812
+      },
+      {
+        "name": "Survival Instincts",
+        "id": 61336
+      },
+      {
+        "name": "Renewal",
+        "id": 108238
+      }
+    ],
+    "Guardian": [
+      {
+        "name": "Barkskin",
+        "id": 22812
+      },
+      {
+        "name": "Frenzied Regeneration",
+        "id": 22842
+      },
+      {
+        "name": "Survival Instincts",
+        "id": 61336
+      },
+      {
+        "name": "Renewal",
+        "id": 108238
+      }
+    ],
+    "Restoration": [
+      {
+        "name": "Astral Shift",
+        "id": 108271
+      },
+      {
+        "name": "Nature's Guardian",
+        "id": 30884
+      },
+      {
+        "name": "Reincarnation",
+        "id": 20608
+      }
+    ],
+    "Devastation": [
+      {
+        "name": "Obsidian Scales",
+        "id": 363916
+      },
+      {
+        "name": "Nullifying Shroud",
+        "id": 378464
+      }
+    ],
+    "Preservation": [
+      {
+        "name": "Obsidian Scales",
+        "id": 363916
+      },
+      {
+        "name": "Nullifying Shroud",
+        "id": 378464
+      }
+    ],
+    "Augmentation": [
+      {
+        "name": "Obsidian Scales",
+        "id": 363916
+      },
+      {
+        "name": "Nullifying Shroud",
+        "id": 378464
+      }
+    ],
+    "Beast Mastery": [
+      {
+        "name": "Exhilaration",
+        "id": 109304
+      },
+      {
+        "name": "Aspect of the Turtle",
+        "id": 186265
+      },
+      {
+        "name": "Survival of the Fittest",
+        "id": 264735
+      }
+    ],
+    "Marksmanship": [
+      {
+        "name": "Exhilaration",
+        "id": 109304
+      },
+      {
+        "name": "Aspect of the Turtle",
+        "id": 186265
+      },
+      {
+        "name": "Survival of the Fittest",
+        "id": 264735
+      }
+    ],
+    "Survival": [
+      {
+        "name": "Exhilaration",
+        "id": 109304
+      },
+      {
+        "name": "Aspect of the Turtle",
+        "id": 186265
+      },
+      {
+        "name": "Survival of the Fittest",
+        "id": 264735
+      }
+    ],
+    "Arcane": [
+      {
+        "name": "Ice Block",
+        "id": 45438
+      },
+      {
+        "name": "Ice Cold",
+        "id": 414658
+      },
+      {
+        "name": "Alter Time",
+        "id": 108978
+      },
+      {
+        "name": "Prismatic Barrier",
+        "id": 235450
+      },
+      {
+        "name": "Temporal Shield",
+        "id": 198111
+      }
+    ],
+    "Fire": [
+      {
+        "name": "Ice Block",
+        "id": 45438
+      },
+      {
+        "name": "Ice Cold",
+        "id": 414658
+      },
+      {
+        "name": "Alter Time",
+        "id": 108978
+      },
+      {
+        "name": "Blazing Barrier",
+        "id": 235313
+      }
+    ],
+    "Brewmaster": [
+      {
+        "name": "Fortifying Brew",
+        "id": 115203
+      },
+      {
+        "name": "Celestial Brew",
+        "id": 322507
+      },
+      {
+        "name": "Purifying Brew",
+        "id": 119582
+      }
+    ],
+    "Mistweaver": [
+      {
+        "name": "Fortifying Brew",
+        "id": 115203
+      }
+    ],
+    "Windwalker": [
+      {
+        "name": "Fortifying Brew",
+        "id": 115203
+      },
+      {
+        "name": "Touch of Karma",
+        "id": 122470
+      }
+    ],
+    "Holy": [
+      {
+        "name": "Desperate Prayer",
+        "id": 19236
+      },
+      {
+        "name": "Fade",
+        "id": 586
+      },
+      {
+        "name": "Power Word: Shield",
+        "id": 17
+      },
+      {
+        "name": "Angelic Bulwark",
+        "id": 108945
+      }
+    ],
+    "Protection": [
+      {
+        "name": "Shield Wall",
+        "id": 871
+      },
+      {
+        "name": "Last Stand",
+        "id": 12975
+      },
+      {
+        "name": "Ignore Pain",
+        "id": 190456
+      },
+      {
+        "name": "Spell Reflection",
+        "id": 23920
+      },
+      {
+        "name": "Defensive Stance",
+        "id": 386208
+      }
+    ],
+    "Retribution": [
+      {
+        "name": "Divine Shield",
+        "id": 642
+      },
+      {
+        "name": "Lay on Hands",
+        "id": 633
+      },
+      {
+        "name": "Divine Protection",
+        "id": 498
+      },
+      {
+        "name": "Shield of Vengeance",
+        "id": 184662
+      },
+      {
+        "name": "Eye for an Eye",
+        "id": 205191
+      }
+    ],
+    "Discipline": [
+      {
+        "name": "Desperate Prayer",
+        "id": 19236
+      },
+      {
+        "name": "Fade",
+        "id": 586
+      },
+      {
+        "name": "Power Word: Shield",
+        "id": 17
+      },
+      {
+        "name": "Angelic Bulwark",
+        "id": 108945
+      }
+    ],
+    "Shadow": [
+      {
+        "name": "Dispersion",
+        "id": 47585
+      },
+      {
+        "name": "Desperate Prayer",
+        "id": 19236
+      },
+      {
+        "name": "Fade",
+        "id": 586
+      },
+      {
+        "name": "Power Word: Shield",
+        "id": 17
+      },
+      {
+        "name": "Angelic Bulwark",
+        "id": 108945
+      }
+    ],
+    "Assassination": [
+      {
+        "name": "Evasion",
+        "id": 5277
+      },
+      {
+        "name": "Feint",
+        "id": 1966
+      },
+      {
+        "name": "Cloak of Shadows",
+        "id": 31224
+      },
+      {
+        "name": "Crimson Vial",
+        "id": 185311
+      },
+      {
+        "name": "Vanish",
+        "id": 1856
+      },
+      {
+        "name": "Cheat Death",
+        "id": 31230
+      }
+    ],
+    "Outlaw": [
+      {
+        "name": "Evasion",
+        "id": 5277
+      },
+      {
+        "name": "Feint",
+        "id": 1966
+      },
+      {
+        "name": "Cloak of Shadows",
+        "id": 31224
+      },
+      {
+        "name": "Crimson Vial",
+        "id": 185311
+      },
+      {
+        "name": "Vanish",
+        "id": 1856
+      },
+      {
+        "name": "Cheat Death",
+        "id": 31230
+      }
+    ],
+    "Subtlety": [
+      {
+        "name": "Evasion",
+        "id": 5277
+      },
+      {
+        "name": "Feint",
+        "id": 1966
+      },
+      {
+        "name": "Cloak of Shadows",
+        "id": 31224
+      },
+      {
+        "name": "Crimson Vial",
+        "id": 185311
+      },
+      {
+        "name": "Vanish",
+        "id": 1856
+      },
+      {
+        "name": "Cheat Death",
+        "id": 31230
+      }
+    ],
+    "Elemental": [
+      {
+        "name": "Astral Shift",
+        "id": 108271
+      },
+      {
+        "name": "Earth Elemental",
+        "id": 198103
+      },
+      {
+        "name": "Nature's Guardian",
+        "id": 30884
+      },
+      {
+        "name": "Reincarnation",
+        "id": 20608
+      }
+    ],
+    "Enhancement": [
+      {
+        "name": "Astral Shift",
+        "id": 108271
+      },
+      {
+        "name": "Spirit Wolf",
+        "id": 260878
+      },
+      {
+        "name": "Nature's Guardian",
+        "id": 30884
+      },
+      {
+        "name": "Reincarnation",
+        "id": 20608
+      }
+    ],
+    "Affliction": [
+      {
+        "name": "Unending Resolve",
+        "id": 104773
+      },
+      {
+        "name": "Dark Pact",
+        "id": 108416
+      },
+      {
+        "name": "Mortal Coil",
+        "id": 6789
+      },
+      {
+        "name": "Soul Link",
+        "id": 108415
+      }
+    ],
+    "Demonology": [
+      {
+        "name": "Unending Resolve",
+        "id": 104773
+      },
+      {
+        "name": "Dark Pact",
+        "id": 108416
+      },
+      {
+        "name": "Mortal Coil",
+        "id": 6789
+      },
+      {
+        "name": "Soul Link",
+        "id": 108415
+      }
+    ],
+    "Destruction": [
+      {
+        "name": "Unending Resolve",
+        "id": 104773
+      },
+      {
+        "name": "Dark Pact",
+        "id": 108416
+      },
+      {
+        "name": "Mortal Coil",
+        "id": 6789
+      },
+      {
+        "name": "Soul Link",
+        "id": 108415
+      }
+    ],
+    "Arms": [
+      {
+        "name": "Die by the Sword",
+        "id": 236385
+      },
+      {
+        "name": "Ignore Pain",
+        "id": 190456
+      },
+      {
+        "name": "Spell Reflection",
+        "id": 23920
+      },
+      {
+        "name": "Defensive Stance",
+        "id": 386208
+      },
+      {
+        "name": "Second Wind",
+        "id": 29838
+      }
+    ],
+    "Fury": [
+      {
+        "name": "Enraged Regeneration",
+        "id": 184364
+      },
+      {
+        "name": "Spell Reflection",
+        "id": 23920
+      },
+      {
+        "name": "Defensive Stance",
+        "id": 386208
+      },
+      {
+        "name": "Second Wind",
+        "id": 29838
+      }
+    ]
+  },
+  "unconfirmedNotes": {
+    "Evoker": [
+      "Renewing Blaze (374348 confirmed as passive talent modifying Obsidian Scales — not a standalone active defensive cooldown; ID confirmed but excluded as it generates no independent cast event)",
+      "Zephyr (374227 confirmed but excluded — group AoE affects up to 5 allies within 20 yards, not a personal self-only defensive)",
+      "Time Dilation (357170 — Preservation external absorb castable on allies at 30 yards, not a personal self-defensive)"
+    ],
+    "Monk": [
+      "Diffuse Magic (active cast ID unclear — 122783 is the historical castable version, 1243287 is a passive aura variant; current 12.0.5 availability per spec not confirmed from fetched pages)",
+      "Dampen Harm (122278 confirmed as a historical spell ID but current 12.0.5 per-spec availability not confirmed from fetched pages)",
+      "Mistweaver has no interrupt — confirmed by warcraft.wiki.gg and search results; no spell ID to provide"
+    ],
+    "Paladin": [
+      "Divine Protection spec availability (ID 498 confirmed, but could not confirm definitively whether it is class-wide or spec-specific from fetched pages)",
+      "Armory of Light (ID 1277443 seen on warcraft.wiki.gg — passive block/parry talent added in patch 12.0 for Holy as Rebuke replacement; warcraft.wiki.gg confirmed ID but not cross-verified on a second source)"
+    ]
+  }
+}

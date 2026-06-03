@@ -269,7 +269,7 @@ actions.cooldowns+=/empower_rune_weapon,if=talent.obliteration&buff.pillar_of_fr
 
 # High Priority Actions
 actions.high_prio_actions=mind_freeze,if=target.debuff.casting.react
-# Use <a href='https://www.wowhead.com/spell=10060/power-infusion'>Power Infusion</a> while <a href='https://www.wowhead.com/spell=51271/pillar-of-frost'>Pillar of Frost</a> is up
+# Use Power Infusion while Pillar of Frost is up
 actions.high_prio_actions+=/invoke_external_buff,name=power_infusion,if=variable.cooldown_check
 actions.high_prio_actions+=/antimagic_shell,if=runic_power.deficit>40&death_knight.first_ams_cast<time
 
@@ -379,7 +379,7 @@ actions.cooldowns+=/empower_rune_weapon,if=talent.obliteration&buff.pillar_of_fr
 
 # High Priority Actions
 actions.high_prio_actions=mind_freeze,if=target.debuff.casting.react
-# Use <a href='https://www.wowhead.com/spell=10060/power-infusion'>Power Infusion</a> while <a href='https://www.wowhead.com/spell=51271/pillar-of-frost'>Pillar of Frost</a> is up
+# Use Power Infusion while Pillar of Frost is up
 actions.high_prio_actions+=/invoke_external_buff,name=power_infusion,if=variable.cooldown_check
 actions.high_prio_actions+=/antimagic_shell,if=runic_power.deficit>40&death_knight.first_ams_cast<time
 

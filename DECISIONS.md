@@ -39,7 +39,14 @@ Christian supplied parsed SimulationCraft data in `simc-guides/` (per-spec `.md`
 - **Pass 2 (APL):** the parsed json lacks the APL. `Trivial.txt` contains each spec's raw SimC profile headed by `<class>="MID1_<Class>_<Spec>_<HeroTree>"` → `talents=` → `actions...`. A splitter extracted each profile's action block into `simc-guides/apl/<name>.apl.txt` (49 files), embedded verbatim into the guides' "SimulationCraft Reference" section.
 - **Strict rule held:** no spell IDs harvested from this data (json empty; `.md`/APL numbers are noisy). Spell-ID confirmation stays a separate task.
 - **Spell IDs — text `Trivial.txt` NOT viable, but the SimC HTML report IS (2026-06-02):** the text dump had only ONE clean `Spelldata` block (rest were modifier-table noise — rejected). The **HTML** report (simulationcraft.org/reports/MID1_Raid.html, 36 MB, fetched via curl since WebFetch caps at 10 MB) has ~1,688 clean `<h4>Spelldata>` blocks. `simc-guides/build-spell-ids-reference.js` parses them into `simc-guides/spell-ids-reference.json`: 632 names → authoritative id(s) + school + cast/buff type, all variants kept, multi-id flagged. **Coverage limit:** only spells the Patchwerk sim used (damage/rotational + simmed buffs); non-damaging defensives/interrupts/utility (Mind Freeze, Kick, Cloak, Ice Block, Blur, Astral Shift, Dispersion…) are ABSENT — those still come from the guides' Wowhead IDs / `DEFENSIVE_SPELL_IDS` / a live pass. The 36 MB HTML is NOT committed (regenerate via the builder); only the derived json + builder are.
-- First 10 DPS guides enriched; ~27 remain.
+- First 10 DPS guides enriched; then 19 more (31/39 total). 8 unenrichable (no SimC data: 7 healers + Augmentation).
+
+### Enrichment verification + defensive/interrupt ID reference (2026-06-02)
+After the batch-2 enrichment, a review swarm (19 guides) + a deterministic APL-verbatim script audited the work:
+- **Zero ID-overwrite conflicts** except Unholy (it replaced Wowhead's Dark Transformation 63560 with SimC 1233448) — fixed: 63560 restored in the body, 1233448 flagged. Other discrepancies were correctly flagged not overwritten (Avenging Wrath, Exploding Keg, Shattering Star, Bear Form).
+- **Fury Warrior APL was incomplete** (16 source lines dropped, incl. precombat) — re-embedded the full APL; all 29 enriched guides now pass verbatim (every source `actions` line present).
+- **Leaked HTML anchor tags** in 5 APL files + 3 guides (Frost DK, Unholy, Feral) — SimC embeds wowhead `<a>` tags in some APL comments; stripped to plain text in both the `apl/` files and the guides.
+- **`simc-guides/interrupt-defensive-ids.json`** (new): live-researched authoritative interrupt + personal-defensive spell IDs per class/spec — fills the gap the SimC report can't (non-damaging utility). Documentation only; `DEFENSIVE_SPELL_IDS` (functional, Step 9) is unchanged. Two value conflicts flagged for review (Alter Time, Die by the Sword).
 
 ---
 
