@@ -1,0 +1,8175 @@
+{
+  "_meta": {
+    "source": "https://www.simulationcraft.org/reports/MID1_Raid.html",
+    "patch": "Midnight 12.0.5",
+    "extracted": "from <h4>Spelldata> blocks",
+    "spelldataBlocks": 1688,
+    "distinctNames": 632,
+    "multiIdNames": 188,
+    "typeCounts": {
+      "cast": 842,
+      "buff": 5,
+      "other": 59
+    },
+    "notes": [
+      "cast = damaging action (Spelldata followed by Action Priority List / Affected By).",
+      "buff = aura (Spelldata followed by Trigger / Stack Behavior).",
+      "Many abilities legitimately have multiple ids (base cast + empowered/cleave variants + damage/heal sub-spells) — all kept; multipleIds=true flags them (some may be old-profile remnants). Occurrence count does NOT reliably mark the canonical cast.",
+      "COVERAGE: only spells the Patchwerk single-target sim used — damage abilities + simmed buffs. Non-damaging utility NOT used in the sim (most interrupts and several defensives: Kick, Mind Freeze, Ice Block, Blur, Astral Shift, Dispersion, ...) is ABSENT and must come from live Wowhead / the spec guides."
+    ]
+  },
+  "spells": {
+    "Abyssal Gaze": {
+      "ids": [
+        {
+          "id": 452497,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Adrenaline Rush": {
+      "ids": [
+        {
+          "id": 13750,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "After the Wildfire": {
+      "ids": [
+        {
+          "id": 371982,
+          "school": "nature",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Agony": {
+      "ids": [
+        {
+          "id": 980,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1261166,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Aimed Shot": {
+      "ids": [
+        {
+          "id": 19434,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Algeth'ar Puzzle": {
+      "ids": [
+        {
+          "id": 383781,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 17
+        }
+      ]
+    },
+    "Ambush": {
+      "ids": [
+        {
+          "id": 8676,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Amplifying Poison": {
+      "ids": [
+        {
+          "id": 383414,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Annihilation": {
+      "ids": [
+        {
+          "id": 201427,
+          "school": "magic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 227518,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 201428,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Anti-Magic Shell": {
+      "ids": [
+        {
+          "id": 444741,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 8
+        },
+        {
+          "id": 48707,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Arc Discharge": {
+      "ids": [
+        {
+          "id": 455096,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Arcane Assault": {
+      "ids": [
+        {
+          "id": 225119,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Arcane Barrage": {
+      "ids": [
+        {
+          "id": 44425,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 450499,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Arcane Blast": {
+      "ids": [
+        {
+          "id": 30451,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Arcane Intellect": {
+      "ids": [
+        {
+          "id": 1459,
+          "school": "arcane",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Arcane Missiles": {
+      "ids": [
+        {
+          "id": 5143,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 7268,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Arcane Orb": {
+      "ids": [
+        {
+          "id": 153626,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 5
+        },
+        {
+          "id": 153640,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 5
+        }
+      ],
+      "multipleIds": true
+    },
+    "Arcane Shot": {
+      "ids": [
+        {
+          "id": 185358,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Arcane Splinter": {
+      "ids": [
+        {
+          "id": 443763,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Arcane Surge": {
+      "ids": [
+        {
+          "id": 365350,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 453326,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Arcane Torrent": {
+      "ids": [
+        {
+          "id": 202719,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Army of the Damned": {
+      "ids": [
+        {
+          "id": 317776,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 6
+        },
+        {
+          "id": 1242294,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 4
+        }
+      ],
+      "multipleIds": true
+    },
+    "Army of the Dead": {
+      "ids": [
+        {
+          "id": 42650,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Art of the Glaive": {
+      "ids": [
+        {
+          "id": 444810,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Ascendance": {
+      "ids": [
+        {
+          "id": 1219480,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 114051,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 344548,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Ascendant Eclipses": {
+      "ids": [
+        {
+          "id": 1261566,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Aspect of Harmony": {
+      "ids": [
+        {
+          "id": 450763,
+          "school": "nature",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Astral Smolder": {
+      "ids": [
+        {
+          "id": 1263250,
+          "school": "astral",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Auto Shot": {
+      "ids": [
+        {
+          "id": 75,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Avatar": {
+      "ids": [
+        {
+          "id": 107574,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Avenger's Shield": {
+      "ids": [
+        {
+          "id": 31935,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 7
+        }
+      ]
+    },
+    "Avenging Wrath": {
+      "ids": [
+        {
+          "id": 454351,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Azure Strike": {
+      "ids": [
+        {
+          "id": 362969,
+          "school": "spellfrost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Azure Sweep": {
+      "ids": [
+        {
+          "id": 1265872,
+          "school": "spellfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Backstab": {
+      "ids": [
+        {
+          "id": 53,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1269209,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Barbed Shot": {
+      "ids": [
+        {
+          "id": 217200,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Barkskin": {
+      "ids": [
+        {
+          "id": 22812,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Battle Stance": {
+      "ids": [
+        {
+          "id": 386164,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bear Form": {
+      "ids": [
+        {
+          "id": 5487,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Berserk": {
+      "ids": [
+        {
+          "id": 106951,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Berserker Stance": {
+      "ids": [
+        {
+          "id": 386196,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Berserking": {
+      "ids": [
+        {
+          "id": 26297,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 5
+        }
+      ]
+    },
+    "Bestial Wrath": {
+      "ids": [
+        {
+          "id": 344572,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 19574,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Between the Eyes": {
+      "ids": [
+        {
+          "id": 315341,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bile Spit": {
+      "ids": [
+        {
+          "id": 267997,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Black Arrow": {
+      "ids": [
+        {
+          "id": 466930,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 468037,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 468572,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Black Ox Brew": {
+      "ids": [
+        {
+          "id": 115399,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Blackened Soul": {
+      "ids": [
+        {
+          "id": 445736,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Blackout Kick": {
+      "ids": [
+        {
+          "id": 100784,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 228649,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 205523,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Blade Dance": {
+      "ids": [
+        {
+          "id": 391374,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 188499,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 391378,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Blade of Justice": {
+      "ids": [
+        {
+          "id": 184575,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Blade Rush": {
+      "ids": [
+        {
+          "id": 271877,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bladestorm": {
+      "ids": [
+        {
+          "id": 446035,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 50622,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Bladestorm Off-Hand": {
+      "ids": [
+        {
+          "id": 95738,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Blaze": {
+      "ids": [
+        {
+          "id": 1282533,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 1
+        },
+        {
+          "id": 1282534,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Blaze of Glory": {
+      "ids": [
+        {
+          "id": 1269224,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bleak Arrows": {
+      "ids": [
+        {
+          "id": 467718,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Blighted Arrow": {
+      "ids": [
+        {
+          "id": 1264364,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Blighted Maw": {
+      "ids": [
+        {
+          "id": 1276960,
+          "school": "shadowstorm",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Blood Beast": {
+      "ids": [
+        {
+          "id": 434237,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Blood Boil": {
+      "ids": [
+        {
+          "id": 50842,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 10
+        }
+      ]
+    },
+    "Blood Draw": {
+      "ids": [
+        {
+          "id": 374606,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Blood Fury": {
+      "ids": [
+        {
+          "id": 20572,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 33702,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 33697,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Blood Mist": {
+      "ids": [
+        {
+          "id": 1263752,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Blood Plague": {
+      "ids": [
+        {
+          "id": 55078,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 10
+        }
+      ]
+    },
+    "Blood Shield": {
+      "ids": [
+        {
+          "id": 77535,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bloodbath": {
+      "ids": [
+        {
+          "id": 335096,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 113344,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Bloodlust": {
+      "ids": [
+        {
+          "id": 2825,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bloodseeker Vines": {
+      "ids": [
+        {
+          "id": 439531,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bloodshed": {
+      "ids": [
+        {
+          "id": 321538,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Bloodthirst": {
+      "ids": [
+        {
+          "id": 23881,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bloodthirst Heal": {
+      "ids": [
+        {
+          "id": 117313,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Bloodworm": {
+      "ids": [
+        {
+          "id": 196361,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Boar Charge": {
+      "ids": [
+        {
+          "id": 471936,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 471938,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Bombardments": {
+      "ids": [
+        {
+          "id": 434481,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Boomstick": {
+      "ids": [
+        {
+          "id": 1261193,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1261215,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Boundless Moonlight": {
+      "ids": [
+        {
+          "id": 428682,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Brambles": {
+      "ids": [
+        {
+          "id": 213709,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 203958,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Breath of Fire": {
+      "ids": [
+        {
+          "id": 115181,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 123725,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Breath of Sindragosa": {
+      "ids": [
+        {
+          "id": 1249658,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 155166,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Bristling Fur": {
+      "ids": [
+        {
+          "id": 155835,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Burning Blades": {
+      "ids": [
+        {
+          "id": 453177,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1245654,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Burning Cleave": {
+      "ids": [
+        {
+          "id": 1264093,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Burnout": {
+      "ids": [
+        {
+          "id": 1271335,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Bursting Growth": {
+      "ids": [
+        {
+          "id": 440122,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Call Dreadstalkers": {
+      "ids": [
+        {
+          "id": 104316,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 193331,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 193332,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Call Lightning": {
+      "ids": [
+        {
+          "id": 157348,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Call Pet 1": {
+      "ids": [
+        {
+          "id": 883,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Cat Form": {
+      "ids": [
+        {
+          "id": 768,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Catastrophe": {
+      "ids": [
+        {
+          "id": 1256667,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1256676,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Celestial Conduit": {
+      "ids": [
+        {
+          "id": 443028,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 443038,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 443039,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Celestial Flames": {
+      "ids": [
+        {
+          "id": 1263667,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Celestial Fortune": {
+      "ids": [
+        {
+          "id": 216521,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Celestial Infusion": {
+      "ids": [
+        {
+          "id": 1241059,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Chain Lightning": {
+      "ids": [
+        {
+          "id": 211094,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 6
+        }
+      ]
+    },
+    "Chains of Ice": {
+      "ids": [
+        {
+          "id": 444826,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Chaos Bolt": {
+      "ids": [
+        {
+          "id": 116858,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 434589,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Chaos Salvo": {
+      "ids": [
+        {
+          "id": 432569,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 432596,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Chaos Strike": {
+      "ids": [
+        {
+          "id": 162794,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 222031,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 199547,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Charge": {
+      "ids": [
+        {
+          "id": 100,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 6
+        }
+      ]
+    },
+    "Chi Burst": {
+      "ids": [
+        {
+          "id": 148135,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 130654,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Claw": {
+      "ids": [
+        {
+          "id": 91776,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 6
+        },
+        {
+          "id": 199373,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 16827,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Cobra Shot": {
+      "ids": [
+        {
+          "id": 193455,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Coil of Devastation": {
+      "ids": [
+        {
+          "id": 390271,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Collapsing Star": {
+      "ids": [
+        {
+          "id": 1221150,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1221162,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Collapsing Void": {
+      "ids": [
+        {
+          "id": 448405,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Colossus Smash": {
+      "ids": [
+        {
+          "id": 167105,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Combustion": {
+      "ids": [
+        {
+          "id": 190319,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Comet Storm": {
+      "ids": [
+        {
+          "id": 153595,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 438609,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 153596,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Conflagrate": {
+      "ids": [
+        {
+          "id": 17962,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Consecration": {
+      "ids": [
+        {
+          "id": 81297,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 12
+        },
+        {
+          "id": 26573,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 5
+        }
+      ],
+      "multipleIds": true
+    },
+    "Consume": {
+      "ids": [
+        {
+          "id": 473662,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Consume Flame": {
+      "ids": [
+        {
+          "id": 444089,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Consume Soul": {
+      "ids": [
+        {
+          "id": 203794,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        },
+        {
+          "id": 1266301,
+          "school": "cosmic",
+          "type": "other",
+          "occurrences": 2
+        },
+        {
+          "id": 228532,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Controlled Instincts": {
+      "ids": [
+        {
+          "id": 444720,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 444487,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Convoke the Spirits": {
+      "ids": [
+        {
+          "id": 391528,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Corrupted Blood": {
+      "ids": [
+        {
+          "id": 434574,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Corruption": {
+      "ids": [
+        {
+          "id": 172,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 146739,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Coup de Grace": {
+      "ids": [
+        {
+          "id": 441776,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Courage of the White Tiger": {
+      "ids": [
+        {
+          "id": 457917,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Crackling Tiger Lightning": {
+      "ids": [
+        {
+          "id": 123996,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Crackling Tiger Lightning Driver": {
+      "ids": [
+        {
+          "id": 123999,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Crash Lightning": {
+      "ids": [
+        {
+          "id": 187874,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 195592,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Crash Lightning (Unleashed)": {
+      "ids": [
+        {
+          "id": 1252431,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Crusading Strikes": {
+      "ids": [
+        {
+          "id": 408385,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Crushing Blow": {
+      "ids": [
+        {
+          "id": 335097,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 335100,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 335098,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Cryogenic Chamber": {
+      "ids": [
+        {
+          "id": 456371,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Cull": {
+      "ids": [
+        {
+          "id": 1245453,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1245455,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Dancing Rune Weapon": {
+      "ids": [
+        {
+          "id": 49028,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Dark Harvest": {
+      "ids": [
+        {
+          "id": 1257052,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1257065,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Dark Transformation": {
+      "ids": [
+        {
+          "id": 1233448,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Dawnlight": {
+      "ids": [
+        {
+          "id": 431380,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 431399,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Deadly Poison": {
+      "ids": [
+        {
+          "id": 2823,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 113780,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 2818,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Death and Decay": {
+      "ids": [
+        {
+          "id": 43265,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 52212,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1251951,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Death Coil": {
+      "ids": [
+        {
+          "id": 445513,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 47541,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 47632,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Death Strike": {
+      "ids": [
+        {
+          "id": 49998,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 8
+        },
+        {
+          "id": 45470,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Death Sweep": {
+      "ids": [
+        {
+          "id": 393055,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 210152,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 393054,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Death's Caress": {
+      "ids": [
+        {
+          "id": 195292,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Deathmark": {
+      "ids": [
+        {
+          "id": 360194,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Deep Breath": {
+      "ids": [
+        {
+          "id": 433874,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 357210,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Deep Wounds": {
+      "ids": [
+        {
+          "id": 262115,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Demon Blades": {
+      "ids": [
+        {
+          "id": 203796,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Demon Spikes": {
+      "ids": [
+        {
+          "id": 391159,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 203720,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Demonbolt": {
+      "ids": [
+        {
+          "id": 264178,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Demonic Soul": {
+      "ids": [
+        {
+          "id": 449801,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Demonsurge": {
+      "ids": [
+        {
+          "id": 452416,
+          "school": "magic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Demoralizing Shout": {
+      "ids": [
+        {
+          "id": 1160,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Devastator": {
+      "ids": [
+        {
+          "id": 236282,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Devotion Aura": {
+      "ids": [
+        {
+          "id": 465,
+          "school": "holy",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Devour": {
+      "ids": [
+        {
+          "id": 1217610,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Diabolic Bolt": {
+      "ids": [
+        {
+          "id": 438823,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Diabolic Gaze": {
+      "ids": [
+        {
+          "id": 1269885,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1269886,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1269892,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Diabolic Imp": {
+      "ids": [
+        {
+          "id": 438822,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Diabolic Oculi": {
+      "ids": [
+        {
+          "id": 1268709,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Disintegrate": {
+      "ids": [
+        {
+          "id": 356995,
+          "school": "spellfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Dispatch": {
+      "ids": [
+        {
+          "id": 2098,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Disrupt": {
+      "ids": [
+        {
+          "id": 183752,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Divine Hammer": {
+      "ids": [
+        {
+          "id": 198137,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Divine Storm": {
+      "ids": [
+        {
+          "id": 53385,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Divine Toll": {
+      "ids": [
+        {
+          "id": 375576,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Dominion of Argus: Antoran Inquisitor": {
+      "ids": [
+        {
+          "id": 1276283,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dominion of Argus: Antoran Jailer": {
+      "ids": [
+        {
+          "id": 1276182,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dominion of Argus: Grand Warlock Alythess": {
+      "ids": [
+        {
+          "id": 1282502,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dominion of Argus: Lady Sacrolash": {
+      "ids": [
+        {
+          "id": 1282501,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Doom Winds": {
+      "ids": [
+        {
+          "id": 469270,
+          "school": "stormstrike",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 384352,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Dragon Games Equipment": {
+      "ids": [
+        {
+          "id": 386708,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dragonfire Brew": {
+      "ids": [
+        {
+          "id": 387621,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dragonrage": {
+      "ids": [
+        {
+          "id": 375087,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 375088,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Drain Soul": {
+      "ids": [
+        {
+          "id": 198590,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dread Plague": {
+      "ids": [
+        {
+          "id": 1240996,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Dread Plague (Erupt)": {
+      "ids": [
+        {
+          "id": 1241171,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Dreadbite": {
+      "ids": [
+        {
+          "id": 271971,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dreadful Wound": {
+      "ids": [
+        {
+          "id": 451177,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Dreadnaught": {
+      "ids": [
+        {
+          "id": 315961,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Dual Threat": {
+      "ids": [
+        {
+          "id": 451839,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Echo of Ironfur": {
+      "ids": [
+        {
+          "id": 1269633,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Echo of Maul": {
+      "ids": [
+        {
+          "id": 1269648,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Echo of Ravage": {
+      "ids": [
+        {
+          "id": 1269973,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Echo of Sargeras": {
+      "ids": [
+        {
+          "id": 1265884,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 6
+        }
+      ]
+    },
+    "Elemental Blast": {
+      "ids": [
+        {
+          "id": 117014,
+          "school": "elemental",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Elemental Blast Overload": {
+      "ids": [
+        {
+          "id": 120588,
+          "school": "elemental",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Embers of Nihilam": {
+      "ids": [
+        {
+          "id": 1265770,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Emberwing Heatwave": {
+      "ids": [
+        {
+          "id": 1250508,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 7
+        }
+      ]
+    },
+    "Empower Rune Weapon": {
+      "ids": [
+        {
+          "id": 47568,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Empowered Tiger Lightning": {
+      "ids": [
+        {
+          "id": 335913,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Empty Barrel": {
+      "ids": [
+        {
+          "id": 1265133,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Empty the Cellar": {
+      "ids": [
+        {
+          "id": 1263438,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Empyrean Hammer": {
+      "ids": [
+        {
+          "id": 431398,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Entropic Rift": {
+      "ids": [
+        {
+          "id": 447445,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Envenom": {
+      "ids": [
+        {
+          "id": 32645,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Eternity Surge": {
+      "ids": [
+        {
+          "id": 359077,
+          "school": "spellfrost",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 382411,
+          "school": "spellfrost",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 359073,
+          "school": "spellfrost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Eviscerate": {
+      "ids": [
+        {
+          "id": 1269205,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 196819,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 328082,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Eviscerate (Coup de Grace)": {
+      "ids": [
+        {
+          "id": 462244,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Execute": {
+      "ids": [
+        {
+          "id": 163201,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 260798,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 5308,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 280849,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Execute Off-Hand": {
+      "ids": [
+        {
+          "id": 163558,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Execution Sentence": {
+      "ids": [
+        {
+          "id": 387113,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1260251,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Expel Harm": {
+      "ids": [
+        {
+          "id": 115129,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 5
+        },
+        {
+          "id": 451968,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 322101,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Exploding Keg": {
+      "ids": [
+        {
+          "id": 325153,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 388867,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Explosion of the Soul": {
+      "ids": [
+        {
+          "id": 1276488,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Expurgation": {
+      "ids": [
+        {
+          "id": 383346,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Exterminate": {
+      "ids": [
+        {
+          "id": 441424,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 441426,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Extra Kick": {
+      "ids": [
+        {
+          "id": 1272464,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Eye Beam": {
+      "ids": [
+        {
+          "id": 198030,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1287949,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 205231,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 198013,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Eye Explosion": {
+      "ids": [
+        {
+          "id": 1269800,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Fatal Mark": {
+      "ids": [
+        {
+          "id": 383706,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Fatebound Coin (Tails)": {
+      "ids": [
+        {
+          "id": 452538,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Fel Devastation": {
+      "ids": [
+        {
+          "id": 212084,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 212105,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 212106,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Fel Firebolt": {
+      "ids": [
+        {
+          "id": 104318,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Fel Rush": {
+      "ids": [
+        {
+          "id": 195072,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 192611,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Felblade": {
+      "ids": [
+        {
+          "id": 232893,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 213243,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ],
+      "multipleIds": true
+    },
+    "Felseeker": {
+      "ids": [
+        {
+          "id": 438973,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 434404,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Felstorm": {
+      "ids": [
+        {
+          "id": 89751,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 89753,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Feral Frenzy": {
+      "ids": [
+        {
+          "id": 274838,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 274837,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Ferocious Bite": {
+      "ids": [
+        {
+          "id": 22568,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Festering Scythe": {
+      "ids": [
+        {
+          "id": 458128,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Festering Strike": {
+      "ids": [
+        {
+          "id": 85948,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Fiery Brand": {
+      "ids": [
+        {
+          "id": 204021,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 207771,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Final Verdict": {
+      "ids": [
+        {
+          "id": 383328,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Fire Blast": {
+      "ids": [
+        {
+          "id": 108853,
+          "school": "frostfire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 57984,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Fire Breath": {
+      "ids": [
+        {
+          "id": 382266,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 357208,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Fire Nova": {
+      "ids": [
+        {
+          "id": 333974,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 333977,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Fireball": {
+      "ids": [
+        {
+          "id": 133,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Fireblood": {
+      "ids": [
+        {
+          "id": 265221,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Fists of Fury": {
+      "ids": [
+        {
+          "id": 113656,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 117418,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Flame Shock": {
+      "ids": [
+        {
+          "id": 188389,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Flametongue Attack": {
+      "ids": [
+        {
+          "id": 10444,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 467386,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Flametongue Weapon": {
+      "ids": [
+        {
+          "id": 318038,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Flash Freezeburn": {
+      "ids": [
+        {
+          "id": 1278079,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Flight of the Red Crane": {
+      "ids": [
+        {
+          "id": 443611,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Flurry": {
+      "ids": [
+        {
+          "id": 44614,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 228354,
+          "school": "frostfire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Flurry Strike": {
+      "ids": [
+        {
+          "id": 450617,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 451250,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Flurry Strikes": {
+      "ids": [
+        {
+          "id": 450615,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Forge's Reckoning": {
+      "ids": [
+        {
+          "id": 447258,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Fortifying Brew": {
+      "ids": [
+        {
+          "id": 115203,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Fracture": {
+      "ids": [
+        {
+          "id": 263642,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 225919,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 225921,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Frailty": {
+      "ids": [
+        {
+          "id": 227255,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Frost Fever": {
+      "ids": [
+        {
+          "id": 55095,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Frost Shield": {
+      "ids": [
+        {
+          "id": 207203,
+          "school": "frost",
+          "type": "other",
+          "occurrences": 6
+        }
+      ]
+    },
+    "Frost Splinter": {
+      "ids": [
+        {
+          "id": 443722,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Frost Strike": {
+      "ids": [
+        {
+          "id": 49143,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 325464,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Frostbolt": {
+      "ids": [
+        {
+          "id": 59638,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 317792,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 116,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Frostfire Bolt": {
+      "ids": [
+        {
+          "id": 431044,
+          "school": "frostfire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Frostfire Empowerment": {
+      "ids": [
+        {
+          "id": 431186,
+          "school": "frostfire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Frostreaper": {
+      "ids": [
+        {
+          "id": 1233619,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Frostwyrm's Fury": {
+      "ids": [
+        {
+          "id": 279303,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 279302,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1265384,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Frozen Orb": {
+      "ids": [
+        {
+          "id": 84714,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 84721,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Fuel on the Fire": {
+      "ids": [
+        {
+          "id": 1262159,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Fungal Growth": {
+      "ids": [
+        {
+          "id": 1280213,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Fury of Elune": {
+      "ids": [
+        {
+          "id": 202770,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 211545,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 394111,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Fury of the Aldrachi": {
+      "ids": [
+        {
+          "id": 444806,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Gai Plin's Imperial Brew": {
+      "ids": [
+        {
+          "id": 383701,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Gargoyle Strike": {
+      "ids": [
+        {
+          "id": 51963,
+          "school": "shadowstorm",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Garrote": {
+      "ids": [
+        {
+          "id": 703,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Gift of the Ox": {
+      "ids": [
+        {
+          "id": 178173,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 124507,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Glacial Advance": {
+      "ids": [
+        {
+          "id": 195975,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Glacial Assault": {
+      "ids": [
+        {
+          "id": 379029,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Glacial Spike": {
+      "ids": [
+        {
+          "id": 199786,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1236209,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Gloom Slash": {
+      "ids": [
+        {
+          "id": 455491,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Glory of the Dawn": {
+      "ids": [
+        {
+          "id": 392959,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Glory of the Vanguard": {
+      "ids": [
+        {
+          "id": 1269175,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 5
+        }
+      ]
+    },
+    "Gnaw": {
+      "ids": [
+        {
+          "id": 91800,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 6
+        }
+      ]
+    },
+    "Goldrinn's Fang": {
+      "ids": [
+        {
+          "id": 394047,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Greater Felbolt": {
+      "ids": [
+        {
+          "id": 1277116,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Greater Pyroblast": {
+      "ids": [
+        {
+          "id": 450421,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Grimoire: Imp Lord": {
+      "ids": [
+        {
+          "id": 1276452,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Gushing Wound": {
+      "ids": [
+        {
+          "id": 385042,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Halo": {
+      "ids": [
+        {
+          "id": 390964,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 390971,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 120644,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Hammer and Anvil": {
+      "ids": [
+        {
+          "id": 433717,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Hammer of Light": {
+      "ids": [
+        {
+          "id": 427453,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Hammer of the Righteous": {
+      "ids": [
+        {
+          "id": 53595,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 88263,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Hammer of Wrath": {
+      "ids": [
+        {
+          "id": 24275,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 1279408,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 1241413,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Hand of Fate": {
+      "ids": [
+        {
+          "id": 452536,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Hand of Frost": {
+      "ids": [
+        {
+          "id": 1262769,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Hand of Gul'dan": {
+      "ids": [
+        {
+          "id": 105174,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 86040,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Harmonic Surge": {
+      "ids": [
+        {
+          "id": 1271011,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1271045,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Haunt": {
+      "ids": [
+        {
+          "id": 48181,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Headbutt": {
+      "ids": [
+        {
+          "id": 267999,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Heart of the Wild": {
+      "ids": [
+        {
+          "id": 1261868,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1261867,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Heart Strike": {
+      "ids": [
+        {
+          "id": 228645,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 206930,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 460501,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 445504,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Heaven's Glaive": {
+      "ids": [
+        {
+          "id": 1266591,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 3
+        },
+        {
+          "id": 1266592,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ],
+      "multipleIds": true
+    },
+    "Heroic Strike": {
+      "ids": [
+        {
+          "id": 1269383,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Highlord's Judgment": {
+      "ids": [
+        {
+          "id": 383921,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Holy Bulwark": {
+      "ids": [
+        {
+          "id": 432459,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Horrific Vision": {
+      "ids": [
+        {
+          "id": 1243105,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Hover": {
+      "ids": [
+        {
+          "id": 358267,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Howling Blades": {
+      "ids": [
+        {
+          "id": 1231083,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1231082,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Howling Blast": {
+      "ids": [
+        {
+          "id": 49184,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Hungering Slash": {
+      "ids": [
+        {
+          "id": 1239127,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Hyperpyrexia": {
+      "ids": [
+        {
+          "id": 458169,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Ice Lance": {
+      "ids": [
+        {
+          "id": 30455,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Icy Death Torrent": {
+      "ids": [
+        {
+          "id": 439539,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Idol of C'Thun": {
+      "ids": [
+        {
+          "id": 377349,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Ignite": {
+      "ids": [
+        {
+          "id": 12654,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1262887,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Ignore Pain": {
+      "ids": [
+        {
+          "id": 190456,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Immolate": {
+      "ids": [
+        {
+          "id": 118297,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 348,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 157736,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Immolation": {
+      "ids": [
+        {
+          "id": 20153,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Immolation Aura": {
+      "ids": [
+        {
+          "id": 258920,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 258922,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 258921,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ],
+      "multipleIds": true
+    },
+    "Implacable Strikes": {
+      "ids": [
+        {
+          "id": 1265794,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1265795,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1265787,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Implosion": {
+      "ids": [
+        {
+          "id": 196277,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 196278,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Incarnation: Chosen of Elune": {
+      "ids": [
+        {
+          "id": 102560,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Incarnation: Guardian of Ursoc": {
+      "ids": [
+        {
+          "id": 102558,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Incinerate": {
+      "ids": [
+        {
+          "id": 29722,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Infected Claws": {
+      "ids": [
+        {
+          "id": 1241786,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Infernal Armor": {
+      "ids": [
+        {
+          "id": 320334,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Infernal Awakening": {
+      "ids": [
+        {
+          "id": 22703,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Infernal Bolt": {
+      "ids": [
+        {
+          "id": 434506,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Infernal Fragmentation": {
+      "ids": [
+        {
+          "id": 456310,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Infernal Strike": {
+      "ids": [
+        {
+          "id": 189110,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 189112,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Infliction of Sorrow": {
+      "ids": [
+        {
+          "id": 434144,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Instant Poison": {
+      "ids": [
+        {
+          "id": 315585,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Intensifying Flame": {
+      "ids": [
+        {
+          "id": 419800,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Internal Bleeding": {
+      "ids": [
+        {
+          "id": 381628,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Invoke Niuzao, the Black Ox": {
+      "ids": [
+        {
+          "id": 132578,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Invoke Xuen, the White Tiger": {
+      "ids": [
+        {
+          "id": 123904,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Ironfur": {
+      "ids": [
+        {
+          "id": 192081,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Jadefire Stomp": {
+      "ids": [
+        {
+          "id": 1248815,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Jan'alai's Flames": {
+      "ids": [
+        {
+          "id": 1252817,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Judgment": {
+      "ids": [
+        {
+          "id": 275779,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 406957,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 20271,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Keep It Rolling": {
+      "ids": [
+        {
+          "id": 381989,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Keg Smash": {
+      "ids": [
+        {
+          "id": 121253,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Kill Command": {
+      "ids": [
+        {
+          "id": 1232922,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 83381,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 34026,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 259277,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 259489,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Killing Spree": {
+      "ids": [
+        {
+          "id": 51690,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 57841,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 57842,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Kingsbane": {
+      "ids": [
+        {
+          "id": 385627,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Lash of Pain": {
+      "ids": [
+        {
+          "id": 7814,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Lashe Macabre": {
+      "ids": [
+        {
+          "id": 1264397,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Lava Burst": {
+      "ids": [
+        {
+          "id": 51505,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Lava Burst Overload": {
+      "ids": [
+        {
+          "id": 285466,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Lava Lash": {
+      "ids": [
+        {
+          "id": 60103,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Leech": {
+      "ids": [
+        {
+          "id": 143924,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 6
+        }
+      ]
+    },
+    "Legion Strike": {
+      "ids": [
+        {
+          "id": 30213,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Lesser Ghoul": {
+      "ids": [
+        {
+          "id": 275430,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 6
+        },
+        {
+          "id": 1277098,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 6
+        },
+        {
+          "id": 1282535,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Lesser Weapon": {
+      "ids": [
+        {
+          "id": 1239282,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1239276,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Let Fly!": {
+      "ids": [
+        {
+          "id": 1271682,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Light of the Titans": {
+      "ids": [
+        {
+          "id": 378405,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 378412,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Light Within": {
+      "ids": [
+        {
+          "id": 1261160,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Lightning Bolt": {
+      "ids": [
+        {
+          "id": 188196,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 7
+        }
+      ]
+    },
+    "Lightning Bolt Overload": {
+      "ids": [
+        {
+          "id": 45284,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Lightning Rod": {
+      "ids": [
+        {
+          "id": 197568,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Lightning Shield": {
+      "ids": [
+        {
+          "id": 192106,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Lightning Strike": {
+      "ids": [
+        {
+          "id": 435791,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Lightning Strike Ground Current": {
+      "ids": [
+        {
+          "id": 460670,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Living Flame": {
+      "ids": [
+        {
+          "id": 361469,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Lunar Beam": {
+      "ids": [
+        {
+          "id": 204066,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 414613,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1270292,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 204069,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Lunar Bolt": {
+      "ids": [
+        {
+          "id": 1261700,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1263137,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Lunar Eclipse": {
+      "ids": [
+        {
+          "id": 1233272,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Lunar Wrath": {
+      "ids": [
+        {
+          "id": 1253609,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Main Gauche": {
+      "ids": [
+        {
+          "id": 86392,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Malefic Grasp": {
+      "ids": [
+        {
+          "id": 1261153,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Malevolence": {
+      "ids": [
+        {
+          "id": 446285,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 430014,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Mangle": {
+      "ids": [
+        {
+          "id": 33917,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Manifested Demonic Soul": {
+      "ids": [
+        {
+          "id": 1269042,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Marrowrend": {
+      "ids": [
+        {
+          "id": 195182,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 6
+        }
+      ]
+    },
+    "Master Marksman": {
+      "ids": [
+        {
+          "id": 269576,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Maul": {
+      "ids": [
+        {
+          "id": 6807,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Melt Armor": {
+      "ids": [
+        {
+          "id": 441172,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Mental Fortitude": {
+      "ids": [
+        {
+          "id": 377065,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Metamorphosis": {
+      "ids": [
+        {
+          "id": 187827,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 200166,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 191427,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Meteor": {
+      "ids": [
+        {
+          "id": 153561,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 351140,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 438607,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 117588,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Meteor Burn": {
+      "ids": [
+        {
+          "id": 155158,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Meteor Shower": {
+      "ids": [
+        {
+          "id": 1264128,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1264130,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1264126,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1264129,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Meteorite": {
+      "ids": [
+        {
+          "id": 449559,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 449569,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 456139,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Mind Blast": {
+      "ids": [
+        {
+          "id": 8092,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Mind Flay": {
+      "ids": [
+        {
+          "id": 193473,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 15407,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Mind Flay: Insanity": {
+      "ids": [
+        {
+          "id": 391403,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Mind Sear": {
+      "ids": [
+        {
+          "id": 1280457,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        },
+        {
+          "id": 1280460,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Mirror Image": {
+      "ids": [
+        {
+          "id": 55342,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Moonfire": {
+      "ids": [
+        {
+          "id": 8921,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 164812,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 155625,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Moonkin Form": {
+      "ids": [
+        {
+          "id": 24858,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Moonless Night": {
+      "ids": [
+        {
+          "id": 400360,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Mortal Strike": {
+      "ids": [
+        {
+          "id": 12294,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Mutilate": {
+      "ids": [
+        {
+          "id": 1329,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 5374,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 27576,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Mutilated Flesh": {
+      "ids": [
+        {
+          "id": 394021,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Nature's Guardian": {
+      "ids": [
+        {
+          "id": 227034,
+          "school": "nature",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Nature's Swiftness": {
+      "ids": [
+        {
+          "id": 378081,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Necrotic Coil": {
+      "ids": [
+        {
+          "id": 1242174,
+          "school": "shadowstrike",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1242172,
+          "school": "shadowstrike",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1242178,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Obliterate": {
+      "ids": [
+        {
+          "id": 445507,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 49020,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 325461,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1264084,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Odyn's Fury": {
+      "ids": [
+        {
+          "id": 385059,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 385060,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Odyn's Fury Off-Hand": {
+      "ids": [
+        {
+          "id": 385061,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Outbreak": {
+      "ids": [
+        {
+          "id": 77575,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 196780,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Overpower": {
+      "ids": [
+        {
+          "id": 7384,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Overwhelming Force": {
+      "ids": [
+        {
+          "id": 452333,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Pestilence": {
+      "ids": [
+        {
+          "id": 327093,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Phalanx": {
+      "ids": [
+        {
+          "id": 1270116,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Pierce the Veil": {
+      "ids": [
+        {
+          "id": 1245483,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Pillar of Frost": {
+      "ids": [
+        {
+          "id": 51271,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Pistol Shot": {
+      "ids": [
+        {
+          "id": 185763,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Power Infusion": {
+      "ids": [
+        {
+          "id": 10060,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Predator's Wake": {
+      "ids": [
+        {
+          "id": 1259431,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Preparation": {
+      "ids": [
+        {
+          "id": 1277933,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Presence of Mind": {
+      "ids": [
+        {
+          "id": 205025,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Primordial Fire": {
+      "ids": [
+        {
+          "id": 1218113,
+          "school": "flamestrike",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Primordial Frost": {
+      "ids": [
+        {
+          "id": 1218116,
+          "school": "froststrike",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Primordial Lightning": {
+      "ids": [
+        {
+          "id": 1218118,
+          "school": "stormstrike",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Primordial Storm": {
+      "ids": [
+        {
+          "id": 1218090,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Prismatic Focusing Iris": {
+      "ids": [
+        {
+          "id": 1252389,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Prowl": {
+      "ids": [
+        {
+          "id": 5215,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Purified Spirit": {
+      "ids": [
+        {
+          "id": 450820,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Purifying Brew": {
+      "ids": [
+        {
+          "id": 119582,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Putrefy": {
+      "ids": [
+        {
+          "id": 1247378,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1277016,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 390220,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Pyre": {
+      "ids": [
+        {
+          "id": 1236970,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Pyroblast": {
+      "ids": [
+        {
+          "id": 450461,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 11366,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1262863,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Raging Blow": {
+      "ids": [
+        {
+          "id": 85288,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 85384,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 96103,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Raise Dead": {
+      "ids": [
+        {
+          "id": 46585,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 46584,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Rake": {
+      "ids": [
+        {
+          "id": 1822,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 155722,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ],
+      "multipleIds": true
+    },
+    "Rampage": {
+      "ids": [
+        {
+          "id": 184367,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 184707,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 184709,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 201364,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 201363,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Rapid Fire": {
+      "ids": [
+        {
+          "id": 257044,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 257045,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Raptor Strike": {
+      "ids": [
+        {
+          "id": 186270,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Raptor Swipe": {
+      "ids": [
+        {
+          "id": 1262293,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Ravage": {
+      "ids": [
+        {
+          "id": 441605,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Ravager": {
+      "ids": [
+        {
+          "id": 228920,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 156287,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Ravenous Leap": {
+      "ids": [
+        {
+          "id": 459753,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Ray of Frost": {
+      "ids": [
+        {
+          "id": 205021,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Reap": {
+      "ids": [
+        {
+          "id": 1226019,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1225823,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Reap the Storm": {
+      "ids": [
+        {
+          "id": 446005,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Reaper's Mark": {
+      "ids": [
+        {
+          "id": 439843,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 436304,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 439594,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Reaper's Toll": {
+      "ids": [
+        {
+          "id": 1245470,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Reaver's Glaive": {
+      "ids": [
+        {
+          "id": 1283344,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Recklessness": {
+      "ids": [
+        {
+          "id": 1719,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Red Moon": {
+      "ids": [
+        {
+          "id": 1252871,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Refining Fire": {
+      "ids": [
+        {
+          "id": 469882,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Refreshing Drink": {
+      "ids": [
+        {
+          "id": 1265145,
+          "school": "nature",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Regrowth": {
+      "ids": [
+        {
+          "id": 8936,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Rejuvenation": {
+      "ids": [
+        {
+          "id": 774,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Relish in Blood": {
+      "ids": [
+        {
+          "id": 317614,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Remorseless Winter": {
+      "ids": [
+        {
+          "id": 1233152,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 196771,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Rend": {
+      "ids": [
+        {
+          "id": 388539,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 772,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Rend Flesh": {
+      "ids": [
+        {
+          "id": 471999,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Revenge": {
+      "ids": [
+        {
+          "id": 6572,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Ride the Lightning": {
+      "ids": [
+        {
+          "id": 289874,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Rider's Champion": {
+      "ids": [
+        {
+          "id": 444005,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Rip": {
+      "ids": [
+        {
+          "id": 1079,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Rising Sun Kick": {
+      "ids": [
+        {
+          "id": 107428,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 185099,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Rite of Sanctification": {
+      "ids": [
+        {
+          "id": 433568,
+          "school": "holy",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Roll the Bones": {
+      "ids": [
+        {
+          "id": 1214909,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Ruination": {
+      "ids": [
+        {
+          "id": 434635,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 434636,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Rune of Sanguination": {
+      "ids": [
+        {
+          "id": 326808,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Rupture": {
+      "ids": [
+        {
+          "id": 1943,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Ruptured Viscera": {
+      "ids": [
+        {
+          "id": 1247379,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Rushing Wind Kick": {
+      "ids": [
+        {
+          "id": 467307,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 468179,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Sacred Weapon": {
+      "ids": [
+        {
+          "id": 432616,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 441590,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Sacred Word": {
+      "ids": [
+        {
+          "id": 447246,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Sacrosanct Crusade": {
+      "ids": [
+        {
+          "id": 461885,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Sanguinary Burst": {
+      "ids": [
+        {
+          "id": 1263786,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Scorch": {
+      "ids": [
+        {
+          "id": 2948,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Scoundrel Strike": {
+      "ids": [
+        {
+          "id": 1265918,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Scourge Strike": {
+      "ids": [
+        {
+          "id": 445508,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 445509,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 55090,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Searing Bolt": {
+      "ids": [
+        {
+          "id": 3606,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Searing Volley": {
+      "ids": [
+        {
+          "id": 458147,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Secret Technique": {
+      "ids": [
+        {
+          "id": 280719,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 280720,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 282449,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1269560,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Shadow Blades": {
+      "ids": [
+        {
+          "id": 121471,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 279043,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Shadow Bolt": {
+      "ids": [
+        {
+          "id": 317791,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 686,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Shadow Dance": {
+      "ids": [
+        {
+          "id": 185313,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shadow Nova": {
+      "ids": [
+        {
+          "id": 1282507,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shadow of Nathreza": {
+      "ids": [
+        {
+          "id": 1262710,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadow Weaving": {
+      "ids": [
+        {
+          "id": 346111,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadow Word: Death": {
+      "ids": [
+        {
+          "id": 32379,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadow Word: Madness": {
+      "ids": [
+        {
+          "id": 335467,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Shadow Word: Pain": {
+      "ids": [
+        {
+          "id": 589,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadowbolt Volley": {
+      "ids": [
+        {
+          "id": 453176,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadowburn": {
+      "ids": [
+        {
+          "id": 17877,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadowform": {
+      "ids": [
+        {
+          "id": 232698,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadowmeld": {
+      "ids": [
+        {
+          "id": 58984,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shadowstrike": {
+      "ids": [
+        {
+          "id": 185438,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1269336,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Shadowy Apparition": {
+      "ids": [
+        {
+          "id": 413231,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shadowy Apparitions": {
+      "ids": [
+        {
+          "id": 341491,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shared Fate": {
+      "ids": [
+        {
+          "id": 450591,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shatter": {
+      "ids": [
+        {
+          "id": 1246949,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 5
+        }
+      ]
+    },
+    "Shattering Star": {
+      "ids": [
+        {
+          "id": 1265804,
+          "school": "spellfrost",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Shield Block": {
+      "ids": [
+        {
+          "id": 2565,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shield Charge": {
+      "ids": [
+        {
+          "id": 385952,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 385954,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Shield of the Righteous": {
+      "ids": [
+        {
+          "id": 53600,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shield Slam": {
+      "ids": [
+        {
+          "id": 23922,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shield Wall": {
+      "ids": [
+        {
+          "id": 871,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shoot": {
+      "ids": [
+        {
+          "id": 1264357,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Shooting Stars": {
+      "ids": [
+        {
+          "id": 202497,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 202342,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1272339,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Shred": {
+      "ids": [
+        {
+          "id": 5221,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Shuriken Storm": {
+      "ids": [
+        {
+          "id": 197835,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Sic 'Em": {
+      "ids": [
+        {
+          "id": 1253138,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Sigil of Flame": {
+      "ids": [
+        {
+          "id": 204598,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 204596,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Sigil of Spite": {
+      "ids": [
+        {
+          "id": 390163,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 389860,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Sinister Strike": {
+      "ids": [
+        {
+          "id": 193315,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 197834,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Slam": {
+      "ids": [
+        {
+          "id": 1464,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Slayer's Strike": {
+      "ids": [
+        {
+          "id": 445579,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Slice and Dice": {
+      "ids": [
+        {
+          "id": 426605,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 4
+        },
+        {
+          "id": 315496,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Solar Bolt": {
+      "ids": [
+        {
+          "id": 1261573,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Soul Anathema": {
+      "ids": [
+        {
+          "id": 450538,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Soul Barrage": {
+      "ids": [
+        {
+          "id": 1292384,
+          "school": "magic",
+          "type": "other",
+          "occurrences": 1
+        },
+        {
+          "id": 1292391,
+          "school": "chaos",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Soul Carver": {
+      "ids": [
+        {
+          "id": 207407,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 214743,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Soul Cleave": {
+      "ids": [
+        {
+          "id": 228477,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 228478,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Soul Fire": {
+      "ids": [
+        {
+          "id": 6353,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Soul Immolation": {
+      "ids": [
+        {
+          "id": 1241937,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Soul Reaper": {
+      "ids": [
+        {
+          "id": 343294,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Soul Swipe": {
+      "ids": [
+        {
+          "id": 1269049,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Soulscar": {
+      "ids": [
+        {
+          "id": 390181,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Special Delivery": {
+      "ids": [
+        {
+          "id": 196733,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Spinning Crane Kick": {
+      "ids": [
+        {
+          "id": 101546,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 107270,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Spirit Bomb": {
+      "ids": [
+        {
+          "id": 247454,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 247455,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Stampede": {
+      "ids": [
+        {
+          "id": 201594,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Starfire": {
+      "ids": [
+        {
+          "id": 194153,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Starsurge": {
+      "ids": [
+        {
+          "id": 78674,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1271222,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Steady Shot": {
+      "ids": [
+        {
+          "id": 56641,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Stealth": {
+      "ids": [
+        {
+          "id": 1784,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Stomp": {
+      "ids": [
+        {
+          "id": 201754,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 5
+        },
+        {
+          "id": 1242373,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 227291,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Storm Bolt": {
+      "ids": [
+        {
+          "id": 107570,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Stormblast": {
+      "ids": [
+        {
+          "id": 390287,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 6
+        },
+        {
+          "id": 319930,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Stormfury": {
+      "ids": [
+        {
+          "id": 157375,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 269005,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Stormkeeper": {
+      "ids": [
+        {
+          "id": 191634,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Stormstrike": {
+      "ids": [
+        {
+          "id": 17364,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 32175,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Stormstrike Off-Hand": {
+      "ids": [
+        {
+          "id": 32176,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Strength of the Black Ox": {
+      "ids": [
+        {
+          "id": 443127,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Strike As One": {
+      "ids": [
+        {
+          "id": 1251779,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Strike for the Heart": {
+      "ids": [
+        {
+          "id": 458724,
+          "school": "nature",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Summon Darkglare": {
+      "ids": [
+        {
+          "id": 205180,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Demonic Tyrant": {
+      "ids": [
+        {
+          "id": 265187,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Summon Desperate Soul": {
+      "ids": [
+        {
+          "id": 1262094,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Felguard": {
+      "ids": [
+        {
+          "id": 30146,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Summon Gargoyle": {
+      "ids": [
+        {
+          "id": 49206,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Gloomhound": {
+      "ids": [
+        {
+          "id": 455465,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Summon Infernal": {
+      "ids": [
+        {
+          "id": 1122,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 111685,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Summon Mograine": {
+      "ids": [
+        {
+          "id": 444248,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Mother of Chaos": {
+      "ids": [
+        {
+          "id": 428565,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Nazgrim": {
+      "ids": [
+        {
+          "id": 444252,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Overfiend": {
+      "ids": [
+        {
+          "id": 434587,
+          "school": "fire",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Overlord": {
+      "ids": [
+        {
+          "id": 428571,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Pit Lord": {
+      "ids": [
+        {
+          "id": 434400,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Sayaad": {
+      "ids": [
+        {
+          "id": 366222,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Summon Trollbane": {
+      "ids": [
+        {
+          "id": 444254,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Water Elemental": {
+      "ids": [
+        {
+          "id": 31687,
+          "school": "frost",
+          "type": "buff",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Summon Whitemane": {
+      "ids": [
+        {
+          "id": 444251,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Sun Sear": {
+      "ids": [
+        {
+          "id": 431414,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Sun's Avatar": {
+      "ids": [
+        {
+          "id": 431911,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Sundered Firmament": {
+      "ids": [
+        {
+          "id": 394106,
+          "school": "astral",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Sundering": {
+      "ids": [
+        {
+          "id": 197214,
+          "school": "flamestrike",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 467283,
+          "school": "flamestrike",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Sunfire": {
+      "ids": [
+        {
+          "id": 93402,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 164815,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Sunseeker Mushroom": {
+      "ids": [
+        {
+          "id": 468938,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1280212,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Surging Bolt": {
+      "ids": [
+        {
+          "id": 458267,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Surging Totem": {
+      "ids": [
+        {
+          "id": 444995,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Sweeping Claws": {
+      "ids": [
+        {
+          "id": 1278150,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 6
+        },
+        {
+          "id": 91778,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 6
+        }
+      ],
+      "multipleIds": true
+    },
+    "Swipe": {
+      "ids": [
+        {
+          "id": 213771,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Takedown": {
+      "ids": [
+        {
+          "id": 1250646,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1253859,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1253862,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Tempest": {
+      "ids": [
+        {
+          "id": 452201,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Tempest Overload": {
+      "ids": [
+        {
+          "id": 463351,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Templar Slash": {
+      "ids": [
+        {
+          "id": 406647,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Templar Strike": {
+      "ids": [
+        {
+          "id": 407480,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Tentacle Slam": {
+      "ids": [
+        {
+          "id": 1227280,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1227621,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "The Blood is Life": {
+      "ids": [
+        {
+          "id": 434246,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "The Hunt": {
+      "ids": [
+        {
+          "id": 1246169,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1246168,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 370965,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 370966,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 370969,
+          "school": "chromatic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1246167,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Thistle Tea": {
+      "ids": [
+        {
+          "id": 381623,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Thorim's Invocation": {
+      "ids": [
+        {
+          "id": 384444,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Thrash": {
+      "ids": [
+        {
+          "id": 77758,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 192090,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Throw Glaive": {
+      "ids": [
+        {
+          "id": 185123,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 337819,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 393035,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 204157,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 346665,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Thunder Blast": {
+      "ids": [
+        {
+          "id": 435222,
+          "school": "stormstrike",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Thunder Clap": {
+      "ids": [
+        {
+          "id": 6343,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Tiger Palm": {
+      "ids": [
+        {
+          "id": 100780,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ]
+    },
+    "Tiger's Fury": {
+      "ids": [
+        {
+          "id": 5217,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Tip the Scales": {
+      "ids": [
+        {
+          "id": 370553,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Touch of Death": {
+      "ids": [
+        {
+          "id": 322109,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Touch of Karma": {
+      "ids": [
+        {
+          "id": 122470,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Touch of the Archmage": {
+      "ids": [
+        {
+          "id": 1258036,
+          "school": "arcane",
+          "type": "other",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Touch of the Magi": {
+      "ids": [
+        {
+          "id": 321507,
+          "school": "arcane",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 210833,
+          "school": "arcane",
+          "type": "other",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Tough as Nails": {
+      "ids": [
+        {
+          "id": 385890,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Tremor": {
+      "ids": [
+        {
+          "id": 455622,
+          "school": "flamestrike",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Trollbane's Icy Fury": {
+      "ids": [
+        {
+          "id": 444834,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Trueshot": {
+      "ids": [
+        {
+          "id": 288613,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Truth's Wake": {
+      "ids": [
+        {
+          "id": 403695,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Twilight Barrage": {
+      "ids": [
+        {
+          "id": 1281579,
+          "school": "shadowlight",
+          "type": "other",
+          "occurrences": 10
+        }
+      ]
+    },
+    "Twin Claw": {
+      "ids": [
+        {
+          "id": 1271657,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Twin Flame": {
+      "ids": [
+        {
+          "id": 1265980,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Undeath": {
+      "ids": [
+        {
+          "id": 444633,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Unholy Strength": {
+      "ids": [
+        {
+          "id": 53365,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Unseen Blade": {
+      "ids": [
+        {
+          "id": 441144,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Unseen Slash": {
+      "ids": [
+        {
+          "id": 1263890,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1271863,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Unstable Affliction": {
+      "ids": [
+        {
+          "id": 1259790,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1261176,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Vampiric Blood": {
+      "ids": [
+        {
+          "id": 55233,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Vampiric Strike": {
+      "ids": [
+        {
+          "id": 433895,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 6
+        },
+        {
+          "id": 434422,
+          "school": "physical",
+          "type": "other",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Vampiric Touch": {
+      "ids": [
+        {
+          "id": 34914,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Vanish": {
+      "ids": [
+        {
+          "id": 1856,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Vengeful Retreat": {
+      "ids": [
+        {
+          "id": 198793,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 198813,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ],
+      "multipleIds": true
+    },
+    "Verdant Embrace": {
+      "ids": [
+        {
+          "id": 360995,
+          "school": "nature",
+          "type": "buff",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Vicious Brambles": {
+      "ids": [
+        {
+          "id": 1270065,
+          "school": "nature",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Virulent Plague": {
+      "ids": [
+        {
+          "id": 191587,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Virulent Plague (Erupt)": {
+      "ids": [
+        {
+          "id": 1241167,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Vision of N'Zoth": {
+      "ids": [
+        {
+          "id": 1243106,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Void Apparition": {
+      "ids": [
+        {
+          "id": 1264176,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Void Apparitions": {
+      "ids": [
+        {
+          "id": 1264104,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Void Blast": {
+      "ids": [
+        {
+          "id": 450983,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Void Bolt": {
+      "ids": [
+        {
+          "id": 1264177,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Void Flay": {
+      "ids": [
+        {
+          "id": 451435,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Void Metamorphosis": {
+      "ids": [
+        {
+          "id": 1217605,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 473671,
+          "school": "cosmic",
+          "type": "buff",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Void Ray": {
+      "ids": [
+        {
+          "id": 473728,
+          "school": "spellshadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1213649,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1214595,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Void Spike": {
+      "ids": [
+        {
+          "id": 373279,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Void Torrent": {
+      "ids": [
+        {
+          "id": 263165,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Void Volley": {
+      "ids": [
+        {
+          "id": 1242173,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        },
+        {
+          "id": 1242189,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ],
+      "multipleIds": true
+    },
+    "Voidblade": {
+      "ids": [
+        {
+          "id": 1245414,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 1245412,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Voidclaw": {
+      "ids": [
+        {
+          "id": 253797,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 8
+        }
+      ]
+    },
+    "Voidfall Meteor": {
+      "ids": [
+        {
+          "id": 1256303,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1256306,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1256304,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1256305,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Voidform": {
+      "ids": [
+        {
+          "id": 228260,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Voidstalker Sting": {
+      "ids": [
+        {
+          "id": 1271226,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 17
+        }
+      ]
+    },
+    "Voidstep": {
+      "ids": [
+        {
+          "id": 1239526,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Voidsurge": {
+      "ids": [
+        {
+          "id": 1246160,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Voltaic Blaze": {
+      "ids": [
+        {
+          "id": 470057,
+          "school": "firestorm",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Wailing Arrow": {
+      "ids": [
+        {
+          "id": 392058,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 392060,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Wake of Ashes": {
+      "ids": [
+        {
+          "id": 255937,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 405345,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 405350,
+          "school": "holyfire",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Warblade's Hunger": {
+      "ids": [
+        {
+          "id": 442507,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Water Jet": {
+      "ids": [
+        {
+          "id": 135029,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Waterbolt": {
+      "ids": [
+        {
+          "id": 31707,
+          "school": "frost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Wave of Souls": {
+      "ids": [
+        {
+          "id": 435802,
+          "school": "shadowfrost",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Whiplash": {
+      "ids": [
+        {
+          "id": 6360,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    },
+    "Whirling Dragon Punch": {
+      "ids": [
+        {
+          "id": 152175,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 158221,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 451767,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ],
+      "multipleIds": true
+    },
+    "Whirlwind": {
+      "ids": [
+        {
+          "id": 190411,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 199667,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 199852,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Whirlwind Off-Hand": {
+      "ids": [
+        {
+          "id": 44949,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 199851,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Wicked Cleave": {
+      "ids": [
+        {
+          "id": 432120,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Wicked Reaping": {
+      "ids": [
+        {
+          "id": 449826,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Wild Guardian": {
+      "ids": [
+        {
+          "id": 1269658,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Wild Imp": {
+      "ids": [
+        {
+          "id": 104317,
+          "school": "shadow",
+          "type": "other",
+          "occurrences": 1
+        },
+        {
+          "id": 279910,
+          "school": "shadow",
+          "type": "buff",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Wildfire Bomb": {
+      "ids": [
+        {
+          "id": 259495,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 265157,
+          "school": "fire",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1253171,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Wind Gust": {
+      "ids": [
+        {
+          "id": 157331,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Windfury Attack": {
+      "ids": [
+        {
+          "id": 25504,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Windfury Weapon": {
+      "ids": [
+        {
+          "id": 33757,
+          "school": "nature",
+          "type": "buff",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Windlash": {
+      "ids": [
+        {
+          "id": 114089,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Windlash Off-Hand": {
+      "ids": [
+        {
+          "id": 114093,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Windstrike": {
+      "ids": [
+        {
+          "id": 115356,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 115357,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Windstrike Off-Hand": {
+      "ids": [
+        {
+          "id": 115360,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Wither": {
+      "ids": [
+        {
+          "id": 445468,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 445474,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 1279686,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Word of Glory": {
+      "ids": [
+        {
+          "id": 85673,
+          "school": "holy",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "World Killer": {
+      "ids": [
+        {
+          "id": 1256616,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1256617,
+          "school": "shadowflame",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1256618,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        },
+        {
+          "id": 1256619,
+          "school": "cosmic",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Wounded Quarry": {
+      "ids": [
+        {
+          "id": 442808,
+          "school": "chromatic",
+          "type": "other",
+          "occurrences": 1
+        }
+      ]
+    },
+    "Wrath": {
+      "ids": [
+        {
+          "id": 190984,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 2
+        },
+        {
+          "id": 5176,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 1
+        }
+      ],
+      "multipleIds": true
+    },
+    "Wrath of Nathreza": {
+      "ids": [
+        {
+          "id": 1278047,
+          "school": "shadow",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Wrecking Throw": {
+      "ids": [
+        {
+          "id": 384110,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        },
+        {
+          "id": 394354,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 3
+        }
+      ],
+      "multipleIds": true
+    },
+    "Zenith": {
+      "ids": [
+        {
+          "id": 1249625,
+          "school": "physical",
+          "type": "cast",
+          "occurrences": 2
+        }
+      ]
+    },
+    "Zenith Stomp": {
+      "ids": [
+        {
+          "id": 1272696,
+          "school": "nature",
+          "type": "cast",
+          "occurrences": 4
+        }
+      ]
+    }
+  }
+}
