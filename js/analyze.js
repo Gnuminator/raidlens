@@ -10,7 +10,7 @@ async function analyze() {
 
   if (analysisCache[cacheKey] && analysisCache[cacheKey].fast) {
     const cached = analysisCache[cacheKey].fast;
-    renderResults(cached.playerList, pullIds.length, cached.playerList);
+    renderResults(cached.playerList, pullIds.length, false);
     showStatus('Sending to Claude for analysis...');
     const specsPresent = new Set(actors.map(a => a.subType).filter(Boolean));
     const specGuides = await loadSpecGuides(specsPresent);
