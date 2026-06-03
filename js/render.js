@@ -102,6 +102,9 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
       : defTracked
         ? `<div style="font-size:11px;color:var(--muted);margin-top:2px;">🛡 Defensives: <span style="color:${(p.defensiveStats || {}).totalCast > 0 ? 'var(--ok)' : 'var(--warn)'};">${(p.defensiveStats || {}).totalCast || 0}</span> cast across ${p.pulls} pull${p.pulls !== 1 ? 's' : ''}${deathsNoDef >= 3 ? ` <span style="color:var(--danger);">· died ${deathsNoDef}x with none</span>` : ''}</div>`
         : `<div style="font-size:11px;color:var(--muted);margin-top:2px;">🛡 Defensives: <span style="color:var(--muted);">not tracked for this spec</span></div>`;
+    const dissonanceLine = p.dissonanceStats
+      ? `<div style="font-size:11px;color:var(--muted);margin-top:2px;">🔊 Dissonance: caused <span style="color:${p.dissonanceStats.sourced > 0 ? 'var(--danger)' : 'var(--ok)'};">${p.dissonanceStats.sourced}</span> · took <span style="color:${p.dissonanceStats.taken > 0 ? 'var(--warn)' : 'var(--ok)'};">${p.dissonanceStats.taken}</span></div>`
+      : '';
     const rowId = `expand-${i}`;
 
     const pullRows = (p.pullDetail || []).map(pd => {
@@ -189,6 +192,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
           <div style="font-size:11px;color:var(--muted);margin-top:2px;">${attendance}</div>
           ${interruptLine}
           ${defensiveLine}
+          ${dissonanceLine}
         </div>
         <div class="stat">
           <div class="stat-num">${fmt(p.totalDmgTaken)}</div>

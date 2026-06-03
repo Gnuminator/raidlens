@@ -10,7 +10,11 @@ const BOSS_KNOWLEDGE_META = {
     interruptTargetSpellIds: {
       1249017: 'Fearsome Cry',
       1261997: 'Essence Bolt'
-    }
+    },
+    // Mythic-only (Step 10). Source-based attribution. The spell ID is auto-discovered from
+    // the damage table's ability guid at analysis time (no hardcoded/unverified ID). If a
+    // confirmed ID is ever known it can be pinned here via `dissonanceSpellIds: { id: 'Dissonance' }`.
+    dissonanceAbilityNames: ['Dissonance']
   }
 };
 

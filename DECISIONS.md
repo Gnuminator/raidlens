@@ -61,6 +61,14 @@ Mirrors interrupt tracking. `DEFENSIVE_SPELL_IDS` in `boss-knowledge.js` maps WC
 - **The actionable signal is "died on 3+ pulls with zero self-defensives cast"**, computed from per-pull `died` (from death events) + per-pull `defensives`. This is the one allowed exception to the "never mention deaths" rule, framed as defensive usage, not a death count.
 - High-frequency active mitigation (Ironfur, Shield Block, Death Strike, Demon Spikes, etc.) is intentionally included — it makes the died-with-zero flag conservative (fewer false accusations).
 
+### Dissonance source tracking — Step 10 (2026-06-02)
+Dissonance (Mythic, Chimaerus) is proximity damage between players in opposite realms — it has a source and a target, so the player taking it isn't necessarily at fault. Step 10 attributes it source-side. Lives in the **deep path** (needs damage events, not the table).
+- **No hardcoded/unverified spell ID.** The Dissonance spell ID is **auto-discovered** from the damage table: the fast path harvests every ability's `guid` into the global `abilityGuidByName` (name → guid), and `resolveDissonanceSpellIds()` looks up the names in `BOSS_KNOWLEDGE_META[boss].dissonanceAbilityNames` (`['Dissonance']` for Chimaerus). A confirmed ID can be pinned via `dissonanceSpellIds` if ever known. If no guid is captured, tracking silently no-ops.
+- **Reuses the deep path's event fetch** — the Dissonance ID is merged into the `fetchAvoidableEvents` ID set, then events are partitioned (Dissonance vs avoidable) so no extra requests.
+- Each Dissonance event credits BOTH the **source** (`sourceID` → player, the likely out-of-position one) and the **target** (`targetID`). Stored as `dissonanceStats { sourced, taken }` per player + per-pull `dissonance`.
+- UI: a "🔊 Dissonance: caused N · took M" card line (deep mode only). Claude: a SOURCE-based section + rule to flag high "caused" counts as positioning to investigate (not proof), since realm assignments aren't in the data.
+- **UNVERIFIED ASSUMPTIONS — pending Christian's DevTools check** (per the project's "instrument, don't guess WCL" rule): (1) the damage table provides `guid` per ability; (2) Dissonance damage events carry a **player** `sourceID` (not the boss). `analyze()` console-logs the discovered IDs and a sample of Dissonance events (`[RaidLens][Dissonance] ...`) with source/target names so these can be confirmed in Edge DevTools. If sources turn out to be the boss, only "took" will populate and the source feature needs revisiting.
+
 ---
 
 ## Analysis

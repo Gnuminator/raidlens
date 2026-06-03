@@ -74,8 +74,20 @@ async function runAI(players, numPulls, apiKey, isDeep = false, specGuides = {})
     defensiveSection = `\nDEFENSIVE USAGE (self-defensives only -- damage reduction, absorbs, immunities, and major self-heals the player cast ON THEMSELVES):\nUse each player's spec guide Defensives section to judge appropriate use. IMPORTANT: tracked counts are a FLOOR -- only confirmed-ID defensives are counted and the cast log can truncate on long pulls -- so never claim a player used "only N" as if exhaustive. Focus on the died-with-zero-defensives signal.\n${defLines}\n`;
   }
 
+  let dissonanceSection = '';
+  const anyDissonance = players.some(p => p.dissonanceStats);
+  if (anyDissonance) {
+    const dLines = players
+      .map(p => ({ name: p.name, spec: p.spec, s: (p.dissonanceStats || {}).sourced || 0, t: (p.dissonanceStats || {}).taken || 0 }))
+      .filter(x => x.s > 0 || x.t > 0)
+      .sort((a, b) => b.s - a.s)
+      .map(x => `  ${x.name} (${x.spec}): caused ${x.s} Dissonance hit${x.s !== 1 ? 's' : ''} to others, took ${x.t}`)
+      .join('\n');
+    dissonanceSection = `\nDISSONANCE (Mythic, SOURCE-based -- proximity damage between players in opposite realms):\nA high "caused" count means the player was repeatedly the SOURCE of Dissonance, i.e. out of position relative to the other realm. This is positional and judged against realm assignments you may not have here, so treat a high "caused" count as a lead to investigate, not proof. Source/target attribution is auto-derived from the log and pending verification.\n${dLines || '  No player-sourced Dissonance recorded.'}\n`;
+  }
+
   const prompt = `You are analyzing World of Warcraft Mythic raid logs for "${bossName}" across ${numPulls} pulls. This is active progression -- the raid wipes every pull, so the entire raid dies every time. Death counts are meaningless and must not be mentioned.
-${bossSection}${specGuideSection}${interruptSection}${defensiveSection}${refKillSection}
+${bossSection}${specGuideSection}${interruptSection}${defensiveSection}${dissonanceSection}${refKillSection}
 Player data (damage taken by ability across all pulls, raid-wide unavoidable abilities pre-filtered):
 
 ${JSON.stringify(summary, null, 2)}
@@ -92,6 +104,7 @@ Write a focused Mythic raid leader debrief. Rules:
 - Do NOT flag tanks for low interrupt counts if the interruptable abilities are on adds they are tanking.
 - If defensive usage data is present: using each spec's Defensives section, flag players who died on 3+ pulls while casting zero self-defensives -- they are likely sitting on cooldowns. Frame it as a defensive-usage issue, not a death count. Do not flag players who survived or who died only once or twice. Tanks press mitigation constantly; only flag a tank if they repeatedly died with none.
 - Defensive counts are a floor (only confirmed-ID abilities are tracked, and long pulls can truncate the cast log); never assert a player "only used N defensives" as if complete.
+- If Dissonance data is present: flag players with a high "caused" count across pulls -- repeatedly being the SOURCE of Dissonance means out of position relative to the opposite realm. Frame it as positioning to investigate against realm assignments, not certainty. Do not over-index on "took" alone, and do not flag one or two hits.
 - Under 350 words. Plain text only, no markdown, no bullet symbols, no asterisks.`;
 
   const resp = await fetch('https://api.anthropic.com/v1/messages', {

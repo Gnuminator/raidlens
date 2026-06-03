@@ -22,6 +22,7 @@ async function analyze() {
   }
 
   const playerStats = {};
+  abilityGuidByName = {};
   const bossFightForFilter = allFights.find(f => f.encounterID === currentEncounterId);
   const bossNameForFilter = bossFightForFilter ? bossFightForFilter.name : '';
   const nonAvoidableForFilter = BOSS_NON_AVOIDABLE[bossNameForFilter] || new Set();
@@ -79,6 +80,7 @@ async function analyze() {
           if (!pullSnapshot[name]) pullSnapshot[name] = { totalDmgTaken: entry.total || 0, avoidable: [] };
           if (entry.abilities) {
             entry.abilities.forEach(ab => {
+              if (ab.guid != null && abilityGuidByName[ab.name] == null) abilityGuidByName[ab.name] = ab.guid;
               const dmg = ab.total || 0;
               if (dmg <= 0) return;
               if (!playerStats[name].abilityDmg[ab.name]) playerStats[name].abilityDmg[ab.name] = { total: 0, pulls: 0 };
@@ -180,6 +182,19 @@ async function analyze() {
   hideStatus();
 }
 
+// Step 10: resolve the Dissonance spell ID(s) for a boss. Prefers a pinned
+// dissonanceSpellIds map; otherwise auto-discovers from the damage table ability guid
+// captured during the fast path (abilityGuidByName). Returns [] if none available.
+function resolveDissonanceSpellIds(bossName) {
+  const meta = BOSS_KNOWLEDGE_META[bossName] || {};
+  const ids = new Set(Object.keys(meta.dissonanceSpellIds || {}).map(Number));
+  (meta.dissonanceAbilityNames || []).forEach(nm => {
+    const guid = abilityGuidByName[nm];
+    if (guid != null) ids.add(Number(guid));
+  });
+  return [...ids].filter(n => !Number.isNaN(n));
+}
+
 async function runDeepAnalysis() {
   const apiKey = document.getElementById('anthropicKey').value.trim();
   if (!apiKey) { showError('Enter your Anthropic API key.'); return; }
@@ -213,6 +228,17 @@ async function runDeepAnalysis() {
 
   const playerList = JSON.parse(JSON.stringify(analysisCache[cacheKey].fast.playerList));
 
+  // Step 10: Dissonance source tracking (Mythic). Spell ID auto-discovered from the table guid.
+  const dissonanceSpellIds = resolveDissonanceSpellIds(bossName);
+  const dissonanceIdSet = new Set(dissonanceSpellIds);
+  const trackDissonance = dissonanceSpellIds.length > 0;
+  if (trackDissonance) {
+    console.log('[RaidLens][Dissonance] tracking spell IDs (auto-discovered from table guid unless pinned):', dissonanceSpellIds);
+    playerList.forEach(p => { p.dissonanceStats = { sourced: 0, taken: 0 }; });
+  } else {
+    console.log('[RaidLens][Dissonance] not tracking — no "Dissonance" ability guid was captured from the damage table for this boss.');
+  }
+
   const fightMap = {};
   allFights.forEach(f => { fightMap[f.id] = f; });
 
@@ -240,9 +266,43 @@ async function runDeepAnalysis() {
         .filter(Boolean)
         .sort((a,b) => a - b);
 
-      const events = await fetchAvoidableEvents(fight, avoidableSpellIds);
+      // Fetch avoidable + Dissonance damage events in one paginated pass.
+      const fetchSpellIds = { ...avoidableSpellIds };
+      dissonanceSpellIds.forEach(id => { if (!fetchSpellIds[id]) fetchSpellIds[id] = 'Dissonance'; });
+      const events = await fetchAvoidableEvents(fight, fetchSpellIds);
 
+      const dissonanceLog = [];
       events.forEach(ev => {
+        const relativeTs = ev.timestamp - fight.startTime;
+
+        // Dissonance: source-based attribution (Step 10). Credit BOTH the source (the player
+        // causing it — wrong realm / too close) and the target who took it.
+        if (trackDissonance && dissonanceIdSet.has(ev.abilityGameID)) {
+          const srcActor = actors.find(a => a.id === ev.sourceID);
+          const tgtActor = actors.find(a => a.id === ev.targetID);
+          if (dissonanceLog.length < 10) dissonanceLog.push({ ts: fmtTs(relativeTs), source: srcActor ? srcActor.name : `id#${ev.sourceID}`, target: tgtActor ? tgtActor.name : `id#${ev.targetID}`, amount: ev.amount || 0 });
+          if (srcActor) {
+            const sp = playerList.find(p => p.name === srcActor.name);
+            if (sp) {
+              sp.dissonanceStats = sp.dissonanceStats || { sourced: 0, taken: 0 };
+              sp.dissonanceStats.sourced += 1;
+              const pdS = sp.pullDetail.find(d => d.fightId === fid);
+              if (pdS) { pdS.dissonance = pdS.dissonance || { sourced: 0, taken: 0, events: [] }; pdS.dissonance.sourced += 1; pdS.dissonance.events.push({ role: 'source', timestamp: relativeTs, other: tgtActor ? tgtActor.name : 'Unknown', amount: ev.amount || 0 }); }
+            }
+          }
+          if (tgtActor) {
+            const tp = playerList.find(p => p.name === tgtActor.name);
+            if (tp) {
+              tp.dissonanceStats = tp.dissonanceStats || { sourced: 0, taken: 0 };
+              tp.dissonanceStats.taken += 1;
+              const pdT = tp.pullDetail.find(d => d.fightId === fid);
+              if (pdT) { pdT.dissonance = pdT.dissonance || { sourced: 0, taken: 0, events: [] }; pdT.dissonance.taken += 1; pdT.dissonance.events.push({ role: 'target', timestamp: relativeTs, other: srcActor ? srcActor.name : 'Unknown', amount: ev.amount || 0 }); }
+            }
+          }
+          return;
+        }
+
+        // Avoidable damage hit (existing logic)
         const actor = actors.find(a => a.id === ev.targetID);
         if (!actor) return;
         const player = playerList.find(p => p.name === actor.name);
@@ -250,7 +310,6 @@ async function runDeepAnalysis() {
         const pd = player.pullDetail.find(d => d.fightId === fid);
         if (!pd) return;
 
-        const relativeTs = ev.timestamp - fight.startTime;
         const deadAtTime = deathTimelines[fid].filter(t => t < ev.timestamp).length;
         const abilityName = avoidableSpellIds[ev.abilityGameID] || `Spell ${ev.abilityGameID}`;
 
@@ -263,6 +322,9 @@ async function runDeepAnalysis() {
           deadAtTime
         });
       });
+      if (trackDissonance && dissonanceLog.length > 0) {
+        console.log(`[RaidLens][Dissonance] fight ${fid} sample events (CONFIRM source & target are players):`, dissonanceLog);
+      }
 
       playerList.forEach(p => {
         const pd = p.pullDetail.find(d => d.fightId === fid);
