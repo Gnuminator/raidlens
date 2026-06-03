@@ -1,0 +1,7623 @@
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase fight with frequent add spawns.
+
+Averzian is trying to claim 3 adjacent spaces on the ground (tic-tac-toe). Don't let him get 3 in a row.
+
+Abyssal Voidshapers claim the spaces for him. There are 3 each set. Put the 2 soaks on the 2 Abyssal Voidshapers you want to kill to remove their 99% damage reduction.
+
+Kill and interrupt any adds.
+
+Phase 1
+Averzian is trying to claim 3 adjacent spaces on the ground (tic-tac-toe) throughout the fight.
+
+
+
+Prevent him from doing so or you will wipe.
+
+
+
+This fight has several additional adds that spawn after a space is claimed.
+
+
+
+They just spawn around with a "set" of mechanics. Interrupt their cast and AoE them down.
+
+Everyone
+
+Find which 2 Voidshapers are
+
+most important to stop.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzShaAdv
+SHARE LINK
+
+Shadow's Advance
+Claims Space
+Averzian summons 3 Abyssal Voidshapers who move to 3 random spaces and attempt to claim them by channeling Void Rupture.
+
+
+
+These adds take 99% reduced damage until they are hit by Umbral Collapse. 
+
+
+
+You'll only be able to stop 2 out of the 3. Once a space is claimed, it cannot be taken back.
+
+WHAT TO DO
+Pick 2 Voidshapers to stop
+Everyone
+
+Put the 2 soaks on the
+
+2 Voidshapers you want to kill.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzUmbCol
+SHARE LINK
+
+Umbral Collapse
+Soak
+A player is marked with a large soak circle that everyone should help soak.
+
+
+
+Moving this soak on top of an add will remove their 99% damage reduction, allowing you to kill the add before it finishes claiming a spot.
+
+
+
+The soak only happens 2 times per set of Abyssal Voidshapers. This is why you can only prevent 2 out of 3 spaces from being claimed each time.
+
+WHAT TO DO
+Soak on the Voidshapers
+Everyone
+
+Dodge the beams
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzVoiRup
+SHARE LINK
+
+Void Rupture
+Dodge
+After this cast finishes, the Abyssal Voidshapers will successfully claim a space.
+
+
+
+The area will explode in a 12yd range and several beams will shoot out from the claimed space for a short time.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the circles
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzVoiFall
+SHARE LINK
+
+Void Fall
+Dodge
+Knockback followed by AOE circles on the ground that you need to dodge.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the spears.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzOblWra
+SHARE LINK
+
+Oblivion's Wrath
+Dodge
+Several void beam spears shoot outward from Averzian, dealing damage and knocking players back.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Find the safe space
+
+to pass through
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzShaPha
+SHARE LINK
+
+Shadow Phalanx
+Dodge
+Untargetable troops march from one end of the field to the other, dealing massive damage to players that they walk over.
+
+
+
+Find the safe space with no troops to safely pass through.
+
+WHAT TO DO
+Find the safe spot
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzImpGlo
+SHARE LINK
+
+Imperator's Glory
+Boss Positioning
+Averzian is buffed when within 10yd of claimed spaces, dealing 75% increased damage and taking 99% reduced damage.
+
+WHAT TO DO
+Move boss away
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzDarUph
+SHARE LINK
+
+Dark Upheaval
+Raid Damage
+Burst of raid-wide damage followed by ticking damage.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/normal?ability=averzBlaWou
+SHARE LINK
+
+Blackening Wounds
+Tank DOT
+Averzian's melees apply a 4% stacking health reduction debuff for 20s.
+
+
+
+When adds spawn, they will fixate on the tank who has the most Blackened Wound stacks.
+
+WHAT TO DO
+Swap when adds spawn
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase fight with frequent add spawns.
+
+Averzian is trying to claim 3 adjacent spaces on the ground (tic-tac-toe). Don't let him get 3 in a row.
+
+Abyssal Voidshapers claim the spaces for him. There are 3 each set. Put the 2 soaks on the 2 Abyssal Voidshapers you want to kill to remove their 99% damage reduction.
+
+Kill and interrupt any adds.
+
+Heroic changes
+Averzian is buffed if he is too close to any claimed space.
+
+At 35% health, Voidmaws run toward claimed spaces to heal.
+
+Phase 1
+Averzian is trying to claim 3 adjacent spaces on the ground (tic-tac-toe) throughout the fight.
+
+
+
+Prevent him from doing so or you will wipe.
+
+
+
+This fight has several additional adds that spawn after a space is claimed.
+
+
+
+They just spawn around with a "set" of mechanics. Interrupt their cast and AoE them down.
+
+Everyone
+
+Find which 2 Voidshapers are
+
+most important to stop.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzShaAdv
+SHARE LINK
+
+Shadow's Advance
+Claims Space
+Averzian summons 3 Abyssal Voidshapers who move to 3 random spaces and attempt to claim them by channeling Void Rupture.
+
+
+
+These adds take 99% reduced damage until they are hit by Umbral Collapse. 
+
+
+
+You'll only be able to stop 2 out of the 3. Once a space is claimed, it cannot be taken back.
+
+WHAT TO DO
+Pick 2 Voidshapers to stop
+Everyone
+
+Put the 2 soaks on the
+
+2 Voidshapers you want to kill.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzUmbCol
+SHARE LINK
+
+Umbral Collapse
+Soak
+A player is marked with a large soak circle that everyone should help soak.
+
+
+
+Moving this soak on top of an add will remove their 99% damage reduction, allowing you to kill the add before it finishes claiming a spot.
+
+
+
+The soak only happens 2 times per set of Abyssal Voidshapers. This is why you can only prevent 2 out of 3 spaces from being claimed each time.
+
+WHAT TO DO
+Soak on the Voidshapers
+Everyone
+
+Dodge the beams
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzVoiRup
+SHARE LINK
+
+Void Rupture
+Dodge
+After this cast finishes, the Abyssal Voidshapers will successfully claim a space.
+
+
+
+The area will explode in a 12yd range and several beams will shoot out from the claimed space for a short time.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the circles
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzVoiFall
+SHARE LINK
+
+Void Fall
+Dodge
+Knockback followed by AOE circles on the ground that you need to dodge.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the spears.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzOblWra
+SHARE LINK
+
+Oblivion's Wrath
+Dodge
+Several void beam spears shoot outward from Averzian, dealing damage and knocking players back.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Find the safe space
+
+to pass through
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzShaPha
+SHARE LINK
+
+Shadow Phalanx
+Dodge
+Untargetable troops march from one end of the field to the other, dealing massive damage to players that they walk over.
+
+
+
+Find the safe space with no troops to safely pass through.
+
+WHAT TO DO
+Find the safe spot
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzImpGlo
+SHARE LINK
+
+Imperator's Glory
+Boss Positioning
+Averzian is buffed when within 10yd of claimed spaces, dealing 75% increased damage and taking 99% reduced damage.
+
+
+
+On Heroic difficulty, Averzian is also buffed when he's within 10yd of any adds.
+
+WHAT TO DO
+Move boss away
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzDarUph
+SHARE LINK
+
+Dark Upheaval
+Raid Damage
+Burst of raid-wide damage followed by ticking damage.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/heroic?ability=averzBlaWou
+SHARE LINK
+
+Blackening Wounds
+Tank DOT
+Averzian's melees apply a 4% stacking health reduction debuff for 20s.
+
+
+
+When adds spawn, they will fixate on the tank who has the most Blackened Wound stacks.
+
+WHAT TO DO
+Swap when adds spawn
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase fight with frequent add spawns.
+
+Averzian is trying to claim 3 adjacent spaces on the ground (tic-tac-toe). Don't let him get 3 in a row.
+
+Abyssal Voidshapers claim the spaces for him. There are 3 each set. Put the 2 soaks on the 2 Abyssal Voidshapers you want to kill to remove their 99% damage reduction.
+
+Kill and interrupt any adds.
+
+Heroic changes
+Averzian is buffed if he is too close to any claimed space.
+
+At 35% health, Voidmaws run toward claimed spaces to heal.
+
+Mythic changes
+Abyssal Voidshapers spawn with an immunity to the soaks. Use the new dispellable debuff to remove their immunity.
+
+A new add with a kick spawns.
+
+Phase 1
+Averzian is trying to claim 3 adjacent spaces on the ground (tic-tac-toe) throughout the fight.
+
+
+
+Prevent him from doing so or you will wipe.
+
+
+
+This fight has several additional adds that spawn after a space is claimed.
+
+
+
+They just spawn around with a "set" of mechanics. Interrupt their cast and AoE them down.
+
+Everyone
+
+Find which 2 Voidshapers are
+
+most important to stop.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzShaAdv
+SHARE LINK
+
+Shadow's Advance
+Claims Space
+Averzian summons 3 Abyssal Voidshapers who move to 3 random spaces and attempt to claim them by channeling Void Rupture.
+
+
+
+These adds take 99% reduced damage until they are hit by Umbral Collapse. 
+
+
+
+You'll only be able to stop 2 out of the 3. Once a space is claimed, it cannot be taken back.
+
+WHAT TO DO
+Pick 2 Voidshapers to stop
+Everyone
+
+Players with dispel move
+
+on top of Voidshapers
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzCosShe
+SHARE LINK
+
+Cosmic Shell
+Mythic mechanic
+Abyssal Voidshapers are given 2 buff stacks each, which make them immune to Umbral Collapse.
+
+
+
+Several players will be given a dispellable debuff. If a player is near a Voidwalker when they are dispelled, it will remove a stack of their immunity buff.
+
+
+
+Pick the 2 Voidshapers you'll want to stop and make sure to place 2 debuffed players at each one.
+
+WHAT TO DO
+Dispel to remove immunity
+Everyone
+
+Put the 2 soaks on the
+
+2 Voidshapers you want to kill.
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzUmbCol
+SHARE LINK
+
+Umbral Collapse
+Soak
+A player is marked with a large soak circle that everyone should help soak. 
+
+
+
+Moving this soak on top of an add will remove their 99% damage reduction, allowing you to kill the add before it finishes claiming a spot.
+
+
+
+The soak only happens 2 times per set of Abyssal Voidshapers. This is why you can only prevent 2 out of 3 spaces from being claimed each time.
+
+
+
+On Mythic difficulty, Void Marked players get a 10s DOT after they are dispelled.
+
+WHAT TO DO
+Soak on the Voidshapers
+Everyone
+
+Dodge the beams
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzVoiRup
+SHARE LINK
+
+Void Rupture
+Dodge
+After this cast finishes, the Abyssal Voidshapers will successfully claim a space.
+
+
+
+The area will explode in a 12yd range and several beams will shoot out from the claimed space for a short time.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the circles
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzVoiFall
+SHARE LINK
+
+Void Fall
+Dodge
+Knockback followed by AOE circles on the ground that you need to dodge.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the spears.
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzOblWra
+SHARE LINK
+
+Oblivion's Wrath
+Dodge
+Several void beam spears shoot outward from Averzian, dealing damage and knocking players back.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Find the safe space
+
+to pass through
+
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzShaPha
+SHARE LINK
+
+Shadow Phalanx
+Dodge
+Untargetable troops march from one end of the field to the other, dealing massive damage to players that they walk over.
+
+
+
+Find the safe space with no troops to safely pass through.
+
+WHAT TO DO
+Find the safe spot
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzImpGlo
+SHARE LINK
+
+Imperator's Glory
+Boss Positioning
+Averzian is buffed when within 10yd of claimed spaces, dealing 75% increased damage and taking 99% reduced damage.
+
+
+
+On Heroic difficulty, Averzian is also buffed when he's within 10yd of any adds.
+
+WHAT TO DO
+Move boss away
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzDarUph
+SHARE LINK
+
+Dark Upheaval
+Raid Damage
+Burst of raid-wide damage followed by ticking damage.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/imperator-averzian/mythic?ability=averzBlaWou
+SHARE LINK
+
+Blackening Wounds
+Tank DOT
+Averzian's melees apply a 4% stacking health reduction debuff for 20s.
+
+
+
+When adds spawn, they will fixate on the tank who has the most Blackened Wound stacks.
+
+WHAT TO DO
+Swap when adds spawn
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase and fast-paced fight.
+
+Crystal Walls will trap you in the middle of the room.
+
+Adds fixate on players. They explode when they die. Use the explosion to break the Crystal Walls.
+
+Break the walls to create space to move or the beam will kill you.
+
+Phase 1
+Vorasius will trap you with Crystal Walls.
+
+
+
+Dodge the AoEs and kite the fixating adds.
+
+
+
+Use them to break the walls in order to be able to dodge the beam.
+
+Everyone
+
+Don't get pulled off the platform.
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/normal?ability=vorasPriRoa
+SHARE LINK
+
+Primordial Roar
+Pull and knockback
+The boss channels, pulling players toward it, and deals some raid-wide damage.
+
+
+
+At the end of the channel, Vorasius deals more raid-wide damage and knocks players back.
+
+WHAT TO DO
+Stay on the platform
+Everyone
+
+Tanks soak and swap after two smashes
+
+Dodge the expanding ring!
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/normal?ability=vorasShaSla
+SHARE LINK
+
+Shadowclaw Slam
+Tank soak
+A circle is marked on the floor. The tank needs to move inside to soak this or the raid will wipe. Soaking the first two circles applies a stackable 150% physical vulnerability debuff.
+
+
+
+The first two Slams spawn Void Crystal walls across the left and right sides of the room. Don't get stuck on the wrong side!
+
+
+
+You'll destroy these Void Crystal Walls with add explosions.
+
+
+
+After a few seconds, the circle explodes, creating Aftershocks.
+
+
+
+A ring is marked around the circle soak and will explode, dealing damage to anyone inside. The ring continues to expand outwards and explodes multiple times.
+
+WHAT TO DO
+Soak and dodge
+Everyone
+
+Dodge the circles, kite the adds
+
+Kill the adds near the walls
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/normal?ability=vorasBlist
+SHARE LINK
+
+Blisterburst
+Add management
+Spawns Blistercreep adds that fixate random players, deals damage, and slows a random player. This can be dispelled.
+
+
+
+Also creates small AoE circles that deal damage to anyone hit.
+
+
+
+When killed, adds deal raid-wide shadow damage. They explode for additional damage in an 8yd AoE.
+
+
+
+Fixated players should kite their adds close to the Crystal Walls to destroy them with the explosions.
+
+WHAT TO DO
+Kite adds and destroy walls
+Everyone
+
+Watch where the beam begins
+
+and move to the other side.
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/normal?ability=vorasVoiBre
+SHARE LINK
+
+Void Breath
+Beam
+Vorasius sweeps a deadly beam slowly across the room and deals raid-wide, pulsing damage for 15s.
+
+
+
+It randomly starts on the left or ride side, so watch out!
+
+
+
+If the Crystal Walls aren't destroyed, you won't be able to avoid this mechanic.
+
+WHAT TO DO
+Avoid the beam
+https://www.mythictrap.com/vs-dr-mqd/vorasius/normal?ability=vorasOvePul
+SHARE LINK
+
+Overpowering Pulse
+Raid wipe
+The boss deals lethal damage if no one is in melee range.
+
+WHAT TO DO
+Tank always stay in range!
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase and fast-paced fight.
+
+Crystal Walls will trap you in the middle of the room.
+
+Adds fixate on players. They explode when they die. Use the explosion to break the Crystal Walls.
+
+Break the walls to create space to move or the beam will kill you.
+
+Heroic changes
+Each Crystal Wall needs two add explosions to destroy them.
+
+Phase 1
+Vorasius will trap you with Crystal Walls.
+
+
+
+Dodge the AoEs and kite the fixating adds.
+
+
+
+Use them to break the walls in order to be able to dodge the beam.
+
+Everyone
+
+Don't get pulled off the platform.
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/heroic?ability=vorasPriRoa
+SHARE LINK
+
+Primordial Roar
+Pull and knockback
+The boss channels, pulling players toward it, and deals some raid-wide damage.
+
+
+
+At the end of the channel, Vorasius deals more raid-wide damage and knocks players back.
+
+WHAT TO DO
+Stay on the platform
+Everyone
+
+Tanks soak and swap after two smashes
+
+Dodge the expanding ring!
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vorasius/heroic?ability=vorasShaSla
+SHARE LINK
+
+Shadowclaw Slam
+Tank soak
+A circle is marked on the floor. The tank needs to move inside to soak this or the raid will wipe. Soaking the first two circles applies a stackable 150% physical vulnerability debuff.
+
+
+
+The first two Slams spawn Void Crystal walls across the left and right sides of the room. Don't get stuck on the wrong side!
+
+
+
+You'll destroy these Void Crystal Walls with add explosions. On Heroic difficulty, it takes 2 add explosions.
+
+
+
+After a few seconds, the circle explodes, creating Aftershocks.
+
+
+
+A ring is marked around the circle soak and will explode, dealing damage to anyone inside. The ring continues to expand outwards and explodes multiple times.
+
+WHAT TO DO
+Soak and dodge
+Everyone
+
+Dodge the circles, kite the adds
+
+Kill the adds near the walls
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vorasius/heroic?ability=vorasBlist
+SHARE LINK
+
+Blisterburst
+Add management
+Spawns Blistercreep adds that fixate random players, deals damage, and slows a random player. This can be dispelled.
+
+
+
+Also creates small AoE circles that deal damage to anyone hit.
+
+
+
+When killed, adds deal raid-wide shadow damage. They explode for additional damage in an 8yd AoE.
+
+
+
+Fixated players should kite their adds close to the Crystal Walls to destroy them with the explosions.
+
+
+
+On Heroic, Crystal Walls take 2 add explosions to destroy.
+
+WHAT TO DO
+Kite adds and destroy walls
+Everyone
+
+Watch where the beam begins
+
+and move to the other side.
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/heroic?ability=vorasVoiBre
+SHARE LINK
+
+Void Breath
+Beam
+Vorasius sweeps a deadly beam slowly across the room and deals raid-wide, pulsing damage for 15s.
+
+
+
+It randomly starts on the left or ride side, so watch out!
+
+
+
+If the Crystal Walls aren't destroyed, you won't be able to avoid this mechanic.
+
+WHAT TO DO
+Avoid the beam
+https://www.mythictrap.com/vs-dr-mqd/vorasius/heroic?ability=vorasOvePul
+SHARE LINK
+
+Overpowering Pulse
+Raid wipe
+The boss deals lethal damage if no one is in melee range.
+
+WHAT TO DO
+Tank always stay in range!
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase and fast-paced fight.
+
+Crystal Walls will trap you in the middle of the room.
+
+Adds fixate on players. They explode when they die. Use the explosion to break the Crystal Walls.
+
+Break the walls to create space to move or the beam will kill you.
+
+Heroic changes
+Each Crystal Wall needs two add explosions to destroy them.
+
+Mythic Changes
+Each Crystal Wall needs three add explosions to destroy them.
+
+Puddles drop under exploded adds.
+
+Phase 1
+Vorasius will trap you with Crystal Walls.
+
+
+
+Dodge the AoEs and kite the fixating adds.
+
+
+
+Use them to break the walls in order to be able to dodge the beam.
+
+Everyone
+
+Don't get pulled off the platform.
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/mythic?ability=vorasPriRoa
+SHARE LINK
+
+Primordial Roar
+Pull and knockback
+The boss channels, pulling players toward it, and deals some raid-wide damage.
+
+
+
+At the end of the channel, Vorasius deals more raid-wide damage and knocks players back.
+
+WHAT TO DO
+Stay on the platform
+Everyone
+
+Tanks soak and swap after two smashes
+
+Dodge the expanding ring!
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vorasius/mythic?ability=vorasShaSla
+SHARE LINK
+
+Shadowclaw Slam
+Tank soak
+A circle is marked on the floor. The tank needs to move inside to soak this or the raid will wipe. Soaking the first two circles applies a stackable 150% physical vulnerability debuff.
+
+
+
+The first two Slams spawn Void Crystal walls across the left and right sides of the room. Don't get stuck on the wrong side!
+
+
+
+You'll destroy these Void Crystal Walls with add explosions. On Mythic difficulty, it takes 3 add explosions.
+
+
+
+After a few seconds the circle explodes, creating Aftershocks.
+
+
+
+A ring is marked around the circle soak and will explode, dealing damage to anyone inside. The ring continues to expand outwards and explodes multiple times.
+
+WHAT TO DO
+Soak and dodge
+Everyone
+
+Dodge the circles, kite the adds
+
+Kill the adds near the walls
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vorasius/mythic?ability=vorasBlist
+SHARE LINK
+
+Blisterburst
+Add management
+Spawns Blistercreep adds which fixate random players, deals damage, and slows a random player. This can be dispelled.
+
+
+
+Also creates small AoE circles that deal damage to anyone hit.
+
+
+
+When killed, adds deal raid-wide shadow damage. They explode for additional damage in an 8yd AoE.
+
+
+
+Fixated players should kite their adds close to the Crystal Walls to destroy them with the explosions.
+
+
+
+On Mythic, Crystal Walls take 3 add explosions to destroy and the add leave behind a puddle when killed.
+
+WHAT TO DO
+Kite adds and destroy walls
+Everyone
+
+Watch where the beam begins
+
+and move to the other side.
+
+https://www.mythictrap.com/vs-dr-mqd/vorasius/mythic?ability=vorasVoiBre
+SHARE LINK
+
+Void Breath
+Beam
+Vorasius sweeps a deadly beam slowly across the room and deals raid-wide, pulsing damage for 15s.
+
+
+
+It randomly starts on the left or ride side, so watch out!
+
+
+
+If the Crystal Walls aren't destroyed, you won't be able to avoid this mechanic.
+
+WHAT TO DO
+Avoid the beam
+https://www.mythictrap.com/vs-dr-mqd/vorasius/mythic?ability=vorasOvePul
+SHARE LINK
+
+Overpowering Pulse
+Raid wipe
+The boss deals lethal damage if no one is in melee range.
+
+WHAT TO DO
+Tank always stay in range!
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase encounter with an intermission.
+
+Two boss encounter. Both dragons can be attacked during the phase. Neither can be attacked during the intermission.
+
+Break tethers when you are tethered.
+
+Soak the Gloom orb as it travels across the room to reduce its area of denial and damage.
+
+Lock down the Voidorbs with crowd control.
+
+Stay safe inside the barrier during the intermission.
+
+Phase 1
+Tank the dragons apart and keep their health between 10% of each others to avoid the damaging buff.
+
+
+
+Tank should use the beam aimed at them (not at a random marked player) to reduce the tether effect.
+
+
+
+Interrupt and CC the adds, soak the Gloom orb.
+
+Everyone
+
+Run away to break your tether
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzNullz
+SHARE LINK
+
+Nullzone
+Run away
+Tethers all players to Vaelgor and pulls them toward him (the pull is strong!). Tethered players take increasing damage over time.
+
+
+
+Each time a player breaks their tether, the raid takes some damage.
+
+WHAT TO DO
+Break your tether
+Everyone
+
+Dip into the beam to reduce Nullzone pull.
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzNullb
+SHARE LINK
+
+Nullbeam
+Targeted beam
+Large cone-shaped beam toward the tank that lasts 4s. Standing in beam deals damage and applies stacks of a debuff. Each stack weakens strength of the Nullzone pull.
+
+
+
+If your class is slow, you can dip quickly into this beam to get out of Nullzone tethers more easily.
+
+WHAT TO DO
+Dip quickly into beam
+Everyone
+
+Avoid being hit and dispel feared players.
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzDreBre
+SHARE LINK
+
+Dread Breath
+Fear
+Cone-shaped blast toward a random marked player. The cone deals damage and fears any player hit.
+
+
+
+Feared players will run away uncontrollably. The fear can be dispelled.
+
+WHAT TO DO
+Avoid being hit
+Everyone
+
+Touch the orb to soak it as it passes.
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzGloo
+SHARE LINK
+
+Gloom
+Soak
+Ezzorak creates a Gloom orb and shoots it toward the tank. The orb shrinks each time a player soaks it, up to 3 times.
+
+
+
+When the orb reaches the edge of the room, it will explode, deal raid-wide damage, and leave a massive puddle. Puddle size and explosion damage are reduced with each soak.
+
+
+
+If a gloom reaches the edge of an existing puddle, it will also explode, so make sure to aim correctly!
+
+
+
+Players who soak Gloom orb take damage and a heavy, stackable DoT for 12s.
+
+WHAT TO DO
+Soak the orb
+Everyone
+
+Spread out and CC the Voidorbs
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzVoiHow
+SHARE LINK
+
+Void Howl
+Cleave and Adds
+Every player is marked with a small AoE circle. After a few seconds, the circles pop for damage and spawn Voidorbs. 
+
+
+
+Voidorbs will cast voidbolt on targets, dealing some damage. You can crowd control and interrupt them. Try to knock and grip them together and kill them ASAP.
+
+WHAT TO DO
+Spread and CC
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzTwiBon
+SHARE LINK
+
+Twilight Bond
+Tank apart
+The dragons get a 100% damage buff if their health differs by over 10%, or if they are tanked less than 15yd apart.
+
+
+
+If one dragon dies before the other, the living dragon will get a stacking 30% damage buff.
+
+WHAT TO DO
+Tank apart and kill at the same time
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzRakf
+SHARE LINK
+
+Rakfang
+Tankbuster
+Massive physical damage and some shadow damage on the tank. Ezzorak's melees are empowered and apply a healing absorb to the target until Rakfang hits a new target.
+
+WHAT TO DO
+Tankswap
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzMidMan
+SHARE LINK
+
+Midnight Manifestation
+Random damage
+Several random players are randomly debuffed with a DoT. This stacks and occurs constantly throughout the phase.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzVael
+SHARE LINK
+
+Vaelwing
+Tankbuster
+Physical and shadow damage and a knockback on the tank. Increases Vaelgor's melee damage, stacking until Vaelwing hits a new target.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzTaiLas
+SHARE LINK
+
+Tail Lash / Impale
+Tail swipe
+Players caught behind Vaelgor or Ezzorak are hit by their tail, getting knocked away and taking a short bleed DoT.
+
+WHAT TO DO
+Stay away from tails
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzMidFla
+SHARE LINK
+
+Midnight Flames
+Intermission
+At 100 energy, the dragons fly away out of range and deal raid-wide damage for 25s.
+
+
+
+This starts the intermission.
+
+WHAT TO DO
+Heal through
+Intermission
+Stay close to the center of the barrier
+
+
+
+Move to the edge if debuffed
+
+
+
+Kill the add quickly before the dragon comes down again
+
+Everyone
+
+Stand in the barrier
+
+Kill the add
+
+Move out if debuffed
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzRadBar
+SHARE LINK
+
+Radiant Barrier
+Intermission
+A large barrier spawns. Stand inside to take reduced damage from Midnight Flames during this phase. 
+
+
+
+When the barrier forms, a Manifestation of Midnight will spawn, and Midnight Manifestation DoTs will be removed from players.
+
+
+
+Several players are marked with a circle. They pulse damage around them and explode after 4s.
+
+WHAT TO DO
+Focus add & move out if debuffed
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/normal?ability=vaeezzUnbSha
+SHARE LINK
+
+Unbound Shadow
+Add
+Every 30s, the add gets buffed, gaining 75% attack speed and 50% resistance to slows.
+
+WHAT TO DO
+Focus add
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase encounter with an intermission.
+
+Two boss encounter. Both dragons can be attacked during the phase. Neither can be attacked during the intermission.
+
+Break tethers when you are tethered.
+
+Soak the Gloom orb as it travels across the room to reduce its area of denial and damage.
+
+Lock down the Voidorbs with crowd control.
+
+Stay safe inside the barrier during the intermission.
+
+Heroic changes
+After all tethers are broken, the raid will take damage.
+
+Players get a vulnerability after soaking the Gloom orb.
+
+Phase 1
+Tank the dragons apart and keep their health between 10% of each others to avoid the damaging buff.
+
+
+
+Tank should use the beam aimed at them (not at a random marked player) to reduce the tether effect.
+
+
+
+Interrupt and CC the adds, soak the Gloom orb.
+
+Everyone
+
+Don't overlap this with other mechanics.
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzNullz
+SHARE LINK
+
+Nullzone
+Run away
+Tethers all players to Vaelgor and pulls them toward him (the pull is strong!). Tethered players take increasing damage over time.
+
+
+
+Each time a player breaks their tether, the raid takes some damage.
+
+
+
+On Heroic, when all tethers have been broken, the Nullzone explodes and deals raid-wide damage and a short DoT.
+
+
+
+Try not to overlap this damage with other dangerous mechanics.
+
+WHAT TO DO
+Break your tether
+Everyone
+
+Dip into the beam to reduce Nullzone pull.
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzNullb
+SHARE LINK
+
+Nullbeam
+Targeted beam
+Large cone-shaped beam toward the tank that lasts 4s. Standing in beam deals damage and applies stacks of a debuff. Each stack weakens strength of the Nullzone pull.
+
+
+
+If your class is slow, you can dip quickly into this beam to get out of Nullzone tethers more easily.
+
+WHAT TO DO
+Dip quickly into beam
+Everyone
+
+Avoid being hit and dispel feared players.
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzDreBre
+SHARE LINK
+
+Dread Breath
+Fear
+Cone-shaped blast toward a random marked player. The cone deals damage and fears any player hit.
+
+
+
+Feared players will run away uncontrollably. The fear can be dispelled.
+
+WHAT TO DO
+Avoid being hit
+Everyone
+
+Touch the orb to soak it as it passes.
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzGloo
+SHARE LINK
+
+Gloom
+Soak
+Ezzorak creates a Gloom orb and shoots it toward the tank. The orb shrinks each time a player soaks it, up to 4 times.
+
+
+
+When the orb reaches the edge of the room, it will explode, deal raid-wide damage, and leave a massive puddle. Puddle size and explosion damage are reduced with each soak.
+
+
+
+Players who soak Gloom orb take damage and a heavy DoT for 12s. This DoT can stack.
+
+
+
+On Heroic difficulty, after their Gloom orb DoT expires, soakers are debuffed for 1 min, taking 500% increased damage from soaking.
+
+WHAT TO DO
+Soak the orb
+Everyone
+
+Spread out and CC the Voidorbs
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzVoiHow
+SHARE LINK
+
+Void Howl
+Cleave and Adds
+Every player is marked with a small AoE circle. After a few seconds, the circles pop for damage and spawn Voidorbs. 
+
+
+
+Voidorbs will cast voidbolt on targets, dealing some damage. You can crowd control and interrupt them. Try to knock and grip them together and kill them ASAP.
+
+WHAT TO DO
+Spread and CC
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzTwiBon
+SHARE LINK
+
+Twilight Bond
+Tank apart
+The dragons get a 100% damage buff if their health differs by over 10%, or if they are tanked less than 15yd apart.
+
+
+
+If one dragon dies before the other, the living dragon will get a stacking 30% damage buff.
+
+WHAT TO DO
+Tank apart and kill at the same time
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzRakf
+SHARE LINK
+
+Rakfang
+Tankbuster
+Massive physical damage and some shadow damage on the tank. Ezzorak's melees are empowered and apply a healing absorb to the target until Rakfang hits a new target.
+
+WHAT TO DO
+Tankswap
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzMidMan
+SHARE LINK
+
+Midnight Manifestation
+Random damage
+Several random players are randomly debuffed with a DoT. This stacks and occurs constantly throughout the phase.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzVael
+SHARE LINK
+
+Vaelwing
+Tankbuster
+Physical and shadow damage and a knockback on the tank. Increases Vaelgor's melee damage, stacking until Vaelwing hits a new target.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzTaiLas
+SHARE LINK
+
+Tail Lash / Impale
+Tail swipe
+Players caught behind Vaelgor or Ezzorak are hit by their tail, getting knocked away and taking a short bleed DoT.
+
+WHAT TO DO
+Stay away from tails
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzMidFla
+SHARE LINK
+
+Midnight Flames
+Intermission
+At 100 energy, the dragons fly away out of range and deal raid-wide damage for 25s.
+
+
+
+This starts the intermission.
+
+WHAT TO DO
+Heal through
+Intermission
+Stay close to the center of the barrier
+
+
+
+Move to the edge if debuffed
+
+
+
+Kill the add quickly before the dragon comes down again
+
+Everyone
+
+Stand in the barrier
+
+Kill the add
+
+Move out if debuffed
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzRadBar
+SHARE LINK
+
+Radiant Barrier
+Intermission
+A large barrier spawns. Stand inside to take reduced damage from Midnight Flames during this phase. 
+
+
+
+When the barrier forms, a Manifestation of Midnight will spawn, and Midnight Manifestation DoTs will be removed from players.
+
+
+
+Several players are marked with a circle. They pulse damage around them and explode after 4s.
+
+WHAT TO DO
+Focus add & move out if debuffed
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/heroic?ability=vaeezzUnbSha
+SHARE LINK
+
+Unbound Shadow
+Add
+Every 30s, the add gets buffed, gaining 75% attack speed and 50% resistance to slows.
+
+WHAT TO DO
+Focus add
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase encounter with an intermission.
+
+Two boss encounter. Both dragons can be attacked during the phase. Neither can be attacked during the intermission.
+
+Break tethers when you are tethered.
+
+Soak the Gloom orb as it travels across the room to reduce its area of denial and damage.
+
+Lock down the Voidorbs with crowd control.
+
+Stay safe inside the barrier during the intermission.
+
+Heroic changes
+After all tethers are broken, the raid will take damage.
+
+Players get a vulnerability after soaking the Gloom orb.
+
+Mythic changes
+You'll need to avoid circles on the ground during tether breaks.
+
+Soaking a Gloom orb will cleave damage in a small radius.
+
+Phase 1
+Tank the dragons apart and keep their health between 10% of each others to avoid the damaging buff.
+
+
+
+Tank should use the beam aimed at them (not at a random marked player) to reduce the tether effect.
+
+
+
+Interrupt and CC the adds, soak the Gloom orb.
+
+Everyone
+
+Run out quickly to dodge more easily.
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzNullz
+SHARE LINK
+
+Nullzone
+Run away
+Tethers all players to Vaelgor and pulls them toward him (the pull is strong!). Tethered players take increasing damage over time. 
+
+
+
+Each time a player breaks their tether, the raid takes some damage. 
+
+
+
+When all tethers have been broken, the Nullzone explodes and deals raid-wide damage and a short DoT.
+
+
+
+Try not to overlap this damage with other dangerous mechanics.
+
+
+
+On Mythic, it creates lots of circles on the ground after the first player breaks their tether.
+
+WHAT TO DO
+Break your tether
+Everyone
+
+Dip into the beam to reduce Nullzone pull.
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzNullb
+SHARE LINK
+
+Nullbeam
+Targeted beam
+Large cone-shaped beam toward the tank that lasts 4s. Standing in beam deals damage and applies stacks of a debuff. Each stack weakens strength of the Nullzone pull.
+
+
+
+If your class is slow, you can dip quickly into this beam to get out of Nullzone tethers more easily.
+
+WHAT TO DO
+Dip quickly into beam
+Everyone
+
+Avoid being hit and dispel feared players.
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzDreBre
+SHARE LINK
+
+Dread Breath
+Fear
+Cone-shaped blast toward random marked player. The cone deals damage and fears any player hit. Feared players will run away uncontrollably.
+
+The fear can be dispelled.
+
+On Mythic difficulty, feared players run away 50% faster. Dispel them quickly so they don't run out of range.
+
+WHAT TO DO
+Avoid being hit
+Everyone
+
+Touch the orb to soak it as it passes.
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzGloo
+SHARE LINK
+
+Gloom
+Soak
+Ezzorak creates a Gloom orb and shoots it toward the tank. The orb shrinks each time a player soaks it, up to 7 times.
+
+
+
+When the orb reaches the edge of the room, it will explode, deal raid-wide damage, and leave a massive puddle. Puddle size and explosion damage are reduced with each soak.
+
+
+
+Players who soak Gloom orb take damage and a heavy DoT for 12s. This DoT can stack.
+
+
+
+On Heroic difficulty, after their Gloom orb DoT expires, soakers are debuffed for 1 minute, taking 500% increased damage from soaking.
+
+
+
+On Mythic difficulty, players who touch the Gloom orb create an AoE cleave around them.
+
+
+
+This cleave applies Gloomtouched to anyone hit, which will then apply Diminish to those players for 78 seconds and 1000% increased damaged from soaking. TBD on what the best strategy will be.
+
+WHAT TO DO
+Soak the orb
+Everyone
+
+Spread out and CC the Voidorbs
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzVoiHow
+SHARE LINK
+
+Void Howl
+Cleave and Adds
+Every player is marked with a small AoE circle. After a few seconds, the circles pop for damage and spawn Voidorbs. 
+
+
+
+Voidorbs will cast voidbolt on targets, dealing some damage. You can crowd control and interrupt them. Try to knock and grip them together and kill them ASAP.
+
+WHAT TO DO
+Spread and CC
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzTwiBon
+SHARE LINK
+
+Twilight Bond
+Tank apart
+The dragons get a 100% damage buff if their health differs by over 10%, or if they are tanked less than 15yd apart.
+
+
+
+If one dragon dies before the other, the living dragon will get a stacking 30% damage buff.
+
+WHAT TO DO
+Tank apart and kill at the same time
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzRakf
+SHARE LINK
+
+Rakfang
+Tankbuster
+Massive physical damage and some shadow damage on the tank. Ezzorak's melees are empowered and apply a healing absorb to the target until Rakfang hits a new target.
+
+WHAT TO DO
+Tankswap
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzMidMan
+SHARE LINK
+
+Midnight Manifestation
+Random damage
+Several random players are randomly debuffed with a DoT. This stacks and occurs constantly throughout the phase.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzVael
+SHARE LINK
+
+Vaelwing
+Tankbuster
+Physical and shadow damage and a knockback on the tank. Increases Vaelgor's melee damage, stacking until Vaelwing hits a new target.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzTaiLas
+SHARE LINK
+
+Tail Lash / Impale
+Tail swipe
+Players caught behind Vaelgor or Ezzorak are hit by their tail, getting knocked away and taking a short bleed DoT.
+
+WHAT TO DO
+Stay away from tails
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzMidFla
+SHARE LINK
+
+Midnight Flames
+Intermission
+At 100 energy, the dragons fly away out of range and deal raid-wide damage for 25s.
+
+
+
+This starts the intermission.
+
+WHAT TO DO
+Heal through
+Intermission
+Stay close to the center of the barrier
+
+
+
+Move to the edge if debuffed
+
+
+
+Kill the add quickly before the dragon comes down again
+
+Everyone
+
+Stand in the barrier
+
+Kill the add
+
+Move out if debuffed
+
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzRadBar
+SHARE LINK
+
+Radiant Barrier
+Intermission
+A large barrier spawns. Stand inside to take reduced damage from Midnight Flames during this phase. 
+
+
+
+When the barrier forms, a Manifestation of Midnight will spawn, and Midnight Manifestation DoTs will be removed from players.
+
+
+
+Several players are marked with a circle. They pulse damage around them and explode after 4s.
+
+WHAT TO DO
+Focus add & move out if debuffed
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzCosmo
+SHARE LINK
+
+Cosmosis
+Cloned mechanics
+Clones of the dragons spawn throughout the phase. These clones replicate the boss mechanics.
+
+WHAT TO DO
+Pay attention
+https://www.mythictrap.com/vs-dr-mqd/vaelgor-and-ezzorak/mythic?ability=vaeezzUnbSha
+SHARE LINK
+
+Unbound Shadow
+Add
+Every 30s, the add gets buffed, gaining 75% attack speed and 50% resistance to slows.
+
+WHAT TO DO
+Focus add
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase encounter with a damage amp at 100 energy.
+
+Kill orbs ASAP and don't let them touch the boss.
+
+Clones will spawn and cast Shadow Fracture. The clones need to be interrupted or crowd controlled.
+
+Puddle drops are permanent and will slowly fill the room. Be careful where you drop them!
+
+Phase 1
+Don't let the orbs reach the boss.
+
+
+
+Interrupt the adds.
+
+
+
+Drop your debuff near the edges.
+
+Everyone
+
+Don't let orbs touch the boss.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/normal?ability=fakisaVoiCon
+SHARE LINK
+
+Void Convergence
+Orbs mechanic
+Several Concentrated Void orbs spawn and slowly move toward the boss. If an orb reaches him it will wipe the raid.
+
+
+
+Tanks should kite the boss away from orbs while DPS kill them.
+
+
+
+Void orbs deal pulsing damage to anyone standing too close. The range is very small. You can still melee them, just be careful.
+
+WHAT TO DO
+Kite boss away
+Everyone
+
+Stop the casts with CC or interrupts.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/normal?ability=fakisaFraPro
+SHARE LINK
+
+Fractured Projection
+Interrupt and CC
+Salhadaar creates several clones which attempt to cast Shadow Fracture, dealing massive raid damage if the cast is successful.
+
+
+
+Clones can be interrupted or crowd controlled. They disappear after being stopped.
+
+WHAT TO DO
+Interrupt the casts
+Everyone
+
+Place puddles near edges
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/normal?ability=fakisaDesCom
+SHARE LINK
+
+Despotic Command
+Puddle
+Several players pulse damage in a circle around them for 12s. When the debuff ends, they drop a puddle and are left with a healing absorb.
+
+
+
+These puddles are permanent and deal damage to players who stand in them.
+
+
+
+Drop them on the edges to save some space.
+
+WHAT TO DO
+Drop puddles on the edges
+Everyone
+
+Do as much damage as possible
+
+while dodging the beams.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/normal?ability=fakisaEntUnr
+SHARE LINK
+
+Entropic Unraveling
+Damage amp
+At 100 energy, the boss will stand in place and deal raid-wide pulsing damage for 20s. Several beams rotate around him, dealing massive damage to anyone hit.
+
+
+
+During this time, Salhadaar takes 25% increases damage. A permanent puddle is left behind when this ends so tank him near the edge before he casts this ability.
+
+WHAT TO DO
+Dodge and do damage
+Everyone
+
+Stay away from marked players
+
+and dodge the spikes.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/normal?ability=fakisaShaTwi
+SHARE LINK
+
+Shattering Twilight
+Dodge
+The current tank is marked. They take a hit of damage and several lines of spikes will travel outward from their location, dealing damage to any players hit.
+
+WHAT TO DO
+Dodge the spikes
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/normal?ability=fakisaTwiObs
+SHARE LINK
+
+Twisting Obscurity
+Raid damage
+Raid-wide damage followed by a long 23s DoT.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/normal?ability=fakisaDesStr
+SHARE LINK
+
+Destabilizing Strikes
+Tank debuff
+Melees from the boss apply a stacking DoT.
+
+WHAT TO DO
+Tank swap at high stacks
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase encounter with a damage amp at 100 energy.
+
+Kill orbs ASAP and don't let them touch the boss.
+
+Clones will spawn and cast Shadow Fracture. The clones need to be interrupted or crowd controlled.
+
+Puddle drops are permanent and will slowly fill the room. Be careful where you drop them!
+
+Heroic changes
+Killing an orb applies a raid-wide DoT. Stagger orb kills so this DoT doesn't stack.
+
+Several players will now be marked for Shattering Twilight, which sends lines of spikes from the player locations.
+
+Phase 1
+Don't let the orbs reach the boss.
+
+
+
+Interrupt the adds.
+
+
+
+Drop your debuff near the edges.
+
+Everyone
+
+Don't let orbs touch the boss.
+
+Kill orbs one at a time.
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/heroic?ability=fakisaVoiCon
+SHARE LINK
+
+Void Convergence
+Orbs mechanic
+Several Concentrated Void orbs spawn and slowly move toward the boss. If an orb reaches him it will wipe the raid.
+
+
+
+Tanks should kite the boss away from orbs while DPS kill them.
+
+
+
+Void orbs deal pulsing damage to anyone standing too close. The range is very small. You can still melee them, just be careful.
+
+
+
+On Heroic, killing an orb applies an 8s DoT to the raid. This debuff stacks.
+
+
+
+Kill orbs quickly, but not too fast; kill one at a time to avoid stacking the debuff.
+
+WHAT TO DO
+Kite boss away
+Everyone
+
+Stop the casts with CC or interrupts.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/heroic?ability=fakisaFraPro
+SHARE LINK
+
+Fractured Projection
+Interrupt and CC
+Salhadaar creates several clones which attempt to cast Shadow Fracture, dealing massive raid damage if the cast is successful.
+
+
+
+Clones can be interrupted or crowd controlled. They disappear after being stopped.
+
+WHAT TO DO
+Interrupt the casts
+Everyone
+
+Place puddles near edges
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/heroic?ability=fakisaDesCom
+SHARE LINK
+
+Despotic Command
+Puddle
+Several players pulse damage in a circle around them for 12s. When the debuff ends, they drop a puddle and are left with a healing absorb.
+
+
+
+These puddles are permanent and deal damage to players who stand in them.
+
+
+
+Drop them on the edges to save some space.
+
+WHAT TO DO
+Drop puddles on the edges
+Everyone
+
+Do as much damage as possible
+
+while dodging the beams.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/heroic?ability=fakisaEntUnr
+SHARE LINK
+
+Entropic Unraveling
+Damage amp
+At 100 energy, the boss will stand in place and deal raid-wide pulsing damage for 20s. Several beams rotate around him, dealing massive damage to anyone hit.
+
+
+
+During this time, Salhadaar takes 25% increases damage. A permanent puddle is left behind when this ends so tank him near the edge before he casts this ability.
+
+WHAT TO DO
+Dodge and do damage
+Everyone
+
+Stay away from marked players
+
+and dodge the spikes.
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/heroic?ability=fakisaShaTwi
+SHARE LINK
+
+Shattering Twilight
+Dodge
+The current tank is marked. They take a hit of damage and several lines of spikes will travel outward from their location.
+
+
+
+On Heroic, several additional players will be marked.
+
+WHAT TO DO
+Dodge the spikes
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/heroic?ability=fakisaTwiObs
+SHARE LINK
+
+Twisting Obscurity
+Raid damage
+Raid-wide damage followed by a long 23s DoT.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/heroic?ability=fakisaDesStr
+SHARE LINK
+
+Destabilizing Strikes
+Tank debuff
+Melees from the boss apply a stacking DoT.
+
+WHAT TO DO
+Tank swap at high stacks
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Single phase encounter with a damage amp at 100 energy.
+
+Kill orbs ASAP and don't let them touch the boss.
+
+Clones will spawn and cast Shadow Fracture. The clones need to be interrupted or crowd controlled.
+
+Puddle drops are permanent and will slowly fill the room. Be careful where you drop them!
+
+Heroic changes
+Killing an orb applies a raid-wide DoT. Stagger orb kills so this DoT doesn't stack.
+
+Several players will now be marked for Shattering Twilight, which sends lines of spikes from the player locations.
+
+Mythic changes
+Clones will spawn with Nexus Shield, protecting them from interrupts and crowd control. Only one can be stopped at a time. When you stop one with no shield, another will lose their shield and will then be stoppable.
+
+Dead orbs respawn in each wave. Lots more orbs to handle!
+
+Phase 1
+Don't let the orbs reach the boss.
+
+
+
+Interrupt the adds.
+
+
+
+Drop your debuff near the edges.
+
+Everyone
+
+Don't let orbs touch the boss.
+
+Kill orbs one at a time.
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaVoiCon
+SHARE LINK
+
+Void Convergence
+Orbs mechanic
+Several Concentrated Void orbs spawn and slowly move toward the boss. If an orb reaches him it will wipe the raid.
+
+
+
+Tanks should kite the boss away from orbs while DPS kill them.
+
+
+
+Void orbs deal pulsing damage to anyone standing too close. The range is very small. You can still melee them, just be careful.
+
+
+
+Killing an orb applies an 8s DoT to the raid. This debuff stacks.
+
+
+
+Kill orbs quickly, but not too fast; kill one at a time to avoid stacking the debuff.
+
+
+
+On Mythic, dead orbs will respawn as Enduring Void orbs each time new orbs spawn.
+
+
+
+This means each spawned wave will contain more active orbs to handle.
+
+WHAT TO DO
+Kite boss away
+Everyone
+
+Stop the casts with CC or interrupts.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaFraPro
+SHARE LINK
+
+Fractured Projection
+Interrupt and CC
+Salhadaar creates several clones which attempt to cast Shadow Fracture, dealing massive raid damage if the cast is successful.
+
+
+
+Clones can be interrupted or crowd controlled. They disappear after being stopped.
+
+WHAT TO DO
+Interrupt the casts
+Everyone
+
+Find the clones without shields and stop their casts in order.
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaNexShi
+SHARE LINK
+
+Nexus Shield
+Mythic mechanic
+When clones spawn, all but one will be buffed by Nexus Shield, which prevents interrupts and crowd control.
+
+
+
+When the clone without Nexus Shield is interrupted and destroyed, it removes the Shield from another random clone, allowing the next clone to be interrupted and crowd controlled. 
+
+WHAT TO DO
+Stop the right clones
+Everyone
+
+Place puddles near edges
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaDesCom
+SHARE LINK
+
+Despotic Command
+Puddle
+Several players pulse damage in a circle around them for 12s. When the debuff ends, they drop a puddle and are left with a healing absorb.
+
+
+
+These puddles are permanent and deal damage to players who stand in them.
+
+
+
+Drop them on the edges to save some space.
+
+WHAT TO DO
+Drop puddles on the edges
+Everyone
+
+Do as much damage as possible
+
+while dodging the beams.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaEntUnr
+SHARE LINK
+
+Entropic Unraveling
+Damage amp
+At 100 energy, the boss will stand in place and deal raid-wide pulsing damage for 20s. Several beams rotate around him, dealing massive damage to anyone hit.
+
+
+
+During this time, Salhadaar takes 25% increases damage. A permanent puddle is left behind when this ends so tank him near the edge before he casts this ability.
+
+WHAT TO DO
+Dodge and do damage
+Everyone
+
+Stay away from marked players
+
+and dodge the spikes.
+
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaShaTwi
+SHARE LINK
+
+Shattering Twilight
+Dodge
+The current tank is marked. They take a hit of damage and several lines of spikes will travel outward from their location.
+
+
+
+On Heroic, several additional players will be marked.
+
+WHAT TO DO
+Dodge the spikes
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaTwiObs
+SHARE LINK
+
+Twisting Obscurity
+Raid damage
+Raid-wide damage followed by a long 23s DoT.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/fallen-king-salhadaar/mythic?ability=fakisaDesStr
+SHARE LINK
+
+Destabilizing Strikes
+Tank debuff
+Melees from the boss apply a stacking DoT.
+
+WHAT TO DO
+Tank swap at high stacks
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Three boss, Paladin- themed council fight. Bosses should be killed evenly.
+
+Lots of quick reaction tank swaps throughout the fight.
+
+Lots of scary damage overlaps. Be prepared and aware of the mechanics coming up.
+
+Phase 1
+Kill the bosses at the same time to avoid the enrage.
+
+
+
+Tank the bosses on the edge of the platform to save some space.
+
+
+
+Watch for ability overlaps.
+
+Everyone
+
+Mass Dispel to remove
+
+Divine Shield early
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanDivShi
+SHARE LINK
+
+Divine Shield
+Immunity
+The bosses will use Divine Shield when you use Bloodlust. Haha, very funny.
+
+
+
+Use mass dispel to remove it early.
+
+WHAT TO DO
+Mass Dispel
+Everyone
+
+Move out of
+
+the aura range
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanAura
+SHARE LINK
+
+Auras
+Boss buffs
+At 100 energy, Lightblood buffs the damage of allies within 40yd by 100% for 15s.
+
+
+
+At 100 energy, Bellamy reduces the damage taken by allies within 40yd by 75%.
+
+
+
+At 100 energy, Senn buffs allies within 40yd. Dealing damage to a Vanguard inside of Aura of Peace will pacify you for 5s.
+
+WHAT TO DO
+Move away
+Everyone
+
+Help soak once per set
+
+to reduce damage
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanExeSen
+SHARE LINK
+
+Execution Sentence
+Soak
+Marks several players with a damage soak circle. Make sure multiple players help soak each one.
+
+
+
+You can only soak 1 each set.
+
+
+
+Three hammers spin outward from after each soak, dealing damage to any players hit.
+
+WHAT TO DO
+Help soak once
+Everyone
+
+Spread out
+
+if targeted
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanAveShi
+SHARE LINK
+
+Avenger's Shield
+Dispellable DOT
+Marks several players with a circle and throws a shield at them.
+
+
+
+The shield explodes, deals damage, and applies a DoT debuff to any players within 5yd.
+
+
+
+This DoT can be dispelled.
+
+WHAT TO DO
+Spread out
+Everyone
+
+Use defensive and
+
+healing cooldowns
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanSeaRad
+SHARE LINK
+
+Searing Radiance
+Raid damage
+Raid-wide pulsing damage for 15s.
+
+
+
+Watch out for the raid damage.
+
+WHAT TO DO
+Heal through
+Everyone
+
+Dodge the shields
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanDivTol
+SHARE LINK
+
+Divine Toll
+Dodge
+Bellamy throws waves of traveling shields for 18s, dealing damage and silencing players hit for 6s.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the charge
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanSacShi
+SHARE LINK
+
+Sacred Shield
+Dodge
+Senn gains an absorb shield and charges forward on an elekk, damaging any players in the path.
+
+WHAT TO DO
+Dodge
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanJudg
+SHARE LINK
+
+Judgment
+Tankbuster
+Two-step tankbuster. Deals holy damage and applies a debuff to the target that increases damage taken by Shield of the Righteous by 500%.
+
+
+
+Shield of the Righteous happens immediately after. 
+
+
+
+You'll want to tank swap between these abilities to split the damage.
+
+WHAT TO DO
+Tank swap between abilities
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanSacTol
+SHARE LINK
+
+Sacred Toll
+Raid damage
+Big hit of raid-wide damage. Watch out for dangerous overlaps.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanExor
+SHARE LINK
+
+Exorcism
+Tankbuster
+Big hit of holy damage on the current target.
+
+WHAT TO DO
+Use a defensive
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanBliLig
+SHARE LINK
+
+Blinding Light
+Disorient
+Disorients all players facing Senn. Turn your character away to avoid it. 
+
+
+
+It also can be interrupted
+
+WHAT TO DO
+Interrupt
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/normal?ability=ligvanLigInf
+SHARE LINK
+
+Light Infused
+Raid damage
+Raid-wide ticking damage. Damage is increased by 25% each time a Vanguard's Aura is cast.
+
+WHAT TO DO
+Heal through
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Three boss, Paladin- themed council fight. Bosses should be killed evenly.
+
+Lots of quick reaction tank swaps throughout the fight.
+
+Lots of scary damage overlaps. Be prepared and aware of the mechanics coming up.
+
+Heroic changes
+Bosses will drop very large Consecrate puddles throughout the fight that take up space.
+
+Phase 1
+Kill the bosses at the same time to avoid the enrage.
+
+
+
+Tank the bosses on the edge of the platform to save some space.
+
+
+
+Watch for ability overlaps.
+
+Everyone
+
+Mass Dispel to remove
+
+Divine Shield early
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanDivShi
+SHARE LINK
+
+Divine Shield
+Immunity
+The bosses will use Divine Shield when you use Bloodlust. Haha, very funny.
+
+
+
+Use mass dispel to remove it early.
+
+WHAT TO DO
+Mass Dispel
+Everyone
+
+Move out of
+
+the aura range
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanAura
+SHARE LINK
+
+Auras
+Boss buffs
+At 100 energy, Lightblood buffs the damage of allies within 40yd by 100% for 15s.
+
+
+
+At 100 energy, Bellamy reduces the damage taken by allies within 40yd by 75%.
+
+
+
+At 100 energy, Senn buffs allies within 40yd. Dealing damage to a Vanguard inside of Aura of Peace will pacify you for 5s.
+
+WHAT TO DO
+Move away
+Everyone
+
+Move out of the puddle
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanConse
+SHARE LINK
+
+Consecration
+Area denial
+After a boss finishes channeling their Aura, a large puddle forms under them, dealing damage to anyone inside. 
+
+
+
+Be mindful of preserving space.
+
+WHAT TO DO
+Move out
+Everyone
+
+Help soak once per set
+
+to reduce damage
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanExeSen
+SHARE LINK
+
+Execution Sentence
+Soak
+Marks several players with a damage soak circle. Make sure multiple players help soak each one.
+
+
+
+You can only soak 1 each set.
+
+
+
+Three hammers spin outward from after each soak, dealing damage to any players hit.
+
+WHAT TO DO
+Help soak once
+Everyone
+
+Don't be too close
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanDivSto
+SHARE LINK
+
+Divine Storm
+AOE damage
+Small 8yd AoE around Lightblood.
+
+WHAT TO DO
+Don't be too close
+Everyone
+
+Spread out
+
+if targeted
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanAveShi
+SHARE LINK
+
+Avenger's Shield
+Dispellable DOT
+Marks several players with a circle and throws a shield at them.
+
+
+
+The shield explodes, deals damage, and applies a DoT debuff to any players within 5yd.
+
+
+
+This DoT can be dispelled.
+
+WHAT TO DO
+Spread out
+Everyone
+
+Use defensive and
+
+healing cooldowns
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanSeaRad
+SHARE LINK
+
+Searing Radiance
+Raid damage
+Raid-wide pulsing damage for 15s.
+
+
+
+Watch out for the raid damage.
+
+WHAT TO DO
+Heal through
+Everyone
+
+Dodge the shields
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanDivTol
+SHARE LINK
+
+Divine Toll
+Dodge
+Bellamy throws waves of traveling shields for 18s, dealing damage and silencing players hit for 6s.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the charge
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanSacShi
+SHARE LINK
+
+Sacred Shield
+Dodge
+Senn gains an absorb shield and charges forward on an elekk, damaging any players in the path.
+
+WHAT TO DO
+Dodge
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanJudg
+SHARE LINK
+
+Judgment
+Tankbuster
+Two-step tankbuster. Deals holy damage and applies a debuff to the target that increases damage taken by Shield of the Righteous by 500%.
+
+
+
+Shield of the Righteous happens immediately after. 
+
+
+
+You'll want to tank swap between these abilities to split the damage.
+
+WHAT TO DO
+Tank swap between abilities
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanSacTol
+SHARE LINK
+
+Sacred Toll
+Raid damage
+Big hit of raid-wide damage. Watch out for dangerous overlaps.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanExor
+SHARE LINK
+
+Exorcism
+Tankbuster
+Big hit of holy damage on the current target.
+
+WHAT TO DO
+Use a defensive
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanBliLig
+SHARE LINK
+
+Blinding Light
+Disorient
+Disorients all players facing Senn. Turn your character away to avoid it. 
+
+
+
+It also can be interrupted
+
+WHAT TO DO
+Interrupt
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/heroic?ability=ligvanLigInf
+SHARE LINK
+
+Light Infused
+Raid damage
+Raid-wide ticking damage. Damage is increased by 25% each time a Vanguard's Aura is cast.
+
+WHAT TO DO
+Heal through
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Three boss, Paladin- themed council fight. Bosses should be killed evenly.
+
+Lots of quick reaction tank swaps throughout the fight.
+
+Lots of scary damage overlaps. Be prepared and aware of the mechanics coming up.
+
+Heroic changes
+Bosses will drop very large Consecrate puddles throughout the fight that take up space.
+
+Mythic changes
+A Zealous Spirit will buff one boss at a time by empowering their abilities, increasing their damage, and causing new ability overlaps. Be prepared!
+
+Consecrate puddles will also pacify players and increase their damage taken when they step inside.
+
+Phase 1
+Kill the bosses at the same time to avoid the enrage.
+
+
+
+Tank the bosses on the edge of the platform to save some space.
+
+
+
+Watch for ability overlaps.
+
+Everyone
+
+Be careful of scary mechanics
+
+and unique overlaps.
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanZeaSpi
+SHARE LINK
+
+Zealous Spirit
+Mythic mechanic
+The Spirit buffs one member of the Vanguard at a time, increasing their damage by 30%, empowering an ability, and causing a new mechanic overlap.
+
+
+
+When buffing Bellamy, Tyr's Wrath is cast alongside Divine Toll, and Avenger's Shield is empowered.
+
+
+
+When buffing Lightblood, Divine Toll is cast alongside Execution Sentence, and Divine Storm is empowered.
+
+
+
+When buffing Senn, Execution Sentence is cast alongside Tyr's Wrath, and Searing Radiance is empowered.
+
+WHAT TO DO
+Watch out for empowered abilities
+Everyone
+
+Mass Dispel to remove
+
+Divine Shield early
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanDivShi
+SHARE LINK
+
+Divine Shield
+Immunity
+The bosses will use Divine Shield when you use Bloodlust. Haha, very funny.
+
+
+
+Use mass dispel to remove it early.
+
+WHAT TO DO
+Mass Dispel
+Everyone
+
+Move out of
+
+the aura range
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanAura
+SHARE LINK
+
+Auras
+Boss buffs
+At 100 energy, Lightblood buffs the damage of allies within 40yd by 100% for 15s.
+
+
+
+At 100 energy, Bellamy reduces the damage taken by allies within 40yd by 75%.
+
+
+
+At 100 energy, Senn buffs allies within 40yd. Dealing damage to a Vanguard inside of Aura of Peace will pacify you for 5s.
+
+WHAT TO DO
+Move away
+Everyone
+
+Move out of the puddle
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanConse
+SHARE LINK
+
+Consecration
+Area denial
+After a boss finishes channeling their Aura, a large puddle forms under them, dealing damage to anyone inside. 
+
+
+
+Be mindful of preserving space.
+
+
+
+On Mythic, it also pacifies a player and increases their damage taken by 100% when inside.
+
+WHAT TO DO
+Move out
+Everyone
+
+Help soak once per set
+
+to reduce damage
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanExeSen
+SHARE LINK
+
+Execution Sentence
+Soak
+Marks several players with a damage soak circle. Make sure multiple players help soak each one.
+
+
+
+You can only soak 1 each set.
+
+
+
+Three hammers spin outward from after each soak, dealing damage to any players hit.
+
+WHAT TO DO
+Help soak once
+Everyone
+
+Don't be too close
+
+Dodge the tornadoes
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanDivSto
+SHARE LINK
+
+Divine Storm
+AOE damage
+Small 8yd AoE around Lightblood.
+
+
+
+On Mythic difficulty, when empowered by Zealous Spirit, Divine Storm will also spawn several tornadoes far away that slowly move toward the boss.
+
+
+
+Tornadoes slow and damage anyone hit.
+
+WHAT TO DO
+Don't be too close
+Everyone
+
+Spread out
+
+if targeted
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanAveShi
+SHARE LINK
+
+Avenger's Shield
+Dispellable DOT
+Marks several players with a circle and throws a shield at them. The shield explodes and deals damage to any players within 5yd.
+
+
+
+On Mythic difficulty, when empowered by Zealous Spirit, Avenger's shield will target all players.
+
+WHAT TO DO
+Spread out
+Everyone
+
+Use defensive and
+
+healing cooldowns
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanSeaRad
+SHARE LINK
+
+Searing Radiance
+Raid damage
+Raid-wide pulsing damage for 15s.
+
+
+
+On Mythic difficulty, when empowered by Zealous Spirit, Searing Radiance damage is increased by 10% every second.
+
+WHAT TO DO
+Heal through
+Everyone
+
+Dodge the shields
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanDivTol
+SHARE LINK
+
+Divine Toll
+Dodge
+Bellamy throws waves of traveling shields for 18s, dealing damage and silencing players hit for 6s.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Dodge the charge
+
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanSacShi
+SHARE LINK
+
+Sacred Shield
+Dodge
+Senn gains an absorb shield and charges forward on an elekk, damaging any players in the path.
+
+WHAT TO DO
+Dodge
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanJudg
+SHARE LINK
+
+Judgment
+Tankbuster
+Two-step tankbuster. Deals holy damage and applies a debuff to the target that increases damage taken by Shield of the Righteous by 500%.
+
+
+
+Shield of the Righteous happens immediately after. 
+
+
+
+You'll want to tank swap between these abilities to split the damage.
+
+WHAT TO DO
+Tank swap between abilities
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanSacTol
+SHARE LINK
+
+Sacred Toll
+Raid damage
+Big hit of raid-wide damage. Watch out for dangerous overlaps.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanExor
+SHARE LINK
+
+Exorcism
+Tankbuster
+Big hit of holy damage on the current target.
+
+WHAT TO DO
+Use a defensive
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanBliLig
+SHARE LINK
+
+Blinding Light
+Disorient
+Disorients all players facing Senn. Turn your character away to avoid it. 
+
+
+
+It also can be interrupted
+
+WHAT TO DO
+Interrupt
+https://www.mythictrap.com/vs-dr-mqd/lightblinded-vanguard/mythic?ability=ligvanLigInf
+SHARE LINK
+
+Light Infused
+Raid damage
+Raid-wide ticking damage. Damage is increased by 25% each time a Vanguard's Aura is cast.
+
+WHAT TO DO
+Heal through
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+3 phase fight with 2 similar intermissions between each phase.
+
+P1 has 3 Undying Sentinel mobs to kill. P2 has a boss clone to kill (two target ranged cleave) and some adds. P3 is all single target. Intermissions have 99% damage reduction.
+
+Stick together after P1. The platform will begin to break into 3 pieces, splitting entirely by P3.
+
+Use the Silverstrike Arrows to remove crucial buffs on adds that prevent their death.
+
+Phase 1
+The fight begins with 3 Sentinels active on the platform. They each pulse some raid-wide damage.
+
+
+
+If no one is in melee range of a Sentinel, their raid-wide damage increases.
+
+Everyone
+
+Aim the arrows at Sentinels
+
+to remove their buff
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosSilvArr
+SHARE LINK
+
+Silverstrike Arrow
+White lines
+A couple players will be targeted by Silverstrike Arrows. This arrow shoots straight from the boss with a white line marking the path.
+
+
+
+It pierces through enemies and allies, removing void effects from them. Deals damage to players hit.
+
+
+
+Aim Silverstrike Arrow through the Sentinels to remove their death immunity.
+
+WHAT TO DO
+Aim at Sentinels
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosGraEmp
+SHARE LINK
+
+Grasp of Emptiness
+Blue lines
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams will move as the player moves, shooting away from the player and through the obelisks.
+
+
+
+Adjust your position to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams; both deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Stay near the sentinel
+
+you are focused on
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosVoiExp
+SHARE LINK
+
+Void Expulsion
+Room management
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle.
+
+
+
+This deals raid=wide damage.
+
+WHAT TO DO
+Stay close to the group
+Everyone
+
+Stop casting so
+
+you aren't interrupted
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosIntTre
+SHARE LINK
+
+Interrupting Tremor
+Silence
+Demiar's ability is a pulsing AOE that damages and silences players within 40yd.
+
+WHAT TO DO
+Don't get interrupted
+Everyone
+
+Move out
+
+to dodge
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosRavAby
+SHARE LINK
+
+Ravenous Abyss
+Damage reduction
+Vorelus pulses damage in a 15yd AoE that reduces player damage by 70% if they are hit.
+
+WHAT TO DO
+Move out
+Everyone
+
+Kill Droplets on Sentinels
+
+for damage increase
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosCorEss
+SHARE LINK
+
+Corrupting Essence
+Adds
+Void Droplets spawn throughout the phase. When they die, they splash puddles onto the ground.
+
+
+
+Anything hit will take 30% increased damage for 30s, including enemies.
+
+
+
+Kill them near the Sentinels.
+
+WHAT TO DO
+Kill droplets on Sentinels
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosNulCor
+SHARE LINK
+
+Null Corona
+Heal absorbs
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still needs to be healed off.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosDarHan
+SHARE LINK
+
+Dark Hand
+Tankbuster
+Morium's tankbuster. Deals heavy physical and magic damage and knocks the target back.
+
+WHAT TO DO
+Use defensives
+Intermission 1
+Once the Sentinels die, all players are knocked up and Alleria smashes into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+Everyone
+
+Fight the drag away
+
+from the center
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosSteEmi
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the middle of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Getting hit by a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some circles mark where orbs will explode. They deal damage and knock players up in the air.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move safely away from the direction
+
+of the arrows, unless you want to be hit
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosSilvBarr
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+WHAT TO DO
+Dodge the arrows
+Phase 2
+Alleria summons a void clone. If she and her clone are within 30yd of each other, they gain a 10% stacking damage buff.
+
+
+
+They share health, and the phase ends when the clone dies.
+
+Everyone
+
+Bait the orb and
+
+move away from it
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosVoiExpP2
+SHARE LINK
+
+Void Expulsion
+Area denial
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle. This deals raid-wide damage.
+
+
+
+This is area denial for this phase. Ranged should bait near old puddles.
+
+WHAT TO DO
+Bait and dodge
+Everyone
+
+Work together to
+
+aim at the adds
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosSilvRic
+SHARE LINK
+
+Silverstrike Ricochet
+White Lines
+Several players are marked with Ranger Captain's Mark. Instead of each player being targeted with an arrow, there will instead be one single arrow which will bounce between the players.
+
+
+
+Break the death immunity to adds.You'll have to work together to aim!
+
+
+
+If the add reaches 100 energy before dying, it gains 300% move speed, 500% damage, and immunity to crowd control.
+
+WHAT TO DO
+Aim at the adds
+Everyone
+
+Break the shield ASAP
+
+to stop the damage
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosCosBar
+SHARE LINK
+
+Cosmic Barrier
+Shield
+15% health shield on the clone. While it persists, the raid takes pulsing damage.
+
+WHAT TO DO
+Break the shield
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosVoiStin
+SHARE LINK
+
+Voidstalker Sting
+DoT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+
+
+Use the arrows to remove this DoT.
+
+WHAT TO DO
+Stand in arrows together
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosNulCorP2
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Try to avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosRifSla
+SHARE LINK
+
+Rift Slash
+Tankbuster
+The clone's tankbuster deals a hit of physical damage and applies a 10% stat reduction debuff for 20s. This stacks. Swap at around 3 stacks.
+
+
+
+Because the bosses should remain apart, try to be quick when swapping so they're near each other as little as possible.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosVolFiss
+SHARE LINK
+
+Volatile Fissure
+Room split
+Crossing the splits in the room will apply a DoT debuff to you.
+
+WHAT TO DO
+Avoid crossing
+Intermission 2
+Once the Simulacrum dies, all players will again be knocked up and Alleria will smash into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+
+
+After this second Intermission, the platforms will split entirely into 3 chunks.
+
+Everyon,
+
+Fight the drag away
+
+from the center
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosSteEmi2
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the center of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Eating a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some orbs spin around the room, damaging and drawing in players who touch them.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move to safe spaces
+
+between the arrows
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosSilvBar2
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+WHAT TO DO
+Dodge the arrows
+Phase 3
+Finish the boss before Alleria casts Devouring Cosmos 3 times.
+
+
+
+She will break the platforms, so pick up a feather and jump across to a new section.
+
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=graspOfEmptinessP3
+SHARE LINK
+
+Grasp of Emptiness
+Blue line
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams move as the player moves, shooting away from the player and through the obelisks. Position your character to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams. Both will deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Break tethers one at a time
+
+and tank swap
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosAspEnd
+SHARE LINK
+
+Aspect of the End
+Tethers
+Several players are tethered by an arrow. Tether range is marked by a circle. While tethered, players take 10% reduced healing, which also stacks.
+
+
+
+Break the tether by running out of range. Breaking the tether deals raid-wide damage and applies a 300% physical damage taken vulnerability debuff.
+
+
+
+One will always be on the active tank, so this is the tank swap mechanic for the phase.
+
+WHAT TO DO
+Break tether, Tank swap
+Everyone
+
+Grab a feather and run
+
+to the next platform
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosDevCosm
+SHARE LINK
+
+Devouring Cosmos
+Platform Switch
+Feathers scatter from Alleria's quiver as she calls down void energy to consume the platform.
+
+
+
+Each player must pick up a feather and use the buff to jump across to a new section of the platform.
+
+
+
+The void energy deals massive damage to any player who touches it.
+
+WHAT TO DO
+Get a feather and cross
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosNulCorP3
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1 & P2.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/normal?ability=crocosVoiStiP3
+SHARE LINK
+
+Voidstalker Sting
+DOT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+WHAT TO DO
+Heal through
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+3 phase fight with 2 similar intermissions between each phase.
+
+P1 has 3 Undying Sentinel mobs to kill. P2 has a boss clone to kill (two target ranged cleave) and some adds. P3 is all single target. Intermissions have 99% damage reduction.
+
+Stick together after P1. The platform will begin to break into 3 pieces, splitting entirely by P3.
+
+Use the Silverstrike Arrows to remove crucial buffs on adds that prevent their death.
+
+Heroic Changes
+There are more Void Expulsion orbs in P2, which means more area denial.
+
+Getting hit by a Silverstrike Arrow gives you a debuff, increasing arrow damage taken by 800% for 8s.
+
+Grasp of Emptiness will happen to 2 players at once.
+
+Phase 1
+The fight begins with 3 Sentinels active on the platform. They each pulse some raid-wide damage.
+
+
+
+If no one is in melee range of a Sentinel, their raid-wide damage increases.
+
+Everyone
+
+Aim the arrows at Sentinels
+
+to remove their buff
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosSilvArr
+SHARE LINK
+
+Silverstrike Arrow
+White lines
+A couple players will be targeted by Silverstrike Arrows. This arrow shoots straight from the boss with a white line marking the path.
+
+
+
+It pierces through enemies and allies, removing void effects from them. Deals damage to players hit.
+
+
+
+Aim Silverstrike Arrow through the Sentinels to remove their death immunity.
+
+WHAT TO DO
+Aim at Sentinels
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosGraEmp
+SHARE LINK
+
+Grasp of Emptiness
+Blue lines
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams will move as the player moves, shooting away from the player and through the obelisks.
+
+
+
+Adjust your position to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams; both deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Stay near the sentinel
+
+you are focused on
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosVoiExp
+SHARE LINK
+
+Void Expulsion
+Room management
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle.
+
+
+
+This deals raid-wide damage.
+
+
+
+On Heroic, this mechanic happens more frequently and to more people, especially in P3.
+
+WHAT TO DO
+Stay close to the group
+Everyone
+
+Stop casting so
+
+you aren't interrupted
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosIntTre
+SHARE LINK
+
+Interrupting Tremor
+Silence
+Demiar's ability is a pulsing AOE that damages and silences players within 40yd.
+
+WHAT TO DO
+Don't get interrupted
+Everyone
+
+Move out
+
+to dodge
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosRavAby
+SHARE LINK
+
+Ravenous Abyss
+Damage reduction
+Vorelus pulses damage in a 15yd AoE that reduces player damage by 70% if they are hit.
+
+WHAT TO DO
+Move out
+Everyone
+
+Kill Droplets on Sentinels
+
+for damage increase
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosCorEss
+SHARE LINK
+
+Corrupting Essence
+Adds
+Void Droplets spawn throughout the phase. When they die, they splash puddles onto the ground.
+
+
+
+Anything hit will take 30% increased damage for 30s, including enemies.
+
+
+
+Kill them near the Sentinels.
+
+WHAT TO DO
+Kill droplets on Sentinels
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosNulCor
+SHARE LINK
+
+Null Corona
+Heal absorbs
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still needs to be healed off.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosDarHan
+SHARE LINK
+
+Dark Hand
+Tankbuster
+Morium's tankbuster. Deals heavy physical and magic damage and knocks the target back.
+
+WHAT TO DO
+Use defensives
+Intermission 1
+Once the Sentinels die, all players are knocked up and Alleria smashes into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+Everyone
+
+Fight the drag away
+
+from the center
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosSteEmi
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the middle of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Getting hit by a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some circles mark where orbs will explode. They deal damage and knock players up in the air.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move safely away from the direction
+
+of the arrows, unless you want to be hit
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosSilvBarr
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+
+
+On Heroic, being hit by an arrow gives you a debuff, increasing arrow damage taken by 800% for 8s. Alternate soaking arrows and avoiding them.
+
+WHAT TO DO
+Dodge the arrows
+Phase 2
+Alleria summons a void clone. If she and her clone are within 30yd of each other, they gain a 10% stacking damage buff.
+
+
+
+They share health, and the phase ends when the clone dies.
+
+Everyone
+
+Bait the orb and
+
+move away from it
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosVoiExpP2
+SHARE LINK
+
+Void Expulsion
+Area denial
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle. 
+
+
+
+This is area denial for this phase, as well as a soft enrage. Ranged should bait near old puddles. Kill the clone before the room fills up.
+
+
+
+On Heroic, there are more orbs, which means more puddles.
+
+WHAT TO DO
+Bait and dodge
+Everyone
+
+Work together to
+
+aim at the adds
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosSilvRic
+SHARE LINK
+
+Silverstrike Ricochet
+White Lines
+Several players are marked with Ranger Captain's Mark. Instead of each player being targeted with an arrow, there will instead be one single arrow which will bounce between the players.
+
+
+
+Break the death immunity to adds.You'll have to work together to aim!
+
+
+
+If the add reaches 100 energy before dying, it gains 300% move speed, 500% damage, and immunity to crowd control.
+
+WHAT TO DO
+Aim at the adds
+Everyone
+
+Break the shield ASAP
+
+to stop the damage
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosCosBar
+SHARE LINK
+
+Cosmic Barrier
+Shield
+15% health shield on the clone. While it persists, the raid takes pulsing damage.
+
+WHAT TO DO
+Break the shield
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosVoiStin
+SHARE LINK
+
+Voidstalker Sting
+DoT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+
+
+Use the arrows to remove this DoT.
+
+WHAT TO DO
+Stand in arrows together
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosNulCorP2
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Try to avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosRifSla
+SHARE LINK
+
+Rift Slash
+Tankbuster
+The clone's tankbuster deals a hit of physical damage and applies a 10% stat reduction debuff for 20s. This stacks. Swap at around 3 stacks.
+
+
+
+Because the bosses should remain apart, try to be quick when swapping so they're near each other as little as possible.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosVolFiss
+SHARE LINK
+
+Volatile Fissure
+Room split
+Crossing the splits in the room will apply a DoT debuff to you.
+
+WHAT TO DO
+Avoid crossing
+Intermission 2
+Once the Simulacrum dies, all players will again be knocked up and Alleria will smash into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+
+
+After this second Intermission, the platforms will split entirely into 3 chunks.
+
+Everyon,
+
+Fight the drag away
+
+from the center
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosSteEmi2
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the center of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Eating a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some orbs spin around the room, damaging and drawing in players who touch them.
+
+
+
+On Heroic, there are rotating walls of orbs. You'll have to cross the cracks in the platform and get the extra DoT debuff from it.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move to safe spaces
+
+between the arrows
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosSilvBar2
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+
+
+On Heroic, being hit by an arrow gives you a debuff, which increases arrow damage taken by 800% for 8s.
+
+WHAT TO DO
+Dodge the arrows
+Phase 3
+Finish the boss before Alleria casts Devouring Cosmos 3 times.
+
+
+
+She will break the platforms, so pick up a feather and jump across to a new section.
+
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=graspOfEmptinessP3
+SHARE LINK
+
+Grasp of Emptiness
+Blue line
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams move as the player moves, shooting away from the player and through the obelisks. Position your character to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams. Both will deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Break tethers one at a time
+
+and tank swap
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosAspEnd
+SHARE LINK
+
+Aspect of the End
+Tethers
+Several players are tethered by an arrow. Tether range is marked by a circle. While tethered, players take 10% reduced healing, which also stacks.
+
+
+
+Break the tether by running out of range. Breaking the tether deals raid-wide damage and applies a 300% physical damage taken vulnerability debuff.
+
+
+
+One will always be on the active tank, so this is the tank swap mechanic for the phase.
+
+WHAT TO DO
+Break tether, Tank swap
+Everyone
+
+Grab a feather and run
+
+to the next platform
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosDevCosm
+SHARE LINK
+
+Devouring Cosmos
+Platform Switch
+Feathers scatter from Alleria's quiver as she calls down void energy to consume the platform.
+
+
+
+Each player must pick up a feather and use the buff to jump across to a new section of the platform.
+
+
+
+The void energy deals massive damage to any player who touches it.
+
+WHAT TO DO
+Get a feather and cross
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosNulCorP3
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1 & P2.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/heroic?ability=crocosVoiStiP3
+SHARE LINK
+
+Voidstalker Sting
+DOT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+WHAT TO DO
+Heal through
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+3 phase fight with 2 similar intermissions between each phase.
+
+P1 has 3 Undying Sentinel mobs to kill. P2 has a boss clone to kill (two target ranged cleave) and some adds. P3 is all single target. Intermissions have 99% damage reduction.
+
+Stick together after P1. The platform will begin to break into 3 pieces, splitting entirely by P3.
+
+Use the Silverstrike Arrows to remove crucial buffs on adds that prevent their death.
+
+Heroic Changes
+There are more Void Expulsion orbs in P2, which means more area denial.
+
+Getting hit by a Silverstrike Arrow gives you a debuff, increasing arrow damage taken by 800% for 8s.
+
+Grasp of Emptiness will happen to 2 players at once.
+
+Phase 1
+The fight begins with 3 Sentinels active on the platform. They each pulse some raid-wide damage.
+
+
+
+If no one is in melee range of a Sentinel, their raid-wide damage increases.
+
+Everyone
+
+Aim the arrows at Sentinels
+
+to remove their buff
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvArr
+SHARE LINK
+
+Silverstrike Arrow
+White lines
+A couple players will be targeted by Silverstrike Arrows. This arrow shoots straight from the boss with a white line marking the path.
+
+
+
+It pierces through enemies and allies, removing void effects from them. Deals damage to players hit.
+
+
+
+Aim Silverstrike Arrow through the Sentinels to remove their death immunity.
+
+WHAT TO DO
+Aim at Sentinels
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosGraEmp
+SHARE LINK
+
+Grasp of Emptiness
+Blue lines
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams will move as the player moves, shooting away from the player and through the obelisks.
+
+
+
+Adjust your position to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams; both deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Stay near the sentinel
+
+you are focused on
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiExp
+SHARE LINK
+
+Void Expulsion
+Room management
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle.
+
+
+
+This deals raid-wide damage.
+
+
+
+On Heroic, this mechanic happens more frequently and to more people, especially in P3.
+
+WHAT TO DO
+Stay close to the group
+Everyone
+
+Stop casting so
+
+you aren't interrupted
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosIntTre
+SHARE LINK
+
+Interrupting Tremor
+Silence
+Demiar's ability is a pulsing AOE that damages and silences players within 40yd.
+
+WHAT TO DO
+Don't get interrupted
+Everyone
+
+Move out
+
+to dodge
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosRavAby
+SHARE LINK
+
+Ravenous Abyss
+Damage reduction
+Vorelus pulses damage in a 15yd AoE that reduces player damage by 70% if they are hit.
+
+WHAT TO DO
+Move out
+Everyone
+
+Kill Droplets on Sentinels
+
+for damage increase
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosCorEss
+SHARE LINK
+
+Corrupting Essence
+Adds
+Void Droplets spawn throughout the phase. When they die, they splash puddles onto the ground.
+
+
+
+Anything hit will take 30% increased damage for 30s, including enemies.
+
+
+
+Kill them near the Sentinels.
+
+WHAT TO DO
+Kill droplets on Sentinels
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosNulCor
+SHARE LINK
+
+Null Corona
+Heal absorbs
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still needs to be healed off.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosDarHan
+SHARE LINK
+
+Dark Hand
+Tankbuster
+Morium's tankbuster. Deals heavy physical and magic damage and knocks the target back.
+
+WHAT TO DO
+Use defensives
+Intermission 1
+Once the Sentinels die, all players are knocked up and Alleria smashes into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+Everyone
+
+Fight the drag away
+
+from the center
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSteEmi
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the middle of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Getting hit by a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some circles mark where orbs will explode. They deal damage and knock players up in the air.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move safely away from the direction
+
+of the arrows, unless you want to be hit
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvBarr
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+
+
+On Heroic, being hit by an arrow gives you a debuff, increasing arrow damage taken by 800% for 8s. Alternate soaking arrows and avoiding them.
+
+WHAT TO DO
+Dodge the arrows
+Phase 2
+Alleria summons a void clone. If she and her clone are within 30yd of each other, they gain a 10% stacking damage buff.
+
+
+
+They share health, and the phase ends when the clone dies.
+
+Everyone
+
+Bait the orb and
+
+move away from it
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiExpP2
+SHARE LINK
+
+Void Expulsion
+Area denial
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle. 
+
+
+
+This is area denial for this phase, as well as a soft enrage. Ranged should bait near old puddles. Kill the clone before the room fills up.
+
+
+
+On Heroic, there are more orbs, which means more puddles.
+
+WHAT TO DO
+Bait and dodge
+Everyone
+
+Work together to
+
+aim at the adds
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvRic
+SHARE LINK
+
+Silverstrike Ricochet
+White Lines
+Several players are marked with Ranger Captain's Mark. Instead of each player being targeted with an arrow, there will instead be one single arrow which will bounce between the players.
+
+
+
+Break the death immunity to adds.You'll have to work together to aim!
+
+
+
+If the add reaches 100 energy before dying, it gains 300% move speed, 500% damage, and immunity to crowd control.
+
+WHAT TO DO
+Aim at the adds
+Everyone
+
+Break the shield ASAP
+
+to stop the damage
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosCosBar
+SHARE LINK
+
+Cosmic Barrier
+Shield
+15% health shield on the clone. While it persists, the raid takes pulsing damage.
+
+WHAT TO DO
+Break the shield
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiStin
+SHARE LINK
+
+Voidstalker Sting
+DoT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+
+
+Use the arrows to remove this DoT.
+
+WHAT TO DO
+Stand in arrows together
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosNulCorP2
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Try to avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosRifSla
+SHARE LINK
+
+Rift Slash
+Tankbuster
+The clone's tankbuster deals a hit of physical damage and applies a 10% stat reduction debuff for 20s. This stacks. Swap at around 3 stacks.
+
+
+
+Because the bosses should remain apart, try to be quick when swapping so they're near each other as little as possible.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVolFiss
+SHARE LINK
+
+Volatile Fissure
+Room split
+Crossing the splits in the room will apply a DoT debuff to you.
+
+WHAT TO DO
+Avoid crossing
+Intermission 2
+Once the Simulacrum dies, all players will again be knocked up and Alleria will smash into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+
+
+After this second Intermission, the platforms will split entirely into 3 chunks.
+
+Everyon,
+
+Fight the drag away
+
+from the center
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSteEmi2
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the center of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Eating a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some orbs spin around the room, damaging and drawing in players who touch them.
+
+
+
+On Heroic, there are rotating walls of orbs. You'll have to cross the cracks in the platform and get the extra DoT debuff from it.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move to safe spaces
+
+between the arrows
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvBar2
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+
+
+On Heroic, being hit by an arrow gives you a debuff, which increases arrow damage taken by 800% for 8s.
+
+WHAT TO DO
+Dodge the arrows
+Phase 3
+Finish the boss before Alleria casts Devouring Cosmos 3 times.
+
+
+
+She will break the platforms, so pick up a feather and jump across to a new section.
+
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=graspOfEmptinessP3
+SHARE LINK
+
+Grasp of Emptiness
+Blue line
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams move as the player moves, shooting away from the player and through the obelisks. Position your character to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams. Both will deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Break tethers one at a time
+
+and tank swap
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosAspEnd
+SHARE LINK
+
+Aspect of the End
+Tethers
+Several players are tethered by an arrow. Tether range is marked by a circle. While tethered, players take 10% reduced healing, which also stacks.
+
+
+
+Break the tether by running out of range. Breaking the tether deals raid-wide damage and applies a 300% physical damage taken vulnerability debuff.
+
+
+
+One will always be on the active tank, so this is the tank swap mechanic for the phase.
+
+WHAT TO DO
+Break tether, Tank swap
+Everyone
+
+Grab a feather and run
+
+to the next platform
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosDevCosm
+SHARE LINK
+
+Devouring Cosmos
+Platform Switch
+Feathers scatter from Alleria's quiver as she calls down void energy to consume the platform.
+
+
+
+Each player must pick up a feather and use the buff to jump across to a new section of the platform.
+
+
+
+The void energy deals massive damage to any player who touches it.
+
+WHAT TO DO
+Get a feather and cross
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosNulCorP3
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1 & P2.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiStiP3
+SHARE LINK
+
+Voidstalker Sting
+DOT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+WHAT TO DO
+Heal through
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+3 phase fight with 2 similar intermissions between each phase.
+
+P1 has 3 Undying Sentinel mobs to kill. P2 has a boss clone to kill (two target ranged cleave) and some adds. P3 is all single target. Intermissions have 99% damage reduction.
+
+Stick together after P1. The platform will begin to break into 3 pieces, splitting entirely by P3.
+
+Use the Silverstrike Arrows to remove crucial buffs on adds that prevent their death.
+
+Heroic Changes
+There are more Void Expulsion orbs in P2, which means more area denial.
+
+Getting hit by a Silverstrike Arrow gives you a debuff, increasing arrow damage taken by 800% for 8s.
+
+Grasp of Emptiness will happen to 2 players at once.
+
+Phase 1
+The fight begins with 3 Sentinels active on the platform. They each pulse some raid-wide damage.
+
+
+
+If no one is in melee range of a Sentinel, their raid-wide damage increases.
+
+Everyone
+
+Aim the arrows at Sentinels
+
+to remove their buff
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvArr
+SHARE LINK
+
+Silverstrike Arrow
+White lines
+A couple players will be targeted by Silverstrike Arrows. This arrow shoots straight from the boss with a white line marking the path.
+
+
+
+It pierces through enemies and allies, removing void effects from them. Deals damage to players hit.
+
+
+
+Aim Silverstrike Arrow through the Sentinels to remove their death immunity.
+
+WHAT TO DO
+Aim at Sentinels
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosGraEmp
+SHARE LINK
+
+Grasp of Emptiness
+Blue lines
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams will move as the player moves, shooting away from the player and through the obelisks.
+
+
+
+Adjust your position to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams; both deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Stay near the sentinel
+
+you are focused on
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiExp
+SHARE LINK
+
+Void Expulsion
+Room management
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle.
+
+
+
+This deals raid-wide damage.
+
+
+
+On Heroic, this mechanic happens more frequently and to more people, especially in P3.
+
+WHAT TO DO
+Stay close to the group
+Everyone
+
+Stop casting so
+
+you aren't interrupted
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosIntTre
+SHARE LINK
+
+Interrupting Tremor
+Silence
+Demiar's ability is a pulsing AOE that damages and silences players within 40yd.
+
+WHAT TO DO
+Don't get interrupted
+Everyone
+
+Move out
+
+to dodge
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosRavAby
+SHARE LINK
+
+Ravenous Abyss
+Damage reduction
+Vorelus pulses damage in a 15yd AoE that reduces player damage by 70% if they are hit.
+
+WHAT TO DO
+Move out
+Everyone
+
+Kill Droplets on Sentinels
+
+for damage increase
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosCorEss
+SHARE LINK
+
+Corrupting Essence
+Adds
+Void Droplets spawn throughout the phase. When they die, they splash puddles onto the ground.
+
+
+
+Anything hit will take 30% increased damage for 30s, including enemies.
+
+
+
+Kill them near the Sentinels.
+
+WHAT TO DO
+Kill droplets on Sentinels
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosNulCor
+SHARE LINK
+
+Null Corona
+Heal absorbs
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still needs to be healed off.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosDarHan
+SHARE LINK
+
+Dark Hand
+Tankbuster
+Morium's tankbuster. Deals heavy physical and magic damage and knocks the target back.
+
+WHAT TO DO
+Use defensives
+Intermission 1
+Once the Sentinels die, all players are knocked up and Alleria smashes into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+Everyone
+
+Fight the drag away
+
+from the center
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSteEmi
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the middle of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Getting hit by a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some circles mark where orbs will explode. They deal damage and knock players up in the air.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move safely away from the direction
+
+of the arrows, unless you want to be hit
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvBarr
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+
+
+On Heroic, being hit by an arrow gives you a debuff, increasing arrow damage taken by 800% for 8s. Alternate soaking arrows and avoiding them.
+
+WHAT TO DO
+Dodge the arrows
+Phase 2
+Alleria summons a void clone. If she and her clone are within 30yd of each other, they gain a 10% stacking damage buff.
+
+
+
+They share health, and the phase ends when the clone dies.
+
+Everyone
+
+Bait the orb and
+
+move away from it
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiExpP2
+SHARE LINK
+
+Void Expulsion
+Area denial
+An orb spawns near ranged players, exploding after a few seconds and leaving behind a puddle. 
+
+
+
+This is area denial for this phase, as well as a soft enrage. Ranged should bait near old puddles. Kill the clone before the room fills up.
+
+
+
+On Heroic, there are more orbs, which means more puddles.
+
+WHAT TO DO
+Bait and dodge
+Everyone
+
+Work together to
+
+aim at the adds
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvRic
+SHARE LINK
+
+Silverstrike Ricochet
+White Lines
+Several players are marked with Ranger Captain's Mark. Instead of each player being targeted with an arrow, there will instead be one single arrow which will bounce between the players.
+
+
+
+Break the death immunity to adds.You'll have to work together to aim!
+
+
+
+If the add reaches 100 energy before dying, it gains 300% move speed, 500% damage, and immunity to crowd control.
+
+WHAT TO DO
+Aim at the adds
+Everyone
+
+Break the shield ASAP
+
+to stop the damage
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosCosBar
+SHARE LINK
+
+Cosmic Barrier
+Shield
+15% health shield on the clone. While it persists, the raid takes pulsing damage.
+
+WHAT TO DO
+Break the shield
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiStin
+SHARE LINK
+
+Voidstalker Sting
+DoT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+
+
+Use the arrows to remove this DoT.
+
+WHAT TO DO
+Stand in arrows together
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosNulCorP2
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Try to avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosRifSla
+SHARE LINK
+
+Rift Slash
+Tankbuster
+The clone's tankbuster deals a hit of physical damage and applies a 10% stat reduction debuff for 20s. This stacks. Swap at around 3 stacks.
+
+
+
+Because the bosses should remain apart, try to be quick when swapping so they're near each other as little as possible.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVolFiss
+SHARE LINK
+
+Volatile Fissure
+Room split
+Crossing the splits in the room will apply a DoT debuff to you.
+
+WHAT TO DO
+Avoid crossing
+Intermission 2
+Once the Simulacrum dies, all players will again be knocked up and Alleria will smash into the center of the room, deepening the 3 splits on the platform.
+
+
+
+Enter the intermission with all players together inside one section. Alleria will take 99% reduced damage during the intermission, so don't worry about hitting her.
+
+
+
+After this second Intermission, the platforms will split entirely into 3 chunks.
+
+Everyon,
+
+Fight the drag away
+
+from the center
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSteEmi2
+SHARE LINK
+
+Stellar Emission
+Intermission
+Players are slowly drawn toward the center of the tilted platform. This increases in strength.
+
+
+
+Players also take raid-wide, ticking damage every 2s. This stacks. Eating a Silverstrike arrow can remove your stacks.
+
+
+
+During the pull, some orbs spin around the room, damaging and drawing in players who touch them.
+
+
+
+On Heroic, there are rotating walls of orbs. You'll have to cross the cracks in the platform and get the extra DoT debuff from it.
+
+WHAT TO DO
+Heal through and dodge
+Everyone
+
+Move to safe spaces
+
+between the arrows
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosSilvBar2
+SHARE LINK
+
+Silverstrike Barrage
+White Lines
+Several waves of Silverstrike arrows shoot from Alleria, dealing damage to anyone hit.
+
+
+
+On Heroic, being hit by an arrow gives you a debuff, which increases arrow damage taken by 800% for 8s.
+
+WHAT TO DO
+Dodge the arrows
+Phase 3
+Finish the boss before Alleria casts Devouring Cosmos 3 times.
+
+
+
+She will break the platforms, so pick up a feather and jump across to a new section.
+
+Everyone
+
+Reposition your character to aim
+
+the lines away from the raid
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=graspOfEmptinessP3
+SHARE LINK
+
+Grasp of Emptiness
+Blue line
+A circle appears on the ground around a player, as well as 3 obelisks with attached beams. These beams move as the player moves, shooting away from the player and through the obelisks. Position your character to angle these beams away from the raid.
+
+
+
+Other players should move out of the initial circle and away from the beams. Both will deal damage to anyone hit.
+
+WHAT TO DO
+Aim the lines away
+Everyone
+
+Break tethers one at a time
+
+and tank swap
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosAspEnd
+SHARE LINK
+
+Aspect of the End
+Tethers
+Several players are tethered by an arrow. Tether range is marked by a circle. While tethered, players take 10% reduced healing, which also stacks.
+
+
+
+Break the tether by running out of range. Breaking the tether deals raid-wide damage and applies a 300% physical damage taken vulnerability debuff.
+
+
+
+One will always be on the active tank, so this is the tank swap mechanic for the phase.
+
+WHAT TO DO
+Break tether, Tank swap
+Everyone
+
+Grab a feather and run
+
+to the next platform
+
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosDevCosm
+SHARE LINK
+
+Devouring Cosmos
+Platform Switch
+Feathers scatter from Alleria's quiver as she calls down void energy to consume the platform.
+
+
+
+Each player must pick up a feather and use the buff to jump across to a new section of the platform.
+
+
+
+The void energy deals massive damage to any player who touches it.
+
+WHAT TO DO
+Get a feather and cross
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosNulCorP3
+SHARE LINK
+
+Null Corona
+Heal Absorb
+Same as P1 & P2.
+
+
+
+This massive absorb shield needs to be healed off. It can be dispelled, but the remaining absorb will jump to another player and still need to be healed.
+
+
+
+Avoid dispelling this unless the debuffed player is in danger.
+
+WHAT TO DO
+Heal the absorb
+https://www.mythictrap.com/vs-dr-mqd/crown-of-the-cosmos/mythic?ability=crocosVoiStiP3
+SHARE LINK
+
+Voidstalker Sting
+DOT
+10s DoT (25s on Heroic) on several players. This can stack.
+
+WHAT TO DO
+Heal through
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+This encounter rotates between two phases.
+
+Players start in the Reality realm. Soak Alndust Upheaval to split damage and go to the Rift realm where adds spawn.
+
+Killing adds is priority number one! They'll buff and heal the boss if they live too long.
+
+Heroic changes
+Use the new dispellable debuff to help clear puddles and keep the room clean.
+
+Phase 1
+Split your raid in 2 groups to deal with the adds in both realm.
+
+
+
+When adds loose their shields they leave a puddle.
+
+
+
+Clear this puddle by getting dispelled on top of it.
+
+Everyone
+
+Create two groups.
+
+Soak every other soak
+
+with your assigned group.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1alnUph
+SHARE LINK
+
+Alndust Upheaval
+Soak
+Soak circle that targets the current tank. Players who soak are sent to the Rift realm where Manifestation adds spawn.
+
+
+
+On Heroic, soaking gives players Rift Vulnerability that increases damage taking from soaking by 600%.
+
+
+
+Players can't soak twice in a row. Alternate between two soak groups.
+
+WHAT TO DO
+Soak
+Everyone
+
+Target the manifestations.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1rifEme
+SHARE LINK
+
+Rift Emergence
+Summons adds
+Chimaerus deals pulsing, raid-wide nature damage and begins to spawn Manifestation adds in the Rift realm.
+
+WHAT TO DO
+Focus on adds ASAP
+Everyone
+
+Break the adds' shields
+
+so Reality realm can finish them off.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1Alnshr
+SHARE LINK
+
+Alnshroud
+Damage absorb
+Adds spawn with an absorb shield. When their shield is broken, adds are sent to the Reality realm, leaving behind a puddle that slows and damages anyone inside. 
+
+WHAT TO DO
+Target adds
+Everyone
+
+Move onto puddles to get dispelled. 
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1ConMia
+SHARE LINK
+
+Consuming Miasma
+Dispel
+Several players are given a dispellable debuff. When dispelled, the player will explode in a 10yd AoE, destroying all puddles (Alndust Essence) around them.
+
+
+
+Allies inside the explosion will take damage and be knocked back.
+
+
+
+Use this mechanic to clear puddles.
+
+WHAT TO DO
+Clear puddles
+Tank
+
+Avoid the frontal cone
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1RenTea
+SHARE LINK
+
+Rending Tear
+Tankbuster
+Tankbuster in a large frontal cone. Deals massive physical damage, applies a short bleed, and knocks back any players hit.
+
+WHAT TO DO
+Face away from raid
+Everyone
+
+Raid damage and knockback.
+
+Make sure adds are dead
+
+before the channel ends.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1cons
+SHARE LINK
+
+Consume
+Kill adds
+At 100 energy, Chimaerus channels for 10s, dealing raid-wide pulsing damage.
+
+
+
+At the end of the channel, everyone is knocked back and all remaining adds are Eaten.
+
+
+
+Stage 2 begins after this.
+
+WHAT TO DO
+Raid damage
+Healer
+
+Heal through
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1CauPhl
+SHARE LINK
+
+Caustic Phlegm
+Heal through
+Chimaerus applies a raid-wide nature DoT for 12s.
+
+WHAT TO DO
+Raid damage
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP1rifSic
+SHARE LINK
+
+Rift Sickness
+Healing absorb
+Each add applies a raid-wide healing absorb when it spawns.
+
+WHAT TO DO
+Heal through
+Haunting Essence
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaAdFeaCry
+SHARE LINK
+
+Fearsome Cry
+Cast
+Raid-wide fear and nature damage. Interrupt this!
+
+WHAT TO DO
+Interrupt adds
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaAdEssBol
+SHARE LINK
+
+Essence Bolt
+Cast
+Single target nature damage on a random player. Interrupt when possible.
+
+WHAT TO DO
+Interrupt adds
+Colossal Horror
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaAdDisRoa
+SHARE LINK
+
+Discordant Roar
+Raid Damage
+Colossal Horrors deal raid-wide physical damage when they spawn. Each cast applies a stacking debuff, increasing damage taken from the next cast by 10%. 
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaAdColStr
+SHARE LINK
+
+Colossal Strikes
+Tankbuster
+Three-hit tankbuster. Heavy physical with additional nature damage.
+
+WHAT TO DO
+Use mitigation
+Phase 2
+Bait the beam of the boss to manage space.
+
+
+
+Focus the adds spawning.
+
+
+
+Get dispelled on top of the puddles.
+
+Everyone
+
+Avoid the boss,
+
+then target the adds
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP2CorDev
+SHARE LINK
+
+Corrupted Devastation
+Spawns adds
+Chimaerus marks a line across the room and soars over it, stunning and damaging players hit.
+
+
+
+The boss spawns Manifestations and leaves behind puddles in the line.
+
+WHAT TO DO
+Kill adds
+Everyone
+
+Move onto puddles
+
+to get dispelled
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP2ConMia
+SHARE LINK
+
+Consuming miasma
+Dispel
+Several players are given a dispellable debuff. When dispelled, the player will explode in a 10yd AoE, destroying all puddles (Alndust Essence) around them.
+
+
+
+Allies inside the explosion will take damage and be knocked back.
+
+
+
+Use this mechanic to clear puddles.
+
+WHAT TO DO
+Clear puddles
+Healer
+
+Heal through
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP2CauPhe
+SHARE LINK
+
+Caustic Phelgm
+Raid damage
+Chimaerus applies a raid-wide nature DoT for 12s.
+
+WHAT TO DO
+Heal through
+Everyone
+
+Raid damage and knock up.
+
+Make sure adds are dead before this.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/heroic?ability=chimaP2RavDiv
+SHARE LINK
+
+Ravenous Dive
+Raid Damage
+The boss smashes to the ground, dealing raid-wide damage, knocking players up, and Eating any remaining adds.
+
+
+
+Stage 1 begins again after this.
+
+WHAT TO DO
+Kill adds
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+This encounter rotates between two phases.
+
+Players start in the Reality realm. Soak Alndust Upheaval to split damage and go to the Rift realm where adds spawn.
+
+Killing adds is priority number one! They'll buff and heal the boss if they live too long.
+
+Heroic changes
+Use the new dispellable debuff to help clear puddles and keep the room clean.
+
+Mythic changes
+Players pulse damage to nearby allies who are in the opposite realm. Stay away from the other group!
+
+Two players in the Rift realm will be debuffed and take massive damage. You'll designate players to help resolve this with a realm swap.
+
+Phase 1
+Split your raid in 2 groups to deal with the adds in both realm.
+
+
+
+When adds loose their shields they leave a puddle.
+
+
+
+Clear this puddle by getting dispelled on top of it.
+
+EVERYONE
+
+Create two groups.
+
+Stay away from the opposite group.
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1Diss
+SHARE LINK
+
+Dissonance
+Mythic mechanic
+Players pulse massive damage to nearby allies who are in the opposite realm. You'll want to split into two "realm" groups and move around the room close together with your group. Each group should stay away from each other. 
+
+WHAT TO DO
+Stay with your group
+Everyone
+
+Create two groups.
+
+Soak every other soak
+
+with your assigned group.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1alnUph
+SHARE LINK
+
+Alndust Upheaval
+Soak
+Soak circle that targets the current tank. Players who soak are sent to the Rift realm where Manifestation adds spawn.
+
+
+
+On Heroic, soaking gives players Rift Vulnerability that increases damage taking from soaking by 600%.
+
+
+
+Players can't soak twice in a row. Alternate between two soak groups.
+
+WHAT TO DO
+Soak
+Everyone
+
+Target the manifestations.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1rifEme
+SHARE LINK
+
+Rift Emergence
+Summons adds
+Chimaerus deals pulsing, raid-wide nature damage and begins to spawn Manifestation adds in the Rift realm.
+
+WHAT TO DO
+Focus on adds ASAP
+Everyone
+
+Break the adds' shields
+
+so Reality realm can finish them off.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1Alnshr
+SHARE LINK
+
+Alnshroud
+Damage absorb
+Adds spawn with an absorb shield. When their shield is broken, adds are sent to the Reality realm, leaving behind a puddle that slows and damages anyone inside. 
+
+WHAT TO DO
+Target adds
+Everyone
+
+Move out of the raid if debuffed.
+
+Stand on the debuffed players if you are assigned.
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1RifMad
+SHARE LINK
+
+Rift Madness
+Mythic mechanic
+2 players in the Rift are debuffed, dealing damage to nearby players and taking massive increasing damage themselves. A player from Reality can stand on top of a debuffed player to save them.
+
+
+
+These players will swap realms, ending the debuff.
+
+
+
+Designate a space away from the raid for these debuffed players to stand, and designate players who will save them.
+
+
+
+One debuff will always be on a healer, so make sure a healer swaps with them!
+
+WHAT TO DO
+Help debuffed players
+Everyone
+
+Move onto puddles to get dispelled. 
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1ConMia
+SHARE LINK
+
+Consuming Miasma
+Dispel
+Several players are given a dispellable debuff. When dispelled, the player will explode in a 10yd AoE, destroying all puddles (Alndust Essence) around them.
+
+
+
+Allies inside the explosion will take damage and be knocked back.
+
+
+
+Use this mechanic to clear puddles.
+
+WHAT TO DO
+Clear puddles
+Tank
+
+Avoid the frontal cone
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1RenTea
+SHARE LINK
+
+Rending Tear
+Tankbuster
+Tankbuster in a large frontal cone. Deals massive physical damage, applies a short bleed, and knocks back any players hit.
+
+WHAT TO DO
+Face away from raid
+Everyone
+
+Raid damage and knockback.
+
+Make sure adds are dead
+
+before the channel ends.
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1cons
+SHARE LINK
+
+Consume
+Kill adds
+At 100 energy, Chimaerus channels for 10s, dealing raid-wide pulsing damage.
+
+
+
+At the end of the channel, everyone is knocked back and all remaining adds are Eaten.
+
+
+
+Phase 2 begins after this.
+
+
+
+On Mythic, the boss will cast Alndust Upheaval before phasing.
+
+WHAT TO DO
+Raid damage
+Healer
+
+Heal through
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1CauPhl
+SHARE LINK
+
+Caustic Phlegm
+Heal through
+Chimaerus applies a raid-wide nature DoT for 12s.
+
+WHAT TO DO
+Raid damage
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP1rifSic
+SHARE LINK
+
+Rift Sickness
+Healing absorb
+Each add applies a raid-wide healing absorb when it spawns.
+
+WHAT TO DO
+Heal through
+Haunting Essence
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaAdFeaCry
+SHARE LINK
+
+Fearsome Cry
+Cast
+Raid-wide fear and nature damage. Interrupt this!
+
+WHAT TO DO
+Interrupt adds
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaAdEssBol
+SHARE LINK
+
+Essence Bolt
+Cast
+Single target nature damage on a random player. Interrupt when possible.
+
+WHAT TO DO
+Interrupt adds
+Colossal Horror
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaAdDisRoa
+SHARE LINK
+
+Discordant Roar
+Raid Damage
+Colossal Horrors deal raid-wide physical damage when they spawn. Each cast applies a stacking debuff, increasing damage taken from the next cast by 10%. 
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaAdColStr
+SHARE LINK
+
+Colossal Strikes
+Tankbuster
+Three-hit tankbuster. Heavy physical with additional nature damage.
+
+WHAT TO DO
+Use mitigation
+Phase 2
+Bait the beam of the boss to manage space.
+
+
+
+Focus the adds spawning.
+
+
+
+Get dispelled on top of the puddles.
+
+Everyone
+
+Avoid the boss,
+
+then target the adds
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP2CorDev
+SHARE LINK
+
+Corrupted Devastation
+Spawns adds
+Chimaerus marks a line across the room and soars over it, stunning and damaging players hit.
+
+
+
+The boss spawns Manifestations and leaves behind puddles in the line.
+
+
+
+On Mythic difficulty, Manifestations will also spawn in the Rift realm.
+
+WHAT TO DO
+Kill adds
+Everyone
+
+Move onto puddles
+
+to get dispelled
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP2ConMia
+SHARE LINK
+
+Consuming miasma
+Dispel
+Several players are given a dispellable debuff. When dispelled, the player will explode in a 10yd AoE, destroying all puddles (Alndust Essence) around them.
+
+
+
+Allies inside the explosion will take damage and be knocked back.
+
+
+
+Use this mechanic to clear puddles.
+
+WHAT TO DO
+Clear puddles
+Healer
+
+Heal through
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP2CauPhe
+SHARE LINK
+
+Caustic Phelgm
+Raid damage
+Chimaerus applies a raid-wide nature DoT for 12s.
+
+WHAT TO DO
+Heal through
+Everyone
+
+Raid damage and knock up.
+
+Make sure adds are dead before this.
+
+https://www.mythictrap.com/vs-dr-mqd/chimaerus-the-undreamt-god/mythic?ability=chimaP2RavDiv
+SHARE LINK
+
+Ravenous Dive
+Raid Damage
+The boss smashes to the ground, dealing raid-wide damage, knocking players up, and Eating any remaining adds.
+
+
+
+Stage 1 begins again after this.
+
+WHAT TO DO
+Kill adds
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Repeating 2 Phase encounter. You'll fight the boss and some adds in Phase 1 until the boss dies.
+
+Then, in Phase 2, you'll destroy Belo'ren's egg. This is the real boss health bar, and you'll have repeated 30s windows to kill the egg within 6 minutes (enrage).
+
+All players will be given light or void color assignments throughout the fight. You'll handle mechanics according to your color.
+
+The Egg Phase has high damage and high movement!
+
+Phase 1
+To save space, soak the bird's dive near the walls.
+
+
+
+Interrupt the adds and kill their eggs before they respawn.
+
+
+
+Handle the mechanics based on your color.
+
+Everyone
+
+Always know your
+
+color for mechanics
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloVoiCon
+SHARE LINK
+
+Voidlight Convergence
+Colors
+This fight is full of light and void mechanics. You'll be assigned a color at the start and periodically during the fight.
+
+
+
+Your color reduces the damage taken from those color mechanics by 50%.
+
+WHAT TO DO
+Know your color
+Everyone
+
+Soak your matching color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloLiVoDi
+SHARE LINK
+
+Light / Void Dive
+Soak
+A player is marked by a soak circle. Players with the matching color should help soak to split damage. 
+
+
+
+Knocks players back and leaves behind a puddle. The puddle is permanent, so place it at the edge of the room.
+
+WHAT TO DO
+Soak matching Color
+Tank
+
+Tanks must soak
+
+their color cone
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloGuaEdi
+SHARE LINK
+
+Guardian's Edict
+Tank mechanic
+A series of colored frontal cones that deal damage to players and knock them back if hit.
+
+
+
+If no one soaks the cone, or if the cone hits an opposite color, the boss will enrage.
+
+
+
+The frontal tank cone is split in half at the end of the combo.
+
+
+
+ Only tanks should soak their color for this ability.
+
+WHAT TO DO
+Tank soak cones
+Everyone
+
+Soak orbs that match your color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloRadEch
+SHARE LINK
+
+Radiant Echoes
+Orb walls
+Orbs of both colors float across the room. To clear space, players can run into orbs that match their color.
+
+WHAT TO DO
+Soak matching orbs
+Everyone
+
+Interrupt casts that match your color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloLiVoEEru
+SHARE LINK
+
+Light / Void Eruption
+Interrupt
+Belo'ren spawns two bird adds: a light and a void.
+
+
+
+This cast deals massive lethal damage if it goes off.
+
+
+
+Only players with the matching color can interrupt it.
+
+
+
+Birds also cast a light / void blast dealing damage to a random player. Anyone can interrupt this.
+
+WHAT TO DO
+Interrupt matching casts
+Everyone
+
+Focus the egg
+
+before it respawns
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloRebiAdd
+SHARE LINK
+
+Rebirth
+Eggs
+When bird adds die, they turn into an egg.
+
+
+
+Kill the egg within 15s, or the add will respawn from the egg.
+
+WHAT TO DO
+Kill eggs
+Everyone
+
+Move away from the center
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloDeaDro
+SHARE LINK
+
+Death Drop
+Knockback
+When the boss' health reaches 0, it smashes into the center of the room, dealing damage and knocking players back.
+
+
+
+Damage is reduced by being farther away.
+
+
+
+Then, the boss enters Phase 2.
+
+WHAT TO DO
+Move away
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloBurHea
+SHARE LINK
+
+Burning Heart
+Rot damage
+Raid-wide, pulsing damage throughout the entire fight.
+
+
+
+This damage is increased during the Rebirth Stage.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloEteBur
+SHARE LINK
+
+Eternal Burns
+Heal absorb
+Absorb shield and DoT debuff on some players. The debuff goes away when the absorb is healed.
+
+WHAT TO DO
+Heal through the absorb
+Phase 2
+Belo'ren retreats to their egg and deals increased pulsing damage. This is the "real" health of the boss.
+
+
+
+Each time you enter this phase, you have 30s to damage the egg before the phase ends and Phase 1 starts again. 
+
+
+
+You need to fully kill the egg within 6 minutes, which is the enrage timer.
+
+Everyone
+
+Move to your
+
+matching color area
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloInOfFl
+SHARE LINK
+
+Incubation of Flames
+Match
+The room will be split with cones of color throughout the phase.
+
+
+
+Continue to move toward the area that matches your color.
+
+
+
+Deal big damage to the egg; try to save cooldowns.
+
+WHAT TO DO
+Move to matching color
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/normal?ability=beloAshBen
+SHARE LINK
+
+Ashen Benediction
+Healing reduction
+The raid takes a burst of fire damage and gets 10% healing reduction for the remainder of the fight.
+
+
+
+This stacks, making the fight harder after each Phase 2.
+
+WHAT TO DO
+Kill boss ASAP
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Repeating 2 Phase encounter. You'll fight the boss and some adds in Phase 1 until the boss dies.
+
+Then, in Phase 2, you'll destroy Belo'ren's egg. This is the real boss health bar, and you'll have repeated 30s windows to kill the egg within 6 minutes (enrage).
+
+All players will be given light or void color assignments throughout the fight. You'll handle mechanics according to your color.
+
+The Egg Phase has high damage and high movement!
+
+Heroic Changes
+Infused quills will target opposite color players. Players with the same color should help soak.
+
+Phase 1
+To save space, soak the bird's dive near the walls.
+
+
+
+Interrupt the adds and kill their eggs before they respawn.
+
+
+
+Handle the mechanics based on your color.
+
+Everyone
+
+Always know your
+
+color for mechanics
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloVoiCon
+SHARE LINK
+
+Voidlight Convergence
+Colors
+This fight is full of light and void mechanics. You'll be assigned a color at the start and periodically during the fight.
+
+
+
+Your color reduces the damage taken from those color mechanics by 50%.
+
+WHAT TO DO
+Know your color
+Everyone
+
+Soak your matching color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloLiVoDi
+SHARE LINK
+
+Light / Void Dive
+Soak
+A player is marked by a soak circle. Players with the matching color should help soak to split damage. 
+
+
+
+Knocks players back and leaves behind a puddle. The puddle is permanent, so place it at the edge of the room.
+
+WHAT TO DO
+Soak matching Color
+Everyone
+
+Help soak quills
+
+with the right color
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloInfQui
+SHARE LINK
+
+Infused Quills
+Soak lines
+Players are marked and will be struck by an opposite colored quill. The quill deals damage to the first player hit.
+
+
+
+A different player, matching the quill color, needs to soak this for the targeted player.
+
+WHAT TO DO
+Help soak quills
+Tank
+
+Tanks must soak
+
+their color cone
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloGuaEdi
+SHARE LINK
+
+Guardian's Edict
+Tank mechanic
+A series of colored frontal cones that deal damage to players and knock them back if hit.
+
+
+
+If no one soaks the cone, or if the cone hits an opposite color, the boss will enrage.
+
+
+
+The frontal tank cone is split in half at the end of the combo.
+
+
+
+ Only tanks should soak their color for this ability.
+
+WHAT TO DO
+Tank soak cones
+Everyone
+
+Soak orbs that match your color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloRadEch
+SHARE LINK
+
+Radiant Echoes
+Orb walls
+Orbs of both colors float across the room. To clear space, players can run into orbs that match their color.
+
+WHAT TO DO
+Soak matching orbs
+Everyone
+
+Interrupt casts that match your color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloLiVoEEru
+SHARE LINK
+
+Light / Void Eruption
+Interrupt
+Belo'ren spawns two bird adds: a light and a void.
+
+
+
+This cast deals massive lethal damage if it goes off.
+
+
+
+Only players with the matching color can interrupt it.
+
+
+
+Birds also cast a light / void blast dealing damage to a random player. Anyone can interrupt this.
+
+WHAT TO DO
+Interrupt matching casts
+Everyone
+
+Focus the egg
+
+before it respawns
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloRebiAdd
+SHARE LINK
+
+Rebirth
+Eggs
+When bird adds die, they turn into an egg.
+
+
+
+Kill the egg within 15s, or the add will respawn from the egg.
+
+WHAT TO DO
+Kill eggs
+Everyone
+
+Move away from the center
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloDeaDro
+SHARE LINK
+
+Death Drop
+Knockback
+When the boss' health reaches 0, it smashes into the center of the room, dealing damage and knocking players back.
+
+
+
+Damage is reduced by being farther away.
+
+
+
+Then, the boss enters Phase 2.
+
+WHAT TO DO
+Move away
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloBurHea
+SHARE LINK
+
+Burning Heart
+Rot damage
+Raid-wide, pulsing damage throughout the entire fight.
+
+
+
+This damage is increased during the Rebirth Stage.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloEteBur
+SHARE LINK
+
+Eternal Burns
+Heal absorb
+Absorb shield and DoT debuff on some players. The debuff goes away when the absorb is healed.
+
+WHAT TO DO
+Heal through the absorb
+Phase 2
+Belo'ren retreats to their egg and deals increased pulsing damage. This is the "real" health of the boss.
+
+
+
+Each time you enter this phase, you have 30s to damage the egg before the phase ends and Phase 1 starts again. 
+
+
+
+You need to fully kill the egg within 6 minutes, which is the enrage timer.
+
+Everyone
+
+Move to your
+
+matching color area
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloInOfFl
+SHARE LINK
+
+Incubation of Flames
+Match
+The room will be split with cones of color throughout the phase.
+
+
+
+Continue to move toward the area that matches your color.
+
+
+
+Deal big damage to the egg; try to save cooldowns.
+
+WHAT TO DO
+Move to matching color
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/heroic?ability=beloAshBen
+SHARE LINK
+
+Ashen Benediction
+Healing reduction
+The raid takes a burst of fire damage and gets 10% healing reduction for the remainder of the fight.
+
+
+
+This stacks, making the fight harder after each Phase 2.
+
+WHAT TO DO
+Kill boss ASAP
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+Repeating 2 Phase encounter. You'll fight the boss and some adds in Phase 1 until the boss dies.
+
+Then, in Phase 2, you'll destroy Belo'ren's egg. This is the real boss health bar, and you'll have repeated 30s windows to kill the egg within 6 minutes (enrage).
+
+All players will be given light or void color assignments throughout the fight. You'll handle mechanics according to your color.
+
+The Egg Phase has high damage and high movement!
+
+Heroic Changes
+Infused quills will target opposite color players. Players with the same color should help soak.
+
+Mythic Changes
+Radiant Echo orbs will explode if they touch Belo'ren.
+
+Quills deal splash damage on contact.
+
+Phase 1
+To save space, soak the bird's dive near the walls.
+
+
+
+Interrupt the adds and kill their eggs before they respawn.
+
+
+
+Handle the mechanics based on your color.
+
+Everyone
+
+Always know your
+
+color for mechanics
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloVoiCon
+SHARE LINK
+
+Voidlight Convergence
+Colors
+This fight is full of light and void mechanics. You'll be assigned a color at the start and periodically during the fight.
+
+
+
+Your color reduces the damage taken from those color mechanics by 50%.
+
+WHAT TO DO
+Know your color
+Everyone
+
+Soak your matching color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloLiVoDi
+SHARE LINK
+
+Light / Void Dive
+Soak
+A player is marked by a soak circle. Players with the matching color should help soak to split damage. 
+
+
+
+Knocks players back and leaves behind a puddle. The puddle is permanent, so place it at the edge of the room.
+
+WHAT TO DO
+Soak matching Color
+Everyone
+
+Help soak quills
+
+with the right color
+
+MYTHIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloInfQui
+SHARE LINK
+
+Infused Quills
+Soak lines
+Players are marked and will be struck by an opposite colored quill. The quill deals damage to the first player hit.
+
+
+
+A different player, matching the quill color, needs to soak this for the targeted player.
+
+
+
+On Mythic, this deals splash damage.
+
+WHAT TO DO
+Help soak quills
+Tank
+
+Tanks must soak
+
+their color cone
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloGuaEdi
+SHARE LINK
+
+Guardian's Edict
+Tank mechanic
+A series of colored frontal cones that deal damage to players and knock them back if hit.
+
+
+
+If no one soaks the cone, or if the cone hits an opposite color, the boss will enrage.
+
+
+
+The frontal tank cone is split in half at the end of the combo.
+
+
+
+ Only tanks should soak their color for this ability.
+
+WHAT TO DO
+Tank soak cones
+Everyone
+
+Soak orbs that match your color
+
+MYTHIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloRadEch
+SHARE LINK
+
+Radiant Echoes
+Orb walls
+Orbs of both colors float across the room. To clear space, players can run into orbs that match their color.
+
+
+
+On Mythic, orbs explode if they touch Belo'ren.
+
+WHAT TO DO
+Soak matching orbs
+Everyone
+
+Interrupt casts that match your color
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloLiVoEEru
+SHARE LINK
+
+Light / Void Eruption
+Interrupt
+Belo'ren spawns two bird adds: a light and a void.
+
+
+
+This cast deals massive lethal damage if it goes off.
+
+
+
+Only players with the matching color can interrupt it.
+
+
+
+Birds also cast a light / void blast dealing damage to a random player. Anyone can interrupt this.
+
+WHAT TO DO
+Interrupt matching casts
+Everyone
+
+Focus the egg
+
+before it respawns
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloRebiAdd
+SHARE LINK
+
+Rebirth
+Eggs
+When bird adds die, they turn into an egg.
+
+
+
+Kill the egg within 15s, or the add will respawn from the egg.
+
+WHAT TO DO
+Kill eggs
+Everyone
+
+Move away from the center
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloDeaDro
+SHARE LINK
+
+Death Drop
+Knockback
+When the boss' health reaches 0, it smashes into the center of the room, dealing damage and knocking players back.
+
+
+
+Damage is reduced by being farther away.
+
+
+
+Then, the boss enters Phase 2.
+
+WHAT TO DO
+Move away
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloBurHea
+SHARE LINK
+
+Burning Heart
+Rot damage
+Raid-wide, pulsing damage throughout the entire fight.
+
+
+
+This damage is increased during the Rebirth Stage.
+
+WHAT TO DO
+Heal through
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloEteBur
+SHARE LINK
+
+Eternal Burns
+Heal absorb
+Absorb shield and DoT debuff on some players. The debuff goes away when the absorb is healed.
+
+WHAT TO DO
+Heal through the absorb
+Phase 2
+Belo'ren retreats to their egg and deals increased pulsing damage. This is the "real" health of the boss.
+
+
+
+Each time you enter this phase, you have 30s to damage the egg before the phase ends and Phase 1 starts again. 
+
+
+
+You need to fully kill the egg within 6 minutes, which is the enrage timer.
+
+Everyone
+
+Move to your
+
+matching color area
+
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloInOfFl
+SHARE LINK
+
+Incubation of Flames
+Match
+The room will be split with cones of color throughout the phase.
+
+
+
+Continue to move toward the area that matches your color.
+
+
+
+Deal big damage to the egg; try to save cooldowns.
+
+WHAT TO DO
+Move to matching color
+https://www.mythictrap.com/vs-dr-mqd/beloren-child-of-alar/mythic?ability=beloAshBen
+SHARE LINK
+
+Ashen Benediction
+Healing reduction
+The raid takes a burst of fire damage and gets 10% healing reduction for the remainder of the fight.
+
+
+
+This stacks, making the fight harder after each Phase 2.
+
+WHAT TO DO
+Kill boss ASAP
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+3 Phase encounter with an Intermission after P1
+
+L'ura has a unique Memory game mechanic. She'll flash Runes in a pattern and mark players with them, and you'll have to match the pattern.
+
+Tons of glaives will fill the room and bounce around. Lots of dodging!
+
+Healed Crystals will turn to Dawn Crystals. Pick them up and keep them safe, you'll use them in P3 to protect the group from deadly blasts.
+
+Use beams to destroy Void Cores in Phase 2.
+
+In Phase 3, stay in the safety of the light from Crystal holders.
+
+Phase 1
+Interrupt the matrix multiple times to remove their stack and destroy it.
+
+
+
+Crystal will spawn you have to kill them before they finish their cast.
+
+
+
+Some crystal are healable and can be picked up when fully healed.
+
+
+
+You need them to survive in Phase 3.
+
+Everyone
+
+Avoid touching the
+
+Darkwell and Beams
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraDaQua
+SHARE LINK
+
+Dark Quasar
+Beams
+Stepping into the center Darkwell will instantly kill you.
+
+
+
+Periodically, beams will shoot out from the Darkwell and spin around the room, dealing massive damage to anyone hit. 
+
+WHAT TO DO
+Avoid beams
+Everyone
+
+Memorize the Runes
+
+and match the pattern
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraDeaDir
+SHARE LINK
+
+Death's Dirge
+Memory game
+Memory game! L'ura flashes a sequence of Runes around herself. Players will then be marked by the runes, above their heads.
+
+
+
+Then, she'll shoot a laser in front of her and spin clockwise, destroying the runes off the players' heads in the order they are touched.
+
+
+
+Match the sequence shown by Lu'ra by forming a semicircle of marked players in the correct order or take massive damage!
+
+WHAT TO DO
+Match the Runes
+Everyone
+
+Interrupt the adds to
+
+remove all their stacks
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraTerPri
+SHARE LINK
+
+Safeguard Matrix
+Interrupt
+Three Safeguard Matrix adds spawn around the boss. They spin around, protecting her by reducing her damage taken by 33% for each add alive.
+
+
+
+Interrupt the adds to remove stacks of Safeguard, a buff that keeps them alive. When an add has all stacks removed, it gets destroyed.
+
+WHAT TO DO
+Interrupt
+Everyone
+
+Kill or heal the Crystals in time
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraDisin
+SHARE LINK
+
+Disintegration
+Crystal adds
+The raid takes a large burst of damage and L'ura spawns several friendly and enemy crystal mobs.
+
+
+
+Kill the enemy Midnight Crystals before their Cosmic Fracture cast finishes, or they'll wipe you.
+
+
+
+Heal the ally Dusk Crystals. They'll transform into Dawn Crystals, a core part of the rest of the fight.
+
+WHAT TO DO
+Kill or heal Crystals
+Everyone
+
+Pick up Dawn Crystals
+
+and keep them safe
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraDawCry
+SHARE LINK
+
+Dawn Crystal
+Dawn Crystals
+Fully healed Dusk Crystals turn to Dawn Crystals. Players can pick them up and drop them using their extra action button, and take DOT damage while holding them.
+
+
+
+After 3s of being left on the ground they begin to pulse massive raid damage so they need to be picked up quickly any time they are dropped.
+
+WHAT TO DO
+Pick up Dawn Crystals
+Everyone
+
+Dodge the glaives
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraHeaGla
+SHARE LINK
+
+Heaven's Glaives
+Dodge
+Several glaives shoot out from the boss and bounce around the room.
+
+
+
+They continue until P1 ends.
+
+WHAT TO DO
+Dodge
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraHeaLan
+SHARE LINK
+
+Heaven's Lance
+Tankbuster
+5-hit tankbuster that applies stacks of Impaled with each hit.
+
+
+
+Each stack increases Heaven's Lance damage taken by 50% for 25s. Swap after each cast finishes.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraShaSky
+SHARE LINK
+
+Shattered Sky
+Rot
+Raidwide rot damage.
+
+WHAT TO DO
+Heal through
+Intermission
+Dodge everything
+
+
+
+Use healer cooldown for the healing absorb.
+
+Everyone
+
+Dodge and
+
+heal through
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraTotEcl
+SHARE LINK
+
+Total Eclipse
+Intermission
+Stepping into the center Darkwell will instantly kill you. During the intermission, beams still shoot out but do not spin. 
+
+
+
+Players are continually marked throughout the Intermission, shooting beams out from their character.
+
+
+
+All players get a small healing absorb shield every second.
+
+
+
+Combined with other damage, this is a good time to use healing CDs.
+
+WHAT TO DO
+Dodge and heal through
+Phase 2
+Aim the beam at the Void Core.
+
+
+
+The phase ends when all the planets have been absorbed.
+
+Everyone
+
+Stay inside the
+
+room's bounds
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraInThDa
+SHARE LINK
+
+Into the darkwell
+Stay inside
+Players are taken inside the Darkwell for an Intermission.
+
+
+
+Iris of Oblivion prevents players from going out of the room's bounds, killing them instantly if they go too far.
+
+WHAT TO DO
+Stay inside
+Everyone
+
+Destroy the Cores
+
+with the lines
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraGalva
+SHARE LINK
+
+Galvanize
+Lines
+Void Cores spin around the outside of the room.
+
+
+
+Use Galvanize, a targeted line mechanic, to destroy Cores by aiming at them.
+
+WHAT TO DO
+Aim at core
+Everyone
+
+Be aware of the raid damage
+
+and safe places to stand
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraCosFis
+SHARE LINK
+
+Cosmic Fission
+Planet dodge
+When Void Cores are destroyed, they'll pull players in for a short time.
+
+
+
+Then, L'ura will absorb the destroyed planets, quickly pulling them in alongside a hit of raidwide damage, and dealing massive damage to any players in their marked path.
+
+WHAT TO DO
+Move to a safe spot
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraAbyPoo
+SHARE LINK
+
+Abyssal Pool
+Rot
+Rot damage throughout the phase.
+
+WHAT TO DO
+Heal through
+Phase 3
+Everyone
+
+Stay near the light
+
+of Crystal holders
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraTorch
+SHARE LINK
+
+Torchbearer
+Light
+Players with Dawn Crystals will light up the space around them, protecting anyone inside from the Midnight darkness.
+
+
+
+Stay near Crystal holders!
+
+WHAT TO DO
+Stay near light
+Everyone
+
+Use the Crystal Extra Action Button
+
+to make a safe shield
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraArch
+SHARE LINK
+
+Dark Archangel
+Shield
+L'ura shoots a deadly blast which leaves behind a zone of darkness.
+
+
+
+Protect your raid from the blast by having a player who is holding a Dawn Crystal use their new Extra Action Button, which activates a protective shield
+
+
+
+Then, quickly exit the zone of darkness, which deals damage to anyone inside.
+
+WHAT TO DO
+Use Crystals for shield
+Everyone
+
+Move to a safe space
+
+between stars
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraDarCon
+SHARE LINK
+
+Dark Constellation
+Constellation stars
+Star orbs land on the platform, dealing massive damage to anyone too close when they fall.
+
+
+
+The stars then connect with light beams. The beams deal damage to any players inside.
+
+WHAT TO DO
+Move to safety
+Everyone
+
+Stand inside the circles
+
+to drain them
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/normal?ability=luraLigSip
+SHARE LINK
+
+Light Siphon
+Soaks
+These soak circles are drained by standing inside.
+
+
+
+They will explode if they aren't fully soaked in time, wiping the raid.
+
+WHAT TO DO
+Drain the soaks
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+3 Phase encounter with an Intermission after P1
+
+L'ura has a unique Memory game mechanic. She'll flash Runes in a pattern and mark players with them, and you'll have to match the pattern.
+
+Tons of glaives will fill the room and bounce around. Lots of dodging!
+
+Healed Crystals will turn to Dawn Crystals. Pick them up and keep them safe, you'll use them in P3 to protect the group from deadly blasts.
+
+Use beams to destroy Void Cores in Phase 2.
+
+In Phase 3, stay in the safety of the light from Crystal holders.
+
+Heroic Changes
+Dawn Crystals and holders should avoid Cosmic damage. Crystals being hit by Cosmic mechanics will create soak circles.
+
+Beams in Phase 2 now need to be soaked together. Sort out groups and a plan ahead of time.
+
+Phase 3 has an additional mechanic. Soak the circles to drain them before they explode.
+
+Phase 1
+Interrupt the matrix multiple times to remove their stack and destroy it.
+
+
+
+Crystal will spawn you have to kill them before they finish their cast.
+
+
+
+Some crystal are healable and can be picked up when fully healed.
+
+
+
+You need them to survive in Phase 3.
+
+Everyone
+
+Avoid touching the
+
+Darkwell and Beams
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraDaQua
+SHARE LINK
+
+Dark Quasar
+Beams
+Stepping into the center Darkwell will instantly kill you.
+
+
+
+Periodically, beams will shoot out from the Darkwell and spin around the room, dealing massive damage to anyone hit. 
+
+WHAT TO DO
+Avoid beams
+Everyone
+
+Memorize the Runes
+
+and match the pattern
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraDeaDir
+SHARE LINK
+
+Death's Dirge
+Memory game
+Memory game! L'ura flashes a sequence of Runes around herself. Players will then be marked by the runes, above their heads.
+
+
+
+Then, she'll shoot a laser in front of her and spin clockwise, destroying the runes off the players' heads in the order they are touched.
+
+
+
+Match the sequence shown by Lu'ra by forming a semicircle of marked players in the correct order or take massive damage!
+
+WHAT TO DO
+Match the Runes
+Everyone
+
+Interrupt the adds to
+
+remove all their stacks
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraTerPri
+SHARE LINK
+
+Safeguard Matrix
+Interrupt
+Three Safeguard Matrix adds spawn around the boss. They spin around, protecting her by reducing her damage taken by 33% for each add alive.
+
+
+
+Interrupt the adds to remove stacks of Safeguard, a buff that keeps them alive. When an add has all stacks removed, it gets destroyed.
+
+WHAT TO DO
+Interrupt
+Everyone
+
+Kill or heal the Crystals in time
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraDisin
+SHARE LINK
+
+Disintegration
+Crystal adds
+The raid takes a large burst of damage and L'ura spawns several friendly and enemy crystal mobs.
+
+
+
+Kill the enemy Midnight Crystals before their Cosmic Fracture cast finishes, or they'll wipe you.
+
+
+
+Heal the ally Dusk Crystals. They'll transform into Dawn Crystals, a core part of the rest of the fight.
+
+WHAT TO DO
+Kill or heal Crystals
+Everyone
+
+Pick up Dawn Crystals
+
+and keep them safe
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraDawCry
+SHARE LINK
+
+Dawn Crystal
+Dawn Crystals
+Fully healed Dusk Crystals turn to Dawn Crystals. Players can pick them up and drop them using their extra action button, and take DOT damage while holding them.
+
+
+
+After 3s of being left on the ground they begin to pulse massive raid damage so they need to be picked up quickly any time they are dropped.
+
+WHAT TO DO
+Pick up Dawn Crystals
+Everyone
+
+Dodge the glaives
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraHeaGla
+SHARE LINK
+
+Heaven's Glaives
+Dodge
+Several glaives shoot out from the boss and bounce around the room.
+
+
+
+They continue until P1 ends.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Catch the Tear
+
+if they spawn
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraTeOfLu
+SHARE LINK
+
+Tears of L'ura
+Soaks
+When hit by Cosmic damage, Dawn Crystals spawn several soak circles nearby.
+
+
+
+A player needs to catch each one. Missed soaks do massive damage.
+
+WHAT TO DO
+Soak Tears
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraHeaLan
+SHARE LINK
+
+Heaven's Lance
+Tankbuster
+5-hit tankbuster that applies stacks of Impaled with each hit.
+
+
+
+Each stack increases Heaven's Lance damage taken by 50% for 25s. Swap after each cast finishes.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraShaSky
+SHARE LINK
+
+Shattered Sky
+Rot
+Raidwide rot damage.
+
+WHAT TO DO
+Heal through
+Intermission
+Dodge everything
+
+
+
+Use healer cooldown for the healing absorb.
+
+Everyone
+
+Dodge and
+
+heal through
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraTotEcl
+SHARE LINK
+
+Total Eclipse
+Intermission
+Stepping into the center Darkwell will instantly kill you. During the intermission, beams still shoot out but do not spin. 
+
+
+
+Players are continually marked throughout the Intermission, shooting beams out from their character.
+
+
+
+All players get a small healing absorb shield every second.
+
+
+
+Combined with other damage, this is a good time to use healing CDs.
+
+WHAT TO DO
+Dodge and heal through
+Phase 2
+Aim the beam at the Void Core.
+
+
+
+The phase ends when all the planets have been absorbed.
+
+Everyone
+
+Stay inside the
+
+room's bounds
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraInThDa
+SHARE LINK
+
+Into the darkwell
+Stay inside
+Players are taken inside the Darkwell for an Intermission.
+
+
+
+Iris of Oblivion prevents players from going out of the room's bounds, killing them instantly if they go too far.
+
+WHAT TO DO
+Stay inside
+Everyone
+
+Destroy the Cores
+
+with the lines
+
+HEROIC CHANGES
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraGalva
+SHARE LINK
+
+Galvanize
+Lines
+Void Cores spin around the outside of the room. Use Galvanize, a targeted line mechanic, to destroy Cores by aiming at them.
+
+
+
+On heroic, Galvanize is a high damage soak mechanic. Groups should be assigned ahead of time for soak locations.
+
+
+
+Because Galvanize is a Cosmic mechanic, players holding Dawn Crystals need to drop their Crystals out of the soak and quickly pick them back up after, or avoid soaking at all.
+
+WHAT TO DO
+Aim at core
+Everyone
+
+Be aware of the raid damage
+
+and safe places to stand
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraCosFis
+SHARE LINK
+
+Cosmic Fission
+Planet dodge
+When Void Cores are destroyed, they'll pull players in for a short time.
+
+
+
+Then, L'ura will absorb the destroyed planets, quickly pulling them in alongside a hit of raidwide damage, and dealing massive damage to any players in their marked path.
+
+WHAT TO DO
+Move to a safe spot
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraAbyPoo
+SHARE LINK
+
+Abyssal Pool
+Rot
+Rot damage throughout the phase.
+
+WHAT TO DO
+Heal through
+Phase 3
+Everyone
+
+Stay near the light
+
+of Crystal holders
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraTorch
+SHARE LINK
+
+Torchbearer
+Light
+Players with Dawn Crystals will light up the space around them, protecting anyone inside from the Midnight darkness.
+
+
+
+Stay near Crystal holders!
+
+WHAT TO DO
+Stay near light
+Everyone
+
+Use the Crystal Extra Action Button
+
+to make a safe shield
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraArch
+SHARE LINK
+
+Dark Archangel
+Shield
+L'ura shoots a deadly blast which leaves behind a zone of darkness.
+
+
+
+Protect your raid from the blast by having a player who is holding a Dawn Crystal use their new Extra Action Button, which activates a protective shield
+
+
+
+Then, quickly exit the zone of darkness, which deals damage to anyone inside.
+
+WHAT TO DO
+Use Crystals for shield
+Everyone
+
+Move to a safe space
+
+between stars
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraDarCon
+SHARE LINK
+
+Dark Constellation
+Constellation stars
+Star orbs land on the platform, dealing massive damage to anyone too close when they fall.
+
+
+
+The stars then connect with light beams. The beams deal damage to any players inside.
+
+WHAT TO DO
+Move to safety
+Everyone
+
+Stand inside the circles
+
+to drain them
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/heroic?ability=luraLigSip
+SHARE LINK
+
+Light Siphon
+Soaks
+These soak circles are drained by standing inside.
+
+
+
+They will explode if they aren't fully soaked in time, wiping the raid.
+
+WHAT TO DO
+Drain the soaks
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+
+
+Strategy Guide
+FIGHT OVERVIEW
+3 Phase encounter with an Intermission after P1
+
+L'ura has a unique Memory game mechanic. She'll flash Runes in a pattern and mark players with them, and you'll have to match the pattern.
+
+Tons of glaives will fill the room and bounce around. Lots of dodging!
+
+Healed Crystals will turn to Dawn Crystals. Pick them up and keep them safe, you'll use them in P3 to protect the group from deadly blasts.
+
+Use beams to destroy Void Cores in Phase 2.
+
+In Phase 3, stay in the safety of the light from Crystal holders.
+
+Heroic Changes
+Dawn Crystals and holders should avoid Cosmic damage. Crystals being hit by Cosmic mechanics will create soak circles.
+
+Beams in Phase 2 now need to be soaked together. Sort out groups and a plan ahead of time.
+
+Phase 3 has an additional mechanic. Soak the circles to drain them before they explode.
+
+Phase 1
+Interrupt the matrix multiple times to remove their stack and destroy it.
+
+
+
+Crystal will spawn you have to kill them before they finish their cast.
+
+
+
+Some crystal are healable and can be picked up when fully healed.
+
+
+
+You need them to survive in Phase 3.
+
+Everyone
+
+Avoid touching the
+
+Darkwell and Beams
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraDaQua
+SHARE LINK
+
+Dark Quasar
+Beams
+Stepping into the center Darkwell will instantly kill you.
+
+
+
+Periodically, beams will shoot out from the Darkwell and spin around the room, dealing massive damage to anyone hit. 
+
+WHAT TO DO
+Avoid beams
+Everyone
+
+Memorize the Runes
+
+and match the pattern
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraDeaDir
+SHARE LINK
+
+Death's Dirge
+Memory game
+Memory game! L'ura flashes a sequence of Runes around herself. Players will then be marked by the runes, above their heads.
+
+
+
+Then, she'll shoot a laser in front of her and spin clockwise, destroying the runes off the players' heads in the order they are touched.
+
+
+
+Match the sequence shown by Lu'ra by forming a semicircle of marked players in the correct order or take massive damage!
+
+WHAT TO DO
+Match the Runes
+Everyone
+
+Interrupt the adds to
+
+remove all their stacks
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraTerPri
+SHARE LINK
+
+Safeguard Matrix
+Interrupt
+Three Safeguard Matrix adds spawn around the boss. They spin around, protecting her by reducing her damage taken by 33% for each add alive.
+
+
+
+Interrupt the adds to remove stacks of Safeguard, a buff that keeps them alive. When an add has all stacks removed, it gets destroyed.
+
+WHAT TO DO
+Interrupt
+Everyone
+
+Kill or heal the Crystals in time
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraDisin
+SHARE LINK
+
+Disintegration
+Crystal adds
+The raid takes a large burst of damage and L'ura spawns several friendly and enemy crystal mobs.
+
+
+
+Kill the enemy Midnight Crystals before their Cosmic Fracture cast finishes, or they'll wipe you.
+
+
+
+Heal the ally Dusk Crystals. They'll transform into Dawn Crystals, a core part of the rest of the fight.
+
+WHAT TO DO
+Kill or heal Crystals
+Everyone
+
+Pick up Dawn Crystals
+
+and keep them safe
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraDawCry
+SHARE LINK
+
+Dawn Crystal
+Dawn Crystals
+Fully healed Dusk Crystals turn to Dawn Crystals. Players can pick them up and drop them using their extra action button, and take DOT damage while holding them.
+
+
+
+After 3s of being left on the ground they begin to pulse massive raid damage so they need to be picked up quickly any time they are dropped.
+
+WHAT TO DO
+Pick up Dawn Crystals
+Everyone
+
+Dodge the glaives
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraHeaGla
+SHARE LINK
+
+Heaven's Glaives
+Dodge
+Several glaives shoot out from the boss and bounce around the room.
+
+
+
+They continue until P1 ends.
+
+WHAT TO DO
+Dodge
+Everyone
+
+Catch the Tear
+
+if they spawn
+
+HEROIC ONLY
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraTeOfLu
+SHARE LINK
+
+Tears of L'ura
+Soaks
+When hit by Cosmic damage, Dawn Crystals spawn several soak circles nearby.
+
+
+
+A player needs to catch each one. Missed soaks do massive damage.
+
+WHAT TO DO
+Soak Tears
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraHeaLan
+SHARE LINK
+
+Heaven's Lance
+Tankbuster
+5-hit tankbuster that applies stacks of Impaled with each hit.
+
+
+
+Each stack increases Heaven's Lance damage taken by 50% for 25s. Swap after each cast finishes.
+
+WHAT TO DO
+Tank swap
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraShaSky
+SHARE LINK
+
+Shattered Sky
+Rot
+Raidwide rot damage.
+
+WHAT TO DO
+Heal through
+Intermission
+Dodge everything
+
+
+
+Use healer cooldown for the healing absorb.
+
+Everyone
+
+Dodge and
+
+heal through
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraTotEcl
+SHARE LINK
+
+Total Eclipse
+Intermission
+Stepping into the center Darkwell will instantly kill you. During the intermission, beams still shoot out but do not spin. 
+
+
+
+Players are continually marked throughout the Intermission, shooting beams out from their character.
+
+
+
+All players get a small healing absorb shield every second.
+
+
+
+Combined with other damage, this is a good time to use healing CDs.
+
+WHAT TO DO
+Dodge and heal through
+Phase 2
+Aim the beam at the Void Core.
+
+
+
+The phase ends when all the planets have been absorbed.
+
+Everyone
+
+Stay inside the
+
+room's bounds
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraInThDa
+SHARE LINK
+
+Into the darkwell
+Stay inside
+Players are taken inside the Darkwell for an Intermission.
+
+
+
+Iris of Oblivion prevents players from going out of the room's bounds, killing them instantly if they go too far.
+
+WHAT TO DO
+Stay inside
+Everyone
+
+Destroy the Cores
+
+with the lines
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraGalva
+SHARE LINK
+
+Galvanize
+Lines
+Void Cores spin around the outside of the room. Use Galvanize, a targeted line mechanic, to destroy Cores by aiming at them.
+
+
+
+On heroic, Galvanize is a high damage soak mechanic. Groups should be assigned ahead of time for soak locations.
+
+
+
+Because Galvanize is a Cosmic mechanic, players holding Dawn Crystals need to drop their Crystals out of the soak and quickly pick them back up after, or avoid soaking at all.
+
+WHAT TO DO
+Aim at core
+Everyone
+
+Be aware of the raid damage
+
+and safe places to stand
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraCosFis
+SHARE LINK
+
+Cosmic Fission
+Planet dodge
+When Void Cores are destroyed, they'll pull players in for a short time.
+
+
+
+Then, L'ura will absorb the destroyed planets, quickly pulling them in alongside a hit of raidwide damage, and dealing massive damage to any players in their marked path.
+
+WHAT TO DO
+Move to a safe spot
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraAbyPoo
+SHARE LINK
+
+Abyssal Pool
+Rot
+Rot damage throughout the phase.
+
+WHAT TO DO
+Heal through
+Phase 3
+Everyone
+
+Stay near the light
+
+of Crystal holders
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraTorch
+SHARE LINK
+
+Torchbearer
+Light
+Players with Dawn Crystals will light up the space around them, protecting anyone inside from the Midnight darkness.
+
+
+
+Stay near Crystal holders!
+
+WHAT TO DO
+Stay near light
+Everyone
+
+Use the Crystal Extra Action Button
+
+to make a safe shield
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraArch
+SHARE LINK
+
+Dark Archangel
+Shield
+L'ura shoots a deadly blast which leaves behind a zone of darkness.
+
+
+
+Protect your raid from the blast by having a player who is holding a Dawn Crystal use their new Extra Action Button, which activates a protective shield
+
+
+
+Then, quickly exit the zone of darkness, which deals damage to anyone inside.
+
+WHAT TO DO
+Use Crystals for shield
+Everyone
+
+Move to a safe space
+
+between stars
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraDarCon
+SHARE LINK
+
+Dark Constellation
+Constellation stars
+Star orbs land on the platform, dealing massive damage to anyone too close when they fall.
+
+
+
+The stars then connect with light beams. The beams deal damage to any players inside.
+
+WHAT TO DO
+Move to safety
+Everyone
+
+Stand inside the circles
+
+to drain them
+
+https://www.mythictrap.com/vs-dr-mqd/midnight-falls/mythic?ability=luraLigSip
+SHARE LINK
+
+Light Siphon
+Soaks
+These soak circles are drained by standing inside.
+
+
+
+They will explode if they aren't fully soaked in time, wiping the raid.
+
+WHAT TO DO
+Drain the soaks
+0
+CREDITS
+Thanks to Katskratches our copywriter and Layria, our amazing English copyeditor. Be sure to check out Layria's Twitch channel for M+ healing and raiding!
+
+
+
+Credits to Akmi for the video editing. If you're looking for a video editor, feel free to DM him on our Discord!
+
+

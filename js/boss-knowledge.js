@@ -15,6 +15,45 @@ const BOSS_KNOWLEDGE_META = {
     // the damage table's ability guid at analysis time (no hardcoded/unverified ID). If a
     // confirmed ID is ever known it can be pinned here via `dissonanceSpellIds: { id: 'Dissonance' }`.
     dissonanceAbilityNames: ['Dissonance']
+  },
+
+  // ── THE DREAMRIFT — 8 remaining bosses ──────────────────────────────────────
+  // PENDING WCL VERIFICATION: boss name strings below are assumed to match WCL
+  // encounter names exactly. Verify against a multi-boss Dreamrift report.
+  // avoidableSpellIds and interruptTargetSpellIds are empty — no WCL-verified
+  // spell IDs yet. Add confirmed IDs here when logs are available.
+
+  'Imperator Averzian': {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
+  },
+  'Vorasius': {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
+  },
+  'Vaelgor and Ezzorak': {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
+  },
+  'Fallen King Salhadaar': {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
+  },
+  'Lightblinded Vanguard': {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
+  },
+  'Crown of the Cosmos': {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
+  },
+  "Belo'ren, Child of Alar": {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
+  },
+  'Midnight Falls': {
+    avoidableSpellIds: {},
+    interruptTargetSpellIds: {}
   }
 };
 
@@ -29,6 +68,48 @@ const BOSS_NON_AVOIDABLE = {
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack',
     'Caustic Phlegm', 'Rift Madness',
     'Discordant Roar'
+  ]),
+
+  'Imperator Averzian': new Set([
+    'Dark Upheaval', 'Blackening Wounds', "Imperator's Glory",
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
+  ]),
+  'Vorasius': new Set([
+    'Primordial Roar', 'Overpowering Pulse', 'Shadowclaw Slam',
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
+  ]),
+  'Vaelgor and Ezzorak': new Set([
+    'Midnight Manifestation', 'Midnight Flames', 'Twilight Bond',
+    'Rakfang', 'Vaelwing', 'Nullzone', 'Radiant Barrier', 'Nullbeam',
+    'Unbound Shadow',
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
+  ]),
+  'Fallen King Salhadaar': new Set([
+    'Twisting Obscurity', 'Destabilizing Strikes', 'Cosmic Barrier',
+    'Void Convergence',
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
+  ]),
+  'Lightblinded Vanguard': new Set([
+    'Light Infused', 'Sacred Toll', 'Searing Radiance',
+    'Judgment', 'Exorcism', 'Execution Sentence', 'Auras',
+    'Divine Shield', 'Consecration',
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
+  ]),
+  'Crown of the Cosmos': new Set([
+    'Stellar Emission', 'Dark Hand', 'Abyssal Pool', 'Null Corona',
+    'Voidstalker Sting', 'Rift Slash', 'Devouring Cosmos',
+    'Silverstrike Barrage', 'Corrupting Essence',
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
+  ]),
+  "Belo'ren, Child of Alar": new Set([
+    'Burning Heart', 'Eternal Burns', 'Ashen Benediction',
+    'Death Drop', 'Incubation of Flames', 'Voidlight Convergence',
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
+  ]),
+  'Midnight Falls': new Set([
+    "Heaven's Lance", 'Abyssal Pool', 'Total Eclipse', 'Shattered Sky',
+    'Dark Archangel', 'Disintegration', 'Null Corona', 'Dawn Crystal',
+    'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ])
 };
 
@@ -174,7 +255,7 @@ ABILITY REFERENCE (what each logged ability actually means):
 - Colossal Strikes: Tank ability from the Colossal Horror add. ONLY tanks should take this. Non-tanks taking Colossal Strikes were standing too close to the add.
 - Caustic Phlegm: Tank mechanic from the boss. Expected on tanks. Not avoidable.
 - Consume: Energy-dump knockback at 100 energy. Unavoidable.
-- Rift Madness: Mythic-only mechanic. Not fully avoidable.
+- Rift Madness: Mythic-only. Two Rift players are debuffed — one is ALWAYS a healer. A Reality player must stand on each debuffed player to swap realms and end the debuff. Pre-assign rescuers and a designated spot away from the raid for debuffed players to stand.
 - Blessing of Dawn: Holy Paladin self-buff. Any damage shown is a self-interaction of their own toolkit. Ignore entirely.
 - Fearsome Cry / Essence Bolt: Add abilities (Haunting Essence). Should be interrupted. Heavy damage here is a group interrupt failure, not individual avoidable damage.
 - Melee / Auto Attack / Stagger: Tank mechanics. Expected on tanks only.
@@ -200,5 +281,131 @@ WHAT IS NOT AN INDIVIDUAL MISTAKE (never flag these):
 - Caustic Phlegm / Consume / Ravenous Dive -- unavoidable or tank-only
 - Blessing of Dawn -- Paladin self-buff, ignore
 - High tank damage from Melee, Stagger, Caustic Phlegm, Colossal Strikes, Consume -- all expected
+`,
+
+  'Imperator Averzian': `
+FIGHT OVERVIEW:
+Single-phase fight. Averzian summons Abyssal Voidshapers who move to 3 random spaces and channel Void Rupture to claim them (tic-tac-toe). Only 2 of 3 can be stopped per set. If Averzian claims 3 in a row, the raid wipes. The raid must prevent three-in-a-row indefinitely.
+
+ABILITY REFERENCE:
+- Shadow's Advance: Averzian summons 3 Abyssal Voidshapers. Adds have 99% damage reduction until hit by Umbral Collapse. Pick 2 to stop — 1 will always claim a space.
+- Umbral Collapse: Soak circle — move the soak onto target adds to remove their immunity. Only happens twice per set; can only stop 2 of 3 adds.
+- Void Rupture: When this finishes the add claims a space. Beams shoot from the claimed location — dodge.
+- Void Fall: Knockback followed by AOE circles. Dodge.
+- Oblivion's Wrath: Void beams shoot outward from Averzian — dodge.
+- Shadow Phalanx: Untargetable troops march across the room — find the gap.
+- Imperator's Glory: Boss buff — 75% increased damage and 99% damage reduction when within 10yd of a claimed space. Tank boss away from claimed spaces.
+- Dark Upheaval: Unavoidable burst of raid-wide damage followed by ticking damage.
+- Blackening Wounds: Tank melee DoT (4% stacking health reduction, 20s). Swap when adds spawn — fixate on tank with most stacks.
+`,
+
+  'Vorasius': `
+FIGHT OVERVIEW:
+Single-phase fast-paced fight. Crystal Walls trap players and must be destroyed by exploding Blistercreep adds. The kill condition is Void Breath — a sweeping beam that wipes players if Crystal Walls are still standing. On Mythic, walls take 3 add explosions. Exploded adds leave permanent puddles.
+
+ABILITY REFERENCE:
+- Shadowclaw Slam: Tank soak — tank must stand in the circle or the raid wipes. Applies a 150% stacking physical vulnerability debuff. First two Slams spawn Crystal Walls.
+- Blisterburst: Spawns Blistercreep adds that fixate random players. When killed, adds explode in 8yd AoE and leave puddles (Mythic). Kite adds to Crystal Walls to destroy them with the explosion.
+- Void Breath: Sweeping beam across the room for 15s. Players must be on the safe side. AVOIDABLE — being caught in the beam is a positioning failure. If walls aren't destroyed there is no safe side.
+- Primordial Roar: Channels, pulls players toward boss, then unavoidable raid-wide damage and knockback.
+- Overpowering Pulse: Lethal if no tank is in melee range.
+`,
+
+  'Vaelgor and Ezzorak': `
+FIGHT OVERVIEW:
+Two-boss fight. Both dragons share a 10% health threshold — if one is more than 10% ahead the pair gains 100% increased damage. Kill them together. At 100 energy, dragons fly away into the Midnight Flames intermission. Stand in the Radiant Barrier and kill the Unbound Shadow add.
+
+ABILITY REFERENCE:
+- Twilight Bond: Boss buff — 100% damage amp if health differs >10% or they are <15yd apart. Tank apart and keep health even.
+- Nullzone: Tethers all players to Vaelgor and pulls them in. Break tethers by running away. Each break deals raid-wide damage. On Mythic, breaking also spawns circles on the ground — dodge them.
+- Dread Breath: Fear cone toward a random marked player — dodge. Dispel feared players quickly. On Mythic, feared players run 50% faster.
+- Gloom: Ezzorak shoots a Gloom orb toward the tank. Soak it to reduce the final explosion size and permanent puddle. On Mythic, soaking cleaves nearby players — spread out when soaking.
+- Void Howl: AoE circles on all players pop and spawn Voidorbs. Interrupt and CC Voidorbs.
+- Rakfang / Vaelwing: Tankbusters on each dragon. Swap immediately.
+- Midnight Manifestation: Persistent unavoidable raid-wide ticking DoT throughout the phase.
+- Midnight Flames: Dragons fly away at 100 energy — unavoidable intermission damage. Stand inside Radiant Barrier.
+`,
+
+  'Fallen King Salhadaar': `
+FIGHT OVERVIEW:
+Single-phase fight with a damage amp at 100 energy. Kill orbs (Void Convergence) before they touch the boss or it wipes the raid. Clones (Fractured Projection) must be interrupted or CC'd — their Shadow Fracture cast is lethal. Puddles from Despotic Command are permanent — place at edges. On Mythic, clones have Nexus Shield; only the unshielded clone can be interrupted, and each interrupt removes the shield from another clone.
+
+ABILITY REFERENCE:
+- Void Convergence: Concentrated Void orbs move toward Salhadaar. If one reaches him, the raid wipes. Tanks kite boss away; DPS kill orbs one at a time (killing applies a stacking 8s DoT on Heroic+).
+- Fractured Projection: Clones cast Shadow Fracture — lethal if it completes. Interrupt or CC. On Mythic, chain the interrupts in order (Nexus Shield).
+- Despotic Command: Several players pulse damage in a 12s AoE and drop a permanent puddle. Move to edges to place puddles there.
+- Entropic Unraveling: At 100 energy, boss stands still — pulsing raid-wide damage for 20s plus rotating beams. Dodge beams. Boss takes 25% increased damage — burn hard. Tank near edge beforehand.
+- Shattering Twilight: Spikes travel outward from the marked tank's location. Dodge. On Heroic+, multiple players are marked.
+- Twisting Obscurity: Unavoidable raid-wide damage followed by a 23s DoT.
+- Destabilizing Strikes: Melee DoT stacking on the tank. Swap at high stacks.
+`,
+
+  'Lightblinded Vanguard': `
+FIGHT OVERVIEW:
+Three-boss Paladin council (Lightblood, Bellamy, Senn). Kill within 10% of each other — if one dies first, the survivors gain a stacking 30% damage buff. At 100 energy each boss channels an Aura that buffs nearby allies — move out immediately. On Mythic, a Zealous Spirit empowers one boss at a time, adding mechanic overlaps and empowered abilities.
+
+ABILITY REFERENCE:
+- Auras: At 100 energy each boss channels a powerful buff. Move out of Aura range. On Heroic+, each Aura leaves a Consecrate puddle that pacifies and increases damage taken on Mythic.
+- Execution Sentence: Soak circles on several players. Help soak — can only soak 1 per set. Hammers spin outward after each soak — dodge.
+- Divine Toll: Bellamy throws waves of traveling shields — dodge or be silenced for 6s.
+- Sacred Shield: Senn shields himself and charges on an elekk — dodge the charge path.
+- Avenger's Shield: Spreads circles on players — spread out. Applies a dispellable DoT. On Mythic when empowered by Zealous Spirit, targets all players.
+- Blinding Light: Senn disorients players facing him. Turn away or interrupt.
+- Judgment / Shield of the Righteous: Two-step tankbuster. Swap between the two abilities to split the 500% vulnerability debuff.
+- Exorcism: Single big holy tankbuster. Use a defensive.
+- Light Infused: Persistent unavoidable raid-wide ticking damage, increased 25% per Aura cast.
+- Searing Radiance: 15s pulsing unavoidable raid damage. On Mythic when empowered, ramps 10% per second — major healing CD.
+- Divine Shield: Bosses immune when Bloodlust is popped. Mass Dispel immediately.
+`,
+
+  'Crown of the Cosmos': `
+FIGHT OVERVIEW:
+Three-phase fight (Alleria) with two intermissions. Phase 1: kill 3 Undying Sentinels — they have death immunity removed by aiming Silverstrike Arrows through them. Phase 2: Alleria's void clone shares health — kill the clone. Intermissions: Alleria crashes into the platform; survive Silverstrike Barrages and gravity pulls. Phase 3: platform splits into 3 chunks — use feathers to jump between them. Boss casts Devouring Cosmos to destroy the current chunk; pick up a feather and cross before it does.
+
+ABILITY REFERENCE:
+- Silverstrike Arrow / Ricochet: White line mechanic. In P1, aim arrows through Sentinels to remove their death immunity. In P2, work together to bounce the Ricochet arrow through immune adds.
+- Grasp of Emptiness: Blue beam lines from obelisks around a targeted player. Reposition to aim beams away from the raid.
+- Void Expulsion: Orb spawns near ranged, explodes into a permanent puddle. Bait near old puddles.
+- Interrupting Tremor (Demiar add): Pulsing silence AoE — move out of range.
+- Ravenous Abyss (Vorelus add): 15yd AoE reduces player damage 70% — move out.
+- Corrupting Essence (Void Droplets): Kill near Sentinels — death splash applies 30% increased damage taken to everything hit, including the Sentinels.
+- Null Corona: Massive heal absorb shield — heal it off. Dispel only if the player is in danger (absorb jumps to another player).
+- Dark Hand: Morium tankbuster — heavy physical + magic + knockback. Use defensives.
+- Stellar Emission (Intermission): Pulsing stacking DoT and gravity pull toward the center. Fight the drag. Silverstrike arrows sweep — dodge unless clearing a DoT stack.
+- Aspect of the End (P3): Tether on several players including the active tank. Run out to break. Breaking deals raid-wide damage and 300% physical vulnerability debuff. Tank swap.
+- Devouring Cosmos (P3): Alleria destroys the current platform section. Pick up a feather and use it to jump to the next section.
+`,
+
+  "Belo'ren, Child of Alar": `
+FIGHT OVERVIEW:
+Repeating 2-phase encounter with a 6-minute enrage. Phase 1: fight Belo'ren and add birds. Phase 2: Belo'ren retreats to their egg — the real health bar. Each P2 is a 30s damage window; it repeats until the egg dies or enrage. All players have a Light or Void color assignment (changes periodically) — most mechanics resolve by color. Ashen Benediction stacks a permanent 10% healing reduction each P2 cycle — urgency increases each loop.
+
+ABILITY REFERENCE:
+- Voidlight Convergence: Light or Void color assignment. Your color reduces same-color mechanic damage 50%. Know your color at all times.
+- Light / Void Dive: Soak circle on a marked player — matching-color players help soak. Permanent puddle left behind — place at the edge.
+- Guardian's Edict: Colored tank cone sequence. Only tanks soak their matching color — wrong-color soaks enrage the boss.
+- Radiant Echoes: Orbs of both colors float across the room. Run through matching-color orbs to clear space. On Mythic, orbs explode if they touch Belo'ren.
+- Light / Void Eruption: Belo'ren spawns a Light and a Void bird add. Each casts a lethal raid-wide — ONLY matching-color players can interrupt it. Assign color-matched interrupters.
+- Rebirth: When birds die they turn into an egg. Kill within 15s or the add respawns.
+- Burning Heart: Persistent unavoidable rot throughout the entire fight.
+- Ashen Benediction (P2): Fire damage burst and 10% healing reduction, permanent and stacking. Urgency to kill the egg increases each cycle.
+`,
+
+  'Midnight Falls': `
+FIGHT OVERVIEW:
+Three-phase fight (L'ura) with an intermission after Phase 1. Phase 1: destroy 3 Safeguard Matrix adds (interrupt-chain to remove stacks) and handle Disintegration crystal spawns — kill dark crystals, heal light crystals into Dawn Crystals that are carried by players throughout the rest of the fight. Intermission (inside the Darkwell): survive gravity pulls and Silverstrike Barrages. Phase 2: aim Galvanize beams at Void Cores to destroy them. Phase 3: Dawn Crystal holders project protective light — all other players must stay near them or die in the darkness.
+
+ABILITY REFERENCE:
+- Dark Quasar: Spinning beams from the central Darkwell — dodge. Stepping into the Darkwell is instant death.
+- Death's Dirge: Memory game. L'ura flashes a rune sequence. Players marked with runes must form a correct-order semicircle as her laser sweeps clockwise through them. Wrong order = massive damage.
+- Safeguard Matrix adds: Three adds protect the boss (33% damage reduction each). Interrupt each multiple times to remove Safeguard stacks — when all stacks are gone the add dies. Must kill all three.
+- Disintegration: Enemy Midnight Crystals and friendly Dusk Crystals spawn. Kill enemy crystals before their Cosmic Fracture cast finishes (wipe if it completes). Heal Dusk Crystals into Dawn Crystals.
+- Dawn Crystal: Carried by players with their Extra Action Button. Carriers take a DoT. After 3s on the ground they pulse lethal raid damage — someone must pick them up immediately.
+- Heaven's Glaives: Glaives bounce around the room throughout P1. Dodge constantly.
+- Heaven's Lance: 5-hit tankbuster. Each hit stacks Impaled (50% increased damage taken from further hits, 25s). Swap after each cast.
+- Galvanize (P2): Targeted line mechanic — aim at Void Cores spinning around the room to destroy them. On Heroic+, Galvanize is a group soak.
+- Dark Archangel (P3): L'ura shoots a deadly blast — a Crystal holder uses their Extra Action Button to shield the raid against it. Then move out of the resulting dark zone.
+- Dark Constellation (P3): Stars land on the platform and connect with damaging beams — find safe gaps.
+- Light Siphon (P3): Soak circles that must be fully drained by standing inside — explode and wipe if not drained in time.
 `
 };

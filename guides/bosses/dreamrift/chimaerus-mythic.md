@@ -68,7 +68,9 @@ The boss eats any Manifestation that reaches him. Stacks. If multiple adds reach
 
 This mechanic prevents players from standing near others who are in a different realm. The room is divided in two with each group playing within their half. If you get swapped by Rift Madness, play with the other group until your team has returned.
 
-**Rift Madness (Mythic Only):** If players are afflicted, their teammates must quickly swap realms to rescue them.
+**Rift Madness (Mythic Only):** Two players in the Rift are debuffed — they deal pulsing damage to nearby allies and take massive increasing damage themselves. A player from Reality must stand on top of each debuffed player; the two swap realms, ending the debuff.
+
+**Critical rule: One of the two Rift Madness debuffs is ALWAYS placed on a healer.** Pre-assign specific rescuers (one per debuffed player) before the pull, and designate a spot away from the main group for debuffed players to stand so the pulse damage doesn't hit the raid. The rescuer paired with the healer must be able to sustain the group for a few seconds while displaced into the other realm.
 
 ---
 
@@ -149,7 +151,7 @@ The boss crashes into the ground, knocks everyone up, consumes any remaining Man
 | Cannibalized Essence healing | 200% | 500% |
 | Corrupted Devastation adds | Normal amount | Additional Manifestations |
 | Dissonance | No | Yes — forces strict positioning |
-| Rift Madness | No | Yes — requires active rescue |
+| Rift Madness | No | Yes — one debuff always on a healer; requires pre-assigned rescuers |
 | Intermission Rift team | Stays up | Team 1 goes back down to soak |
 
 ---
