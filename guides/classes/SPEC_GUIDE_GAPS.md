@@ -25,9 +25,9 @@ Christian supplied parsed SimulationCraft data (`simc-guides/` + raw `Trivial.tx
 
 Enriched: **Assassination Rogue, Frost DK, Balance Druid, Marksmanship Hunter, Fire Mage, Retribution Paladin, Shadow Priest, Destruction Warlock, Fury Warrior, Elemental Shaman.** (Havoc & Beast Mastery were already SimC-complete.)
 
-Still open even on these 10: **spell IDs** (the parsed data had none clean; `Trivial.txt` `Spelldata` blocks are an untapped authoritative source — see note) and **consumable/enchant item IDs**. The remaining ~27 guides still need the talent/APL/distribution pass.
+Still open even on these 10: **spell IDs** and **consumable/enchant item IDs**. The remaining ~27 guides still need the talent/APL/distribution pass.
 
-> **High-value untapped source:** `Trivial.txt` contains `Spelldata` blocks (`id:NNN name:X`) — authoritative SimC spell IDs. A careful extraction could close the #1 gap (spell IDs) across all guides without fabrication. Not yet done.
+> **Spell-ID extraction from `Trivial.txt` — INVESTIGATED, NOT VIABLE (2026-06-02).** The file has only ONE clean `Spelldata` block (id/name). Its other spell IDs live in tab-separated "Affected By" tables (~1,401 rows / 409 names) that are almost entirely talents/passives/auras, NOT abilities. The rotational/defensive/interrupt abilities we need are absent (Obliterate, Garrote, Mind Freeze, Pyroblast, Chaos Bolt, Bloodthirst… all missing) and the few present are ambiguous (Metamorphosis→3 IDs, Immolation Aura→14). Deriving IDs from it would introduce wrong/ambiguous values — rejected. **Recommended path instead:** harvest name→gameID from **live WCL report data at analysis time** — the tool already captures each ability's `guid` (`abilityGuidByName` in analyze.js, added in Step 10), which is authoritative for the exact log being analyzed — and/or a focused live-Wowhead pass per spec.
 
 ---
 
