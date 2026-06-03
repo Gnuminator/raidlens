@@ -11,6 +11,7 @@
 > - Spell-database cross-reference for Kick spell ID: wowdb.com, wowpedia.fandom.com, wowclassicdb.com (all list 1766)
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 >
 > Note: Wowhead individual spell/item pages and several guide pages returned HTTP 403 to automated fetching, so most numeric data below is corroborated from guide prose and search excerpts rather than from in-game tooltip pages. Spell IDs are deliberately almost entirely omitted — see "Notes and Known Gaps."
 
@@ -181,6 +182,26 @@ Rows are included only where the percent field contained a "%" sign (reliable da
 
 **Interpretation for RaidLens:** Garrote, Rupture, and the poison procs (Deadly Poison, Amplifying Poison) together account for the majority of damage, confirming that bleed and poison maintenance is the core of the spec. Hand of Fate (a Fatebound talent proc at 8.8%) is a significant contributor — its absence from a log breakdown could indicate the player is not running a Fatebound build or is letting proc windows expire. Auto attacks at 11.0% are unusually prominent, meaning any time spent out of melee range (dodging mechanics) has a measurable cost. A log where Mutilate or Ambush contribute disproportionately to damage relative to the bleeds suggests the player is not maintaining Garrote/Rupture properly.
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Ambush | 8676 | physical | cast |
+| Amplifying Poison | 383414 | nature | cast |
+| Deadly Poison | 2823, 113780, 2818 (multiple: base cast + variants/sub-spells) | mixed | cast |
+| Deathmark | 360194 | physical | cast |
+| Envenom | 32645 | nature | cast |
+| Garrote | 703 | physical | cast |
+| Hand of Fate | 452536 | physical | cast |
+| Internal Bleeding | 381628 | physical | cast |
+| Kingsbane | 385627 | nature | cast |
+| Mutilate | 1329, 5374, 27576 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Rupture | 1943 | physical | cast |
+| Thistle Tea | 381623 | physical | cast |
+| Vanish | 1856 | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ### Action Priority List — Rogue Assassination
 
 ```
@@ -280,7 +301,7 @@ actions.vanish+=/vanish,if=!variable.single_target&talent.improved_garrote&dot.g
 
 ## Notes and Known Gaps
 
-- **Spell IDs:** Only **Kick = 1766** is included, confirmed via multiple independent spell databases (WoWDB, Wowpedia, classic DB). All other spell IDs (Deathmark, Kingsbane, Garrote, Rupture, Envenom, Mutilate, Feint, Cloak of Shadows, Evasion, Crimson Vial, Vanish, Crimson Tempest, Fan of Knives, Atrophic Poison, etc.) are **omitted** because live Wowhead spell pages returned HTTP 403 to fetching and no fetched source displayed the exact numeric IDs. Do not assume IDs from memory; re-verify on Wowhead before hardcoding into `boss-knowledge.js`/filters.
+- **Spell IDs:** Only **Kick = 1766** is included for the interrupt, confirmed via multiple independent spell databases (WoWDB, Wowpedia, classic DB). Damage/rotational spell IDs are now confirmed from the SimC HTML reference for matched abilities (see "Confirmed Spell IDs" section above); defensive/interrupt/utility IDs (Feint, Cloak of Shadows, Evasion, Crimson Vial, Fan of Knives, Crimson Tempest, Atrophic Poison, etc.) still pending live Wowhead verification. Do not assume IDs from memory; re-verify on Wowhead before hardcoding into `boss-knowledge.js`/filters.
 - **Kick cooldown (15s):** Sourced from Midnight rogue guide prose/search excerpts, not from a fetched in-game tooltip page. Treat as high-confidence but re-verify.
 - **Kick interrupt lockout duration:** Not confirmed for 12.0.5 (older data referenced 3s school lockout). Flagged as unconfirmed.
 - **Feint values (40% AoE / 6s / 35 Energy / Elusiveness ~20% all damage):** From Icy Veins prose; not cross-checked against a live tooltip page. Re-verify exact percentages.
@@ -288,8 +309,8 @@ actions.vanish+=/vanish,if=!variable.single_target&talent.improved_garrote&dot.g
 - **Deathmark (2 min) / Kingsbane (60s) / Vanish (2 min):** From Icy Veins and Wowhead overview prose. Confident but tooltip not directly fetched.
 - **Atrophic Poison numbers (30% chance / 3% damage reduction / 10s):** From a search excerpt; not confirmed on a fetched tooltip page. Re-verify exact magnitudes.
 - **Talent import string:** Added from SimulationCraft Midnight 12.0.5 source data. The sim hero_tree field was null, so the exact hero-tree variant is unconfirmed — verify the string in-game before treating it as authoritative for a specific build. SimC APL now embedded (extracted from Trivial.txt).
-- **Hand of Fate:** Appears in the SimC damage distribution at 8.8% — likely a Fatebound talent proc. Not present in the original guide prose. Spell ID not confirmed; verify on Wowhead.
-- **Internal Bleeding:** Appears in the SimC damage distribution at 1.9%. Added to Abilities Reference. Spell ID not confirmed; verify on Wowhead.
+- **Hand of Fate:** Appears in the SimC damage distribution at 8.8% — likely a Fatebound talent proc. Not present in the original guide prose. Spell ID now confirmed from SimC reference: **452536** (physical, cast).
+- **Internal Bleeding:** Appears in the SimC damage distribution at 1.9%. Added to Abilities Reference. Spell ID now confirmed from SimC reference: **381628** (physical, cast).
 - **Midnight AoE rework:** Sources state Indiscriminate Carnage and the old Shiv were removed/changed and Crimson Tempest became a bleed-spreading generator. The exact talent layout and any remaining Shiv functionality were not fully confirmed — flagged.
 - **Consumable/gem/enchant item IDs:** Omitted (could not confirm). Names only.
 - **Maintenance flag:** Re-verify ALL cooldowns, the Kick spell ID/cooldown, poison values, and consumable names after ANY 12.x patch. Wowhead spell pages were inaccessible to automated fetching during this writeup, so a manual pass against live tooltips is recommended before relying on numeric values for analysis.

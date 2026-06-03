@@ -26,6 +26,7 @@
 > - https://www.wowhead.com/spell=213644/cleanse-toxins
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 
 ## Overview
 
@@ -365,11 +366,45 @@ For the Herald of the Sun variant, **Final Verdict and the Blade of Justice / Wa
 
 ---
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Source: simc-guides/spell-ids-reference.json (extracted from the Midnight 12.0.5 SimC HTML report). Exact key matches only.
+
+Note on Avenging Wrath: the Wowhead-confirmed base spell ID is 31884 (retained in the Abilities Reference section above). The SimC reference contains a separate ID 454351 (holy, cast) — this is a different entry in the SimC spelldata, likely a variant or proc sub-spell. Both are recorded here for completeness; treat 31884 as the canonical cast ID.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Avenging Wrath | 454351 | holy | cast |
+| Blade of Justice | 184575 | holy | cast |
+| Consecration | 81297, 26573 (multiple: base cast + variants/sub-spells) | holy | cast |
+| Crusading Strikes | 408385 | physical | cast |
+| Devotion Aura | 465 | holy | other |
+| Divine Storm | 53385 | holy | cast |
+| Divine Toll | 375576 | holy | cast |
+| Empyrean Hammer | 431398 | holy | cast |
+| Execution Sentence | 387113, 1260251 (multiple: base cast + variants/sub-spells) | holy | cast |
+| Expurgation | 383346 | holyfire | cast |
+| Final Verdict | 383328 | holy | cast |
+| Hammer of Light | 427453 | holy | cast |
+| Hammer of Wrath | 24275, 1279408, 1241413 (multiple: base cast + variants/sub-spells) | holy | cast |
+| Highlord's Judgment | 383921 | holy | cast |
+| Judgment | 275779, 406957, 20271 (multiple: base cast + variants/sub-spells) | holy | cast |
+| Sun Sear | 431414 | holyfire | cast |
+| Sun's Avatar | 431911 | holyfire | cast |
+| Templar Slash | 406647 | holyfire | cast |
+| Templar Strike | 407480 | holyfire | cast |
+| Voidclaw | 253797 | shadow | other |
+| Wake of Ashes | 255937, 405345, 405350 (multiple: base cast + variants/sub-spells) | holyfire | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
+---
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (named explicitly, included WITHOUT invented IDs):
-- **Final Verdict / Templar's Verdict SpellID** — not confirmed live. The single-target spender is referenced by name only.
-- **Divine Storm SpellID** — not confirmed live. The AoE spender is referenced by name only.
+- **Final Verdict / Templar's Verdict SpellID** — damage/rotational spell ID now confirmed from the SimC HTML reference (383328); live Wowhead verification still pending for completeness.
+- **Divine Storm SpellID** — damage/rotational spell ID now confirmed from the SimC HTML reference (53385); live Wowhead verification still pending for completeness.
 - **Wake of Ashes cooldown** — the Wowhead spell page (255937) showed no base cooldown (it is talent-modified). Icy Veins describes it as a short recurring cooldown (commonly cited as ~30 sec) but the exact 12.0.5 value was not confirmed from a primary source. SpellID 255937 is confirmed.
 - **Shield of Vengeance cooldown** — the Wowhead spell page (184662) lists no cooldown on the base spell. The real in-game recharge (commonly ~1–1.5 min) was not confirmed; SpellID and 10-sec duration are confirmed.
 - **Blessing of Protection / Blessing of Freedom cooldowns** — Wowhead listed "1.5 sec," which is a GCD/cast-side value, not the true recharge (both have multi-minute real cooldowns). SpellIDs (1022, 1044) and durations (10 sec, 8 sec) are confirmed; the true cooldowns are NOT confirmed and should be re-verified.
@@ -377,10 +412,10 @@ Unconfirmed facts (named explicitly, included WITHOUT invented IDs):
 - **Execution Sentence, Final Reckoning, Crusade, Eye of Tyr, Crusader Strike, Templar Strike/Slash, Crusading Strikes SpellIDs** — referenced by name from rotation/talent sources; individual spell pages not fetched, so no IDs are given.
 - **Hammer of Justice and other CC SpellIDs** — not confirmed live.
 - **Consumable, gem, and enchant item IDs** — names captured from Icy Veins; no numeric item IDs were confirmed against live item pages, so all are omitted.
-- **Empyrean Hammer, Highlord's Judgment SpellIDs** — present in SimC damage table at meaningful percentages (Templar: 10.7% and 4.7%; Herald: 3.5%) but SpellIDs not confirmed live. These should be fetched on the next Wowhead pass.
-- **Sun's Avatar, Sun Sear SpellIDs** — Herald of the Sun hero-tree abilities appearing in SimC data; SpellIDs not confirmed live.
+- **Empyrean Hammer, Highlord's Judgment SpellIDs** — damage/rotational spell IDs now confirmed from the SimC HTML reference (431398 and 383921 respectively); defensive/interrupt/utility IDs still pending live Wowhead.
+- **Sun's Avatar, Sun Sear SpellIDs** — damage/rotational spell IDs now confirmed from the SimC HTML reference (431911 and 431414 respectively); defensive/interrupt/utility IDs still pending live Wowhead.
 - **Secondary stat priority** — no live source confirmed; only conceptual rotation/talent prose is provided.
-- **SimC damage distribution and talent strings added** (Templar and Herald variants, Midnight 12.0.5); SimC APL now embedded (extracted from Trivial.txt).
+- **SimC damage distribution and talent strings added** (Templar and Herald variants, Midnight 12.0.5); SimC APL now embedded (extracted from Trivial.txt). Damage/rotational spell IDs now confirmed from the SimC HTML reference for matched abilities; defensive/interrupt/utility IDs still pending live Wowhead.
 
 Source caveats:
 - Wowhead guide pages (overview/rotation/abilities) did not render usable body text through the fetch tool; rotation and ability descriptions were sourced from Icy Veins (patch 12.0.5) and individual Wowhead spell pages. Some later Wowhead spell-page fetches returned HTTP 403 (rate limiting); those IDs (Judgment 20271, Hammer of Wrath 24275, Word of Glory 85673, Blade of Justice 184575, Hammer of Light 427441, Cleanse Toxins 213644) were instead confirmed via their canonical Wowhead URLs returned in search, where the URL slug embeds the name and ID.

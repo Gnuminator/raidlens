@@ -8,6 +8,7 @@
 > - Individual Wowhead spell pages (IDs cited inline below were each confirmed on their own live spell page): Chaos Bolt, Immolate, Conflagrate, Incinerate, Shadowburn, Rain of Fire, Havoc, Summon Infernal, Unending Resolve, Dark Pact, Spell Lock, Shadowfury, Mortal Coil, Fear, Soulstone, Demonic Gateway, Demonic Circle.
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 
 ---
 
@@ -414,6 +415,42 @@ For Hellcaller, **Wither at ~6.1%** (vs Immolate's ~3.1% for Diabolist) reflects
 
 ---
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Matched by exact key against `simc-guides/spell-ids-reference.json` (SimC Midnight 12.0.5 Patchwerk single-target HTML report). Only abilities whose name is an exact key in the reference are listed here.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Chaos Bolt | 116858, 434589 (multiple: base cast + variants/sub-spells) | chromatic (primary), fire | cast |
+| Chaos Salvo | 432569, 432596 (multiple: base cast + variants/sub-spells) | fire | cast |
+| Conflagrate | 17962 | fire | cast |
+| Diabolic Oculi | 1268709 | physical | cast |
+| Embers of Nihilam | 1265770 | shadowflame | cast |
+| Felseeker | 438973, 434404 (multiple: base cast + variants/sub-spells) | chaos | cast |
+| Immolate | 118297, 348, 157736 (multiple: base cast + variants/sub-spells) | fire | cast |
+| Incinerate | 29722 | fire | cast |
+| Infernal Bolt | 434506 | fire | cast |
+| Malevolence | 446285, 430014 (multiple: base cast + variants/sub-spells) | shadowflame (primary), physical | mixed |
+| Ruination | 434635, 434636 (multiple: base cast + variants/sub-spells) | chaos | cast |
+| Shadowburn | 17877 | shadowflame | cast |
+| Soul Fire | 6353 | fire | cast |
+| Summon Infernal | 1122, 111685 (multiple: base cast + variants/sub-spells) | fire (primary), shadow | mixed |
+| Twilight Barrage | 1281579 | shadowlight | other |
+| Voidstalker Sting | 1271226 | shadow | other |
+| Wicked Cleave | 432120 | shadowflame | cast |
+| Wither | 445468, 445474, 1279686 (multiple: base cast + variants/sub-spells) | shadowflame | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
+**Abilities named in the guide with no exact key match in the reference (not included above):**
+- Rain of Fire — not present as an exact key in the SimC reference
+- Havoc — not present as an exact key in the SimC reference
+- Cataclysm — not present as an exact key in the SimC reference
+- Channel Demonfire — not present as an exact key in the SimC reference
+- Infernal Immolation (pet) — not present as an exact key in the SimC reference
+
+---
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (named without an ID per sourcing rules — do not treat the missing IDs as "no ID exists," only as "not verified this session"):
@@ -434,5 +471,7 @@ Unconfirmed facts (named without an ID per sourcing rules — do not treat the m
 - **SimC APL** — SimC APL now embedded (extracted from Trivial.txt).
 
 Confirmed-on-live-Wowhead-spell-page IDs used in this guide: Immolate 348, Conflagrate 17962, Incinerate 29722, Chaos Bolt 116858, Shadowburn 17877, Rain of Fire 5740, Havoc 80240, Summon Infernal 1122, Unending Resolve 104773, Dark Pact 108416, Spell Lock 19647, Shadowfury 30283, Mortal Coil 6789, Fear 5782, Soulstone 20707, Demonic Gateway 111771, Demonic Circle 48018.
+
+Damage/rotational spell IDs now confirmed from the SimC HTML reference for matched abilities (see "Confirmed Spell IDs" section above); defensive/interrupt/utility IDs still pending live Wowhead.
 
 **Maintenance flag:** Re-verify all abilities, cooldowns, and IDs after any 12.x patch (talent reworks and hero-tree tuning are common). Especially re-check Summon Infernal cooldown, Unending Resolve value, the Spell Lock interrupt cooldown, and the unconfirmed hero-tree IDs (Wither, Malevolence, Inferno, Embers of Nihilam, Voidstalker Sting, Twilight Barrage) on live Wowhead spell pages once the rate limit clears.

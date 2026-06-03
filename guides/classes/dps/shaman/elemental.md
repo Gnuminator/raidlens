@@ -27,6 +27,7 @@
 > - https://www.wowhead.com/spell=198067/fire-elemental
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 
 ## Overview
 
@@ -186,6 +187,25 @@ Note: Lava Burst, Flame Shock, Tempest, Ascendance, and Stormkeeper rows did not
 
 **RaidLens interpretation:** Lightning Bolt and Elemental Blast together should account for roughly 47% of damage in a clean single-target Stormbringer parse. A log where these two abilities are substantially underrepresented — and filler or pet damage makes up a disproportionate share — suggests the player is failing to spend Maelstrom properly, missing Elemental Blast casts, or losing uptime on the boss. The pet contribution (Fire Blast, Immolate, Meteor, Call Lightning summing to ~8%) confirms that Fire Elemental or Storm Elemental uptime matters and should be tracked if a player's pet damage is unusually low.
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+| Ability | Spell ID(s) | School | Type |
+|---------|-------------|--------|------|
+| Lightning Bolt | 188196 | nature | cast |
+| Elemental Blast | 117014 | elemental | cast |
+| Lightning Rod | 197568 | nature | cast |
+| Stormfury | 157375, 269005 (multiple: base cast + variants/sub-spells) | nature | cast |
+| Lava Burst | 51505 | fire | cast |
+| Flame Shock | 188389 | firestorm | cast |
+| Chain Lightning | 211094 | nature | cast |
+| Tempest | 452201 | nature | cast |
+| Stormkeeper | 191634 | nature | cast |
+| Ascendance | 1219480, 114051, 344548 (multiple: base cast + variants/sub-spells) | mixed (fire/nature) | cast |
+| Bloodlust | 2825 | nature | cast |
+| Voltaic Blaze | 470057 | firestorm | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ### Action Priority List — Shaman Elemental Stormbringer
 
 ```
@@ -283,7 +303,8 @@ Unconfirmed facts (named so they are not trusted as IDs in analysis):
 - **Wind Shear school-lockout duration** — cooldown (12s) and range (30y) confirmed; the lockout/silence duration was not shown on the fetched page (historically 2–3s). Re-verify.
 - **Ascendance / Spiritwalker's Grace / Astral Shift cooldowns** — spell pages give Ascendance 3 min, Spiritwalker's Grace 2 min, Astral Shift 2 min as BASE values. Talents in the active build can reduce these (Icy Veins cited 1.5 min for Astral Shift and SWG). When judging "was a defensive available," allow for talented reductions.
 - **Capacitor Totem stun text** — the fetched page confirmed totem/radius/duration/cooldown but did not render the explicit "stun" effect line. Stun is the known effect; treat the mechanic as confirmed-by-context, not by literal page text.
-- **No-ID abilities** — the following were described by the Icy Veins glossary but their spell IDs were NOT individually confirmed on a spell page, so no IDs are given: Nature's Guardian, Healing Surge, Earth Elemental, Spirit Walk, Gust of Wind, Ghost Wolf, Wind Rush Totem, Earthbind Totem, Purge, Poison Cleansing Totem, Ancestral Swiftness, Nature's Swiftness, Stormfury, and the passives Lava Surge / Voltaic Blaze / Lightning Rod.
+- **Spell ID coverage** — damage/rotational spell IDs now confirmed from the SimC HTML reference for matched abilities (Lightning Bolt, Elemental Blast, Lightning Rod, Stormfury, Lava Burst, Flame Shock, Chain Lightning, Tempest, Stormkeeper, Ascendance, Bloodlust, Voltaic Blaze); defensive/interrupt/utility IDs still pending live Wowhead. The following abilities named in the guide had no exact key match in the SimC reference and remain without a SimC-sourced ID: Earth Shock, Earthquake, Fire Elemental, Skyfury, Ancestral Swiftness, Nature's Swiftness, Lava Surge, Fire Blast (pet), Immolate (pet), Meteor (pet), Call Lightning (pet).
+- **No-ID abilities (non-damage/utility)** — the following were described by the Icy Veins glossary but their spell IDs were NOT individually confirmed on a spell page or in the SimC reference: Nature's Guardian, Healing Surge, Earth Elemental, Spirit Walk, Gust of Wind, Ghost Wolf, Wind Rush Totem, Earthbind Totem, Purge, Poison Cleansing Totem, Ancestral Swiftness, Nature's Swiftness.
 - **Stone Bulwark Totem** — not confirmed as a current Elemental defensive in 12.0.5 from fetched sources; do not assume it exists for this spec until verified.
 - **Consumables and Enchants** — no item IDs sourced this session; section is conceptual only.
 - **Talent import string** — added (Stormbringer hero tree, SimC Midnight 12.0.5). Other hero-tree variants (if any) not yet profiled.

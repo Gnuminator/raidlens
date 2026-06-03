@@ -9,6 +9,7 @@
 > - Individual Wowhead spell pages (one per confirmed SpellID; URLs listed in Notes and Known Gaps)
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 >
 > **SpellIDs:** Every numeric SpellID below was confirmed on a live Wowhead spell page that was actually fetched. Any ability whose ID could not be confirmed is written with no number and flagged in Notes and Known Gaps. No ID was recalled from memory or guessed.
 >
@@ -233,6 +234,31 @@ Do not enter any consumable or enchant item ID into RaidLens from this guide unt
 > DPS/HPS/DTPS metrics were not captured in the source data (metrics field was empty for both hero trees).
 
 Two hero-tree variants were simulated: **Frostfire** and **Sunfury**.
+
+---
+
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+> Source: simc-guides/spell-ids-reference.json, extracted from the SimulationCraft Midnight 12.0.5 HTML report. Exact key matches only.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Fireball | 133 | fire | cast |
+| Frostfire Bolt | 431044 | frostfire | cast |
+| Pyroblast | 450461, 11366, 1262863 | fire | cast (multiple: base cast + variants/sub-spells) |
+| Fire Blast | 108853, 57984 | frostfire (primary), fire (variant) | cast (multiple: base cast + variants/sub-spells) |
+| Scorch | 2948 | fire | cast |
+| Meteor | 153561, 351140, 438607, 117588 | fire | cast (multiple: base cast + variants/sub-spells) |
+| Combustion | 190319 | fire | cast |
+| Burnout | 1271335 | fire | cast |
+| Intensifying Flame | 419800 | fire | cast |
+| Greater Pyroblast | 450421 | fire | cast |
+| Ignite | 12654, 1262887 | fire | cast (multiple: base cast + variants/sub-spells) |
+| Arcane Barrage | 44425, 450499 | arcane | cast (multiple: base cast + variants/sub-spells) |
+| Arcane Surge | 365350, 453326 | arcane | cast (multiple: base cast + variants/sub-spells) |
+| Meteorite | 449559, 449569, 456139 | fire | cast (multiple: base cast + variants/sub-spells) |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
 
 ---
 
@@ -574,9 +600,9 @@ Fireball (133), Frost Nova (122), Polymorph (118), Combustion (190319), Pyroblas
 - **Frostfire Bolt** SpellID — not fetched/confirmed. Named with no ID. Frostfire is a hero-talent filler replacement for Fireball.
 - **Hyperthermia** SpellID — referenced by Icy Veins and confirmed present as an ability in Sunfury SimC data; SpellID not confirmed on a spell page.
 - **Sun King's Blessing**, **Pyroclasm**, **Heat Shimmer**, **Firestarter** SpellIDs — these procs/talents drive the rotation but their individual IDs were not fetched. Named without IDs.
-- **Burnout** SpellID — a Frostfire hero-tree proc confirmed in SimC data (~5.3% of damage); SpellID not confirmed on a spell page.
-- **Intensifying Flame** SpellID — present in SimC data for both builds (6.8–7.6% of damage); likely a passive fire DoT amplifier; SpellID not confirmed on a spell page.
-- **Greater Pyroblast** SpellID — a Sunfury hero-tree ability confirmed in SimC data (~0.7%); SpellID not confirmed on a spell page.
+- **Burnout** SpellID — a Frostfire hero-tree proc confirmed in SimC data (~5.3% of damage); SpellID now confirmed from SimC HTML reference: 1271335.
+- **Intensifying Flame** SpellID — present in SimC data for both builds (6.8–7.6% of damage); likely a passive fire DoT amplifier; SpellID now confirmed from SimC HTML reference: 419800.
+- **Greater Pyroblast** SpellID — a Sunfury hero-tree ability confirmed in SimC data (~0.7%); SpellID now confirmed from SimC HTML reference: 450421.
 - **Living Bomb** — not confirmed present in the current Midnight Fire kit from fetched sources; omitted rather than assumed.
 - **Ice Block cooldown** — the spell page showed "n/a"; the exact baseline/talented cooldown is not confirmed here.
 - **Greater Invisibility damage-reduction %** — the spell page did not expose the numeric DR value; effect described qualitatively only.
@@ -591,6 +617,7 @@ Fireball (133), Frost Nova (122), Polymorph (118), Combustion (190319), Pyroblas
 - **Rotation** — conceptual priority only; SimC damage distribution and talent import strings added (see SimulationCraft Reference section). SimC APL now embedded (extracted from Trivial.txt). Treat rotation prose as logical ordering, not a benchmark.
 - **DPS-tier / "weaker side" framing** — taken from Icy Veins prose, not authoritative balance data; do not use for ranking players.
 - **SimC DPS metrics** — the metrics field was empty ({}) for both Frostfire and Sunfury profiles; no patchwerk DPS number is available from this data.
+- **Spell IDs** — damage/rotational spell IDs now confirmed from the SimC HTML reference for matched abilities (see "Confirmed Spell IDs" section above); defensive/interrupt/utility IDs still pending live Wowhead.
 
 ### Maintenance flag
 Written against **Midnight patch 12.0.5 (current June 2026)**. Wowhead guide pages render content dynamically and were not fully extractable via fetch; rotation/utility prose was cross-sourced from Icy Veins, while every SpellID was individually confirmed on its own Wowhead spell page. **Re-verify all SpellIDs, cooldowns, the consumables/enchants section, and the unconfirmed procs after any 12.x patch or balance hotfix.**

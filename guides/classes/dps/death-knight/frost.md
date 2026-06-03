@@ -15,6 +15,7 @@
 > - https://www.method.gg/guides/frost-death-knight/playstyle-and-rotation
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 >
 > Spell IDs below are included ONLY where a fetched live spell page confirmed the exact ID. Anything unconfirmed is named without a number and listed in "Notes and Known Gaps."
 
@@ -428,9 +429,33 @@ actions.variables+=/variable,name=frostscythe_priority,value=3
 actions.variables+=/variable,name=breath_of_sindragosa_check,value=!talent.breath_of_sindragosa|(cooldown.breath_of_sindragosa.remains>20|(cooldown.breath_of_sindragosa.remains<1*gcd.max&runic_power>=(60-20*hero_tree.deathbringer)))
 ```
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+IDs sourced from simc-guides/spell-ids-reference.json (SimulationCraft Midnight 12.0.5 HTML report). Exact key match only — no fuzzy matching was performed.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Obliterate | 445507, 49020, 325461, 1264084 (multiple: base cast + variants/sub-spells) | physical (mixed) | cast |
+| Frost Strike | 49143, 325464 (multiple: base cast + variants/sub-spells) | frost | cast |
+| Howling Blast | 49184 | frost | cast |
+| Glacial Advance | 195975 | frost | cast |
+| Remorseless Winter | 1233152, 196771 (multiple: base cast + variants/sub-spells) | frost | cast |
+| Frostreaper | 1233619 | shadowfrost | cast |
+| Hyperpyrexia | 458169 | frost | cast |
+| Icy Death Torrent | 439539 | frost | cast |
+| Rider's Champion | 444005 | physical | other |
+| Pillar of Frost | 51271 | physical | cast |
+| Empower Rune Weapon | 47568 | shadowfrost | cast |
+| Frostwyrm's Fury | 279303, 279302, 1265384 (multiple: base cast + variants/sub-spells) | frost | cast |
+| Breath of Sindragosa | 1249658, 155166 (multiple: base cast + variants/sub-spells) | frost | cast |
+| Frost Fever | 55095 | frost | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
-- **Unconfirmed spell IDs:** Obliterate, Frost Strike, Howling Blast, Frostscythe, Glacial Advance, Remorseless Winter, Empower Rune Weapon, Frostwyrm's Fury, Breath of Sindragosa, Killing Machine, Rime, Razorice, Asphyxiate, Chains of Ice, Frostreaper, Hyperpyrexia, Icy Death Torrent, Rider's Champion — names are authoritative but exact numeric IDs were NOT verified on a fetched live spell page and are intentionally omitted. Confirm on individual Wowhead spell pages before hardcoding any of these.
+- **Spell IDs — damage/rotational abilities:** Damage and rotational spell IDs are now confirmed from the SimC HTML reference (simc-guides/spell-ids-reference.json) for matched abilities: Obliterate, Frost Strike, Howling Blast, Glacial Advance, Remorseless Winter, Frostreaper, Hyperpyrexia, Icy Death Torrent, Rider's Champion, Pillar of Frost, Empower Rune Weapon, Frostwyrm's Fury, Breath of Sindragosa, Frost Fever. See "Confirmed Spell IDs (SimulationCraft HTML)" section above. Defensive, interrupt, and utility IDs (Mind Freeze, Icebound Fortitude, Anti-Magic Shell, Anti-Magic Zone, Raise Ally, Death Strike, Lichborne, etc.) are still sourced from live Wowhead spell pages only.
+- **Unconfirmed spell IDs (no SimC match, no Wowhead page confirmed):** Frostscythe, Killing Machine, Rime, Razorice, Asphyxiate, Chains of Ice — names are authoritative but exact numeric IDs were NOT found in the SimC reference and were NOT verified on a fetched live spell page. Confirm on individual Wowhead spell pages before hardcoding any of these.
 - **Confirmed spell IDs (verified on live Wowhead spell pages):** Mind Freeze 47528, Pillar of Frost 51271, Icebound Fortitude 48792, Anti-Magic Shell 48707, Anti-Magic Zone 51052, Raise Ally 61999, Death Strike 49998, Lichborne 49039, Death Grip 311977, Death's Advance 48265, Wraith Walk 212552, Blinding Sleet 207167. (Death Grip 311977 is the current-retail entry returned by search; ID matched the spell name but the page itself was not separately opened — re-verify if used.)
 - **Anti-Magic Zone cooldown conflict:** The Wowhead spell page (51052) lists a 4-minute cooldown; Icy Veins describes a 6-minute base reduced to 3 minutes via the Assimilation talent. These do not agree. Treat AMZ cooldown as uncertain and re-verify before using it for "available/unused" judgments.
 - **Lichborne cooldown:** Not confirmed numerically from a fetched page (search referenced an unverified 2-minute value and a talent that reduces it by 30 sec). Omitted; verify on the spell page.
@@ -439,5 +464,5 @@ actions.variables+=/variable,name=breath_of_sindragosa_check,value=!talent.breat
 - **Wowhead guide pages via fetch:** The main Wowhead class-guide pages (overview/abilities/rotation) returned only navigation chrome through the fetch tool, so rotation/overview prose was sourced from Icy Veins and Method instead. Wowhead was used successfully for individual spell-page ID confirmation.
 - **Consumables/enchants:** Names only, from Icy Veins prose; no item IDs confirmed. These are the most patch-volatile facts in this guide.
 - **SimC APL now embedded (extracted from Trivial.txt).** Two APL builds are included: Death Knight Frost (Deathbringer) and Death Knight Frost Rider (Riders of the Apocalypse). DPS/HPS metrics were not captured in this SimC run (metrics field empty).
-- **Frostreaper, Hyperpyrexia, Icy Death Torrent spell IDs:** These abilities appear in the SimC damage table (~7-8% combined) and have been added to the Abilities Reference section, but their spell IDs were not confirmed on a Wowhead spell page. Verify before hardcoding.
+- **Frostreaper, Hyperpyrexia, Icy Death Torrent spell IDs:** These abilities appear in the SimC damage table (~7-8% combined) and their IDs are now confirmed from the SimC HTML reference (Frostreaper 1233619, Hyperpyrexia 458169, Icy Death Torrent 439539). They have not been separately verified on a Wowhead spell page; re-verify if using for production filtering.
 - **Maintenance flag:** Re-verify all of the above — especially ability IDs, AMZ/Lichborne cooldowns, and the entire Consumables/Enchants section — after ANY 12.x patch, as tuning and item names change between patches.

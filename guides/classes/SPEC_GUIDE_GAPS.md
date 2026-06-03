@@ -25,7 +25,7 @@ Christian supplied parsed SimulationCraft data (`simc-guides/` + raw `Trivial.tx
 
 Enriched: **Assassination Rogue, Frost DK, Balance Druid, Marksmanship Hunter, Fire Mage, Retribution Paladin, Shadow Priest, Destruction Warlock, Fury Warrior, Elemental Shaman.** (Havoc & Beast Mastery were already SimC-complete.)
 
-Still open even on these 10: **spell IDs** and **consumable/enchant item IDs**. The remaining ~27 guides still need the talent/APL/distribution pass.
+Each of the 10 also now has a **Confirmed Spell IDs** table — damage/rotational ability IDs filled from `spell-ids-reference.json` (exact-name match, multi-id variants kept). Still open on these 10: **defensive/interrupt/utility spell IDs** (absent from the SimC source — see below) and **consumable/enchant item IDs**. The remaining ~27 guides still need the talent/APL/distribution pass and the ID fill.
 
 > **Spell IDs — RESOLVED for damage/rotational abilities via the SimC HTML report (2026-06-02).** The *text* `Trivial.txt` was not viable (only one clean Spelldata block; the rest were modifier-table noise). But the **HTML** report at simulationcraft.org/reports/MID1_Raid.html has ~1,688 clean `<h4>Spelldata>` blocks → **`simc-guides/spell-ids-reference.json`** (632 ability names with authoritative IDs, school, cast/buff type; multi-id variants kept and flagged). Regenerate with `node simc-guides/build-spell-ids-reference.js` (see header).
 >

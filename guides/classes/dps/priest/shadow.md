@@ -23,6 +23,7 @@
 > - https://www.wowhead.com/spell=238558/misery
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 >
 > Note: Wowhead guide and spell-detail pages render via JavaScript and could not be fully fetched (403/empty body). SpellIDs below were confirmed from Wowhead spell-page URLs returned in search; prose was sourced primarily from Icy Veins (patch 12.0.5, "Lingering Shadows"). Anything not confirmed live is flagged in "Notes and Known Gaps."
 
@@ -408,11 +409,45 @@ In both builds, Shadow Word: Madness and Mind Flay together account for roughly 
 
 The two builds diverge sharply after the top two: Archon's next-largest contributors are the Apparition proc chains (Shadowy Apparitions 9.8%, Void Apparitions 8.2%), while Voidweaver replaces Halo with Void Blast (9.1%) — making Void Blast a top-three damage ability for Voidweaver. A Voidweaver log where Void Blast is absent or very low strongly suggests the player is not engaging Entropic Rift windows correctly. Void Spike (~4% in both builds) is a notable proc contributor that should appear consistently.
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Sourced from simc-guides/spell-ids-reference.json (SimC Midnight 12.0.5 HTML report). Exact-name matches only.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Entropic Rift | 447445 | shadow | cast |
+| Halo | 390964, 390971, 120644 (multiple: base cast + variants/sub-spells) | shadow | cast |
+| Idol of C'Thun | 377349 | physical | cast |
+| Mind Blast | 8092 | shadow | cast |
+| Mind Flay | 193473, 15407 (multiple: base cast + variants/sub-spells) | shadow | cast |
+| Mind Flay: Insanity | 391403 | shadow | cast |
+| Power Infusion | 10060 | holy | cast |
+| Shadow Weaving | 346111 | shadow | cast |
+| Shadow Word: Death | 32379 | shadow | cast |
+| Shadow Word: Madness | 335467 | shadow | cast |
+| Shadow Word: Pain | 589 | shadow | cast |
+| Shadowy Apparitions | 341491 | physical | cast |
+| Tentacle Slam | 1227280, 1227621 (multiple: base cast + variants/sub-spells) | shadow | cast |
+| Twilight Barrage | 1281579 | shadowlight | other |
+| Vampiric Touch | 34914 | shadow | cast |
+| Void Apparitions | 1264104 | shadow | cast |
+| Void Blast | 450983 | shadow | cast |
+| Void Bolt | 1264177 | shadow | cast |
+| Void Flay | 451435 | shadow | cast |
+| Void Spike | 373279 | shadow | cast |
+| Void Torrent | 263165 | shadow | cast |
+| Void Volley | 1242173, 1242189 (multiple: base cast + variants/sub-spells) | shadow | cast |
+| Voidform | 228260 | shadow | cast |
+| Voidstalker Sting | 1271226 | shadow | other |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 - Wowhead's class-guide and individual spell-detail pages are JavaScript-rendered and returned 403/empty bodies to the fetch tool. SpellIDs in this guide were confirmed from Wowhead spell-page URLs surfaced in search results; prose detail came mainly from Icy Veins (12.0.5). Re-verify against live Wowhead when possible.
-- Unconfirmed SpellIDs (name included, ID intentionally omitted): Mind Flay, Mind Flay: Insanity, Halo, Void Torrent, Entropic Rift / Void Blast, Tentacle Slam, Void Spike, Shadowy Apparitions, Psychic Horror, Shackle Undead/Horror, Mind Control / Dominate Mind, Dispel Magic, Purify Disease, Power Word: Shield.
-- Void Eruption / Voidform base SpellID is ambiguous in sources (228260 vs 228361) — omitted as a confirmed ID. Void Bolt (228266) IS confirmed. Verify the Voidform/Void Eruption ID before hardcoding.
+- Damage/rotational spell IDs now confirmed from the SimC HTML reference for matched abilities; defensive/interrupt/utility IDs still pending live Wowhead. Remaining unconfirmed: Misery (passive talent, not a damage spell in the SimC sim), Psychic Horror, Shackle Undead/Horror, Mind Control / Dominate Mind, Dispel Magic, Purify Disease, Power Word: Shield.
+- Void Bolt note: Wowhead URL confirmed 228266; SimC reference lists 1264177 — these may represent the old base cast vs. a Midnight-updated damage spell ID. Treat 1264177 as the Midnight 12.0.5 SimC ID; 228266 is the Wowhead-confirmed legacy ID. Verify against live logs before hardcoding for event filtering.
+- Voidform SpellID: SimC reference confirms 228260 (resolving the prior ambiguity between 228260 and 228361). Verify against live logs.
 - Silence cooldown (stated 30s baseline in Midnight, down from 45s) comes from a search snippet, not a fully fetched page. Treat as likely-but-unconfirmed.
 - Dispersion cooldown not confirmed live (effect/values confirmed). Desperate Prayer, Fade, Vampiric Embrace, Power Infusion (2 min), Mass Dispel (~2 min): cooldowns are from prose/recall and only Power Infusion/Mass Dispel durations appeared in fetched text — verify exact values.
 - Fade's damage-reduction behavior is talent-dependent; do not assume it is a defensive without confirming the player's build.

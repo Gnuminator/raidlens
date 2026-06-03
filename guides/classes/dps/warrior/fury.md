@@ -20,6 +20,7 @@
 > - https://www.wowhead.com/spell=386208/defensive-stance
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 
 ## Overview
 
@@ -283,10 +284,36 @@ actions.variables+=/variable,name=execute_phase,value=(talent.massacre.enabled&t
 actions.variables+=/variable,name=on_gcd_racials,value=buff.recklessness.down&buff.recklessness.down&rage<80&buff.sudden_death.down&!cooldown.bladestorm.ready&(!cooldown.execute.ready|!variable.execute_phase)
 ```
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+Source: simc-guides/spell-ids-reference.json (extracted from the Midnight 12.0.5 SimC HTML report). Exact key matches only — no fuzzy matching.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Rampage | 184367, 184707, 184709, 201364, 201363 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Raging Blow | 85288, 85384, 96103 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Execute | 163201, 260798, 5308, 280849 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Whirlwind | 190411, 199667, 199852 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Thunder Clap | 6343 | physical | cast |
+| Rend | 388539, 772 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Bloodbath | 335096, 113344 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Avatar | 107574 | physical | cast |
+| Bladestorm | 446035, 50622 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Recklessness | 1719 | physical | cast |
+| Bloodthirst | 23881 | physical | cast |
+| Odyn's Fury | 385059, 385060 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Slayer's Strike | 445579 | physical | cast |
+| Deep Wounds | 262115 | physical | cast |
+| Gushing Wound | 385042 | physical | cast |
+| Voidclaw | 253797 | shadow | other |
+| Crushing Blow | 335097, 335100, 335098 (multiple: base cast + variants/sub-spells) | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (named, per sourcing rules — IDs omitted rather than guessed):
-- **SpellIDs not confirmed from a fetched page:** Rampage, Raging Blow, Execute, Whirlwind, Thunder Clap, Avatar, Bladestorm, Odyn's Fury, Ravager, Onslaught, Thunderous Roar, Champion's Spear, Enrage (passive), Intimidating Shout, Shattering Throw, Hamstring, Piercing Howl, Intervene, Victory Rush / Impending Victory, Die by the Sword, Slayer's Strike, Rend, Bloodbath, Deep Wounds, Gushing Wound. Several Wowhead spell pages returned HTTP 403 (rate-limiting) during this pass and could not be confirmed.
+- **Damage/rotational spell IDs now confirmed from the SimC HTML reference** for matched abilities (Rampage, Raging Blow, Execute, Whirlwind, Thunder Clap, Rend, Bloodbath, Avatar, Bladestorm, Recklessness, Bloodthirst, Odyn's Fury, Slayer's Strike, Deep Wounds, Gushing Wound, Voidclaw, Crushing Blow); **defensive/interrupt/utility IDs still pending live Wowhead** (Ravager, Onslaught, Thunderous Roar, Champion's Spear, Enrage passive, Intimidating Shout, Shattering Throw, Hamstring, Piercing Howl, Intervene, Victory Rush / Impending Victory, Die by the Sword).
 - **Bloodthirst (23881)** confirmed via Wowhead search result content + classic/wotlk cross-reference; the live retail spell page was 403-blocked on direct fetch. Treat as high-confidence but re-verify on the live retail page.
 - **Spell Reflection cooldown:** live spell page (23920) showed an internal cooldown value of "1 second" which is a client artifact; the practical cooldown (~25 s) comes from the Icy Veins guide text, not the spell page. Re-verify the real cooldown.
 - **Recklessness duration/cooldown** (1.5 min / 12 s) and **Recklessness +50% Rage / crit** taken from the live spell page (1719) — confirmed.

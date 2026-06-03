@@ -9,6 +9,7 @@
 > - Individual Wowhead spell pages for each confirmed SpellID below (spell=78675, 22812, 61336, 108238, 29166, 20484, 106898, 1126, 2908, 194223, 391528, 190984, 194153, 78674, 191034, 8921, 93402, 5487, 102560, 22842, 33786)
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 
 ## Overview
 
@@ -296,6 +297,28 @@ actions.opener_kotg+=/force_of_nature
 actions.opener_kotg+=/celestial_alignment
 ```
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+The following IDs are confirmed from the SimulationCraft Midnight 12.0.5 HTML report (simc-guides/spell-ids-reference.json). Only abilities whose names are exact keys in the reference are listed here.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Wrath | 190984, 5176 (multiple: base cast + variants/sub-spells) | nature | cast |
+| Starfire | 194153 | arcane | cast |
+| Starsurge | 78674, 1271222 (multiple: base cast + variants/sub-spells) | astral | cast |
+| Moonfire | 8921, 164812, 155625 (multiple: base cast + variants/sub-spells) | arcane | cast |
+| Sunfire | 93402, 164815 (multiple: base cast + variants/sub-spells) | nature | cast |
+| Convoke the Spirits | 391528 | nature | cast |
+| Fury of Elune | 202770, 211545, 394111 (multiple: base cast + variants/sub-spells) | astral | cast |
+| Incarnation: Chosen of Elune | 102560 | physical | cast |
+| Shooting Stars | 202497, 202342, 1272339 (multiple: base cast + variants/sub-spells) | astral (primary); mixed | cast |
+| Astral Smolder | 1263250 | astral | other |
+| Ascendant Eclipses | 1261566 | physical | other |
+| Sunseeker Mushroom | 468938, 1280212 (multiple: base cast + variants/sub-spells) | nature | cast |
+| Twilight Barrage | 1281579 | shadowlight | other |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (omitted IDs / values rather than guessed):
@@ -308,6 +331,7 @@ Unconfirmed facts (omitted IDs / values rather than guessed):
 - **Consumables and enchants** — No live item IDs or names fetched for Midnight 12.0.5; section is deliberately conceptual only.
 - **SimC APL now embedded (extracted from Trivial.txt).** A talent import string and partial damage distribution are also available from SimC (see SimulationCraft Reference section above). DPS metrics were not captured in this SimC run.
 - **SimC damage rows partially mis-parsed** — Core abilities (Wrath, Starfire, Moonfire, Sunfire, Shooting Stars) appear in the SimC source with raw numbers or rank values rather than "%" damage share, so they could not be included in the damage distribution table. If a cleaner SimC export becomes available, re-run the enrichment pass.
+- **Spell IDs (damage/rotational):** damage/rotational spell IDs now confirmed from the SimC HTML reference for matched abilities (see "Confirmed Spell IDs" section above); defensive/interrupt/utility IDs still pending live Wowhead. Starfall, Celestial Alignment, and Force of Nature were not found as exact keys in the SimC reference and remain unconfirmed from that source.
 - **Mark of the Wild value** — Sourced as +3% Versatility from the spell page; confirm if a later 12.x hotfix changes the value.
 
 Confirmed SpellIDs (each verified on its individual live Wowhead spell page during this research): 78675 (Solar Beam), 22812 (Barkskin), 61336 (Survival Instincts), 108238 (Renewal), 29166 (Innervate), 20484 (Rebirth), 106898 (Stampeding Roar), 1126 (Mark of the Wild), 2908 (Soothe), 194223 (Celestial Alignment), 391528 (Convoke the Spirits), 190984 (Wrath), 194153 (Starfire), 78674 (Starsurge), 191034 (Starfall), 8921 (Moonfire), 93402 (Sunfire), 5487 (Bear Form), 102560 (Incarnation: Chosen of Elune), 22842 (Frenzied Regeneration), 33786 (Cyclone).

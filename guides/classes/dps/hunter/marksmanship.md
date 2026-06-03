@@ -20,6 +20,7 @@
 > - https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-gems-enchants-consumables
 > - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
 > - SimC APL from Trivial.txt
+> - simc-guides/spell-ids-reference.json
 
 ## Overview
 
@@ -247,6 +248,25 @@ actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_tr
 actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_damage&cooldown.trueshot.remains>20
 ```
 
+## Confirmed Spell IDs (SimulationCraft HTML)
+
+The following abilities named in this guide were found as exact keys in `simc-guides/spell-ids-reference.json` (SimC Patchwerk single-target, Midnight 12.0.5). IDs are confirmed from the SimC spelldata blocks only — not from Wowhead.
+
+| Ability | Spell ID(s) | School | Type |
+|---|---|---|---|
+| Aimed Shot | 19434 | physical | cast |
+| Arcane Shot | 185358 | arcane | cast |
+| Black Arrow | 466930, 468037, 468572 (multiple: base cast + variants/sub-spells) | shadow | cast |
+| Bleak Arrows | 467718 | shadow | cast |
+| Blighted Arrow | 1264364 | shadow | cast |
+| Let Fly! | 1271682 | physical | cast |
+| Master Marksman | 269576 | physical | cast |
+| Rapid Fire | 257044, 257045 (multiple: base cast + variants/sub-spells) | physical | cast |
+| Steady Shot | 56641 | physical | cast |
+| Trueshot | 288613 | physical | cast |
+
+Defensives, interrupts and non-damaging utility are not present in this SimC source; their spell IDs (where known) remain in the sections above.
+
 ## Notes and Known Gaps
 
 - **Wowhead guide pages (overview/rotation) did not extract** — they are JS-rendered and returned only navigation. Overview, rotation, and utility prose were sourced from the corresponding **Icy Veins 12.0.5** pages plus individual live **Wowhead spell tooltip** pages for all spell IDs. All spell IDs in this guide were confirmed on the specific live Wowhead spell page listed in Sources.
@@ -259,6 +279,6 @@ actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_tr
 - **Tranquilizing Shot dispel type:** the live tooltip (343246) did not cleanly expose the dispel-type/Enrage-Magic data; the Enrage + Magic removal description comes from the Icy Veins spell summary. Re-verify the exact dispel types.
 - **Hunter's Mark exact magnitude (~3%)** is from Icy Veins prose, not a confirmed tooltip value. Treat the percentage as approximate.
 - **SimC APL now embedded (extracted from Trivial.txt).** The talent import string is included (see SimulationCraft Reference section). Additionally, the damage table for this spec has degraded data quality: Aimed Shot, Rapid Fire, Black Arrow, and Trueshot show malformed percent values and cannot be ranked. The valid rows cover only the supporting-cast abilities (~24% of damage total). Re-run the sim with a corrected export if full distribution data is needed.
-- **Blighted Arrow, Bleak Arrows, Let Fly!, Master Marksman spell IDs unconfirmed** — these abilities appear in the SimC damage table and have been added to the Abilities Reference section by name only. Spell IDs were not available in the SimC data and have not been confirmed on Wowhead. Do not add spell IDs for these abilities until verified.
+- **Damage/rotational spell IDs** — IDs for Aimed Shot, Arcane Shot, Black Arrow, Bleak Arrows, Blighted Arrow, Let Fly!, Master Marksman, Rapid Fire, Steady Shot, and Trueshot are now confirmed from the SimC HTML reference (simc-guides/spell-ids-reference.json). Defensive, interrupt, and utility spell IDs (Counter Shot, Exhilaration, Survival of the Fittest, Aspect of the Turtle, Roar of Sacrifice, Misdirection, Disengage, Aspect of the Cheetah, Tranquilizing Shot, Kill Shot) still pending live Wowhead verification where not already confirmed. Kill Shot, Multi-Shot, Explosive Shot, and Volley were not present as exact keys in the SimC reference and remain ID-unconfirmed from that source.
 - **Consumable/enchant item IDs** were not confirmed on live item pages; only names from Icy Veins are listed. Do not treat these names as ID-verified.
 - **Maintenance flag:** Re-verify ALL spell IDs, cooldowns, and the consumable/enchant list after any 12.x patch. Tuning numbers (Trueshot crit %, Hunter's Mark %, defensive percentages) are the most volatile; spell IDs are stable but talent reworks can rename or move abilities.
