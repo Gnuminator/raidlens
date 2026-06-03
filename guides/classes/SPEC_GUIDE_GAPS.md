@@ -19,6 +19,18 @@ The per-spec section below lists each guide's **confirmed SpellID count**, the *
 
 ---
 
+## ✅ SimC enrichment progress (2026-06-02)
+
+Christian supplied parsed SimulationCraft data (`simc-guides/` + raw `Trivial.txt`). **10 DPS guides enriched** so far, each gaining: a SimC **talent import string** (per hero tree), a **damage-distribution** table (filtered to real damage-% rows), and the **full SimC APL** embedded verbatim (extracted from `Trivial.txt` into `simc-guides/apl/`). Per-spec APL files for all 49 sims are in `simc-guides/apl/`.
+
+Enriched: **Assassination Rogue, Frost DK, Balance Druid, Marksmanship Hunter, Fire Mage, Retribution Paladin, Shadow Priest, Destruction Warlock, Fury Warrior, Elemental Shaman.** (Havoc & Beast Mastery were already SimC-complete.)
+
+Still open even on these 10: **spell IDs** (the parsed data had none clean; `Trivial.txt` `Spelldata` blocks are an untapped authoritative source — see note) and **consumable/enchant item IDs**. The remaining ~27 guides still need the talent/APL/distribution pass.
+
+> **High-value untapped source:** `Trivial.txt` contains `Spelldata` blocks (`id:NNN name:X`) — authoritative SimC spell IDs. A careful extraction could close the #1 gap (spell IDs) across all guides without fabrication. Not yet done.
+
+---
+
 ## ▶ How to resolve — paste this prompt later (with SimC profiles)
 
 When you have session usage to spare, gather SimC profiles (one or more) and paste this:

@@ -24,6 +24,8 @@
 > - https://www.wowhead.com/spell=24275/hammer-of-wrath
 > - https://www.wowhead.com/spell=427441/hammer-of-light
 > - https://www.wowhead.com/spell=213644/cleanse-toxins
+> - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
+> - SimC APL from Trivial.txt
 
 ## Overview
 
@@ -77,6 +79,12 @@ Key passives / procs (names confirmed via Icy Veins; mechanics summarized):
 - **Empyrean Power** — proc enabling a free/empowered Divine Storm.
 - **Expurgation** — a damage-over-time debuff the spec maintains on the target.
 - **Light Within** (Apex talent) — empowers Art of War / Righteous Cause procs and increases Holy Power spender damage during Avenging Wrath.
+- **Empyrean Hammer** — Templar hero-tree proc/ability that appears as a significant independent source of damage (SimC: ~10.7% of total damage in the Templar variant). SpellID not confirmed live; see Known Gaps.
+- **Highlord's Judgment** — a Judgment-linked proc or talent effect present in both Templar and Herald variants (SimC: 4.7% and 3.5% respectively). SpellID not confirmed live; see Known Gaps.
+
+Herald of the Sun hero-tree abilities (Herald variant only):
+- **Sun's Avatar** — Herald-specific proc/cooldown contributing ~3.3% of total damage in SimC.
+- **Sun Sear** — Herald-specific ability contributing ~0.9% of total damage in SimC. SpellIDs not confirmed live; see Known Gaps.
 
 ## Rotation / Priority
 
@@ -185,6 +193,178 @@ Enchants (slot → enchant name):
 
 Primary stat is Strength. Detailed secondary-stat weighting was not captured from a live source and should be confirmed separately.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero trees covered: **Templar** (no hero tree tag in source — abilities confirm Templar path) and **Herald of the Sun**.
+
+Metrics: DPS/HPS/DTPS were not captured in the SimC source data (metrics field is empty for both variants).
+
+SimC Patchwerk, 7500 iterations, single-target — a theoretical ceiling, NOT a target to judge players against.
+
+---
+
+### Talent import strings
+
+**Templar (default / no explicit hero-tree tag):**
+```
+CYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQz22MzsMMzAAAAAAwoMmhZGbDz2wMbzYMmZYGbsNMAAkZm2mZ2mBAsBYAwYGmBzYMbYZGMMmxgB
+```
+
+**Herald of the Sun:**
+```
+CYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQzy2MzsMMzAAAAAAwoMmhZGbDz2wMbzYMmZYGLsNMgZZ2mZmtGEAAwCgBAjZYGMjxsAMzMMmxgB
+```
+
+---
+
+### Damage distribution (SimC, share of total damage)
+
+**Templar variant:**
+
+| Ability | % of total damage |
+|---|---|
+| Final Verdict | 19.6% |
+| Hammer of Light | 11.0% |
+| Empyrean Hammer | 10.7% |
+| Melee (auto attack) | 7.4% |
+| Expurgation | 7.5% |
+| Highlord's Judgment | 4.7% |
+| Execution Sentence | 1.0% |
+| Divine Storm | 0.7% |
+| Consecration (proc via Blade of Justice) | 0.9% |
+| Voidclaw | 0.3% |
+
+**Herald of the Sun variant:**
+
+| Ability | % of total damage |
+|---|---|
+| Final Verdict | 21.2% |
+| Melee (auto attack) | 10.7% |
+| Expurgation | 8.5% |
+| Blade of Justice (Walk into Light proc) | 7.2% |
+| Highlord's Judgment | 3.5% |
+| Sun's Avatar | 3.3% |
+| Templar Slash | 1.7% |
+| Execution Sentence | 0.9% |
+| Sun Sear | 0.9% |
+| Divine Storm | 0.7% |
+| Consecration (proc via Blade of Justice) | 0.8% |
+| Voidclaw | 0.3% |
+
+---
+
+### Action Priority List — Paladin Retribution
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_buff.strength|trinket.1.has_buff.mastery|trinket.1.has_buff.versatility|trinket.1.has_buff.haste|trinket.1.has_buff.crit
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_buff.strength|trinket.2.has_buff.mastery|trinket.2.has_buff.versatility|trinket.2.has_buff.haste|trinket.2.has_buff.crit
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.avenging_wrath.duration=0|cooldown.avenging_wrath.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.avenging_wrath.duration=0|cooldown.avenging_wrath.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%trinket.2.proc.any_dps.duration)*(1.5+trinket.2.has_buff.strength)*(variable.trinket_2_sync))>((trinket.1.cooldown.duration%trinket.1.proc.any_dps.duration)*(1.5+trinket.1.has_buff.strength)*(variable.trinket_1_sync))
+actions.precombat+=/use_item,name=algethar_puzzle_box,if=(trinket.1.is.algethar_puzzle_box|trinket.2.is.algethar_puzzle_box)
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/rebuke
+actions+=/call_action_list,name=cooldowns
+actions+=/call_action_list,name=generators
+
+actions.cooldowns=use_item,name=algethar_puzzle_box,if=(cooldown.avenging_wrath.remains=0&!talent.radiant_glory|(!talent.execution_sentence&cooldown.wake_of_ashes.remains=0|cooldown.execution_sentence.remains=0)&talent.radiant_glory)
+actions.cooldowns+=/use_item,slot=trinket1,if=((buff.avenging_wrath.up&cooldown.avenging_wrath.remains>40)&!talent.radiant_glory|talent.radiant_glory&(!talent.execution_sentence&cooldown.wake_of_ashes.remains=0|debuff.execution_sentence_debuff.up))&(!trinket.2.has_cooldown|trinket.2.cooldown.remains|variable.trinket_priority=1)|trinket.1.proc.any_dps.duration>=fight_remains
+actions.cooldowns+=/use_item,slot=trinket2,if=((buff.avenging_wrath.up&cooldown.avenging_wrath.remains>40)&!talent.radiant_glory|talent.radiant_glory&(!talent.execution_sentence&cooldown.wake_of_ashes.remains=0|debuff.execution_sentence_debuff.up))&(!trinket.1.has_cooldown|trinket.1.cooldown.remains|variable.trinket_priority=2)|trinket.2.proc.any_dps.duration>=fight_remains
+actions.cooldowns+=/use_item,slot=trinket1,if=!variable.trinket_1_buffs&(trinket.2.cooldown.remains|!variable.trinket_2_buffs|!buff.avenging_wrath.up&cooldown.avenging_wrath.remains>20)
+actions.cooldowns+=/use_item,slot=trinket2,if=!variable.trinket_2_buffs&(trinket.1.cooldown.remains|!variable.trinket_1_buffs|!buff.avenging_wrath.up&cooldown.avenging_wrath.remains>20)
+actions.cooldowns+=/potion,if=buff.avenging_wrath.up|fight_remains<30|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/invoke_external_buff,name=power_infusion,if=buff.avenging_wrath.up|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/lights_judgment,if=!raid_event.adds.exists|raid_event.adds.in>75|raid_event.adds.up
+actions.cooldowns+=/fireblood,if=buff.avenging_wrath.up|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/execution_sentence,if=(cooldown.avenging_wrath.remains>15|talent.radiant_glory)&(target.time_to_die>10)&cooldown.wake_of_ashes.remains<gcd&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/avenging_wrath,if=(!raid_event.adds.up|target.time_to_die>10)&(!talent.holy_flames|dot.expurgation.ticking)&(!equipped.algethar_puzzle_box|trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>5|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>5)
+
+actions.finishers=variable,name=ds_castable,value=(active_enemies>=3-(talent.tempest_of_the_lightbringer&!talent.jurisdiction)|buff.empyrean_power.up)&!buff.empyrean_legacy.up
+actions.finishers+=/hammer_of_light,if=!buff.hammer_of_light_free.up|buff.hammer_of_light_free.up&(buff.undisputed_ruling.remains<gcd*1.5&(talent.radiant_glory|cooldown.avenging_wrath.remains>4)|buff.avenging_wrath.up&(buff.avenging_wrath.remains<gcd*2|cooldown.wake_of_ashes.remains=0)|buff.hammer_of_light_free.remains<gcd*2|target.time_to_die<gcd*2)
+actions.finishers+=/divine_storm,if=variable.ds_castable&(!buff.hammer_of_light_ready.up|buff.hammer_of_light_free.up)
+actions.finishers+=/templars_verdict,if=(!buff.hammer_of_light_ready.up|buff.hammer_of_light_free.up)
+
+actions.generators=call_action_list,name=finishers,if=holy_power=5&cooldown.wake_of_ashes.remains|buff.hammer_of_light_free.remains<gcd*2
+actions.generators+=/blade_of_justice,if=talent.holy_flames&!dot.expurgation.ticking&time<5
+actions.generators+=/wake_of_ashes,if=(cooldown.avenging_wrath.remains>6|talent.radiant_glory)&(!talent.execution_sentence|cooldown.execution_sentence.remains>4|target.time_to_die<10)&(!raid_event.adds.exists|raid_event.adds.in>10|raid_event.adds.up)
+actions.generators+=/divine_toll,if=(!raid_event.adds.exists|raid_event.adds.in>10|raid_event.adds.up)&(cooldown.avenging_wrath.remains>15|talent.radiant_glory|fight_remains<8)
+actions.generators+=/blade_of_justice,if=(buff.art_of_war.up|buff.righteous_cause.up)&(!talent.walk_into_light|!buff.avenging_wrath.up)
+actions.generators+=/call_action_list,name=finishers
+actions.generators+=/hammer_of_wrath,if=talent.walk_into_light
+actions.generators+=/blade_of_justice
+actions.generators+=/hammer_of_wrath
+actions.generators+=/judgment
+actions.generators+=/templar_strike
+actions.generators+=/templar_slash
+actions.generators+=/crusader_strike
+actions.generators+=/arcane_torrent
+```
+
+---
+
+### Action Priority List — Paladin Retribution Herald
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_buff.strength|trinket.1.has_buff.mastery|trinket.1.has_buff.versatility|trinket.1.has_buff.haste|trinket.1.has_buff.crit
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_buff.strength|trinket.2.has_buff.mastery|trinket.2.has_buff.versatility|trinket.2.has_buff.haste|trinket.2.has_buff.crit
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.avenging_wrath.duration=0|cooldown.avenging_wrath.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.avenging_wrath.duration=0|cooldown.avenging_wrath.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%trinket.2.proc.any_dps.duration)*(1.5+trinket.2.has_buff.strength)*(variable.trinket_2_sync))>((trinket.1.cooldown.duration%trinket.1.proc.any_dps.duration)*(1.5+trinket.1.has_buff.strength)*(variable.trinket_1_sync))
+actions.precombat+=/use_item,name=algethar_puzzle_box,if=(trinket.1.is.algethar_puzzle_box|trinket.2.is.algethar_puzzle_box)
+
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/rebuke
+actions+=/call_action_list,name=cooldowns
+actions+=/call_action_list,name=generators
+
+actions.cooldowns=use_item,name=algethar_puzzle_box,if=(cooldown.avenging_wrath.remains=0&!talent.radiant_glory|(!talent.execution_sentence&cooldown.wake_of_ashes.remains=0|cooldown.execution_sentence.remains=0)&talent.radiant_glory)
+actions.cooldowns+=/use_item,slot=trinket1,if=((buff.avenging_wrath.up&cooldown.avenging_wrath.remains>40)&!talent.radiant_glory|talent.radiant_glory&(!talent.execution_sentence&cooldown.wake_of_ashes.remains=0|debuff.execution_sentence_debuff.up))&(!trinket.2.has_cooldown|trinket.2.cooldown.remains|variable.trinket_priority=1)|trinket.1.proc.any_dps.duration>=fight_remains
+actions.cooldowns+=/use_item,slot=trinket2,if=((buff.avenging_wrath.up&cooldown.avenging_wrath.remains>40)&!talent.radiant_glory|talent.radiant_glory&(!talent.execution_sentence&cooldown.wake_of_ashes.remains=0|debuff.execution_sentence_debuff.up))&(!trinket.1.has_cooldown|trinket.1.cooldown.remains|variable.trinket_priority=2)|trinket.2.proc.any_dps.duration>=fight_remains
+actions.cooldowns+=/use_item,slot=trinket1,if=!variable.trinket_1_buffs&(trinket.2.cooldown.remains|!variable.trinket_2_buffs|!buff.avenging_wrath.up&cooldown.avenging_wrath.remains>20)
+actions.cooldowns+=/use_item,slot=trinket2,if=!variable.trinket_2_buffs&(trinket.1.cooldown.remains|!variable.trinket_1_buffs|!buff.avenging_wrath.up&cooldown.avenging_wrath.remains>20)
+actions.cooldowns+=/potion,if=buff.avenging_wrath.up|fight_remains<30|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/invoke_external_buff,name=power_infusion,if=buff.avenging_wrath.up|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/lights_judgment,if=!raid_event.adds.exists|raid_event.adds.in>75|raid_event.adds.up
+actions.cooldowns+=/fireblood,if=buff.avenging_wrath.up|talent.radiant_glory&cooldown.wake_of_ashes.remains=0&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/execution_sentence,if=(cooldown.avenging_wrath.remains>15|talent.radiant_glory)&(target.time_to_die>10)&cooldown.wake_of_ashes.remains<gcd&(!talent.holy_flames|dot.expurgation.ticking)
+actions.cooldowns+=/avenging_wrath,if=(!raid_event.adds.up|target.time_to_die>10)&(!talent.holy_flames|dot.expurgation.ticking)&(!equipped.algethar_puzzle_box|trinket.1.is.algethar_puzzle_box&trinket.1.cooldown.remains>5|trinket.2.is.algethar_puzzle_box&trinket.2.cooldown.remains>5)
+
+actions.finishers=variable,name=ds_castable,value=(active_enemies>=3-(talent.tempest_of_the_lightbringer&!talent.jurisdiction)|buff.empyrean_power.up)&!buff.empyrean_legacy.up
+actions.finishers+=/hammer_of_light,if=!buff.hammer_of_light_free.up|buff.hammer_of_light_free.up&(buff.undisputed_ruling.remains<gcd*1.5&(talent.radiant_glory|cooldown.avenging_wrath.remains>4)|buff.avenging_wrath.up&(buff.avenging_wrath.remains<gcd*2|cooldown.wake_of_ashes.remains=0)|buff.hammer_of_light_free.remains<gcd*2|target.time_to_die<gcd*2)
+actions.finishers+=/divine_storm,if=variable.ds_castable&(!buff.hammer_of_light_ready.up|buff.hammer_of_light_free.up)
+actions.finishers+=/templars_verdict,if=(!buff.hammer_of_light_ready.up|buff.hammer_of_light_free.up)
+
+actions.generators=call_action_list,name=finishers,if=holy_power=5&cooldown.wake_of_ashes.remains|buff.hammer_of_light_free.remains<gcd*2
+actions.generators+=/blade_of_justice,if=talent.holy_flames&!dot.expurgation.ticking&time<5
+actions.generators+=/wake_of_ashes,if=(cooldown.avenging_wrath.remains>6|talent.radiant_glory)&(!talent.execution_sentence|cooldown.execution_sentence.remains>4|target.time_to_die<10)&(!raid_event.adds.exists|raid_event.adds.in>10|raid_event.adds.up)
+actions.generators+=/divine_toll,if=(!raid_event.adds.exists|raid_event.adds.in>10|raid_event.adds.up)&(cooldown.avenging_wrath.remains>15|talent.radiant_glory|fight_remains<8)
+actions.generators+=/blade_of_justice,if=(buff.art_of_war.up|buff.righteous_cause.up)&(!talent.walk_into_light|!buff.avenging_wrath.up)
+actions.generators+=/call_action_list,name=finishers
+actions.generators+=/hammer_of_wrath,if=talent.walk_into_light
+actions.generators+=/blade_of_justice
+actions.generators+=/hammer_of_wrath
+actions.generators+=/judgment
+actions.generators+=/templar_strike
+actions.generators+=/templar_slash
+actions.generators+=/crusader_strike
+actions.generators+=/arcane_torrent
+```
+
+---
+
+### RaidLens interpretation
+
+For the Templar variant, **Final Verdict, Hammer of Light, and Empyrean Hammer** together account for over 40% of total damage — if a log shows those three abilities contributing a much smaller combined share, the player is likely not pressing their Templar cooldown window correctly. Expurgation (the maintenance DoT) at ~7.5% confirms it must be kept up continuously; a log where Expurgation barely appears suggests the player is not applying or refreshing it.
+
+For the Herald of the Sun variant, **Final Verdict and the Blade of Justice / Walk into Light proc** dominate single-target; a log where melee auto-attacks significantly outweigh every active ability is a sign of a player sitting idle rather than pressing builders. Sun's Avatar at ~3.3% is a notable Herald-exclusive contributor — its absence from a log suggests the Herald cooldown is being missed or delayed.
+
+---
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (named explicitly, included WITHOUT invented IDs):
@@ -197,7 +377,10 @@ Unconfirmed facts (named explicitly, included WITHOUT invented IDs):
 - **Execution Sentence, Final Reckoning, Crusade, Eye of Tyr, Crusader Strike, Templar Strike/Slash, Crusading Strikes SpellIDs** — referenced by name from rotation/talent sources; individual spell pages not fetched, so no IDs are given.
 - **Hammer of Justice and other CC SpellIDs** — not confirmed live.
 - **Consumable, gem, and enchant item IDs** — names captured from Icy Veins; no numeric item IDs were confirmed against live item pages, so all are omitted.
-- **Secondary stat priority / talent import strings / SimC APL** — no user-provided SimC profile was available and no live import string was confirmed; only conceptual rotation/talent prose is provided.
+- **Empyrean Hammer, Highlord's Judgment SpellIDs** — present in SimC damage table at meaningful percentages (Templar: 10.7% and 4.7%; Herald: 3.5%) but SpellIDs not confirmed live. These should be fetched on the next Wowhead pass.
+- **Sun's Avatar, Sun Sear SpellIDs** — Herald of the Sun hero-tree abilities appearing in SimC data; SpellIDs not confirmed live.
+- **Secondary stat priority** — no live source confirmed; only conceptual rotation/talent prose is provided.
+- **SimC damage distribution and talent strings added** (Templar and Herald variants, Midnight 12.0.5); SimC APL now embedded (extracted from Trivial.txt).
 
 Source caveats:
 - Wowhead guide pages (overview/rotation/abilities) did not render usable body text through the fetch tool; rotation and ability descriptions were sourced from Icy Veins (patch 12.0.5) and individual Wowhead spell pages. Some later Wowhead spell-page fetches returned HTTP 403 (rate limiting); those IDs (Judgment 20271, Hammer of Wrath 24275, Word of Glory 85673, Blade of Justice 184575, Hammer of Light 427441, Cleanse Toxins 213644) were instead confirmed via their canonical Wowhead URLs returned in search, where the URL slug embeds the name and ID.

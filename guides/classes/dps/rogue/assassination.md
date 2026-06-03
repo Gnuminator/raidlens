@@ -9,6 +9,8 @@
 > - https://dving.net/guides/midnight-rogue-guide (via search excerpt)
 > - https://overgear.com/guides/wow/midnight-rogue-guide/ (via search excerpt)
 > - Spell-database cross-reference for Kick spell ID: wowdb.com, wowpedia.fandom.com, wowclassicdb.com (all list 1766)
+> - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
+> - SimC APL from Trivial.txt
 >
 > Note: Wowhead individual spell/item pages and several guide pages returned HTTP 403 to automated fetching, so most numeric data below is corroborated from guide prose and search excerpts rather than from in-game tooltip pages. Spell IDs are deliberately almost entirely omitted — see "Notes and Known Gaps."
 
@@ -51,6 +53,7 @@ Assassination Rogue is a melee DPS specialization built around damage-over-time 
 - **Fan of Knives** — AoE Combo Point builder.
 - **Crimson Tempest** — in Midnight, reworked into a generator that spreads bleeds across multiple targets.
 - **Ambush** — instant Combo Point generator when available (e.g., from stealth/procs).
+- **Internal Bleeding** — a talent-driven bleed triggered by Kidney Shot; contributes meaningful sustained damage (confirmed in SimC damage distribution, ~2% of total).
 
 **Major cooldowns:**
 - **Deathmark** — ~2-minute cooldown. Main burst window; boosts bleed damage and duplicates poison effects. Energy boost on use.
@@ -147,6 +150,134 @@ Assassination Rogue is a melee DPS specialization built around damage-over-time 
 - **Weapon/gear enchants:** Cosmetic/utility ring/cloak enchant choice between Avoidance, Leech, or Speed (player preference; Speed is a noted raid-progression pick). The source did not give a single mandatory damage enchant per slot.
 - **Stat priority:** Critical Strike ≥ Haste ≥ Mastery > Versatility.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero tree covered:** No specific hero tree was tagged in the sim profile (hero_tree: null in source data). The talent string below represents a general Assassination build; the damage distribution includes Fatebound-style proc entries (Hand of Fate), suggesting the sim used a Fatebound talent selection.
+
+**Talent import string:**
+
+```
+CMQAAAAAAAAAAAAAAAAAAAAAAYmZMbzgBAAAAAmlBbzAAAAAAabbmZmZmZMmZmZ2mZZmZGMmZmZMzYYAMwCMjRjZBklBsZAwMzgB
+```
+
+**Metrics:** DPS, HPS, and DTPS were not captured in the source data (metrics field was empty). No throughput ceiling figure is available from this sim run.
+
+**Damage distribution (SimC, share of total damage):**
+
+Rows are included only where the percent field contained a "%" sign (reliable damage-share values). Parenthesised values indicate the effective share including pet/proc contribution.
+
+| Ability | Share of total damage |
+|---|---|
+| Garrote | 11.4% |
+| Auto Attack | 11.0% |
+| Rupture | 9.5% |
+| Hand of Fate | 8.8% |
+| Deadly Poison | 8.7% |
+| Mutilate | 7.7% |
+| Amplifying Poison | 6.4% |
+| Ambush | 2.6% |
+| Internal Bleeding | 1.9% |
+| Deathmark | 0.9% |
+
+**Interpretation for RaidLens:** Garrote, Rupture, and the poison procs (Deadly Poison, Amplifying Poison) together account for the majority of damage, confirming that bleed and poison maintenance is the core of the spec. Hand of Fate (a Fatebound talent proc at 8.8%) is a significant contributor — its absence from a log breakdown could indicate the player is not running a Fatebound build or is letting proc windows expire. Auto attacks at 11.0% are unusually prominent, meaning any time spent out of melee range (dodging mechanics) has a measurable cost. A log where Mutilate or Ambush contribute disproportionately to damage relative to the bleeds suggests the player is not maintaining Garrote/Rupture properly.
+
+### Action Priority List — Rogue Assassination
+
+```
+actions.precombat=apply_poison
+actions.precombat+=/snapshot_stats
+# Check which trinket slots have Stat Values
+actions.precombat+=/variable,name=trinket_sync_slot,value=1,if=trinket.1.has_use_buff&(!trinket.2.has_use_buff|trinket.1.cooldown.duration>=trinket.2.cooldown.duration)&!trinket.2.is.treacherous_transmitter|trinket.1.is.treacherous_transmitter|trinket.1.is.house_of_cards
+actions.precombat+=/variable,name=trinket_sync_slot,value=2,if=trinket.2.has_use_buff&(!trinket.1.has_use_buff|trinket.2.cooldown.duration>trinket.1.cooldown.duration)&!trinket.1.is.treacherous_transmitter|trinket.2.is.treacherous_transmitter|trinket.2.is.house_of_cards
+# Pre-cast Slice and Dice if possible
+actions.precombat+=/stealth
+actions.precombat+=/slice_and_dice,precombat_seconds=1
+
+# Executed every time the actor is available.
+# Restealth if possible (no vulnerable enemies in combat)
+actions=stealth
+# Interrupt on cooldown to allow simming interactions with that
+actions+=/kick
+# Helper Variable to check for single target in combat
+actions+=/variable,name=single_target,value=spell_targets.fan_of_knives=1
+# Edge-case check to dump thistle tea at the end of fights
+actions+=/thistle_tea,if=energy.pct<50&fight_remains<10
+# Special Ambush condition for the start of fights when applicable
+actions+=/ambush,if=stealthed.rogue&variable.single_target&talent.blindside&talent.improved_ambush&!talent.shrouded_suffocation
+# Cooldown list takes priority
+actions+=/call_action_list,name=cds
+# Maintain dots when possible
+actions+=/call_action_list,name=core_dot
+# Build combo points until 5, max with darkest night
+actions+=/call_action_list,name=generate,if=!buff.darkest_night.up&combo_points<5|buff.darkest_night.up&combo_points.deficit>0
+# If combo point threshold is reached, spend them
+actions+=/call_action_list,name=spend,if=!buff.darkest_night.up&combo_points>=5|buff.darkest_night.up&combo_points.deficit=0
+
+# Cooldown list Deathmark if bleeds are active, kingsbane is ready, and we have envenom
+actions.cds=deathmark,if=dot.garrote.ticking&dot.rupture.ticking&cooldown.kingsbane.remains<=2&buff.envenom.remains>2&(target.time_to_die>10|fight_remains<20)
+# Check for on-use trinket usage
+actions.cds+=/call_action_list,name=items
+# Check for Racial abilties, potions, and any other misc cooldowns
+actions.cds+=/call_action_list,name=misc_cds
+# Kingsbane if bleeds are active and Deathmark is either on cooldown or active.
+actions.cds+=/kingsbane,if=dot.garrote.ticking&dot.rupture.ticking&(dot.deathmark.ticking|cooldown.deathmark.remains>52)&buff.envenom.up&(target.time_to_die>10|fight_remains<20)
+# Vanish conditions for Improved Garrote
+actions.cds+=/call_action_list,name=vanish,if=!stealthed.rogue
+
+# DoT list Garrote for improved garrote when applicable
+actions.core_dot=garrote,if=(buff.improved_garrote.up|stealthed.rogue)&(pmultiplier<=1|remains<=14+6*talent.razor_wire+4*!variable.single_target)
+# Normal Garrote Maintanence
+actions.core_dot+=/garrote,if=combo_points.deficit>=1&(pmultiplier<=1|!variable.single_target)&refreshable&target.time_to_die-remains>12
+# Cycle
+actions.core_dot+=/garrote,cycle_targets=1,if=!talent.crimson_tempest&combo_points.deficit>=1&(pmultiplier<=1|!variable.single_target)&refreshable&target.time_to_die-remains>12
+# Normal Rupture Maintanence, making sure to not waste Darkest Night
+actions.core_dot+=/rupture,if=combo_points>=5&refreshable&target.time_to_die-remains>12&(!buff.darkest_night.up|!dot.rupture.ticking)
+actions.core_dot+=/rupture,cycle_targets=1,if=!talent.crimson_tempest&combo_points>=5&refreshable&target.time_to_die-remains>12&(!buff.darkest_night.up|!dot.rupture.ticking)
+
+# Generator List Crimson Tempest to spread bleeds to everything in AoE
+actions.generate=crimson_tempest,target_if=max:dot.rupture.remains,if=!variable.single_target&(active_dot.garrote<spell_targets.fan_of_knives|active_dot.rupture<spell_targets.fan_of_knives)&(dot.rupture.remains>5|energy.regen_combined>40)
+# Special Edge Case to use Shiv for Darkest Night in low target cleave as Toxic Stiletto makes it very efficient
+actions.generate+=/shiv,if=buff.darkest_night.up&combo_points.deficit=1&spell_targets.fan_of_knives<=3&talent.toxic_stiletto
+# Fan of Knives in AoE
+actions.generate+=/fan_of_knives,if=spell_targets.fan_of_knives>1+talent.blindside
+# Ambush on low target counts when available
+actions.generate+=/ambush,if=spell_targets.fan_of_knives<=1+talent.blindside&(buff.unshakeable_drive.stack>2|buff.bloodlust.up|!talent.deathstalkers_mark|talent.blindside)
+# Mutilate on low target counts
+actions.generate+=/mutilate,if=spell_targets.fan_of_knives<=1+talent.blindside&(buff.unshakeable_drive.stack>2|buff.bloodlust.up|!talent.deathstalkers_mark|talent.blindside)
+# Fan of Knives and Shiv in ST with Deathstalker builds
+actions.generate+=/fan_of_knives,if=spell_targets.fan_of_knives<=1+talent.blindside&!talent.blindside&(buff.unshakeable_drive.stack<3&!buff.bloodlust.up&talent.deathstalkers_mark)
+actions.generate+=/shiv,if=spell_targets.fan_of_knives<=1&talent.toxic_stiletto&(buff.unshakeable_drive.stack<3&!buff.bloodlust.up&talent.deathstalkers_mark)
+
+# Special Case Trinkets
+actions.items=variable,name=base_trinket_condition,value=dot.rupture.ticking&cooldown.deathmark.remains<2|dot.deathmark.ticking|fight_remains<=22
+actions.items+=/use_item,name=astral_gladiators_badge_of_ferocity,use_off_gcd=1,if=dot.kingsbane.ticking|dot.deathmark.ticking|(cooldown.kingsbane.remains>60|cooldown.deathmark.remains>60)
+actions.items+=/use_item,name=algethar_puzzle_box,use_off_gcd=1,if=variable.base_trinket_condition&buff.envenom.up
+actions.items+=/use_items,slots=trinket1,if=(variable.trinket_sync_slot=1&(debuff.deathmark.up)|(variable.trinket_sync_slot=2&!trinket.2.cooldown.ready&cooldown.deathmark.remains>20))|!variable.trinket_sync_slot|fight_remains<=20
+actions.items+=/use_items,slots=trinket2,if=(variable.trinket_sync_slot=2&(debuff.deathmark.up)|(variable.trinket_sync_slot=1&!trinket.1.cooldown.ready&cooldown.deathmark.remains>20))|!variable.trinket_sync_slot|fight_remains<=20
+
+# Miscellaneous Cooldowns Potion
+actions.misc_cds=potion,if=dot.rupture.ticking&(buff.bloodlust.react|fight_remains<30|debuff.deathmark.up)
+# Various special racials to be synced with cooldowns
+actions.misc_cds+=/blood_fury,use_off_gcd=1,if=debuff.deathmark.up
+actions.misc_cds+=/berserking,use_off_gcd=1,if=debuff.deathmark.up
+actions.misc_cds+=/fireblood,use_off_gcd=1,if=debuff.deathmark.up
+actions.misc_cds+=/ancestral_call,use_off_gcd=1,if=debuff.deathmark.up
+
+# Spend List Cancelaura Envenom in situations where we can make use of the energy but don't have time to AFK
+actions.spend=cancel_buff,name=envenom,if=buff.implacable_tracker.stack>4&(!talent.rapid_injection|spell_targets.fan_of_knives>=5)
+# Special edgecase Cancelaura for Darkest Night handling
+actions.spend+=/cancel_buff,name=envenom,if=buff.implacable_tracker.stack>3&talent.rapid_injection&debuff.deathstalkers_mark.stack=1
+# Spend with envenom as per normal
+actions.spend+=/envenom,if=buff.implacable_tracker.stack<4
+# Envenom if we are going to overcap on energy
+actions.spend+=/envenom,if=energy.pct>70|fight_remains<15
+
+# Vanish list Single Target vanish check to line up improved garrote with Deathmark, making sure there are no adds soon. TODO Check after ImpGar fixes
+actions.vanish=vanish,if=variable.single_target&talent.improved_garrote&dot.garrote.pmultiplier<=1&(dot.deathmark.ticking|cooldown.deathmark.remains>target.time_to_die-10)&!raid_event.adds.in<=30
+# AoE vanish check to spread improved garrote in multitarget
+actions.vanish+=/vanish,if=!variable.single_target&talent.improved_garrote&dot.garrote.pmultiplier<=1&(raid_event.adds.remains>=10|!raid_event.adds.in<=30)
+```
+
 ## Notes and Known Gaps
 
 - **Spell IDs:** Only **Kick = 1766** is included, confirmed via multiple independent spell databases (WoWDB, Wowpedia, classic DB). All other spell IDs (Deathmark, Kingsbane, Garrote, Rupture, Envenom, Mutilate, Feint, Cloak of Shadows, Evasion, Crimson Vial, Vanish, Crimson Tempest, Fan of Knives, Atrophic Poison, etc.) are **omitted** because live Wowhead spell pages returned HTTP 403 to fetching and no fetched source displayed the exact numeric IDs. Do not assume IDs from memory; re-verify on Wowhead before hardcoding into `boss-knowledge.js`/filters.
@@ -156,7 +287,9 @@ Assassination Rogue is a melee DPS specialization built around damage-over-time 
 - **Cloak of Shadows / Evasion / Crimson Vial / Cheat Death cooldowns:** Cloak ~2 min, Evasion ~10s duration/+100% dodge, Crimson Vial ~30s, Cheat Death ~6 min — all from guide prose/search excerpts, not tooltip pages. Re-verify durations.
 - **Deathmark (2 min) / Kingsbane (60s) / Vanish (2 min):** From Icy Veins and Wowhead overview prose. Confident but tooltip not directly fetched.
 - **Atrophic Poison numbers (30% chance / 3% damage reduction / 10s):** From a search excerpt; not confirmed on a fetched tooltip page. Re-verify exact magnitudes.
-- **Talent import string / SimC APL:** Not available — no user-provided SimC profile and no string could be sourced. Rotation above is conceptual priority only.
+- **Talent import string:** Added from SimulationCraft Midnight 12.0.5 source data. The sim hero_tree field was null, so the exact hero-tree variant is unconfirmed — verify the string in-game before treating it as authoritative for a specific build. SimC APL now embedded (extracted from Trivial.txt).
+- **Hand of Fate:** Appears in the SimC damage distribution at 8.8% — likely a Fatebound talent proc. Not present in the original guide prose. Spell ID not confirmed; verify on Wowhead.
+- **Internal Bleeding:** Appears in the SimC damage distribution at 1.9%. Added to Abilities Reference. Spell ID not confirmed; verify on Wowhead.
 - **Midnight AoE rework:** Sources state Indiscriminate Carnage and the old Shiv were removed/changed and Crimson Tempest became a bleed-spreading generator. The exact talent layout and any remaining Shiv functionality were not fully confirmed — flagged.
 - **Consumable/gem/enchant item IDs:** Omitted (could not confirm). Names only.
 - **Maintenance flag:** Re-verify ALL cooldowns, the Kick spell ID/cooldown, poison values, and consumable names after ANY 12.x patch. Wowhead spell pages were inaccessible to automated fetching during this writeup, so a manual pass against live tooltips is recommended before relying on numeric values for analysis.

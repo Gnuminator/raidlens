@@ -33,6 +33,14 @@ All 39 specs now have guide entries in `SPEC_GUIDE_PATHS`. Files live under `gui
 
 WCL's `masterData.actors` only returns the bare spec name as `subType` ("Frost", "Holy", etc.) — never the class. Four spec names are shared by two classes (Frost: DK/Mage; Holy: Paladin/Priest; Protection: Paladin/Warrior; Restoration: Druid/Shaman). These map to an **array** of candidate paths; `loadSpecGuides()` fetches BOTH and labels each by class (e.g. "Frost (Death Knight)", "Frost (Mage)") so the correct guide is always present in the prompt. This over-fetches one extra guide for those four names when present — accepted as the safe choice. `specGuideCache` is keyed by repo **path** (not spec name) to avoid collisions. Full per-actor class disambiguation would require `playerDetails` (which exposes class as `type`, scoped by fightID) — deferred as a future refinement.
 
+### SimC enrichment of spec guides (2026-06-02)
+Christian supplied parsed SimulationCraft data in `simc-guides/` (per-spec `.md`/`.json`, 49 specs incl. hero-tree variants) plus the raw `Trivial.txt` SimC report. Enrichment is being applied in passes via swarms:
+- **Pass 1 (talent + distribution):** the `.json` is authoritative for talent strings, but its abilities table is NOISY — a row is a real damage share ONLY if its `percent` contains a "%". Rows like `Envenom 13.1 / 66.5` or `Thistle Tea / 5.67s` are buff-uptime/duration mis-parses and must be discarded. `spelldata`/`buffs` are empty in the json → NO clean spell IDs there.
+- **Pass 2 (APL):** the parsed json lacks the APL. `Trivial.txt` contains each spec's raw SimC profile headed by `<class>="MID1_<Class>_<Spec>_<HeroTree>"` → `talents=` → `actions...`. A splitter extracted each profile's action block into `simc-guides/apl/<name>.apl.txt` (49 files), embedded verbatim into the guides' "SimulationCraft Reference" section.
+- **Strict rule held:** no spell IDs harvested from this data (json empty; `.md`/APL numbers are noisy). Spell-ID confirmation stays a separate task.
+- **Untapped:** `Trivial.txt` has `Spelldata` blocks (`id:NNN name:X`) = authoritative SimC spell IDs. A careful extraction could close the spell-ID gap across all guides without fabrication — not yet done.
+- First 10 DPS guides enriched; ~27 remain.
+
 ---
 
 ### Interrupt tracking (2026-05-11)

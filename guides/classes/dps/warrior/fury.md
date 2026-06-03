@@ -18,6 +18,8 @@
 > - https://www.wowhead.com/spell=6544/heroic-leap
 > - https://www.wowhead.com/spell=23881/bloodthirst
 > - https://www.wowhead.com/spell=386208/defensive-stance
+> - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
+> - SimC APL from Trivial.txt
 
 ## Overview
 
@@ -49,6 +51,8 @@ Confirmed SpellIDs are from live Wowhead spell pages fetched during research. Wh
 - **Execute** — high-damage, Rage-generating finisher, prioritized in execute range. (SpellID not confirmed.)
 - **Whirlwind** — primary multi-target attack; enables cleave on the single-target rotation. (SpellID not confirmed.)
 - **Thunder Clap** — AoE damage / cleave enabler in multi-target. (SpellID not confirmed.)
+- **Rend** — bleed DoT appearing in the SimC damage distribution; likely applied via talent or proc. (SpellID not confirmed.)
+- **Bloodbath** — bleed DoT appearing in the SimC damage distribution. (SpellID not confirmed.)
 
 **Major cooldowns**
 - **Recklessness** (SpellID 1719) — major offensive cooldown; 1.5 min cooldown, 12 s duration; +50% Rage generation and a large crit bonus. Per guidance, avoid holding it more than ~10 s.
@@ -56,13 +60,18 @@ Confirmed SpellIDs are from live Wowhead spell pages fetched during research. Wh
 - **Bladestorm** — bursty AoE cooldown that aligns with Recklessness/Avatar. (SpellID not confirmed.)
 - **Odyn's Fury**, **Ravager**, **Onslaught**, **Thunderous Roar**, **Champion's Spear** — talented offensive abilities appearing depending on hero-talent tree and build. (SpellIDs not confirmed.)
 
+**Slayer hero-talent abilities**
+- **Slayer's Strike** — Slayer hero-talent offensive ability; appears as the second-largest single damage contributor in the SimC profile (9.6% of total damage). (SpellID not confirmed.)
+
 **Key passives / procs**
 - **Enrage** — the central buff; damage + haste while active. (SpellID not confirmed; Wowhead search surfaced spell=184361/enrage but this was not directly fetched, so it is treated as unconfirmed.)
 - **Anger Management** (talent) — spending Rage reduces cooldowns, which is why Fury cooldowns recur frequently.
+- **Deep Wounds** — bleed DoT, appears as a consistent contributor to the damage distribution. (SpellID not confirmed.)
+- **Gushing Wound** — bleed/wound proc appearing in SimC distribution. (SpellID not confirmed.)
 
 ## Rotation / Priority
 
-This is **logical priority order, not a DPS benchmark** — exact APL ordering shifts by hero talent (Mountain Thane vs Slayer) and gear, and no SimC profile was supplied for this guide.
+This is **logical priority order, not a DPS benchmark** — exact APL ordering shifts by hero talent (Mountain Thane vs Slayer) and gear. SimC damage distribution and full APL action-lists are available in the SimulationCraft Reference section below.
 
 **Opener (conceptual):**
 1. Charge into melee on pull (generates Rage).
@@ -77,6 +86,7 @@ This is **logical priority order, not a DPS benchmark** — exact APL ordering s
 4. **Execute** in execute range.
 5. **Raging Blow** as filler / Rage generation.
 6. Use major cooldowns (Recklessness, Avatar, talented abilities) on cooldown rather than hoarding, due to Anger Management.
+7. In Slayer builds: **Slayer's Strike** is a high-priority ability (see SimC breakdown).
 
 **AoE / multi-target (priority):**
 1. Activate **Whirlwind** to apply cleave to single-target abilities.
@@ -133,16 +143,158 @@ Each entry includes a **RaidLens usage** note for judging whether the defensive 
 
 No consumable, enchant, gem, or talent-import data could be confirmed from a live source during this research pass (the fetched ability/rotation pages did not enumerate current 12.0.5 flasks, food, weapon enchants, or augment runes, and no SimC profile was provided). Fury is a Strength-based physical melee spec, so Strength-oriented consumables/enchants are the conceptual expectation, but **specific item names and IDs are intentionally omitted** rather than guessed. See Notes and Known Gaps and re-source from a dedicated consumables/enchants page before relying on this section.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero tree covered:** The SimC JSON does not explicitly name a hero tree (field is null), but the presence of **Slayer's Strike** as the second-highest damage ability (9.6%) strongly identifies this as a **Slayer** build. Mountain Thane abilities (Avatar-empowered) are absent from the distribution, confirming this is not a Mountain Thane profile.
+
+**Talent import string (Slayer build):**
+
+```
+CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjxMsMzMzMDjZmZGzMzsMzMGzMbDzMAAQMWWGYBMBzwEYG2AmZ2Y2GAAMzYYMzMMYA
+```
+
+**DPS / HPS metrics:** Metrics were not captured in this SimC export (the metrics field is empty). No Patchwerk DPS figure is available from this data.
+
+**Damage distribution (SimC, share of total damage):**
+
+Rows filtered to those with a "%" in the percent field; parenthesised values used where present (effective share including procs/pets); resource tracking rows (Rage Cap) and consumables discarded.
+
+| Ability | % of Damage |
+|---|---|
+| Rampage | 18.6% |
+| Slayer's Strike | 9.6% |
+| Auto Attack (MH + OH combined) | 8.6% |
+| Deep Wounds | 3.0% |
+| Gushing Wound | 1.7% |
+| Rend (DoT) | 1.6% |
+| Bloodbath (DoT) | 1.2% |
+| Voidclaw | 0.3% |
+| Whirlwind | 0.1% |
+
+**Interpretation for RaidLens:** Rampage (18.6%) and Slayer's Strike (9.6%) together account for roughly 28% of damage in this build, making them the clear priority anchors — a log where these two abilities have very low cast counts relative to filler attacks (Raging Blow, auto attacks) suggests a rotation or Rage-management problem. The high proportion of bleed damage (Deep Wounds 3.0%, Gushing Wound 1.7%, Rend DoT 1.6%, Bloodbath DoT 1.2%) indicates that sustaining bleed uptime is a meaningful, if secondary, output consideration — excessive target-switching or movement that drops bleeds early may show up as underperformance. Auto attacks at 8.6% are a reminder that staying in melee range and not dropping swings matters.
+
+### Action Priority List — Warrior Fury
+
+```
+# Executed every time the actor is available.
+actions=auto_attack
+actions+=/charge,if=time<=0.5|movement.distance>5
+actions+=/heroic_leap,if=(raid_event.movement.distance>25&raid_event.movement.in>45)
+actions+=/potion,if=target.time_to_die>300|buff.recklessness.up|target.time_to_die<25
+actions+=/pummel,if=target.debuff.casting.react
+actions+=/call_action_list,name=trinkets
+actions+=/call_action_list,name=variables
+actions+=/lights_judgment,if=variable.on_gcd_racials
+actions+=/bag_of_tricks,if=variable.on_gcd_racials
+actions+=/berserking,if=buff.recklessness.up
+actions+=/blood_fury
+actions+=/fireblood
+actions+=/ancestral_call
+actions+=/invoke_external_buff,name=power_infusion,if=buff.recklessness.remains>15&fight_remains>=135|variable.execute_phase&buff.recklessness.up|fight_remains<=25
+actions+=/run_action_list,name=slayer,if=talent.slayers_dominance&active_enemies=1
+actions+=/run_action_list,name=slayer_aoe,if=talent.slayers_dominance&active_enemies>1
+actions+=/run_action_list,name=thane,if=talent.lightning_strikes&active_enemies=1
+actions+=/run_action_list,name=thane_aoe,if=talent.lightning_strikes&active_enemies>1
+
+actions.slayer=recklessness
+actions.slayer+=/avatar
+actions.slayer+=/rampage,if=buff.enrage.remains<gcd|rage>=100
+actions.slayer+=/bladestorm,if=(buff.enrage.up&talent.deft_experience|buff.enrage.remains>1)&(buff.recklessness.up|cooldown.recklessness.remains>30)
+actions.slayer+=/odyns_fury
+actions.slayer+=/execute
+actions.slayer+=/bloodbath
+actions.slayer+=/rampage,if=buff.recklessness.up
+actions.slayer+=/crushing_blow
+actions.slayer+=/bloodthirst
+actions.slayer+=/rampage
+actions.slayer+=/wrecking_throw
+actions.slayer+=/rend,if=dot.rend.duration<6
+actions.slayer+=/raging_blow
+actions.slayer+=/whirlwind
+actions.slayer+=/storm_bolt,if=buff.bladestorm.up
+
+actions.slayer_aoe=whirlwind,if=talent.improved_whirlwind&buff.whirlwind.stack=0
+actions.slayer_aoe+=/recklessness
+actions.slayer_aoe+=/avatar
+actions.slayer_aoe+=/rampage,if=buff.enrage.remains<gcd|rage>=110
+actions.slayer_aoe+=/bladestorm,if=(buff.enrage.up&talent.deft_experience|buff.enrage.remains>1)&(buff.recklessness.up|cooldown.recklessness.remains>30)
+actions.slayer_aoe+=/odyns_fury
+actions.slayer_aoe+=/execute,if=buff.sudden_death.up
+actions.slayer_aoe+=/rampage,if=buff.recklessness.up
+actions.slayer_aoe+=/bloodbath
+actions.slayer_aoe+=/whirlwind,if=talent.improved_whirlwind&buff.recklessness.up
+actions.slayer_aoe+=/crushing_blow
+actions.slayer_aoe+=/execute
+actions.slayer_aoe+=/rampage
+actions.slayer_aoe+=/rend,if=dot.rend_dot.duration<6&!talent.improved_whirlwind
+actions.slayer_aoe+=/bloodthirst
+actions.slayer_aoe+=/whirlwind,if=talent.improved_whirlwind
+actions.slayer_aoe+=/raging_blow
+actions.slayer_aoe+=/storm_bolt,if=buff.bladestorm.up
+
+actions.thane=odyns_fury
+actions.thane+=/recklessness
+actions.thane+=/avatar
+actions.thane+=/rampage,if=buff.enrage.remains<gcd|rage>=100
+actions.thane+=/thunder_blast,if=buff.thunder_blast.stack=2
+actions.thane+=/bloodbath
+actions.thane+=/rampage,if=buff.recklessness.up
+actions.thane+=/thunder_blast,if=buff.avatar.up
+actions.thane+=/bloodthirst
+actions.thane+=/execute
+actions.thane+=/crushing_blow
+actions.thane+=/thunder_blast
+actions.thane+=/rampage
+actions.thane+=/thunder_clap,if=buff.avatar.up&!talent.wrath_and_fury
+actions.thane+=/raging_blow
+actions.thane+=/thunder_clap
+actions.thane+=/whirlwind
+
+actions.thane_aoe=odyns_fury
+actions.thane_aoe+=/recklessness
+actions.thane_aoe+=/avatar
+actions.thane_aoe+=/thunder_blast,if=buff.thunder_blast.stack=2
+actions.thane_aoe+=/thunder_blast,if=buff.avatar.up
+actions.thane_aoe+=/thunder_clap,if=talent.improved_whirlwind&buff.whirlwind.stack=0|(buff.avatar.up&active_enemies>6)
+actions.thane_aoe+=/rampage,if=buff.enrage.remains<gcd|rage>=100
+actions.thane_aoe+=/bloodbath
+actions.thane_aoe+=/rampage,if=buff.recklessness.up
+actions.thane_aoe+=/thunder_clap,if=buff.avatar.up
+actions.thane_aoe+=/bloodthirst
+actions.thane_aoe+=/thunder_blast
+actions.thane_aoe+=/execute
+actions.thane_aoe+=/thunder_clap
+actions.thane_aoe+=/crushing_blow
+actions.thane_aoe+=/rampage
+actions.thane_aoe+=/raging_blow
+actions.thane_aoe+=/whirlwind
+
+actions.trinkets=use_item,name=algethar_puzzle_box,if=cooldown.recklessness.remains<2
+# Trinkets
+actions.trinkets+=/use_item,slot=trinket1,if=variable.trinket_1_buffs&(variable.trinket_priority=1|!variable.trinket_2_buffs|!trinket.2.has_cooldown)&(buff.recklessness.up)
+actions.trinkets+=/use_item,slot=trinket2,if=variable.trinket_2_buffs&(variable.trinket_priority=2|!variable.trinket_1_buffs|!trinket.1.has_cooldown)&(buff.recklessness.up)
+actions.trinkets+=/use_item,slot=trinket1,if=!variable.trinket_1_buffs&(variable.damage_trinket_priority=1|!variable.trinket_2_buffs|!trinket.2.has_cooldown)
+actions.trinkets+=/use_item,slot=trinket2,if=!variable.trinket_2_buffs&(variable.damage_trinket_priority=2|!variable.trinket_1_buffs|!trinket.1.has_cooldown)
+
+# Variables
+actions.variables=variable,name=st_planning,value=active_enemies=1&(raid_event.adds.in>15|!raid_event.adds.exists)
+actions.variables+=/variable,name=adds_remain,value=active_enemies>=2&(!raid_event.adds.exists|raid_event.adds.exists&raid_event.adds.remains>5)
+actions.variables+=/variable,name=execute_phase,value=(talent.massacre.enabled&target.health.pct<35)|target.health.pct<20
+actions.variables+=/variable,name=on_gcd_racials,value=buff.recklessness.down&buff.recklessness.down&rage<80&buff.sudden_death.down&!cooldown.bladestorm.ready&(!cooldown.execute.ready|!variable.execute_phase)
+```
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (named, per sourcing rules — IDs omitted rather than guessed):
-- **SpellIDs not confirmed from a fetched page:** Rampage, Raging Blow, Execute, Whirlwind, Thunder Clap, Avatar, Bladestorm, Odyn's Fury, Ravager, Onslaught, Thunderous Roar, Champion's Spear, Enrage (passive), Intimidating Shout, Shattering Throw, Hamstring, Piercing Howl, Intervene, Victory Rush / Impending Victory, Die by the Sword. Several Wowhead spell pages returned HTTP 403 (rate-limiting) during this pass and could not be confirmed.
+- **SpellIDs not confirmed from a fetched page:** Rampage, Raging Blow, Execute, Whirlwind, Thunder Clap, Avatar, Bladestorm, Odyn's Fury, Ravager, Onslaught, Thunderous Roar, Champion's Spear, Enrage (passive), Intimidating Shout, Shattering Throw, Hamstring, Piercing Howl, Intervene, Victory Rush / Impending Victory, Die by the Sword, Slayer's Strike, Rend, Bloodbath, Deep Wounds, Gushing Wound. Several Wowhead spell pages returned HTTP 403 (rate-limiting) during this pass and could not be confirmed.
 - **Bloodthirst (23881)** confirmed via Wowhead search result content + classic/wotlk cross-reference; the live retail spell page was 403-blocked on direct fetch. Treat as high-confidence but re-verify on the live retail page.
 - **Spell Reflection cooldown:** live spell page (23920) showed an internal cooldown value of "1 second" which is a client artifact; the practical cooldown (~25 s) comes from the Icy Veins guide text, not the spell page. Re-verify the real cooldown.
 - **Recklessness duration/cooldown** (1.5 min / 12 s) and **Recklessness +50% Rage / crit** taken from the live spell page (1719) — confirmed.
 - **Rallying Cry** effect magnitude: the spell page (97462) lists server-side dummy effects (value 10 / value 50) rather than a clean readable "X% max HP." The 3-minute cooldown is confirmed; the exact max-HP percentage was not cleanly readable and is described conceptually.
 - **Die by the Sword** and **Warpaint/Defensive Stance interactions:** "Warpaint" was referenced in the Icy Veins overview as a layered defensive but was not separately spell-confirmed; treat as a talent passive, not verified.
-- **Consumables / enchants / gems / talent import strings / SimC APL:** entirely unsourced this pass — no live consumables page was fetched and no SimC profile was provided. Do not populate without re-sourcing.
-- **Hero talent trees:** Mountain Thane and Slayer are referenced as current build options; their individual ability lists/IDs were not fully sourced.
+- **Consumables / enchants / gems:** entirely unsourced this pass — no live consumables page was fetched. Do not populate without re-sourcing.
+- **Talent import string:** added from SimulationCraft Midnight 12.0.5 data (Slayer build). A Mountain Thane variant string is not yet available.
+- **SimC APL:** SimC APL now embedded (extracted from Trivial.txt). The APL covers both Slayer and Mountain Thane hero-talent branches (single-target and AoE sub-lists for each). A Mountain Thane-specific talent string is not yet available.
+- **Hero talent trees:** Mountain Thane and Slayer are referenced as current build options. The SimC profile covers Slayer; Mountain Thane ability lists/IDs were not fully sourced and no Mountain Thane talent string is available.
 
 Maintenance flag: **Re-verify every SpellID, cooldown, and the consumables/enchants section after any 12.x patch.** Spell IDs do not change once assigned, but cooldowns, durations, percentages, talent layouts, and consumable items can change between patches.

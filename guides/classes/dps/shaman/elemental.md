@@ -25,12 +25,14 @@
 > - https://www.wowhead.com/spell=454009/tempest
 > - https://www.wowhead.com/spell=79206/spiritwalkers-grace
 > - https://www.wowhead.com/spell=198067/fire-elemental
+> - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
+> - SimC APL from Trivial.txt
 
 ## Overview
 
 Elemental Shaman is a ranged DPS specialization that deals Fire and Nature (lightning) damage. Its core gameplay loop is a builder/spender model around the **Maelstrom** resource: cast generators and instant abilities to build Maelstrom, then dump it into hard-hitting spenders. In Midnight (12.x) the rotation was simplified — Icefury, Primordial Wave, and Liquid Magma Totem were removed, and Fire Elemental / Storm Elemental are now talent-gated cooldowns rather than baseline.
 
-The single-target loop centers on keeping **Flame Shock** (a Fire/Nature damage-over-time debuff) on the target, casting **Lava Burst** (guaranteed-crit hit, especially on Lava Surge procs), filling with **Lightning Bolt**, and spending Maelstrom on **Earth Shock** or **Elemental Blast**. **Stormkeeper** and the **Tempest** proc empower lightning casts. AoE shifts toward **Chain Lightning** and **Earthquake**.
+The single-target loop centers on keeping **Flame Shock** (a Fire/Nature damage-over-time debuff) on the target, casting **Lava Burst** (guaranteed-crit hit, especially on Lava Surge procs) and filling with **Lightning Bolt**, and spending Maelstrom on **Earth Shock** or **Elemental Blast**. **Stormkeeper** and the **Tempest** proc empower lightning casts. AoE shifts toward **Chain Lightning** and **Earthquake**.
 
 Damage/healing/survivability profile: pure damage dealer with strong burst windows (Stormkeeper + Ascendance + Fire Elemental aligned with cooldowns) and respectable sustained throughput. It carries off-healing via Healing Surge but is not a healer. Survivability is moderate — one strong personal damage reduction (Astral Shift) plus a passive health backstop, but no immunities.
 
@@ -59,12 +61,14 @@ Core damage:
 - **Chain Lightning** (`188443`) — multi-target Nature filler/generator.
 - **Earthquake** (`61882`) — ground-targeted AoE spender, costs 60 Maelstrom (per spell page).
 - **Tempest** (`454009`) — empowered lightning proc/spell (Nature) used in the lightning rotation.
+- **Stormfury** — Stormbringer hero-tree proc; empowers and resets certain lightning abilities. Spell ID not confirmed — see Known Gaps.
 
 Cooldowns:
 - **Stormkeeper** (`191634`) — buff, 1-minute cooldown, 15s duration; empowers lightning casts. Used roughly on cooldown.
 - **Ascendance** (`114050`) — Fire-school burst cooldown, **3-minute cooldown** (per spell page); the spec's major burst window.
 - **Fire Elemental** (`198067`) — summon cooldown (talent), persistent DPS pet aligned with burst.
 - **Ancestral Swiftness** — haste/cast cooldown used in the opener (talent; spell ID not confirmed — see Known Gaps).
+- **Nature's Swiftness** — instant-cast cooldown present in the Stormbringer SimC build; may overlap with or replace Ancestral Swiftness in some talent configurations. Spell ID not confirmed — see Known Gaps.
 
 Key passives/procs (named in the rotation guide; not individually ID-confirmed here):
 - **Lava Surge** — proc making the next Lava Burst instant.
@@ -150,16 +154,142 @@ Note: Elemental has NO immunity and NO hard damage-cap/cheat-death active. Astra
 
 Not confirmed from the sources fetched in this session. The Wowhead overview page body did not render, and dedicated enchant/gem/consumable pages were not loaded. Standard 12.0.5 Intellect-based flasks, food, augment rune, and weapon/gear enchants apply, but specific item IDs and current best-in-slot consumables are NOT confirmed here — see Known Gaps. Do not rely on this section for item IDs; none are provided rather than risk a fabricated ID.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero tree covered:** Stormbringer
+
+**Talent import string (Stormbringer):**
+
+```
+CYQAAAAAAAAAAAAAAAAAAAAAAAAAAAzMbLzMzMzMLbbDMmZAAAAAbmZbzMzwmhFmtZmGamNAYWmZmxYbxEmZ2GLzMzMGWmlZsYmhZWAAGAzMzMGGG
+```
+
+**Metrics:** DPS/HPS/DTPS were not captured in this SimC output (metrics field is empty). No theoretical DPS ceiling is available from this data file.
+
+**Damage distribution (SimC, share of total damage):**
+
+Rows with a confirmed "%" value only; parenthesised values are effective shares including pet/proc contribution and are used where present:
+
+| Ability | Share of damage |
+|---------|----------------|
+| Lightning Bolt | 32.1% |
+| Elemental Blast | 14.5% |
+| Lightning Rod | 6.1% |
+| Fire Blast (pet) | 4.5% |
+| Elemental Blast (_foe) | 2.5% |
+| Stormfury | 2.0% |
+| Immolate (pet) | 0.7% |
+| Meteor (pet) | 0.6% |
+| Call Lightning (pet) | 0.5% |
+
+Note: Lava Burst, Flame Shock, Tempest, Ascendance, and Stormkeeper rows did not carry a "%" percent value in the source data and are therefore omitted from this table — they appear to be represented as proc/buff counts or durations rather than damage shares in this particular sim output. Their absence here does not mean they deal no damage; the rotation guide above reflects their genuine rotational importance.
+
+**RaidLens interpretation:** Lightning Bolt and Elemental Blast together should account for roughly 47% of damage in a clean single-target Stormbringer parse. A log where these two abilities are substantially underrepresented — and filler or pet damage makes up a disproportionate share — suggests the player is failing to spend Maelstrom properly, missing Elemental Blast casts, or losing uptime on the boss. The pet contribution (Fire Blast, Immolate, Meteor, Call Lightning summing to ~8%) confirms that Fire Elemental or Storm Elemental uptime matters and should be tracked if a player's pet damage is unusually low.
+
+### Action Priority List — Shaman Elemental Stormbringer
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/flametongue_weapon,if=talent.flametongue_weapon
+actions.precombat+=/lightning_shield
+actions.precombat+=/thunderstrike_ward
+actions.precombat+=/variable,name=trinket_1_buffs,value=(trinket.1.has_use_buff|trinket.1.is.funhouse_lens)
+actions.precombat+=/variable,name=trinket_2_buffs,value=(trinket.2.has_use_buff|trinket.2.is.funhouse_lens)
+actions.precombat+=/stormkeeper
+
+# Executed every time the actor is available.
+# Enable more movement.
+actions=spiritwalkers_grace,moving=1,if=movement.distance>6
+# Interrupt of casts.
+actions+=/wind_shear
+actions+=/blood_fury
+actions+=/berserking
+actions+=/fireblood
+actions+=/ancestral_call
+# Normal buff trinkets, mimic Ascendance activation conditions
+actions+=/use_item,slot=trinket1,use_off_gcd=1,if=variable.trinket_1_buffs&(cooldown.ascendance.remains>trinket.1.cooldown.duration-5|cooldown.ascendance.ready&cooldown.stormkeeper.remains>15|fight_remains<21)
+actions+=/use_item,slot=trinket2,use_off_gcd=1,if=variable.trinket_2_buffs&(cooldown.ascendance.remains>trinket.2.cooldown.duration-5|cooldown.ascendance.ready&cooldown.stormkeeper.remains>15|fight_remains<21)
+# Normal weapons
+actions+=/use_item,slot=main_hand,use_off_gcd=1
+# Dmg trinkets
+actions+=/use_item,slot=trinket1,use_off_gcd=1,if=!variable.trinket_1_buffs&(cooldown.ascendance.remains>20|trinket.2.cooldown.remains>20)
+actions+=/use_item,slot=trinket2,use_off_gcd=1,if=!variable.trinket_2_buffs&(cooldown.ascendance.remains>20|trinket.1.cooldown.remains>20)
+actions+=/lightning_shield,if=buff.lightning_shield.down
+actions+=/natures_swiftness
+# Use Power Infusion on Cooldown.
+actions+=/invoke_external_buff,name=power_infusion
+actions+=/potion,if=buff.bloodlust.up|cooldown.ascendance.ready&cooldown.stormkeeper.remains>15|fight_remains<31
+actions+=/run_action_list,name=aoe,if=spell_targets.chain_lightning>=3
+actions+=/run_action_list,name=single_target
+
+# Stormkeeper on CD, unless sub 10s hold for Asc or the fight is about to end.
+actions.aoe=stormkeeper,if=cooldown.ascendance.remains>10|cooldown.ascendance.remains<gcd|fight_remains<20
+actions.aoe+=/voltaic_blaze,if=time<3&talent.purging_flames
+actions.aoe+=/ancestral_swiftness
+# Ascendance on CD, unless SK can be sync'd with it.
+actions.aoe+=/ascendance,if=cooldown.stormkeeper.remains>15|fight_remains<20
+# [3t] Apply Flame shock on 3t for MotE and Inferno arc.
+actions.aoe+=/flame_shock,if=!buff.master_of_the_elements.up&((dot.flame_shock.refreshable&cooldown.ascendance.remains>5)|(buff.fire_elemental.up&buff.fire_elemental.remains<2))&talent.master_of_the_elements&talent.inferno_arc&spell_targets.chain_lightning=3
+# Apply Voltaic blaze for Inferno arc or Purging flames.
+actions.aoe+=/voltaic_blaze,if=!buff.master_of_the_elements.up&((dot.flame_shock.refreshable&cooldown.ascendance.remains>5)|(buff.fire_elemental.up&buff.fire_elemental.remains<2)|talent.purging_flames&!buff.ascendance.up)
+# Elemental Blast if no buffs or at 3t, Earthquake to spread Lightning Rod otherwise
+actions.aoe+=/elemental_blast,target_if=min:debuff.lightning_rod.remains,if=buff.tempest.stack<2&(buff.elemental_blast_critical_strike.up+buff.elemental_blast_haste.up+buff.elemental_blast_mastery.up=0)
+actions.aoe+=/earthquake,if=buff.tempest.stack<2&lightning_rod<active_enemies&spell_targets.chain_lightning>=3+talent.elemental_blast&(buff.elemental_blast_critical_strike.up+buff.elemental_blast_haste.up+buff.elemental_blast_mastery.up>0)
+actions.aoe+=/elemental_blast,target_if=min:debuff.lightning_rod.remains,if=buff.tempest.stack<2&spell_targets.chain_lightning=3
+# Spend Purging flames.
+actions.aoe+=/lava_burst,if=buff.purging_flames.up&(buff.lava_surge.up|cooldown.voltaic_blaze.remains<2)
+# [3t] Spend Lava Surge procs to buff Tempest with MotE.
+actions.aoe+=/lava_burst,if=buff.tempest.up&buff.lava_surge.up&talent.master_of_the_elements&spell_targets.chain_lightning=3
+# [3t] Tempest if you have MotE.
+actions.aoe+=/tempest,target_if=min:debuff.lightning_rod.remains,if=buff.master_of_the_elements.up
+actions.aoe+=/tempest,target_if=min:debuff.lightning_rod.remains,if=buff.stormkeeper.stack<4&buff.tempest.stack=2
+actions.aoe+=/chain_lightning,if=buff.stormkeeper.up&maelstrom.deficit>(spell_targets.chain_lightning>?5)*(2+(spell_targets.chain_lightning>?5)+2)
+actions.aoe+=/earthquake,if=!talent.elemental_blast&maelstrom.deficit<15+(buff.stormkeeper.up*(spell_targets.chain_lightning>?5)*(2+(spell_targets.chain_lightning>?5)))
+actions.aoe+=/elemental_blast
+actions.aoe+=/tempest,target_if=min:debuff.lightning_rod.remains
+# Filler spell. Always available. Always the bottom line.
+actions.aoe+=/chain_lightning
+actions.aoe+=/flame_shock,moving=1
+actions.aoe+=/voltaic_blaze,moving=1
+actions.aoe+=/frost_shock,moving=1
+
+# Stormkeeper on CD, unless sub 10s hold for Asc or the fight is about to end.
+actions.single_target=stormkeeper,if=cooldown.ascendance.remains>10|cooldown.ascendance.remains<gcd|fight_remains<20
+actions.single_target+=/ancestral_swiftness
+# Ascendance on CD, unless SK can be sync'd with it.
+actions.single_target+=/ascendance,if=cooldown.stormkeeper.remains>15|fight_remains<20
+# Maintain Flame shock, minor gain to refresh it when FE is about to fade.
+actions.single_target+=/flame_shock,if=!buff.master_of_the_elements.up&((dot.flame_shock.refreshable&cooldown.ascendance.remains>5)|(buff.fire_elemental.up&buff.fire_elemental.remains<2))
+actions.single_target+=/voltaic_blaze,if=!buff.master_of_the_elements.up&((dot.flame_shock.refreshable&cooldown.ascendance.remains>5)|(buff.fire_elemental.up&buff.fire_elemental.remains<2)|talent.purging_flames&spell_targets.chain_lightning=2)
+# Lava Burst if any empowering it talent chosen OR to consume surge procs.
+actions.single_target+=/lava_burst,if=!buff.master_of_the_elements.up&maelstrom.deficit>15&(talent.master_of_the_elements|talent.molten_wrath|talent.call_of_the_ancestors|buff.lava_surge.up|talent.fusion_of_elements&(!buff.storm_elemental.up|buff.wind_gust.stack=4)|buff.purging_flames.up&(buff.lava_surge.up|cooldown.voltaic_blaze.remains<2))
+# Tempest and Lightning Bolt with SK if you have MotE.
+actions.single_target+=/tempest,if=buff.master_of_the_elements.up|!talent.master_of_the_elements
+actions.single_target+=/lightning_bolt,if=buff.stormkeeper.up&(buff.master_of_the_elements.up|!talent.master_of_the_elements)
+actions.single_target+=/elemental_blast,target_if=min:debuff.lightning_rod.remains
+actions.single_target+=/earth_shock,target_if=min:debuff.lightning_rod.remains
+actions.single_target+=/tempest
+# Filler spell. Always available. Always the bottom line.
+actions.single_target+=/chain_lightning,if=talent.call_of_the_ancestors&spell_targets.chain_lightning=2
+actions.single_target+=/lightning_bolt
+actions.single_target+=/flame_shock,moving=1
+actions.single_target+=/voltaic_blaze,moving=1
+actions.single_target+=/frost_shock,moving=1
+```
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (named so they are not trusted as IDs in analysis):
 - **Wind Shear school-lockout duration** — cooldown (12s) and range (30y) confirmed; the lockout/silence duration was not shown on the fetched page (historically 2–3s). Re-verify.
 - **Ascendance / Spiritwalker's Grace / Astral Shift cooldowns** — spell pages give Ascendance 3 min, Spiritwalker's Grace 2 min, Astral Shift 2 min as BASE values. Talents in the active build can reduce these (Icy Veins cited 1.5 min for Astral Shift and SWG). When judging "was a defensive available," allow for talented reductions.
 - **Capacitor Totem stun text** — the fetched page confirmed totem/radius/duration/cooldown but did not render the explicit "stun" effect line. Stun is the known effect; treat the mechanic as confirmed-by-context, not by literal page text.
-- **No-ID abilities** — the following were described by the Icy Veins glossary but their spell IDs were NOT individually confirmed on a spell page, so no IDs are given: Nature's Guardian, Healing Surge, Earth Elemental, Spirit Walk, Gust of Wind, Ghost Wolf, Wind Rush Totem, Earthbind Totem, Purge, Poison Cleansing Totem, Ancestral Swiftness, and the passives Lava Surge / Voltaic Blaze / Lightning Rod.
+- **No-ID abilities** — the following were described by the Icy Veins glossary but their spell IDs were NOT individually confirmed on a spell page, so no IDs are given: Nature's Guardian, Healing Surge, Earth Elemental, Spirit Walk, Gust of Wind, Ghost Wolf, Wind Rush Totem, Earthbind Totem, Purge, Poison Cleansing Totem, Ancestral Swiftness, Nature's Swiftness, Stormfury, and the passives Lava Surge / Voltaic Blaze / Lightning Rod.
 - **Stone Bulwark Totem** — not confirmed as a current Elemental defensive in 12.0.5 from fetched sources; do not assume it exists for this spec until verified.
 - **Consumables and Enchants** — no item IDs sourced this session; section is conceptual only.
-- **Talent import string / SimC APL** — not available (no user-supplied profile); intentionally omitted.
+- **Talent import string** — added (Stormbringer hero tree, SimC Midnight 12.0.5). Other hero-tree variants (if any) not yet profiled.
+- **SimC APL** — SimC APL now embedded (extracted from Trivial.txt).
+- **Lava Burst / Flame Shock / Tempest damage shares** — these abilities did not emit a "%" percent value in the SimC output for this run; their damage-share breakdown is therefore not available from this data. They remain important rotational abilities per the Icy Veins guide.
+- **Nature's Swiftness vs. Ancestral Swiftness** — the Stormbringer SimC profile includes Nature's Swiftness as a talent; the Icy Veins guide references Ancestral Swiftness in the opener. These may be different abilities, the same ability renamed, or represent different build choices. Confirm which is active in the current Midnight 12.0.5 Stormbringer build.
 - **Wowhead overview page** — fetched but its body did not render (metadata only); rotation/utility detail here leans on the Icy Veins rotation and spell-summary pages plus individual Wowhead spell pages.
 
 Maintenance flag: Re-verify all of the above — and every spell ID and cooldown — after any 12.x patch. Spell IDs do not change once assigned, but cooldowns, talents, baseline-vs-talent status, and which abilities exist for the spec CAN change between patches.

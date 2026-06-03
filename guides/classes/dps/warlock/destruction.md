@@ -6,6 +6,8 @@
 > - https://www.icy-veins.com/wow/destruction-warlock-pve-dps-rotation-cooldowns-abilities
 > - https://www.method.gg/guides/destruction-warlock/playstyle-and-rotation
 > - Individual Wowhead spell pages (IDs cited inline below were each confirmed on their own live spell page): Chaos Bolt, Immolate, Conflagrate, Incinerate, Shadowburn, Rain of Fire, Havoc, Summon Infernal, Unending Resolve, Dark Pact, Spell Lock, Shadowfury, Mortal Coil, Fear, Soulstone, Demonic Gateway, Demonic Circle.
+> - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
+> - SimC APL from Trivial.txt
 
 ---
 
@@ -54,11 +56,12 @@ IDs below were each confirmed on their own live Wowhead spell page. Where an ID 
 - **Havoc** (ID 80240) — Debuff applied to a second target (30-second cooldown) that duplicates single-target spender damage onto it; the spec's core 2-target cleave tool.
 - **Cataclysm** — Talent: AoE burst that applies the fire DoT to all targets hit. (ID not confirmed live — see Known Gaps.)
 - **Channel Demonfire** — Talent: channeled barrage of bolts that prioritizes DoT'd targets. (ID not confirmed live — see Known Gaps.)
+- **Embers of Nihilam** — Talent/proc: contributes ~4.7% of total damage in SimC (both hero trees). Not confirmed on a live Wowhead page — treat as a real rotational contributor whose ID needs verification.
 
 **Cooldowns**
 - **Summon Infernal** (ID 1122) — Main offensive cooldown; summons an Infernal for area Fire damage. Baseline **2-minute** cooldown, reduced to roughly **90 seconds** with the **Inferno** talent.
 - **Malevolence** — Hellcaller hero cooldown; grants Haste and empowers active Withers; ~1-minute recharge per the rotation guide. (ID not confirmed live — see Known Gaps.)
-- **Diabolic Ritual / Ruination** — Diabolist hero-tree mechanic/cooldown payoff. (Details/IDs not confirmed live — see Known Gaps.)
+- **Diabolic Ritual / Ruination** — Diabolist hero-tree mechanic/cooldown payoff. Each Diabolic Ritual cycle summons one of three demons: an Overlord (Wicked Cleave), a Mother of Chaos (Chaos Salvo), or a Pit Lord (Felseeker). These summoned demons each contribute ~2% of total damage in SimC. The Diabolist-specific **Diabolic Oculi** proc contributes ~8.7% of total damage and is the spec's largest single source after core spenders. (Details/IDs not confirmed live — see Known Gaps.)
 
 **Key passives/procs**
 - **Backdraft** — Conflagrate generates Backdraft charges that reduce the cast time/cost of the next Incinerate or Chaos Bolt. (ID not confirmed live.)
@@ -168,6 +171,249 @@ Specifics for 12.0.5 (exact flask/food/rune/weapon-enchant item names and IDs, a
 
 ---
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+Hero trees covered: **Diabolist**, **Hellcaller**.
+
+Metrics were not captured in the source data (metrics field is empty for both variants); DPS/HPS figures are unavailable from this SimC run.
+
+### Talent Import Strings
+
+**Diabolist:**
+```
+CsQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjhZmZmlZxMzMLGjFzAAgZmxMzsYBzMjZWWGNzMsNsNbNWYAAgxAjNAMzMzAzMGDAAAzMzMAAGDD
+```
+
+**Hellcaller:**
+```
+CsQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjhZmZmlZxMzMLGjFzAAgZmxMzsYBGYWMaMDgZL2YAAgxAjNAgZGYmxYAAAYmZmBAwYYA
+```
+
+### Damage Distribution (SimC, share of total damage)
+
+Rows with a real "%" value only; parenthesised values used where the direct column shows 0 (proc/pet damage routed through the ability). Sorted high to low.
+
+**Diabolist variant:**
+
+| Ability | % of damage |
+|---|---|
+| Shadowburn | 12.6% |
+| Incinerate | 11.7% |
+| Conflagrate | 10.0% |
+| Diabolic Oculi (Diabolist proc) | 8.7% |
+| Embers of Nihilam | 4.7% |
+| Soul Fire | 4.5% |
+| Immolate (direct + DoT) | 3.1% |
+| Chaos Bolt | 3.0% |
+| Wicked Cleave (Overlord pet) | 2.1% |
+| Chaos Salvo (Mother of Chaos pet) | 2.0% |
+| Felseeker (Pit Lord pet) | 2.0% |
+| Voidstalker Sting | 0.9% |
+| Twilight Barrage | 0.6% |
+
+**Hellcaller variant:**
+
+| Ability | % of damage |
+|---|---|
+| Incinerate | 14.2% |
+| Shadowburn | 12.7% |
+| Conflagrate | 10.7% |
+| Wither (direct + DoT) | 6.1% |
+| Soul Fire | 4.8% |
+| Embers of Nihilam | 4.7% |
+| Chaos Bolt | 3.6% |
+| Infernal Immolation (pet) | 2.3% |
+| Malevolence proc | 1.1% |
+| Voidstalker Sting | 1.1% |
+
+### Action Priority List — Warlock Destruction Diabolist
+
+```
+actions.precombat=summon_pet
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.summon_infernal.duration=0|cooldown.summon_infernal.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.summon_infernal.duration=0|cooldown.summon_infernal.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_1_buff_duration,value=trinket.1.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_2_buff_duration,value=trinket.2.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_buff_duration)*(1+0.5*trinket.2.has_buff.intellect)*(variable.trinket_2_sync))>((trinket.1.cooldown.duration%variable.trinket_1_buff_duration)*(1+0.5*trinket.1.has_buff.intellect)*(variable.trinket_1_sync))
+actions.precombat+=/grimoire_of_sacrifice,if=talent.grimoire_of_sacrifice.enabled
+actions.precombat+=/snapshot_stats
+actions.precombat+=/cataclysm,if=active_enemies>=2&raid_event.adds.in>15
+actions.precombat+=/soul_fire
+actions.precombat+=/cataclysm
+actions.precombat+=/immolate,if=active_enemies>=2&talent.roaring_blaze
+actions.precombat+=/incinerate
+
+# Executed every time the actor is available.
+actions=call_action_list,name=variables
+actions+=/call_action_list,name=ogcd
+actions+=/call_action_list,name=items
+actions+=/call_action_list,name=aoe_hc,if=active_enemies>=2&talent.wither
+actions+=/call_action_list,name=aoe_dia,if=active_enemies>=2&talent.diabolic_ritual
+actions+=/soul_fire,if=soul_shard<=4
+actions+=/chaos_bolt,if=talent.diabolic_ritual&(demonic_art|(variable.ritual_length<action.chaos_bolt.execute_time))&target.health.pct>20
+actions+=/conflagrate,if=soul_shard<=4.2&buff.backdraft.stack<1
+actions+=/summon_infernal
+actions+=/malevolence
+actions+=/incinerate,if=buff.chaotic_inferno_buff.up&soul_shard<=4.6
+actions+=/shadowburn,if=((!demonic_art&(variable.ritual_length>2|talent.wither))|target.health.pct<=20)&(buff.fiendish_cruelty.up|talent.conflagration_of_chaos)&(!talent.wither|soul_shard>=4|buff.malevolence.up|pet.infernal.active|fight_remains<=15)
+actions+=/wither,if=(((dot.wither.remains-5*(action.chaos_bolt.in_flight&talent.internal_combustion))<dot.wither.duration*0.3)|refreshable|(dot.wither.remains-action.chaos_bolt.execute_time)<5&talent.internal_combustion&action.chaos_bolt.usable)&(!talent.soul_fire|cooldown.soul_fire.remains+action.soul_fire.cast_time>(dot.wither.remains-5*talent.internal_combustion))&(!talent.cataclysm|(cooldown.cataclysm.remains+action.cataclysm.cast_time)>dot.wither.remains)&target.time_to_die>8
+actions+=/immolate,if=(((dot.immolate.remains-5*(action.chaos_bolt.in_flight&talent.internal_combustion))<dot.immolate.duration*0.3)|refreshable|(dot.immolate.remains-action.chaos_bolt.execute_time)<5&talent.internal_combustion&action.chaos_bolt.usable)&(!talent.soul_fire|cooldown.soul_fire.remains+action.soul_fire.cast_time>(dot.immolate.remains-5*talent.internal_combustion))&(!talent.cataclysm|cooldown.cataclysm.remains>dot.immolate.remains)&target.time_to_die>8
+actions+=/ruination
+actions+=/cataclysm,if=talent.lake_of_fire
+actions+=/chaos_bolt,if=(talent.wither&(soul_shard>=4|buff.malevolence.up|pet.infernal.active|fight_remains<=15))|(talent.diabolic_ritual&variable.ritual_length>4)
+actions+=/infernal_bolt,if=soul_shard<=3
+actions+=/incinerate
+
+actions.aoe_dia=summon_infernal
+actions.aoe_dia+=/chaos_bolt,if=talent.diabolic_ritual&(demonic_art|(variable.ritual_length<action.chaos_bolt.execute_time))&target.health.pct>20&active_enemies<=4
+actions.aoe_dia+=/rain_of_fire,if=((soul_shard>=(3.5-0.1*(active_dot.immolate)))|buff.alythesss_ire.up)&active_enemies>=4
+actions.aoe_dia+=/conflagrate,target_if=max:(dot.immolate.remains-99*debuff.havoc.remains),if=dot_refreshable_count.immolate>0&!dot.immolate.refreshable
+actions.aoe_dia+=/shadowburn,target_if=min:(time_to_die+999*debuff.havoc.remains),if=(active_enemies<=(3+buff.fiendish_cruelty.up))|(talent.conflagration_of_chaos&active_enemies<=(6-talent.destructive_rapidity+buff.fiendish_cruelty.up))
+actions.aoe_dia+=/ruination
+actions.aoe_dia+=/cataclysm,if=raid_event.adds.in>15|talent.lake_of_fire
+actions.aoe_dia+=/havoc,target_if=min:((-target.time_to_die)<?-15)+dot.immolate.remains+99*(self.target=target),if=(!cooldown.summon_infernal.up|!talent.summon_infernal)&target.time_to_die>8|time<5
+actions.aoe_dia+=/infernal_bolt,if=soul_shard<3
+actions.aoe_dia+=/chaos_bolt,if=active_enemies<=3&variable.ritual_length>4
+actions.aoe_dia+=/soul_fire,target_if=min:(dot.immolate.remains+100*debuff.havoc.remains),if=soul_shard<4&(talent.avatar_of_destruction&active_enemies<=10|active_enemies<=5)
+actions.aoe_dia+=/immolate,target_if=min:dot.immolate.remains+99*debuff.havoc.remains,if=dot.immolate.refreshable&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>dot.immolate.remains)&active_dot.immolate<=5&!talent.cataclysm&target.time_to_die>18
+actions.aoe_dia+=/conflagrate,target_if=max:(dot.immolate.remains-99*debuff.havoc.remains),if=buff.backdraft.stack<2|!talent.backdraft
+actions.aoe_dia+=/incinerate
+
+actions.aoe_hc=summon_infernal
+actions.aoe_hc+=/malevolence
+actions.aoe_hc+=/rain_of_fire,if=(soul_shard>=(4.0-0.1*(active_dot.wither)))&active_enemies>=(5-talent.destructive_rapidity)
+actions.aoe_hc+=/conflagrate,target_if=max:(dot.wither.remains-99*debuff.havoc.remains),if=dot_refreshable_count.wither>0&!dot.wither.refreshable
+actions.aoe_hc+=/shadowburn,target_if=min:(time_to_die+999*debuff.havoc.remains),if=buff.fiendish_cruelty.up|(talent.conflagration_of_chaos&((active_enemies<=5&talent.destructive_rapidity)|(active_enemies<=6&!talent.destructive_rapidity)))
+actions.aoe_hc+=/cataclysm,if=raid_event.adds.in>15
+actions.aoe_hc+=/havoc,target_if=min:((-target.time_to_die)<?-15)+dot.wither.remains+99*(self.target=target),if=(!cooldown.summon_infernal.up|!talent.summon_infernal)&target.time_to_die>8&(cooldown.malevolence.remains>15|!talent.malevolence)|time<5
+actions.aoe_hc+=/rain_of_fire,if=active_enemies>=(5-talent.destructive_rapidity)
+actions.aoe_hc+=/chaos_bolt,if=active_enemies<=(4-talent.destructive_rapidity)
+actions.aoe_hc+=/soul_fire,target_if=min:(dot.wither.remains+100*debuff.havoc.remains),if=soul_shard<4&(active_enemies<=8|talent.avatar_of_destruction)
+actions.aoe_hc+=/wither,target_if=min:dot.wither.remains+99*debuff.havoc.remains,if=dot.wither.refreshable&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>dot.wither.remains)&active_dot.wither<=active_enemies&target.time_to_die>8
+actions.aoe_hc+=/incinerate,if=talent.fire_and_brimstone&buff.backdraft.up
+actions.aoe_hc+=/conflagrate,target_if=max:(dot.wither.remains-99*debuff.havoc.remains),if=buff.backdraft.stack<2|!talent.backdraft
+actions.aoe_hc+=/incinerate
+
+actions.items=use_item,slot=trinket1,if=(variable.infernal_active|!talent.summon_infernal|variable.trinket_1_will_lose_cast)&(variable.trinket_priority=1|!trinket.2.has_cooldown|(trinket.2.cooldown.remains|variable.trinket_priority=2&cooldown.summon_infernal.remains>20&!variable.infernal_active&trinket.2.cooldown.remains<cooldown.summon_infernal.remains))&variable.trinket_1_buffs|(variable.trinket_1_buff_duration+1>=fight_remains)
+actions.items+=/use_item,slot=trinket2,if=(variable.infernal_active|!talent.summon_infernal|variable.trinket_2_will_lose_cast)&(variable.trinket_priority=2|!trinket.1.has_cooldown|(trinket.1.cooldown.remains|variable.trinket_priority=1&cooldown.summon_infernal.remains>20&!variable.infernal_active&trinket.1.cooldown.remains<cooldown.summon_infernal.remains))&variable.trinket_2_buffs|(variable.trinket_2_buff_duration+1>=fight_remains)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket1,if=!variable.trinket_1_buffs&(!variable.trinket_1_buffs&(trinket.2.cooldown.remains|!variable.trinket_2_buffs)|talent.summon_infernal&cooldown.summon_infernal.remains_expected>20&!prev_gcd.1.summon_infernal|!talent.summon_infernal)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket2,if=!variable.trinket_2_buffs&(!variable.trinket_2_buffs&(trinket.1.cooldown.remains|!variable.trinket_1_buffs)|talent.summon_infernal&cooldown.summon_infernal.remains_expected>20&!prev_gcd.1.summon_infernal|!talent.summon_infernal)
+actions.items+=/use_item,use_off_gcd=1,slot=main_hand
+
+actions.ogcd=potion,if=variable.infernal_active|!talent.summon_infernal
+actions.ogcd+=/invoke_external_buff,name=power_infusion,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<cooldown.summon_infernal.remains_expected+10+cooldown.invoke_power_infusion_0.duration&fight_remains>cooldown.invoke_power_infusion_0.duration)|fight_remains<cooldown.summon_infernal.remains_expected+15
+actions.ogcd+=/berserking,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<(cooldown.summon_infernal.remains_expected+cooldown.berserking.duration)&(fight_remains>cooldown.berserking.duration))|fight_remains<cooldown.summon_infernal.remains_expected
+actions.ogcd+=/blood_fury,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<cooldown.summon_infernal.remains_expected+10+cooldown.blood_fury.duration&fight_remains>cooldown.blood_fury.duration)|fight_remains<cooldown.summon_infernal.remains
+actions.ogcd+=/fireblood,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<cooldown.summon_infernal.remains_expected+10+cooldown.fireblood.duration&fight_remains>cooldown.fireblood.duration)|fight_remains<cooldown.summon_infernal.remains_expected
+actions.ogcd+=/ancestral_call,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<(cooldown.summon_infernal.remains_expected+cooldown.berserking.duration)&(fight_remains>cooldown.berserking.duration))|fight_remains<cooldown.summon_infernal.remains_expected
+
+actions.variables=variable,name=infernal_active,op=set,value=pet.infernal.active|(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains)<20
+actions.variables+=/variable,name=ritual_length,value=buff.diabolic_ritual_mother_of_chaos.remains+buff.diabolic_ritual_overlord.remains+buff.diabolic_ritual_pit_lord.remains,default=0,op=set
+actions.variables+=/variable,name=trinket_1_will_lose_cast,value=((floor((fight_remains%trinket.1.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(floor((fight_remains%trinket.1.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_infernal.remains)%trinket.1.cooldown.duration)+1))|((floor((fight_remains%trinket.1.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(((fight_remains-cooldown.summon_infernal.remains%%trinket.1.cooldown.duration)-cooldown.summon_infernal.remains-variable.trinket_1_buff_duration)>0)))&cooldown.summon_infernal.remains>20
+actions.variables+=/variable,name=trinket_2_will_lose_cast,value=((floor((fight_remains%trinket.2.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(floor((fight_remains%trinket.2.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_infernal.remains)%trinket.2.cooldown.duration)+1))|((floor((fight_remains%trinket.2.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(((fight_remains-cooldown.summon_infernal.remains%%trinket.2.cooldown.duration)-cooldown.summon_infernal.remains-variable.trinket_2_buff_duration)>0)))&cooldown.summon_infernal.remains>20
+```
+
+### Action Priority List — Warlock Destruction Hellcaller
+
+```
+actions.precombat=summon_pet
+actions.precombat+=/variable,name=trinket_1_buffs,value=trinket.1.has_use_buff
+actions.precombat+=/variable,name=trinket_2_buffs,value=trinket.2.has_use_buff
+actions.precombat+=/variable,name=trinket_1_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_1_buffs&(trinket.1.cooldown.duration%%cooldown.summon_infernal.duration=0|cooldown.summon_infernal.duration%%trinket.1.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_2_sync,op=setif,value=1,value_else=0.5,condition=variable.trinket_2_buffs&(trinket.2.cooldown.duration%%cooldown.summon_infernal.duration=0|cooldown.summon_infernal.duration%%trinket.2.cooldown.duration=0)
+actions.precombat+=/variable,name=trinket_1_buff_duration,value=trinket.1.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_2_buff_duration,value=trinket.2.proc.any_dps.duration
+actions.precombat+=/variable,name=trinket_priority,op=setif,value=2,value_else=1,condition=!variable.trinket_1_buffs&variable.trinket_2_buffs|variable.trinket_2_buffs&((trinket.2.cooldown.duration%variable.trinket_2_buff_duration)*(1+0.5*trinket.2.has_buff.intellect)*(variable.trinket_2_sync))>((trinket.1.cooldown.duration%variable.trinket_1_buff_duration)*(1+0.5*trinket.1.has_buff.intellect)*(variable.trinket_1_sync))
+actions.precombat+=/grimoire_of_sacrifice,if=talent.grimoire_of_sacrifice.enabled
+actions.precombat+=/snapshot_stats
+actions.precombat+=/cataclysm,if=active_enemies>=2&raid_event.adds.in>15
+actions.precombat+=/soul_fire
+actions.precombat+=/cataclysm
+actions.precombat+=/immolate,if=active_enemies>=2&talent.roaring_blaze
+actions.precombat+=/incinerate
+
+# Executed every time the actor is available.
+actions=call_action_list,name=variables
+actions+=/call_action_list,name=ogcd
+actions+=/call_action_list,name=items
+actions+=/call_action_list,name=aoe_hc,if=active_enemies>=2&talent.wither
+actions+=/call_action_list,name=aoe_dia,if=active_enemies>=2&talent.diabolic_ritual
+actions+=/soul_fire,if=soul_shard<=4
+actions+=/chaos_bolt,if=talent.diabolic_ritual&(demonic_art|(variable.ritual_length<action.chaos_bolt.execute_time))&target.health.pct>20
+actions+=/conflagrate,if=soul_shard<=4.2&buff.backdraft.stack<1
+actions+=/summon_infernal
+actions+=/malevolence
+actions+=/incinerate,if=buff.chaotic_inferno_buff.up&soul_shard<=4.6
+actions+=/shadowburn,if=((!demonic_art&(variable.ritual_length>2|talent.wither))|target.health.pct<=20)&(buff.fiendish_cruelty.up|talent.conflagration_of_chaos)&(!talent.wither|soul_shard>=4|buff.malevolence.up|pet.infernal.active|fight_remains<=15)
+actions+=/wither,if=(((dot.wither.remains-5*(action.chaos_bolt.in_flight&talent.internal_combustion))<dot.wither.duration*0.3)|refreshable|(dot.wither.remains-action.chaos_bolt.execute_time)<5&talent.internal_combustion&action.chaos_bolt.usable)&(!talent.soul_fire|cooldown.soul_fire.remains+action.soul_fire.cast_time>(dot.wither.remains-5*talent.internal_combustion))&(!talent.cataclysm|(cooldown.cataclysm.remains+action.cataclysm.cast_time)>dot.wither.remains)&target.time_to_die>8
+actions+=/immolate,if=(((dot.immolate.remains-5*(action.chaos_bolt.in_flight&talent.internal_combustion))<dot.immolate.duration*0.3)|refreshable|(dot.immolate.remains-action.chaos_bolt.execute_time)<5&talent.internal_combustion&action.chaos_bolt.usable)&(!talent.soul_fire|cooldown.soul_fire.remains+action.soul_fire.cast_time>(dot.immolate.remains-5*talent.internal_combustion))&(!talent.cataclysm|cooldown.cataclysm.remains>dot.immolate.remains)&target.time_to_die>8
+actions+=/ruination
+actions+=/cataclysm,if=talent.lake_of_fire
+actions+=/chaos_bolt,if=(talent.wither&(soul_shard>=4|buff.malevolence.up|pet.infernal.active|fight_remains<=15))|(talent.diabolic_ritual&variable.ritual_length>4)
+actions+=/infernal_bolt,if=soul_shard<=3
+actions+=/incinerate
+
+actions.aoe_dia=summon_infernal
+actions.aoe_dia+=/chaos_bolt,if=talent.diabolic_ritual&(demonic_art|(variable.ritual_length<action.chaos_bolt.execute_time))&target.health.pct>20&active_enemies<=4
+actions.aoe_dia+=/rain_of_fire,if=((soul_shard>=(3.5-0.1*(active_dot.immolate)))|buff.alythesss_ire.up)&active_enemies>=4
+actions.aoe_dia+=/conflagrate,target_if=max:(dot.immolate.remains-99*debuff.havoc.remains),if=dot_refreshable_count.immolate>0&!dot.immolate.refreshable
+actions.aoe_dia+=/shadowburn,target_if=min:(time_to_die+999*debuff.havoc.remains),if=(active_enemies<=(3+buff.fiendish_cruelty.up))|(talent.conflagration_of_chaos&active_enemies<=(6-talent.destructive_rapidity+buff.fiendish_cruelty.up))
+actions.aoe_dia+=/ruination
+actions.aoe_dia+=/cataclysm,if=raid_event.adds.in>15|talent.lake_of_fire
+actions.aoe_dia+=/havoc,target_if=min:((-target.time_to_die)<?-15)+dot.immolate.remains+99*(self.target=target),if=(!cooldown.summon_infernal.up|!talent.summon_infernal)&target.time_to_die>8|time<5
+actions.aoe_dia+=/infernal_bolt,if=soul_shard<3
+actions.aoe_dia+=/chaos_bolt,if=active_enemies<=3&variable.ritual_length>4
+actions.aoe_dia+=/soul_fire,target_if=min:(dot.immolate.remains+100*debuff.havoc.remains),if=soul_shard<4&(talent.avatar_of_destruction&active_enemies<=10|active_enemies<=5)
+actions.aoe_dia+=/immolate,target_if=min:dot.immolate.remains+99*debuff.havoc.remains,if=dot.immolate.refreshable&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>dot.immolate.remains)&active_dot.immolate<=5&!talent.cataclysm&target.time_to_die>18
+actions.aoe_dia+=/conflagrate,target_if=max:(dot.immolate.remains-99*debuff.havoc.remains),if=buff.backdraft.stack<2|!talent.backdraft
+actions.aoe_dia+=/incinerate
+
+actions.aoe_hc=summon_infernal
+actions.aoe_hc+=/malevolence
+actions.aoe_hc+=/rain_of_fire,if=(soul_shard>=(4.0-0.1*(active_dot.wither)))&active_enemies>=(5-talent.destructive_rapidity)
+actions.aoe_hc+=/conflagrate,target_if=max:(dot.wither.remains-99*debuff.havoc.remains),if=dot_refreshable_count.wither>0&!dot.wither.refreshable
+actions.aoe_hc+=/shadowburn,target_if=min:(time_to_die+999*debuff.havoc.remains),if=buff.fiendish_cruelty.up|(talent.conflagration_of_chaos&((active_enemies<=5&talent.destructive_rapidity)|(active_enemies<=6&!talent.destructive_rapidity)))
+actions.aoe_hc+=/cataclysm,if=raid_event.adds.in>15
+actions.aoe_hc+=/havoc,target_if=min:((-target.time_to_die)<?-15)+dot.wither.remains+99*(self.target=target),if=(!cooldown.summon_infernal.up|!talent.summon_infernal)&target.time_to_die>8&(cooldown.malevolence.remains>15|!talent.malevolence)|time<5
+actions.aoe_hc+=/rain_of_fire,if=active_enemies>=(5-talent.destructive_rapidity)
+actions.aoe_hc+=/chaos_bolt,if=active_enemies<=(4-talent.destructive_rapidity)
+actions.aoe_hc+=/soul_fire,target_if=min:(dot.wither.remains+100*debuff.havoc.remains),if=soul_shard<4&(active_enemies<=8|talent.avatar_of_destruction)
+actions.aoe_hc+=/wither,target_if=min:dot.wither.remains+99*debuff.havoc.remains,if=dot.wither.refreshable&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>dot.wither.remains)&active_dot.wither<=active_enemies&target.time_to_die>8
+actions.aoe_hc+=/incinerate,if=talent.fire_and_brimstone&buff.backdraft.up
+actions.aoe_hc+=/conflagrate,target_if=max:(dot.wither.remains-99*debuff.havoc.remains),if=buff.backdraft.stack<2|!talent.backdraft
+actions.aoe_hc+=/incinerate
+
+actions.items=use_item,slot=trinket1,if=(variable.infernal_active|!talent.summon_infernal|variable.trinket_1_will_lose_cast)&(variable.trinket_priority=1|!trinket.2.has_cooldown|(trinket.2.cooldown.remains|variable.trinket_priority=2&cooldown.summon_infernal.remains>20&!variable.infernal_active&trinket.2.cooldown.remains<cooldown.summon_infernal.remains))&variable.trinket_1_buffs|(variable.trinket_1_buff_duration+1>=fight_remains)
+actions.items+=/use_item,slot=trinket2,if=(variable.infernal_active|!talent.summon_infernal|variable.trinket_2_will_lose_cast)&(variable.trinket_priority=2|!trinket.1.has_cooldown|(trinket.1.cooldown.remains|variable.trinket_priority=1&cooldown.summon_infernal.remains>20&!variable.infernal_active&trinket.1.cooldown.remains<cooldown.summon_infernal.remains))&variable.trinket_2_buffs|(variable.trinket_2_buff_duration+1>=fight_remains)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket1,if=!variable.trinket_1_buffs&(!variable.trinket_1_buffs&(trinket.2.cooldown.remains|!variable.trinket_2_buffs)|talent.summon_infernal&cooldown.summon_infernal.remains_expected>20&!prev_gcd.1.summon_infernal|!talent.summon_infernal)
+actions.items+=/use_item,use_off_gcd=1,slot=trinket2,if=!variable.trinket_2_buffs&(!variable.trinket_2_buffs&(trinket.1.cooldown.remains|!variable.trinket_1_buffs)|talent.summon_infernal&cooldown.summon_infernal.remains_expected>20&!prev_gcd.1.summon_infernal|!talent.summon_infernal)
+actions.items+=/use_item,use_off_gcd=1,slot=main_hand
+
+actions.ogcd=potion,if=variable.infernal_active|!talent.summon_infernal
+actions.ogcd+=/invoke_external_buff,name=power_infusion,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<cooldown.summon_infernal.remains_expected+10+cooldown.invoke_power_infusion_0.duration&fight_remains>cooldown.invoke_power_infusion_0.duration)|fight_remains<cooldown.summon_infernal.remains_expected+15
+actions.ogcd+=/berserking,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<(cooldown.summon_infernal.remains_expected+cooldown.berserking.duration)&(fight_remains>cooldown.berserking.duration))|fight_remains<cooldown.summon_infernal.remains_expected
+actions.ogcd+=/blood_fury,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<cooldown.summon_infernal.remains_expected+10+cooldown.blood_fury.duration&fight_remains>cooldown.blood_fury.duration)|fight_remains<cooldown.summon_infernal.remains
+actions.ogcd+=/fireblood,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<cooldown.summon_infernal.remains_expected+10+cooldown.fireblood.duration&fight_remains>cooldown.fireblood.duration)|fight_remains<cooldown.summon_infernal.remains_expected
+actions.ogcd+=/ancestral_call,if=variable.infernal_active|!talent.summon_infernal|(fight_remains<(cooldown.summon_infernal.remains_expected+cooldown.berserking.duration)&(fight_remains>cooldown.berserking.duration))|fight_remains<cooldown.summon_infernal.remains_expected
+
+actions.variables=variable,name=infernal_active,op=set,value=pet.infernal.active|(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains)<20
+actions.variables+=/variable,name=ritual_length,value=buff.diabolic_ritual_mother_of_chaos.remains+buff.diabolic_ritual_overlord.remains+buff.diabolic_ritual_pit_lord.remains,default=0,op=set
+actions.variables+=/variable,name=trinket_1_will_lose_cast,value=((floor((fight_remains%trinket.1.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(floor((fight_remains%trinket.1.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_infernal.remains)%trinket.1.cooldown.duration)+1))|((floor((fight_remains%trinket.1.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(((fight_remains-cooldown.summon_infernal.remains%%trinket.1.cooldown.duration)-cooldown.summon_infernal.remains-variable.trinket_1_buff_duration)>0)))&cooldown.summon_infernal.remains>20
+actions.variables+=/variable,name=trinket_2_will_lose_cast,value=((floor((fight_remains%trinket.2.cooldown.duration)+1)!=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(floor((fight_remains%trinket.2.cooldown.duration)+1))!=(floor(((fight_remains-cooldown.summon_infernal.remains)%trinket.2.cooldown.duration)+1))|((floor((fight_remains%trinket.2.cooldown.duration)+1)=floor((fight_remains+(cooldown.summon_infernal.duration-cooldown.summon_infernal.remains))%cooldown.summon_infernal.duration))&(((fight_remains-cooldown.summon_infernal.remains%%trinket.2.cooldown.duration)-cooldown.summon_infernal.remains-variable.trinket_2_buff_duration)>0)))&cooldown.summon_infernal.remains>20
+```
+
+### RaidLens Interpretation
+
+For both variants, **Shadowburn, Incinerate, and Conflagrate** together account for roughly 35-38% of total damage — they are the spine of the rotation. In a log, if these three collectively read low while Incinerate filler dominates, it likely signals that the player is not banking Shadowburn procs or is wasting shard spenders.
+
+For Diabolist, **Diabolic Oculi** at ~8.7% is the single largest non-core source; if that is absent or very low, it suggests Diabolic Ritual is not being triggered consistently. The three Diabolist demon summons (Overlord/Mother of Chaos/Pit Lord) each contribute ~2% — all three should appear.
+
+For Hellcaller, **Wither at ~6.1%** (vs Immolate's ~3.1% for Diabolist) reflects that Hellcaller's DoT is empowered and stacks; a Hellcaller log where the DoT contribution is very low suggests poor Wither/Malevolence alignment. **Embers of Nihilam** (~4.7% in both trees) is a meaningful proc source that should appear in every log — its absence may indicate a talent is not selected.
+
+---
+
 ## Notes and Known Gaps
 
 Unconfirmed facts (named without an ID per sourcing rules — do not treat the missing IDs as "no ID exists," only as "not verified this session"):
@@ -177,12 +423,16 @@ Unconfirmed facts (named without an ID per sourcing rules — do not treat the m
 - **Inferno** (talent reducing Summon Infernal CD to ~90s) — method.gg referenced ID 270545; NOT directly verified on Wowhead, so omitted.
 - **Soul Fire** — spell ID NOT confirmed (Wowhead page rate-limited, 403).
 - **Cataclysm** and **Channel Demonfire** — spell IDs NOT confirmed (Wowhead pages rate-limited, 403).
+- **Embers of Nihilam** — present in SimC data for both hero trees at ~4.7%; spell ID NOT confirmed on a live Wowhead page. Treat as a real rotational ability.
 - **Backdraft**, **Soul Leech**, **Soul Link**, **Banish**, **Burning Rush**, **Devour Magic**, **Curse of Weakness** (referenced as 702), **Curse of Tongues** (referenced as 1714), **Create Healthstone** (referenced as 6201) — IDs NOT confirmed live this pass (rate-limited). Names are correct; IDs omitted deliberately.
 - **Unending Resolve** value — the live spell page showed **-25% / 8s / 3-min CD**; some class guides cite a larger reduction with a talent. The talented value is unconfirmed; the baseline value above is from the live spell page.
 - **Mortal Coil** healing component — the spell page did not surface a heal-on-cast this pass; in prior expansions Mortal Coil healed the warlock. Treat the heal as unconfirmed for 12.0.5.
-- **Diabolist hero tree** (Diabolic Ritual / Ruination) — only described at a high level; mechanics and IDs not confirmed live.
+- **Diabolist hero tree** (Diabolic Ritual / Ruination / Diabolic Oculi / demon summons) — mechanics described at a high level from SimC data; spell IDs for all Diabolist abilities not confirmed live.
+- **Voidstalker Sting** — appears in SimC data for both variants (~0.9–1.1%); spell ID not confirmed on a live Wowhead page. May be a talent or proc tied to a specific build.
+- **Twilight Barrage** — appears in Diabolist SimC data (0.6%); spell ID not confirmed. Likely a Diabolist-specific proc.
 - **Consumables/enchants/gems for 12.0.5** — not verified; do not populate without live confirmation.
+- **SimC APL** — SimC APL now embedded (extracted from Trivial.txt).
 
 Confirmed-on-live-Wowhead-spell-page IDs used in this guide: Immolate 348, Conflagrate 17962, Incinerate 29722, Chaos Bolt 116858, Shadowburn 17877, Rain of Fire 5740, Havoc 80240, Summon Infernal 1122, Unending Resolve 104773, Dark Pact 108416, Spell Lock 19647, Shadowfury 30283, Mortal Coil 6789, Fear 5782, Soulstone 20707, Demonic Gateway 111771, Demonic Circle 48018.
 
-**Maintenance flag:** Re-verify all abilities, cooldowns, and IDs after any 12.x patch (talent reworks and hero-tree tuning are common). Especially re-check Summon Infernal cooldown, Unending Resolve value, the Spell Lock interrupt cooldown, and the unconfirmed hero-tree IDs (Wither, Malevolence, Inferno) on live Wowhead spell pages once the rate limit clears.
+**Maintenance flag:** Re-verify all abilities, cooldowns, and IDs after any 12.x patch (talent reworks and hero-tree tuning are common). Especially re-check Summon Infernal cooldown, Unending Resolve value, the Spell Lock interrupt cooldown, and the unconfirmed hero-tree IDs (Wither, Malevolence, Inferno, Embers of Nihilam, Voidstalker Sting, Twilight Barrage) on live Wowhead spell pages once the rate limit clears.

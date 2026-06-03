@@ -18,6 +18,8 @@
 > - https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-spell-summary
 > - https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-rotation-cooldowns-abilities
 > - https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-gems-enchants-consumables
+> - SimulationCraft Midnight 12.0.5 spec data (simc-guides/)
+> - SimC APL from Trivial.txt
 
 ## Overview
 
@@ -53,6 +55,9 @@ Core damage:
 - **Explosive Shot** — reintroduced in 12.0.5; filler / talent payoff (Precision Detonation, Shrapnel Shot → Lock and Load).
 - **Volley** — ground AoE; also used to activate Double Tap in current builds.
 - **Black Arrow** — cooldown-gated hard hitter used in opener and priority.
+- **Blighted Arrow** — talent/proc shot that appears in SimC damage output; appears to be a dark-themed projectile in the Black Arrow talent tree.
+- **Bleak Arrows** — talent/proc ability appearing in SimC damage output alongside Black Arrow; likely a periodic or follow-up effect from the same talent cluster.
+- **Master Marksman** — passive talent that deals bonus Physical damage; appears as a significant proc contributor (~7.9% of total damage in SimC).
 
 Key passives / procs:
 - **Precise Shots** — proc from Aimed Shot / Rapid Fire; buffs Arcane Shot and Multi-Shot. Must be spent before regenerating.
@@ -125,6 +130,123 @@ Names below are from the Icy Veins 12.0.5 gems/enchants/consumables page. Item I
 
 Agility is the primary stat; secondary-stat priority (Crit/Haste/Mastery/Versatility weighting) was not confirmed numerically from a live source — see Known Gaps.
 
+## SimulationCraft Reference (Midnight 12.0.5)
+
+**Hero tree covered:** None specified in source data (hero_tree: null). The talent string represents the sim's chosen build without a named hero tree designation.
+
+**Talent import string:**
+
+```
+C4PAAAAAAAAAAAAAAAAAAAAAAYzsMwAGwMsFYWAAAAAAAAAmxMmhZMzMmBjpZMzM22YMzyMzMzMzyYmlBDAAwYmZmZmZAyGMAbMDA
+```
+
+**Metrics:** DPS, HPS, and DTPS were not captured in this sim run (metrics field is empty). No numerical throughput ceiling is available from this data.
+
+SimC Patchwerk, 7500 iterations, single-target — a theoretical ceiling, NOT a target to judge players against.
+
+**Damage distribution (SimC, share of total damage):**
+
+Note: several core abilities (Aimed Shot, Rapid Fire, Black Arrow, Trueshot) appear in the raw sim table but with malformed percent values (showing "0.001" without a "%" sign). These are likely mis-parsed aggregation rows in the extracted data and do not represent real 0.001% damage shares — those abilities are the spec's actual primary damage dealers. The rows below are the only ones with valid "%" values and therefore the only reliable damage-share data in this export.
+
+| Ability | Share of total damage |
+|---|---|
+| Master Marksman | 7.9% |
+| Arcane Shot | 7.8% |
+| Arcane Shot (_unload) | 3.7% |
+| Blighted Arrow | 2.3% |
+| Bleak Arrows | 2.2% |
+| Steady Shot | 1.2% |
+| Let Fly! | 0.8% |
+| Shoot | 0.6% |
+
+**Interpretation for RaidLens:** The distribution data is partially degraded — the spec's most important abilities (Aimed Shot, Rapid Fire, Black Arrow) did not parse with valid percentages in this export, so the table represents only the "supporting cast" layer of the rotation. Among the valid rows, **Master Marksman** (a passive proc talent) and **Arcane Shot** together account for roughly 16% of damage, confirming that the Precise Shots → Arcane Shot spend chain is a meaningful contributor even on single target. **Blighted Arrow** and **Bleak Arrows** (~4.5% combined) indicate the Black Arrow talent cluster contributes real damage through secondary effects. A log where Arcane Shot is barely present while Steady Shot dominates filler casts suggests the player is not spending Precise Shots properly. The absence of valid percentages for Aimed Shot and Rapid Fire in this data means this table should not be used to judge the relative weight of the spec's big hitters — use Warcraftlogs ability breakdowns for that.
+
+### Action Priority List — Hunter Marksmanship
+
+```
+actions.precombat=snapshot_stats
+actions.precombat+=/summon_pet,if=talent.unbreakable_bond
+actions.precombat+=/use_item,name=algethar_puzzle_box
+actions.precombat+=/aimed_shot,if=active_enemies<3|talent.black_arrow&talent.headshot
+actions.precombat+=/steady_shot
+
+# Executed every time the actor is available.
+actions=variable,name=trueshot_ready,value=!talent.bullseye|fight_remains>cooldown.trueshot.duration+10|buff.bullseye.stack=buff.bullseye.max_stack|fight_remains<25|time<10
+actions+=/auto_shot
+actions+=/call_action_list,name=cds
+actions+=/call_action_list,name=trinkets
+actions+=/call_action_list,name=draoe,if=active_enemies>2&talent.trick_shots&hero_tree.dark_ranger
+actions+=/call_action_list,name=sentaoe,if=active_enemies>2&talent.trick_shots&hero_tree.sentinel
+actions+=/call_action_list,name=drst,if=hero_tree.dark_ranger
+actions+=/call_action_list,name=sentst,if=hero_tree.sentinel
+
+actions.cds=invoke_external_buff,name=power_infusion,if=buff.trueshot.remains>12|fight_remains<13
+actions.cds+=/berserking,if=buff.trueshot.up|fight_remains<13
+actions.cds+=/blood_fury,if=buff.trueshot.up|cooldown.trueshot.remains>30|fight_remains<16
+actions.cds+=/ancestral_call,if=buff.trueshot.up|cooldown.trueshot.remains>30|fight_remains<16
+actions.cds+=/fireblood,if=buff.trueshot.up|cooldown.trueshot.remains>30|fight_remains<9
+actions.cds+=/lights_judgment,if=buff.trueshot.down
+actions.cds+=/potion,if=buff.trueshot.up&(buff.bloodlust.up|fight_remains<120-30*talent.calling_the_shots)|fight_remains<31
+
+actions.draoe=aimed_shot,target_if=max:debuff.spotters_mark.up|max_prio_damage,if=buff.trick_shots.remains>cast_time&full_recharge_time<gcd+cast_time
+actions.draoe+=/black_arrow,target_if=max:debuff.spotters_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up
+actions.draoe+=/multishot,target_if=max:debuff.spotters_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up&!talent.aspect_of_the_hydra&!prev_gcd.1.multishot|buff.trick_shots.down
+actions.draoe+=/trueshot,if=!buff.double_tap.up&variable.trueshot_ready
+actions.draoe+=/rapid_fire,if=buff.trick_shots.remains>execute_time&(buff.bulletstorm.remains<action.aimed_shot.execute_time|talent.unload)
+actions.draoe+=/wailing_arrow,if=!cooldown.black_arrow.ready
+actions.draoe+=/volley,if=!buff.double_tap.up
+actions.draoe+=/aimed_shot,target_if=max:debuff.spotters_mark.up|max_prio_damage,if=buff.trick_shots.remains>cast_time
+actions.draoe+=/multishot,target_if=max:debuff.spotters_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up
+actions.draoe+=/explosive_shot
+actions.draoe+=/steady_shot
+
+actions.drst=black_arrow,target_if=max:debuff.spotters_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up
+actions.drst+=/aimed_shot,if=buff.trueshot.up&buff.precise_shots.down&cooldown.black_arrow.ready|full_recharge_time<gcd+cast_time
+actions.drst+=/trueshot,if=!buff.double_tap.up&variable.trueshot_ready
+actions.drst+=/rapid_fire
+actions.drst+=/wailing_arrow,if=!cooldown.black_arrow.ready
+actions.drst+=/arcane_shot,target_if=max:debuff.spotters_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up
+actions.drst+=/volley,if=!buff.double_tap.up
+actions.drst+=/aimed_shot,target_if=max:debuff.spotters_mark.up|max_prio_damage
+actions.drst+=/explosive_shot
+actions.drst+=/steady_shot
+
+actions.sentaoe=multishot,target_if=max:debuff.sentinels_mark.down|action.aimed_shot.in_flight_to_target,if=buff.precise_shots.up&!talent.aspect_of_the_hydra&!prev_gcd.1.multishot|buff.trick_shots.down
+actions.sentaoe+=/rapid_fire,if=(buff.bulletstorm.remains<action.aimed_shot.execute_time|buff.bulletstorm.stack<18|talent.unload&target.health.pct<20)
+actions.sentaoe+=/trueshot,if=!buff.double_tap.up&variable.trueshot_ready
+actions.sentaoe+=/volley,if=!buff.double_tap.up
+actions.sentaoe+=/explosive_shot,if=talent.shrapnel_shot&buff.trueshot.down&buff.lock_and_load.down&cooldown.aimed_shot.charges_fractional<=1.1
+actions.sentaoe+=/aimed_shot,target_if=max:debuff.sentinels_mark.up|max_prio_damage,if=buff.trick_shots.remains>cast_time
+actions.sentaoe+=/moonlight_chakram
+actions.sentaoe+=/rapid_fire,if=buff.trick_shots.remains>execute_time
+actions.sentaoe+=/multishot,target_if=max:debuff.spotters_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up&talent.windrunner_quiver
+actions.sentaoe+=/explosive_shot
+actions.sentaoe+=/steady_shot
+
+actions.sentst=volley,if=!buff.double_tap.up
+actions.sentst+=/trueshot,if=!buff.double_tap.up&variable.trueshot_ready
+actions.sentst+=/rapid_fire,if=buff.bulletstorm.stack<18
+actions.sentst+=/aimed_shot,target_if=max:debuff.sentinels_mark.up|max_prio_damage,if=full_recharge_time<gcd+cast_time
+actions.sentst+=/arcane_shot,target_if=max:debuff.sentinels_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up&(buff.trueshot.up&prev_gcd.1.aimed_shot|!buff.trueshot.up)
+actions.sentst+=/rapid_fire,if=(buff.bulletstorm.remains<action.aimed_shot.execute_time|talent.unload&target.health.pct<20)
+actions.sentst+=/kill_shot,target_if=max:debuff.sentinels_mark.down|action.aimed_shot.in_flight_to_target|max_prio_damage,if=buff.precise_shots.up&active_enemies=1
+actions.sentst+=/moonlight_chakram,if=buff.trueshot.remains<execute_time+gcd
+actions.sentst+=/aimed_shot,target_if=max:debuff.sentinels_mark.up|max_prio_damage
+actions.sentst+=/moonlight_chakram
+actions.sentst+=/rapid_fire
+actions.sentst+=/explosive_shot
+actions.sentst+=/steady_shot
+
+# A buff trinket that lines up cleanly with Trueshot; use with Trueshot.
+actions.trinkets=use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff&this_trinket.cooldown.duration%%cooldown.trueshot.duration=0&(buff.trueshot.remains>14|this_trinket.is.algethar_puzzle_box&variable.trueshot_ready&cooldown.trueshot.remains<5)
+# A buff trinket paired with a trinket that matches the above line; use with Trueshot if the other trinket is not ready or use without Trueshot if the other trinket will come up for the next Trueshot.
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff&other_trinket.has_use_buff&other_trinket.cooldown.duration%%cooldown.trueshot.duration=0&(buff.trueshot.remains>14&other_trinket.cooldown.remains|cooldown.trueshot.remains>20&other_trinket.cooldown.remains<=cooldown.trueshot.remains)
+# A buff trinket, use with Trueshot or in the last ~20 seconds of the fight.
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_buff&(buff.trueshot.remains>14|buff.trueshot.up&fight_remains<cooldown.trueshot.remains+15|fight_remains<21)
+# A damage trinket; use when Trueshot has at least 20 seconds remaining on its cooldown.
+actions.trinkets+=/use_items,check_existing=0,slots=trinket1:trinket2,if=this_trinket.has_use_damage&cooldown.trueshot.remains>20
+```
+
 ## Notes and Known Gaps
 
 - **Wowhead guide pages (overview/rotation) did not extract** — they are JS-rendered and returned only navigation. Overview, rotation, and utility prose were sourced from the corresponding **Icy Veins 12.0.5** pages plus individual live **Wowhead spell tooltip** pages for all spell IDs. All spell IDs in this guide were confirmed on the specific live Wowhead spell page listed in Sources.
@@ -136,6 +258,7 @@ Agility is the primary stat; secondary-stat priority (Crit/Haste/Mastery/Versati
 - **Kill Shot cooldown:** base spell page (53351) showed no cooldown (usage-gated by target HP / procs); a guide mentioned a 10s cooldown. Omitted from the ability line — re-verify.
 - **Tranquilizing Shot dispel type:** the live tooltip (343246) did not cleanly expose the dispel-type/Enrage-Magic data; the Enrage + Magic removal description comes from the Icy Veins spell summary. Re-verify the exact dispel types.
 - **Hunter's Mark exact magnitude (~3%)** is from Icy Veins prose, not a confirmed tooltip value. Treat the percentage as approximate.
-- **No SimC APL or talent import string** was sourced (none provided, none confirmed live). The rotation section is conceptual priority only.
+- **SimC APL now embedded (extracted from Trivial.txt).** The talent import string is included (see SimulationCraft Reference section). Additionally, the damage table for this spec has degraded data quality: Aimed Shot, Rapid Fire, Black Arrow, and Trueshot show malformed percent values and cannot be ranked. The valid rows cover only the supporting-cast abilities (~24% of damage total). Re-run the sim with a corrected export if full distribution data is needed.
+- **Blighted Arrow, Bleak Arrows, Let Fly!, Master Marksman spell IDs unconfirmed** — these abilities appear in the SimC damage table and have been added to the Abilities Reference section by name only. Spell IDs were not available in the SimC data and have not been confirmed on Wowhead. Do not add spell IDs for these abilities until verified.
 - **Consumable/enchant item IDs** were not confirmed on live item pages; only names from Icy Veins are listed. Do not treat these names as ID-verified.
 - **Maintenance flag:** Re-verify ALL spell IDs, cooldowns, and the consumable/enchant list after any 12.x patch. Tuning numbers (Trueshot crit %, Hunter's Mark %, defensive percentages) are the most volatile; spell IDs are stable but talent reworks can rename or move abilities.
