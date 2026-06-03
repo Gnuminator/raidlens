@@ -28,8 +28,21 @@ async function analyze() {
   const bossKnowledge = BOSS_KNOWLEDGE_META[bossNameForFilter] || {};
   const interruptSpellIds = Object.keys(bossKnowledge.interruptTargetSpellIds || {}).map(Number);
 
+  // Step 9: self-defensive usage tracking. Union of confirmed defensive spell IDs for the
+  // specs present in this raid (DEFENSIVE_SPELL_IDS keyed by WCL subType). Spell IDs are
+  // unique per ability, so per-player attribution stays correct without knowing class.
+  const defensiveMap = {}; // spellId(string) -> ability name
+  new Set(actors.map(a => a.subType).filter(Boolean)).forEach(spec => {
+    const d = (typeof DEFENSIVE_SPELL_IDS !== 'undefined') ? DEFENSIVE_SPELL_IDS[spec] : null;
+    if (d) Object.entries(d).forEach(([id, nm]) => { defensiveMap[id] = nm; });
+  });
+  const defensiveSpellIds = Object.keys(defensiveMap).map(Number);
+
+  // Casts are fetched once per pull and reused for both interrupt and defensive detection.
+  const castFilterIds = [...new Set([...interruptSpellIds, ...defensiveSpellIds])];
+
   const init = (name) => {
-    if (!playerStats[name]) playerStats[name] = { deaths: 0, pulls: 0, totalDmgTaken: 0, abilityDmg: {}, pullDetail: [], interruptStats: { totalLanded: 0 } };
+    if (!playerStats[name]) playerStats[name] = { deaths: 0, pulls: 0, totalDmgTaken: 0, abilityDmg: {}, pullDetail: [], interruptStats: { totalLanded: 0 }, defensiveStats: { totalCast: 0 } };
   };
 
   document.getElementById('resultsSection').classList.remove('hidden');
@@ -50,7 +63,7 @@ async function analyze() {
         fetchDmgTable(fight),
         fetchDeaths(fight),
         interruptSpellIds.length > 0 ? fetchInterruptEvents(fight) : Promise.resolve([]),
-        interruptSpellIds.length > 0 ? fetchCastEvents(fight, interruptSpellIds) : Promise.resolve([])
+        castFilterIds.length > 0 ? fetchCastEvents(fight, castFilterIds) : Promise.resolve([])
       ]);
       const playersInPull = new Set();
       const pullSnapshot = {};
@@ -79,9 +92,10 @@ async function analyze() {
         });
       }
 
+      const diedThisPull = new Set();
       deaths.forEach(ev => {
         const actor = actors.find(a => a.id === ev.targetID);
-        if (actor) { init(actor.name); playersInPull.add(actor.name); playerStats[actor.name].deaths += 1; }
+        if (actor) { init(actor.name); playersInPull.add(actor.name); playerStats[actor.name].deaths += 1; diedThisPull.add(actor.name); }
       });
 
       // Build interrupt data for this pull
@@ -112,11 +126,24 @@ async function analyze() {
         });
       }
 
+      // Build self-defensive usage for this pull (which defensives each player cast)
+      const pullDefensives = {}; // playerName -> [{ name, timestamp }]
+      if (defensiveSpellIds.length > 0) {
+        castData.filter(ev => ev.type === 'cast' && defensiveMap[ev.abilityGameID]).forEach(cast => {
+          const actor = actors.find(a => a.id === cast.sourceID);
+          if (!actor) return;
+          if (!pullDefensives[actor.name]) pullDefensives[actor.name] = [];
+          pullDefensives[actor.name].push({ name: defensiveMap[cast.abilityGameID], timestamp: cast.timestamp - fight.startTime });
+        });
+      }
+
       playersInPull.forEach(name => {
         playerStats[name].pulls += 1;
         const snap = pullSnapshot[name] || { totalDmgTaken: 0, avoidable: [] };
         const myPI = pullInterrupts.perPlayer[name];
         if (myPI) playerStats[name].interruptStats.totalLanded += myPI.landed;
+        const myDef = (pullDefensives[name] || []).sort((a,b) => a.timestamp - b.timestamp);
+        playerStats[name].defensiveStats.totalCast += myDef.length;
         playerStats[name].pullDetail.push({
           pullIndex: i + 1, fightId: fid,
           isKill: fight.kill || false, fightPct: fight.fightPercentage,
@@ -124,7 +151,9 @@ async function analyze() {
           totalDmgTaken: snap.totalDmgTaken,
           avoidable: snap.avoidable.sort((a,b) => b.total - a.total),
           hits: [],
-          interrupts: pullInterrupts
+          interrupts: pullInterrupts,
+          defensives: myDef,
+          died: diedThisPull.has(name)
         });
       });
 

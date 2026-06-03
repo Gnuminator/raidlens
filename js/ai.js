@@ -59,8 +59,23 @@ async function runAI(players, numPulls, apiKey, isDeep = false, specGuides = {})
     interruptSection = `\nINTERRUPT ANALYSIS:\nInterruptable abilities this fight: ${interruptSpellNames.join(', ')}\nTotal missed interrupts across all pulls: ${totalMissed}\nTotal interrupt overlaps: ${totalOverlaps}\n\nPer-player interrupt summary:\n${perPlayerLines}${missedLines.length > 0 ? '\n\nMissed interrupt details:\n' + missedLines.join('\n') : ''}${overlapLines.length > 0 ? '\n\nOverlap details:\n' + overlapLines.join('\n') : ''}\n`;
   }
 
+  let defensiveSection = '';
+  const anyDefensive = players.some(p => p.defensiveStats);
+  if (anyDefensive) {
+    const defLines = players.map(p => {
+      const tracked = typeof DEFENSIVE_SPELL_IDS !== 'undefined' && DEFENSIVE_SPELL_IDS[p.spec] && Object.keys(DEFENSIVE_SPELL_IDS[p.spec]).length > 0;
+      if (!tracked) return `  ${p.name} (${p.spec}): defensives not tracked for this spec -- do not flag`;
+      const pulls = p.pullDetail || [];
+      const deathsNoDef = pulls.filter(pd => pd.died && (!pd.defensives || pd.defensives.length === 0)).length;
+      const totalDef = (p.defensiveStats || {}).totalCast || 0;
+      const flag = deathsNoDef >= 3 ? '  <-- died on 3+ pulls with no defensive cast' : '';
+      return `  ${p.name} (${p.spec}): ${totalDef} self-defensive cast${totalDef !== 1 ? 's' : ''} across ${p.pulls} pull${p.pulls !== 1 ? 's' : ''}; died with zero defensives on ${deathsNoDef} pull${deathsNoDef !== 1 ? 's' : ''}${flag}`;
+    }).join('\n');
+    defensiveSection = `\nDEFENSIVE USAGE (self-defensives only -- damage reduction, absorbs, immunities, and major self-heals the player cast ON THEMSELVES):\nUse each player's spec guide Defensives section to judge appropriate use. IMPORTANT: tracked counts are a FLOOR -- only confirmed-ID defensives are counted and the cast log can truncate on long pulls -- so never claim a player used "only N" as if exhaustive. Focus on the died-with-zero-defensives signal.\n${defLines}\n`;
+  }
+
   const prompt = `You are analyzing World of Warcraft Mythic raid logs for "${bossName}" across ${numPulls} pulls. This is active progression -- the raid wipes every pull, so the entire raid dies every time. Death counts are meaningless and must not be mentioned.
-${bossSection}${specGuideSection}${interruptSection}${refKillSection}
+${bossSection}${specGuideSection}${interruptSection}${defensiveSection}${refKillSection}
 Player data (damage taken by ability across all pulls, raid-wide unavoidable abilities pre-filtered):
 
 ${JSON.stringify(summary, null, 2)}
@@ -70,12 +85,14 @@ Write a focused Mythic raid leader debrief. Rules:
 - ONLY call out abilities that are genuinely avoidable individual mistakes per the boss knowledge.
 - ONLY flag patterns appearing on 3+ pulls with meaningful damage. Single or double pull occurrences are noise.
 - For each flagged player: name them, name the ability, how many pulls it appeared on, and one concrete fix based on the actual mechanic.
-- Do NOT mention deaths.
+- Do NOT mention death counts or who died most -- everyone dies every wipe. The ONE exception is the defensive rule below: repeatedly dying with no defensive cast is a valid defensive-usage callout.
 - Do NOT flag expected tank mechanics, soak mechanics, or unavoidable raid damage.
 - If the avoidable damage picture is clean, say so briefly.
 - If interrupt data is present: flag players who land zero interrupts across multiple pulls if their spec has an interrupt ability. Flag pulls with 3+ missed interrupts as a coordination failure. Flag consistent overlap patterns where the same two players repeatedly double-interrupt the same ability.
 - Do NOT flag tanks for low interrupt counts if the interruptable abilities are on adds they are tanking.
-- Under 300 words. Plain text only, no markdown, no bullet symbols, no asterisks.`;
+- If defensive usage data is present: using each spec's Defensives section, flag players who died on 3+ pulls while casting zero self-defensives -- they are likely sitting on cooldowns. Frame it as a defensive-usage issue, not a death count. Do not flag players who survived or who died only once or twice. Tanks press mitigation constantly; only flag a tank if they repeatedly died with none.
+- Defensive counts are a floor (only confirmed-ID abilities are tracked, and long pulls can truncate the cast log); never assert a player "only used N defensives" as if complete.
+- Under 350 words. Plain text only, no markdown, no bullet symbols, no asterisks.`;
 
   const resp = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',

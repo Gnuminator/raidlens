@@ -92,6 +92,63 @@ const SPEC_GUIDE_PATHS = {
   'Restoration':   ['guides/classes/healer/druid/restoration.md', 'guides/classes/healer/shaman/restoration.md'],
 };
 
+// Confirmed SELF-defensive cooldown spell IDs, keyed by WCL subType (spec name).
+// Sourced from each spec guide's Defensives section — confirmed IDs only (Step 9).
+// Shared spec names (Frost/Holy/Protection/Restoration) merge both classes' defensives;
+// spell IDs are unique per ability so per-player attribution stays correct.
+// Counts derived from this are a FLOOR, not exhaustive — specs with unconfirmed defensive
+// IDs (see guides/classes/SPEC_GUIDE_GAPS.md) contribute fewer or no entries.
+const DEFENSIVE_SPELL_IDS = {
+  // Death Knight
+  'Blood':         { 49998:'Death Strike', 55233:'Vampiric Blood', 48792:'Icebound Fortitude', 48707:'Anti-Magic Shell', 194679:'Rune Tap', 219809:'Tombstone', 49039:'Lichborne', 49028:'Dancing Rune Weapon' },
+  'Unholy':        { 48707:'Anti-Magic Shell', 48792:'Icebound Fortitude', 49998:'Death Strike', 49039:'Lichborne' },
+  // Demon Hunter
+  'Havoc':         { 198589:'Blur', 427901:'Deflecting Dance' },
+  'Vengeance':     { 203720:'Demon Spikes', 204021:'Fiery Brand', 187827:'Metamorphosis', 212084:'Fel Devastation', 228477:'Soul Cleave' },
+  // Druid
+  'Balance':       { 22812:'Barkskin', 61336:'Survival Instincts', 108238:'Renewal', 5487:'Bear Form', 22842:'Frenzied Regeneration' },
+  'Feral':         { 61336:'Survival Instincts', 22812:'Barkskin', 108238:'Renewal', 22842:'Frenzied Regeneration', 8936:'Regrowth' },
+  'Guardian':      { 192081:'Ironfur', 22842:'Frenzied Regeneration', 22812:'Barkskin', 61336:'Survival Instincts', 200851:'Rage of the Sleeper', 102558:'Incarnation: Guardian of Ursoc' },
+  // Evoker
+  'Devastation':   { 363916:'Obsidian Scales', 374348:'Renewing Blaze' },
+  'Augmentation':  { 363916:'Obsidian Scales', 374227:'Zephyr', 361195:'Verdant Embrace' },
+  'Preservation':  { 363916:'Obsidian Scales', 374348:'Renewing Blaze' },
+  // Hunter
+  'Beast Mastery': { 264735:'Survival of the Fittest', 186265:'Aspect of the Turtle', 109304:'Exhilaration' },
+  'Marksmanship':  { 109304:'Exhilaration', 264735:'Survival of the Fittest', 186265:'Aspect of the Turtle' },
+  'Survival':      { 186265:'Aspect of the Turtle', 264735:'Survival of the Fittest', 109304:'Exhilaration' },
+  // Mage
+  'Arcane':        { 45438:'Ice Block', 235450:'Prismatic Barrier', 110959:'Greater Invisibility', 342245:'Alter Time', 55342:'Mirror Image', 414658:'Ice Cold' },
+  'Fire':          { 45438:'Ice Block', 110959:'Greater Invisibility', 342245:'Alter Time', 235313:'Blazing Barrier', 235450:'Prismatic Barrier', 55342:'Mirror Image' },
+  // Monk
+  'Brewmaster':    { 119582:'Purifying Brew', 322507:'Celestial Brew', 243435:'Fortifying Brew', 122278:'Dampen Harm', 122783:'Diffuse Magic', 132578:'Invoke Niuzao, the Black Ox', 214326:'Exploding Keg' },
+  'Mistweaver':    { 115203:'Fortifying Brew', 122278:'Dampen Harm', 122783:'Diffuse Magic' },
+  'Windwalker':    { 122470:'Touch of Karma', 115203:'Fortifying Brew', 122278:'Dampen Harm', 122783:'Diffuse Magic', 322101:'Expel Harm', 122281:'Healing Elixir' },
+  // Paladin
+  'Retribution':   { 642:'Divine Shield', 498:'Divine Protection', 184662:'Shield of Vengeance', 85673:'Word of Glory', 633:'Lay on Hands' },
+  // Priest
+  'Discipline':    { 19236:'Desperate Prayer', 586:'Fade', 33206:'Pain Suppression' },
+  'Shadow':        { 47585:'Dispersion', 19236:'Desperate Prayer', 586:'Fade' },
+  // Rogue (Assassination omitted — no defensive IDs confirmed in its guide)
+  'Outlaw':        { 185311:'Crimson Vial', 1966:'Feint', 5277:'Evasion', 31224:'Cloak of Shadows' },
+  'Subtlety':      { 31224:'Cloak of Shadows', 5277:'Evasion', 1966:'Feint', 185311:'Crimson Vial' },
+  // Shaman
+  'Elemental':     { 108271:'Astral Shift' },
+  'Enhancement':   { 108271:'Astral Shift' },
+  // Warlock
+  'Affliction':    { 104773:'Unending Resolve', 108416:'Dark Pact', 6789:'Mortal Coil' },
+  'Demonology':    { 104773:'Unending Resolve', 108416:'Dark Pact' },
+  'Destruction':   { 104773:'Unending Resolve', 108416:'Dark Pact' },
+  // Warrior
+  'Arms':          { 118038:'Die by the Sword', 386208:'Defensive Stance', 23920:'Spell Reflection' },
+  'Fury':          { 184364:'Enraged Regeneration', 23920:'Spell Reflection', 386208:'Defensive Stance' },
+  // Shared spec names (class-ambiguous from WCL subType) — both classes' defensives merged
+  'Frost':         { 48792:'Icebound Fortitude', 48707:'Anti-Magic Shell', 49039:'Lichborne', 49998:'Death Strike', 45438:'Ice Block', 11426:'Ice Barrier' },
+  'Holy':          { 642:'Divine Shield', 498:'Divine Protection', 633:'Lay on Hands', 17:'Power Word: Shield', 19236:'Desperate Prayer', 586:'Fade' },
+  'Protection':    { 53600:'Shield of the Righteous', 31850:'Ardent Defender', 86659:'Guardian of Ancient Kings', 642:'Divine Shield', 1022:'Blessing of Protection', 204018:'Blessing of Spellwarding', 633:'Lay on Hands', 465:'Devotion Aura', 2565:'Shield Block', 871:'Shield Wall', 12975:'Last Stand', 23920:'Spell Reflection' },
+  'Restoration':   { 22812:'Barkskin', 108271:'Astral Shift' },
+};
+
 const BOSS_KNOWLEDGE = {
   'Chimaerus, the Undreamt God': `
 FIGHT STRUCTURE:

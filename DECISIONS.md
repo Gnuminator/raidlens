@@ -52,6 +52,15 @@ Interrupt tracking runs in the fast path alongside damage and deaths. Two WCL qu
 ### localStorage persistence — Step 11 (2026-06-02)
 `js/storage.js` (loaded right after `globals.js`) persists the credential and common input fields to `localStorage` under key `raidlens.settings.v1`: `clientId`, `clientSecret`, `anthropicKey`, `reportUrl`, `refReportUrl`, `refFightId`. Loaded on `DOMContentLoaded`, auto-saved on each field's `input` event. A "Remember credentials & inputs on this device" checkbox (default on) gates saving; unchecking it calls `clearSettings()`, which also wipes the stored blob and the two secret fields from the form. All access is wrapped in try/catch with an `rlStorageAvailable()` probe so the tool degrades gracefully where `localStorage` is blocked (some `file://` contexts). Values — including API keys and the WCL secret — are stored UNENCRYPTED; acceptable for a private single-user local tool, and surfaced to the user via an inline note. Step 11's "after local server setup" caveat is moot: the try/catch probe makes it safe under both `file://` and `npx serve`.
 
+### Defensive usage tracking — Step 9 (2026-06-02)
+Mirrors interrupt tracking. `DEFENSIVE_SPELL_IDS` in `boss-knowledge.js` maps WCL subType → `{ spellId: 'Ability' }` of confirmed SELF-defensive cooldowns, sourced from the spec guides' Defensives sections (confirmed IDs only; extracted by a haiku swarm). Key decisions:
+- **Tracked by spell ID, not class.** Spell IDs are unique per ability, so `analyze()` builds the union of defensive IDs for the specs present and attributes casts by `sourceID` — no class disambiguation needed. The 4 shared spec names merge both classes' defensives under the one subType key.
+- **Reuses the interrupt cast fetch.** Casts are fetched once per pull (`castFilterIds = interrupt ∪ defensive IDs`) and filtered for both. Zero extra API requests on bosses that already track interrupts (e.g. Chimaerus). On bosses without interrupt tracking, defensives will newly trigger the (paginated) cast fetch — watch request volume when adding such bosses.
+- **Counts are a FLOOR.** Only confirmed-ID defensives count, and the 10-page cast cap can truncate long pulls. The UI label and the Claude prompt both say so; never assert "only used N defensives" as exhaustive.
+- **No false flags for untracked specs.** Specs with no confirmed defensive IDs (e.g. Assassination Rogue, `Unknown`) are shown as "not tracked for this spec" and explicitly excluded from the died-with-no-defensive flag — otherwise every death would look like a missed defensive.
+- **The actionable signal is "died on 3+ pulls with zero self-defensives cast"**, computed from per-pull `died` (from death events) + per-pull `defensives`. This is the one allowed exception to the "never mention deaths" rule, framed as defensive usage, not a death count.
+- High-frequency active mitigation (Ironfur, Shield Block, Death Strike, Demon Spikes, etc.) is intentionally included — it makes the died-with-zero flag conservative (fewer false accusations).
+
 ---
 
 ## Analysis

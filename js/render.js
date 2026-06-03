@@ -65,7 +65,11 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
   const bossFlForInt = allFights.find(f => f.encounterID === currentEncounterId);
   const bossNmForInt = bossFlForInt ? bossFlForInt.name : '';
   const hasInterruptTracking = Object.keys((BOSS_KNOWLEDGE_META[bossNmForInt] || {}).interruptTargetSpellIds || {}).length > 0;
-  const gridCols = hasInterruptTracking ? '44px 80px 68px 1fr 90px' : '44px 80px 68px 1fr';
+  const hasDefensiveTracking = players.some(p => (p.pullDetail || []).some(pd => Array.isArray(pd.defensives)));
+  const colDefs = ['44px', '80px', '68px', '1fr'];
+  if (hasInterruptTracking) colDefs.push('90px');
+  if (hasDefensiveTracking) colDefs.push('104px');
+  const gridCols = colDefs.join(' ');
 
   const rows = players.map((p, i) => {
     const [fg, bg] = colors[i % colors.length];
@@ -89,6 +93,15 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
     const interruptLine = hasInterruptTracking && p.interruptStats
       ? `<div style="font-size:11px;color:var(--muted);margin-top:2px;">Interrupts: <span style="color:var(--ok);">${p.interruptStats.totalLanded}</span> landed across ${p.pulls} pull${p.pulls !== 1 ? 's' : ''}</div>`
       : '';
+    const defTracked = hasDefensiveTracking && typeof DEFENSIVE_SPELL_IDS !== 'undefined'
+      && DEFENSIVE_SPELL_IDS[p.spec] && Object.keys(DEFENSIVE_SPELL_IDS[p.spec]).length > 0;
+    const deathsNoDef = defTracked
+      ? (p.pullDetail || []).filter(pd => pd.died && (!pd.defensives || pd.defensives.length === 0)).length
+      : 0;
+    const defensiveLine = !hasDefensiveTracking ? ''
+      : defTracked
+        ? `<div style="font-size:11px;color:var(--muted);margin-top:2px;">🛡 Defensives: <span style="color:${(p.defensiveStats || {}).totalCast > 0 ? 'var(--ok)' : 'var(--warn)'};">${(p.defensiveStats || {}).totalCast || 0}</span> cast across ${p.pulls} pull${p.pulls !== 1 ? 's' : ''}${deathsNoDef >= 3 ? ` <span style="color:var(--danger);">· died ${deathsNoDef}x with none</span>` : ''}</div>`
+        : `<div style="font-size:11px;color:var(--muted);margin-top:2px;">🛡 Defensives: <span style="color:var(--muted);">not tracked for this spec</span></div>`;
     const rowId = `expand-${i}`;
 
     const pullRows = (p.pullDetail || []).map(pd => {
@@ -138,6 +151,24 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
         }
       }
 
+      let defensiveCell = '';
+      if (hasDefensiveTracking) {
+        if (!defTracked) {
+          defensiveCell = `<span style="font-size:11px;color:var(--muted);">—</span>`;
+        } else {
+          const myDef = pd.defensives || [];
+          const diedNoDef = pd.died && myDef.length === 0;
+          if (isDeep && myDef.length > 0) {
+            defensiveCell = myDef.map(d =>
+              `<span style="display:block;font-size:11px;white-space:nowrap;color:var(--ok);">🛡${fmtTs(d.timestamp)} ${d.name}</span>`
+            ).join('');
+          } else {
+            const dc = myDef.length;
+            defensiveCell = `<span style="font-size:11px;color:${dc > 0 ? 'var(--ok)' : (diedNoDef ? 'var(--danger)' : 'var(--muted)')};"${diedNoDef ? ' title="Died this pull with no defensive cast"' : ''}>${dc > 0 ? dc : (diedNoDef ? '✗ died' : '—')}</span>`;
+          }
+        }
+      }
+
       return `
         <div style="display:grid;grid-template-columns:${gridCols};gap:0;align-items:start;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
           <span style="color:var(--muted);">P${pd.pullIndex}</span>
@@ -145,6 +176,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
           <span style="color:var(--muted);text-align:right;padding-right:16px;">${fmt(pd.totalDmgTaken)}</span>
           <span style="min-width:0;">${avoidableContent}</span>
           ${hasInterruptTracking ? `<span style="padding-left:12px;">${interruptCell}</span>` : ''}
+          ${hasDefensiveTracking ? `<span style="padding-left:12px;">${defensiveCell}</span>` : ''}
         </div>`;
     }).join('');
 
@@ -156,6 +188,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
           <div class="player-detail">${topAb}</div>
           <div style="font-size:11px;color:var(--muted);margin-top:2px;">${attendance}</div>
           ${interruptLine}
+          ${defensiveLine}
         </div>
         <div class="stat">
           <div class="stat-num">${fmt(p.totalDmgTaken)}</div>
@@ -168,6 +201,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
           <span>Pull</span><span>Phase</span><span style="text-align:right;padding-right:16px;">Total</span>
           <span>Avoidable${isDeep ? ` <span style="font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px;color:var(--accent);">⏱ = timestamped hits &nbsp;·&nbsp; no ⏱ = aggregated total</span>` : ''}</span>
           ${hasInterruptTracking ? '<span style="padding-left:12px;">Interrupts</span>' : ''}
+          ${hasDefensiveTracking ? '<span style="padding-left:12px;">🛡 Defensives</span>' : ''}
         </div>
         ${pullRows || '<div style="color:var(--muted);font-size:12px;padding:8px 0;">No data</div>'}
       </div>`;
