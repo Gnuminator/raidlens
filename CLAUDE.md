@@ -8,8 +8,8 @@ The user is Christian (Gnuminator on GitHub). He is the raid leader and tester. 
 
 **Current game version:** WoW Midnight, patch 12.x (currently 12.0.5)
 **Current difficulty:** Mythic only
-**Current raid:** The Dreamrift
-**Current boss implemented:** Chimaerus the Undreamt God
+**Current raid:** The Dreamrift (single-boss: Chimaerus)
+**Fully implemented (WCL-verified IDs):** Chimaerus, the Undreamt God. 8 later-tier bosses (6 Voidspire + 2 March on Quel'Danas) are scaffolded in `BOSS_KNOWLEDGE_META` as stubs pending WCL-verified IDs.
 
 ---
 
@@ -59,17 +59,27 @@ raidlens/
 ├── js/
 │   ├── boss-knowledge.js   ← loaded first (const not hoisted)
 │   ├── globals.js
+│   ├── storage.js          ← localStorage persistence (Step 11)
 │   ├── wcl-api.js
 │   ├── ui.js
 │   ├── report.js
 │   ├── render.js
 │   ├── analyze.js
 │   └── ai.js
-└── guides/
-    └── bosses/
-        └── dreamrift/
-            └── chimaerus-mythic.md
+├── guides/
+│   ├── bosses/         ← human-reference boss guides. NOT loaded by code — the
+│   │   │                  authoritative analyzer context is BOSS_KNOWLEDGE in JS.
+│   │   ├── dreamrift/chimaerus-mythic.md
+│   │   ├── voidspire/            (6 bosses)
+│   │   ├── march-on-queldanas/   (2 bosses)
+│   │   └── BOSS_GUIDE_PROMPT.md
+│   ├── classes/        ← 39 spec guides, fetched at analysis time:
+│   │                      {role}/{class}/{spec}.md  (+ SPEC_GUIDE_GAPS.md)
+│   └── sources/        ← raw strategy source (wipefest-dreamrift.txt)
+└── simc-guides/        ← SimC APL + spell-ID reference (enrichment source data)
 ```
+
+(9 JS modules total. The js/ load order in `index.html` must match this list.)
 
 Script load order in `index.html` is intentional -- `boss-knowledge.js` loads first because `BOSS_KNOWLEDGE_META`, `BOSS_NON_AVOIDABLE`, and `BOSS_KNOWLEDGE` are `const` and JavaScript does not hoist `const`.
 
@@ -112,18 +122,18 @@ Completed:
 1. ✅ Deaths tracking via masterData actors
 2. ✅ Ability filter validated on Chimaerus
 3. ✅ Reference kill URL as ability inventory
+4. ✅ Class/spec knowledge fed into Claude prompt (39 spec guides)
 5. ✅ Expandable per-pull rows with avoidable damage
 6. ✅ Fast path / deep path split with session caching
 7. ✅ Progressive rendering
+8. ✅ Interrupt tracking per pull per player
+9. ✅ Defensive usage tracking (died-with-no-defensive flag)
+10. ✅ Dissonance source tracking (deep path, auto-discovered spell ID)
+11. ✅ localStorage persistence
+12. ✅ Multi-boss support (8 bosses scaffolded; per-boss WCL-verified IDs pending)
 14. ✅ Repo file split into proper folder structure
 
 Pending:
-4. ⬜ Class/spec knowledge fed into Claude prompt
-8. ⬜ Interrupt tracking per pull per player
-9. ⬜ Defensive/consumable usage tracking
-10. ⬜ Dissonance source tracking
-11. ⬜ localStorage persistence (after local server setup)
-12. ⬜ Multi-boss support
 13. ⬜ Self-updating GitHub commit from within the tool
 
 ---
@@ -158,7 +168,7 @@ Pending:
 
 ## Knowledge base: Game domain
 
-**Chimaerus the Undreamt God -- Mythic**
+**Chimaerus, the Undreamt God -- Mythic**
 
 Avoidable spell IDs (WCL-verified):
 - `1245919` = Alndust Essence (ground pool)

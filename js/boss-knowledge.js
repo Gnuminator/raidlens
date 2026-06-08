@@ -17,9 +17,11 @@ const BOSS_KNOWLEDGE_META = {
     dissonanceAbilityNames: ['Dissonance']
   },
 
-  // ── THE DREAMRIFT — 8 remaining bosses ──────────────────────────────────────
+  // ── VOIDSPIRE (6) + MARCH ON QUEL'DANAS (2) — 8 later-tier bosses ────────────
+  // (The Dreamrift is a single-boss raid: Chimaerus only. The 8 below are scaffolded
+  // ahead of logs — 6 Voidspire encounters + 2 March on Quel'Danas encounters.)
   // PENDING WCL VERIFICATION: boss name strings below are assumed to match WCL
-  // encounter names exactly. Verify against a multi-boss Dreamrift report.
+  // encounter names exactly. Verify against a real report for each raid.
   // avoidableSpellIds and interruptTargetSpellIds are empty — no WCL-verified
   // spell IDs yet. Add confirmed IDs here when logs are available.
 
@@ -47,7 +49,7 @@ const BOSS_KNOWLEDGE_META = {
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
-  "Belo'ren, Child of Alar": {
+  "Belo'ren, Child of Al'ar": {
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
@@ -85,7 +87,7 @@ const BOSS_NON_AVOIDABLE = {
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Fallen King Salhadaar': new Set([
-    'Twisting Obscurity', 'Destabilizing Strikes', 'Cosmic Barrier',
+    'Twisting Obscurity', 'Destabilizing Strikes',
     'Void Convergence',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
@@ -96,19 +98,19 @@ const BOSS_NON_AVOIDABLE = {
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Crown of the Cosmos': new Set([
-    'Stellar Emission', 'Dark Hand', 'Abyssal Pool', 'Null Corona',
+    'Stellar Emission', 'Dark Hand', 'Null Corona',
     'Voidstalker Sting', 'Rift Slash', 'Devouring Cosmos',
     'Silverstrike Barrage', 'Corrupting Essence',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
-  "Belo'ren, Child of Alar": new Set([
+  "Belo'ren, Child of Al'ar": new Set([
     'Burning Heart', 'Eternal Burns', 'Ashen Benediction',
     'Death Drop', 'Incubation of Flames', 'Voidlight Convergence',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Midnight Falls': new Set([
     "Heaven's Lance", 'Abyssal Pool', 'Total Eclipse', 'Shattered Sky',
-    'Dark Archangel', 'Disintegration', 'Null Corona', 'Dawn Crystal',
+    'Dark Archangel', 'Disintegration', 'Dawn Crystal',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ])
 };
@@ -376,7 +378,7 @@ ABILITY REFERENCE:
 - Devouring Cosmos (P3): Alleria destroys the current platform section. Pick up a feather and use it to jump to the next section.
 `,
 
-  "Belo'ren, Child of Alar": `
+  "Belo'ren, Child of Al'ar": `
 FIGHT OVERVIEW:
 Repeating 2-phase encounter with a 6-minute enrage. Phase 1: fight Belo'ren and add birds. Phase 2: Belo'ren retreats to their egg — the real health bar. Each P2 is a 30s damage window; it repeats until the egg dies or enrage. All players have a Light or Void color assignment (changes periodically) — most mechanics resolve by color. Ashen Benediction stacks a permanent 10% healing reduction each P2 cycle — urgency increases each loop.
 

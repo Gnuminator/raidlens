@@ -76,7 +76,8 @@ async function analyze() {
           init(name);
           playersInPull.add(name);
           playerStats[name].totalDmgTaken += (entry.total || 0);
-          if (entry.overkill && entry.overkill > 0) playerStats[name].deaths += 1;
+          // Deaths come from Deaths events only (handled below). Counting table overkill
+          // here as well would double-count every death.
           if (!pullSnapshot[name]) pullSnapshot[name] = { totalDmgTaken: entry.total || 0, avoidable: [] };
           if (entry.abilities) {
             entry.abilities.forEach(ab => {
@@ -112,7 +113,10 @@ async function analyze() {
           const abilityName = interruptNames[ev.extraAbilityGameID] || `Spell ${ev.extraAbilityGameID}`;
           pullInterrupts.perPlayer[actor.name].events.push({ timestamp: ev.timestamp - fight.startTime, ability: abilityName });
         });
-        castData.filter(ev => ev.type === 'cast').forEach(cast => {
+        // Only interruptable boss/add casts. castData also carries player defensive casts
+        // (the cast fetch is shared with Step 9 defensive tracking); without this filter,
+        // every defensive cast would be logged as an un-interrupted boss cast.
+        castData.filter(ev => ev.type === 'cast' && interruptSpellIds.includes(ev.abilityGameID)).forEach(cast => {
           const matching = interruptData.filter(iv =>
             iv.extraAbilityGameID === cast.abilityGameID &&
             iv.timestamp <= cast.timestamp &&
@@ -170,7 +174,10 @@ async function analyze() {
   hideStatus();
 
   const playerList = buildPlayerList(playerStats);
-  analysisCache[cacheKey] = { fast: { playerList, pullIds } };
+  // Snapshot the harvested ability->guid map onto the cache entry so deep analysis can
+  // still auto-discover Dissonance even after a boss switch has repopulated the global
+  // abilityGuidByName with a different boss's abilities (Step 10 + Step 12 interaction).
+  analysisCache[cacheKey] = { fast: { playerList, pullIds, abilityGuidByName: { ...abilityGuidByName } } };
 
   renderResults(playerList, pullIds.length);
   showStatus('Sending to Claude for analysis...');
@@ -185,11 +192,12 @@ async function analyze() {
 // Step 10: resolve the Dissonance spell ID(s) for a boss. Prefers a pinned
 // dissonanceSpellIds map; otherwise auto-discovers from the damage table ability guid
 // captured during the fast path (abilityGuidByName). Returns [] if none available.
-function resolveDissonanceSpellIds(bossName) {
+function resolveDissonanceSpellIds(bossName, guidMap) {
+  const guids = guidMap || abilityGuidByName;
   const meta = BOSS_KNOWLEDGE_META[bossName] || {};
   const ids = new Set(Object.keys(meta.dissonanceSpellIds || {}).map(Number));
   (meta.dissonanceAbilityNames || []).forEach(nm => {
-    const guid = abilityGuidByName[nm];
+    const guid = guids[nm];
     if (guid != null) ids.add(Number(guid));
   });
   return [...ids].filter(n => !Number.isNaN(n));
@@ -228,8 +236,10 @@ async function runDeepAnalysis() {
 
   const playerList = JSON.parse(JSON.stringify(analysisCache[cacheKey].fast.playerList));
 
-  // Step 10: Dissonance source tracking (Mythic). Spell ID auto-discovered from the table guid.
-  const dissonanceSpellIds = resolveDissonanceSpellIds(bossName);
+  // Step 10: Dissonance source tracking (Mythic). Spell ID auto-discovered from the table guid,
+  // read from the fast cache snapshot so a prior boss switch can't blank the global (Step 12).
+  const cachedGuidMap = (analysisCache[cacheKey].fast && analysisCache[cacheKey].fast.abilityGuidByName) || abilityGuidByName;
+  const dissonanceSpellIds = resolveDissonanceSpellIds(bossName, cachedGuidMap);
   const dissonanceIdSet = new Set(dissonanceSpellIds);
   const trackDissonance = dissonanceSpellIds.length > 0;
   if (trackDissonance) {

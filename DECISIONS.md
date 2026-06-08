@@ -163,3 +163,40 @@ Holy Paladin self-buff. Appears as self-damage in WCL logs. Not boss damage.
 
 ### Discordant Roar: unavoidable, added to BOSS_NON_AVOIDABLE
 Raid-wide physical from Colossal Horror spawning. Unavoidable, heal through. Added 2026-05-11.
+
+---
+
+## Deep review pass (2026-06-08)
+
+A full multi-agent review of the whole project — every JS module, boss knowledge vs the Wipefest source, the spec/boss guides, and the docs. Changes applied this session:
+
+### Bugs fixed (js/analyze.js)
+- **Interrupt false-positives (HIGH, affected the live Chimaerus boss).** Step 9 merged defensive spell IDs into the shared per-pull cast fetch (`castFilterIds = interrupt ∪ defensive`), but the missed/overlap interrupt loop consumed *all* casts. Every player defensive cast (Ironfur, Death Strike, Shield Block, Demon Spikes…) was logged as an un-interrupted boss cast ("Spell &lt;id&gt; went uninterrupted"), inflating `totalMissed` and corrupting the interrupt section in Claude's prompt. Fixed by restricting that loop to `interruptSpellIds.includes(ev.abilityGameID)` — mirroring the defensive consumer below it, which already filtered via `defensiveMap[...]`. Per-player *landed* counts were always correct (computed from interrupt events only).
+- **Death double-count (MED).** `playerStats[name].deaths` was incremented from BOTH damage-table `overkill` and Deaths events, so each death counted ~twice — inflating the UI death badges and the player-table sort key. Removed the overkill increment; Deaths events are the single source of truth (they already drive the per-pull `died` flag). Claude output was unaffected (it never sees death counts).
+- **Dissonance auto-discovery survives a boss switch (MED, newly reachable via Step 12).** Dissonance's spell ID is auto-discovered from the global `abilityGuidByName`, repopulated only on a *non-cached* fast run. After analyzing boss B then returning to a *cached* Chimaerus and running Deep, the global held boss B's abilities and Dissonance silently no-op'd. The harvested guid map is now snapshotted onto the fast cache entry and read from there in `runDeepAnalysis` (with a fallback to the global).
+
+### Boss-knowledge data corrections (js/boss-knowledge.js)
+Cross-checked the 8 stub bosses' `BOSS_NON_AVOIDABLE` sets against `guides/sources/wipefest-dreamrift.txt`. Three abilities were copy/paste-misattributed between the two cosmic-themed bosses and removed from the wrong boss (verified by source line numbers):
+- `Cosmic Barrier` removed from **Fallen King Salhadaar** (it is a Crown of the Cosmos ability).
+- `Abyssal Pool` removed from **Crown of the Cosmos** (it is a Midnight Falls ability).
+- `Null Corona` removed from **Midnight Falls** (it is a Crown of the Cosmos ability).
+These never matched a real log line so behaviour was unaffected, but the data is now correct. The comment that grouped all 8 stubs under "THE DREAMRIFT" was corrected — The Dreamrift is single-boss (Chimaerus); the other 8 are 6 Voidspire + 2 March on Quel'Danas encounters.
+
+### Boss / guide naming
+- `Belo'ren, Child of Alar` → `Belo'ren, Child of Al'ar` across all three JS maps, matching the guide title and the Al'ar (Quel'Danas phoenix) lore. **STILL PENDING WCL VERIFICATION** — confirm the exact encounter string against a real report before relying on the `BOSS_KNOWLEDGE[bossName]` lookup; both spellings were previously unverified, this only removes the internal guide/code disagreement.
+- Chimaerus guide (`chimaerus-mythic.md`): the P1 frontal-cone tankbuster was named "Ravenous Frontal" (fabricated — conflated with "Ravenous Dive"). Renamed to **Rending Tear** (the source name) and corrected from "random-target dodge" to "tankbuster, face away from raid".
+
+### Boss .md guides are documentation-only
+No code path fetches `guides/bosses/**`. The authoritative boss context injected into Claude's prompt is the `BOSS_KNOWLEDGE` constant in `js/boss-knowledge.js` (see `ai.js`). The boss `.md` files are human reference, maintained in parallel — keep the two in sync (the Rending Tear drift was an example). Only `SPEC_GUIDE_PATHS` (class guides) drives runtime fetches.
+
+### Source-file duplication
+The repo-root `Wipefest guide.txt` is byte-identical (same sha256) to the committed `guides/sources/wipefest-dreamrift.txt` — a redundant untracked copy. Not committed; flagged to Christian for deletion.
+
+### Known risks flagged for live-log verification (deliberately NOT changed)
+- **Missed-interrupt timing window.** Miss/overlap detection keys off the boss `cast` (completion) event within a fixed 100ms-before window. If interrupted casts emit only `begincast` (no completion event), a genuinely-interrupted cast can be invisible to the loop. Validate against a real Chimaerus log in Edge DevTools before trusting miss/overlap counts; per-player *landed* counts are unaffected.
+- **Consecration (Lightblinded Vanguard)** is in `BOSS_NON_AVOIDABLE`, but the source classifies it as "move out" area denial (positionally avoidable). Left non-avoidable for now — judgement call on filter strictness, like Lingering Miasma on Chimaerus.
+- **Defensive ID conflicts** (Alter Time 342245 vs 108978; Die by the Sword 118038 vs 236385) remain unreconciled per the earlier documented decision — reconcile on the next live verification pass.
+- **AI model:** `claude-sonnet-4-5` (ai.js) is still a valid, active model and the `$3/$15`-per-M cost math is correct. Optional free upgrade to `claude-sonnet-4-6` (same price) is available — left as-is pending Christian's call.
+
+### Doc accuracy
+Corrected CLAUDE.md (step list 4/8/9/10/11/12 were marked pending but shipped; file tree was missing `storage.js` and the expanded `guides/` layout; boss name/comma) and `raidlens-showcase.html` numbers (9 JS modules, 34 defensive specs, 12/14 steps, multi-boss 50%). The showcase remains untracked pending Christian's call on whether it belongs in the repo.

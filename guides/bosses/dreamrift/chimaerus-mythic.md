@@ -42,8 +42,8 @@ Chimaerus unleashes an unearthly roar, dealing Nature damage to all players and 
 **Rift Sickness**
 A raid-wide damage over time effect lasting 12 seconds. Healers need to pay attention here, especially during overlaps.
 
-**Ravenous Frontal**
-A frontal cone targeted at a random player, dealing heavy damage and applying a bleed to anyone hit. This should be dodged.
+**Rending Tear**
+A tankbuster in a large frontal cone — massive physical damage, a short bleed, and a knockback to anyone hit. The active tank should face Chimaerus away from the raid.
 
 ### Add Management (Rift Team)
 
