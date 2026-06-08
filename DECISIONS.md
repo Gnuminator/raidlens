@@ -183,20 +183,20 @@ Cross-checked the 8 stub bosses' `BOSS_NON_AVOIDABLE` sets against `guides/sourc
 These never matched a real log line so behaviour was unaffected, but the data is now correct. The comment that grouped all 8 stubs under "THE DREAMRIFT" was corrected — The Dreamrift is single-boss (Chimaerus); the other 8 are 6 Voidspire + 2 March on Quel'Danas encounters.
 
 ### Boss / guide naming
-- `Belo'ren, Child of Alar` → `Belo'ren, Child of Al'ar` across all three JS maps, matching the guide title and the Al'ar (Quel'Danas phoenix) lore. **STILL PENDING WCL VERIFICATION** — confirm the exact encounter string against a real report before relying on the `BOSS_KNOWLEDGE[bossName]` lookup; both spellings were previously unverified, this only removes the internal guide/code disagreement.
+- Belo'ren encounter name set to **`Belo'ren`** across all three JS maps and the guide title. Christian confirmed the WCL encounter is named "Belo'ren" — the earlier "Child of Al'ar" / "Child of Alar" subtitle was descriptive flavor, not the match string. (Verify exact casing/apostrophe against a real report when one is available.)
 - Chimaerus guide (`chimaerus-mythic.md`): the P1 frontal-cone tankbuster was named "Ravenous Frontal" (fabricated — conflated with "Ravenous Dive"). Renamed to **Rending Tear** (the source name) and corrected from "random-target dodge" to "tankbuster, face away from raid".
 
 ### Boss .md guides are documentation-only
 No code path fetches `guides/bosses/**`. The authoritative boss context injected into Claude's prompt is the `BOSS_KNOWLEDGE` constant in `js/boss-knowledge.js` (see `ai.js`). The boss `.md` files are human reference, maintained in parallel — keep the two in sync (the Rending Tear drift was an example). Only `SPEC_GUIDE_PATHS` (class guides) drives runtime fetches.
 
 ### Source-file duplication
-The repo-root `Wipefest guide.txt` is byte-identical (same sha256) to the committed `guides/sources/wipefest-dreamrift.txt` — a redundant untracked copy. Not committed; flagged to Christian for deletion.
+The repo-root `Wipefest guide.txt` was byte-identical (same sha256) to the committed `guides/sources/wipefest-dreamrift.txt`. Deleted (Christian's call) — the `guides/sources/` copy is the single source of truth.
 
 ### Known risks flagged for live-log verification (deliberately NOT changed)
 - **Missed-interrupt timing window.** Miss/overlap detection keys off the boss `cast` (completion) event within a fixed 100ms-before window. If interrupted casts emit only `begincast` (no completion event), a genuinely-interrupted cast can be invisible to the loop. Validate against a real Chimaerus log in Edge DevTools before trusting miss/overlap counts; per-player *landed* counts are unaffected.
 - **Consecration (Lightblinded Vanguard)** is in `BOSS_NON_AVOIDABLE`, but the source classifies it as "move out" area denial (positionally avoidable). Left non-avoidable for now — judgement call on filter strictness, like Lingering Miasma on Chimaerus.
 - **Defensive ID conflicts** (Alter Time 342245 vs 108978; Die by the Sword 118038 vs 236385) remain unreconciled per the earlier documented decision — reconcile on the next live verification pass.
-- **AI model:** `claude-sonnet-4-5` (ai.js) is still a valid, active model and the `$3/$15`-per-M cost math is correct. Optional free upgrade to `claude-sonnet-4-6` (same price) is available — left as-is pending Christian's call.
+- **AI model:** upgraded `ai.js` from `claude-sonnet-4-5` to **`claude-sonnet-4-6`** (Christian's call). Same `$3/$15`-per-M pricing, so the cost calc is unchanged; the `index.html` display label was updated to match.
 
 ### Doc accuracy
-Corrected CLAUDE.md (step list 4/8/9/10/11/12 were marked pending but shipped; file tree was missing `storage.js` and the expanded `guides/` layout; boss name/comma) and `raidlens-showcase.html` numbers (9 JS modules, 34 defensive specs, 12/14 steps, multi-boss 50%). The showcase remains untracked pending Christian's call on whether it belongs in the repo.
+Corrected CLAUDE.md (step list 4/8/9/10/11/12 were marked pending but shipped; file tree was missing `storage.js` and the expanded `guides/` layout; boss name/comma) and `raidlens-showcase.html` numbers (9 JS modules, 34 defensive specs, 12/14 steps, multi-boss 50%). The showcase was committed to the repo (Christian's call).

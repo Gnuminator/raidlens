@@ -1,4 +1,4 @@
-# Belo'ren, Child of Al'ar — Boss Guide
+# Belo'ren — Boss Guide
 **March on Quel'Danas | Season 1 | Boss 1 of 2**
 
 _Guide for RaidLens analysis context. Covers all difficulties; Mythic differences called out explicitly._

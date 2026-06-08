@@ -49,7 +49,7 @@ const BOSS_KNOWLEDGE_META = {
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
-  "Belo'ren, Child of Al'ar": {
+  "Belo'ren": {
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
@@ -103,7 +103,7 @@ const BOSS_NON_AVOIDABLE = {
     'Silverstrike Barrage', 'Corrupting Essence',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
-  "Belo'ren, Child of Al'ar": new Set([
+  "Belo'ren": new Set([
     'Burning Heart', 'Eternal Burns', 'Ashen Benediction',
     'Death Drop', 'Incubation of Flames', 'Voidlight Convergence',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
@@ -378,7 +378,7 @@ ABILITY REFERENCE:
 - Devouring Cosmos (P3): Alleria destroys the current platform section. Pick up a feather and use it to jump to the next section.
 `,
 
-  "Belo'ren, Child of Al'ar": `
+  "Belo'ren": `
 FIGHT OVERVIEW:
 Repeating 2-phase encounter with a 6-minute enrage. Phase 1: fight Belo'ren and add birds. Phase 2: Belo'ren retreats to their egg — the real health bar. Each P2 is a 30s damage window; it repeats until the egg dies or enrage. All players have a Light or Void color assignment (changes periodically) — most mechanics resolve by color. Ashen Benediction stacks a permanent 10% healing reduction each P2 cycle — urgency increases each loop.
 
