@@ -69,7 +69,7 @@ const BOSS_NON_AVOIDABLE = {
     'Cannibalized Essence', 'Blessing of Dawn',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack',
     'Caustic Phlegm', 'Rift Madness',
-    'Discordant Roar'
+    'Discordant Roar', 'Rending Tear'
   ]),
 
   'Imperator Averzian': new Set([
@@ -105,12 +105,12 @@ const BOSS_NON_AVOIDABLE = {
   ]),
   "Belo'ren": new Set([
     'Burning Heart', 'Eternal Burns', 'Ashen Benediction',
-    'Death Drop', 'Incubation of Flames', 'Voidlight Convergence',
+    'Voidlight Convergence', 'Light/Void Dive',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Midnight Falls': new Set([
     "Heaven's Lance", 'Abyssal Pool', 'Total Eclipse', 'Shattered Sky',
-    'Dark Archangel', 'Disintegration', 'Dawn Crystal',
+    'Disintegration', 'Dawn Crystal',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ])
 };
@@ -206,7 +206,7 @@ const DEFENSIVE_SPELL_IDS = {
   'Survival':      { 186265:'Aspect of the Turtle', 264735:'Survival of the Fittest', 109304:'Exhilaration' },
   // Mage
   'Arcane':        { 45438:'Ice Block', 235450:'Prismatic Barrier', 110959:'Greater Invisibility', 342245:'Alter Time', 55342:'Mirror Image', 414658:'Ice Cold' },
-  'Fire':          { 45438:'Ice Block', 110959:'Greater Invisibility', 342245:'Alter Time', 235313:'Blazing Barrier', 235450:'Prismatic Barrier', 55342:'Mirror Image' },
+  'Fire':          { 45438:'Ice Block', 110959:'Greater Invisibility', 342245:'Alter Time', 235313:'Blazing Barrier', 235450:'Prismatic Barrier', 55342:'Mirror Image', 414658:'Ice Cold' },
   // Monk
   'Brewmaster':    { 119582:'Purifying Brew', 322507:'Celestial Brew', 243435:'Fortifying Brew', 122278:'Dampen Harm', 122783:'Diffuse Magic', 132578:'Invoke Niuzao, the Black Ox', 214326:'Exploding Keg' },
   'Mistweaver':    { 115203:'Fortifying Brew', 122278:'Dampen Harm', 122783:'Diffuse Magic' },
@@ -230,9 +230,9 @@ const DEFENSIVE_SPELL_IDS = {
   'Arms':          { 118038:'Die by the Sword', 386208:'Defensive Stance', 23920:'Spell Reflection' },
   'Fury':          { 184364:'Enraged Regeneration', 23920:'Spell Reflection', 386208:'Defensive Stance' },
   // Shared spec names (class-ambiguous from WCL subType) — both classes' defensives merged
-  'Frost':         { 48792:'Icebound Fortitude', 48707:'Anti-Magic Shell', 49039:'Lichborne', 49998:'Death Strike', 45438:'Ice Block', 11426:'Ice Barrier' },
+  'Frost':         { 48792:'Icebound Fortitude', 48707:'Anti-Magic Shell', 49039:'Lichborne', 49998:'Death Strike', 45438:'Ice Block', 11426:'Ice Barrier', 110959:'Greater Invisibility', 342245:'Alter Time', 55342:'Mirror Image', 414658:'Ice Cold' },
   'Holy':          { 642:'Divine Shield', 498:'Divine Protection', 633:'Lay on Hands', 17:'Power Word: Shield', 19236:'Desperate Prayer', 586:'Fade' },
-  'Protection':    { 53600:'Shield of the Righteous', 31850:'Ardent Defender', 86659:'Guardian of Ancient Kings', 642:'Divine Shield', 1022:'Blessing of Protection', 204018:'Blessing of Spellwarding', 633:'Lay on Hands', 465:'Devotion Aura', 2565:'Shield Block', 871:'Shield Wall', 12975:'Last Stand', 23920:'Spell Reflection' },
+  'Protection':    { 53600:'Shield of the Righteous', 31850:'Ardent Defender', 86659:'Guardian of Ancient Kings', 642:'Divine Shield', 1022:'Blessing of Protection', 204018:'Blessing of Spellwarding', 633:'Lay on Hands', 465:'Devotion Aura', 2565:'Shield Block', 871:'Shield Wall', 12975:'Last Stand', 190456:'Ignore Pain', 23920:'Spell Reflection' },
   'Restoration':   { 22812:'Barkskin', 108271:'Astral Shift' },
 };
 
@@ -251,8 +251,9 @@ ABILITY REFERENCE (what each logged ability actually means):
 - Rift Emergence: Raid-wide nature damage when Manifestations spawn. Unavoidable.
 - Rift Sickness: Raid-wide damage over time. Unavoidable.
 - Lingering Miasma / Consuming Miasma: Puddles left behind when adds die. Standing in these is avoidable -- move out immediately. Not classified as fully avoidable by WCL but positionally avoidable.
-- Discordant Roar: Add ability. Not fully avoidable per WCL but high uptimes on specific players may indicate positioning issues near the add.
-- Dissonance: Mythic-only. Damage from standing near players in the opposite realm. Positionally avoidable with correct realm assignment -- repeated hits suggest a player is out of position.
+- Discordant Roar: Raid-wide unavoidable physical damage when the Colossal Horror spawns. Heal through it. Never flag.
+- Dissonance: Mythic-only. Proximity damage between players in opposite realms -- it has a SOURCE and a target, and the SOURCE player is likely the out-of-position one. Treat taken-only counts cautiously; see the Dissonance section for source-based counts.
+- Rending Tear: Frontal-cone tankbuster; expected on tanks; non-tanks hit by it = boss-facing failure.
 - Ravenous Dive: End-of-phase mechanic, unavoidable.
 - Colossal Strikes: Tank ability from the Colossal Horror add. ONLY tanks should take this. Non-tanks taking Colossal Strikes were standing too close to the add.
 - Caustic Phlegm: Tank mechanic from the boss. Expected on tanks. Not avoidable.
@@ -274,15 +275,16 @@ WHAT COUNTS AS AN INDIVIDUAL MISTAKE ON THIS FIGHT (flag these if appearing on 3
 - Alndust Essence -- WCL-verified fully avoidable. Repeated hits = individual dodge failure.
 - Corrupted Devastation -- WCL-verified fully avoidable. Repeated hits = not moving out of breath path in Phase 2.
 - Non-tanks taking Colossal Strikes -- stay away from the Colossal Horror add.
-- Dissonance -- wrong realm positioning, repeated hits are a pattern worth flagging.
+- Dissonance -- wrong realm positioning, but the SOURCE player is likely the out-of-position one; treat taken-only counts cautiously and judge by the source-based counts in the Dissonance section.
 - Standing in Lingering Miasma / Consuming Miasma puddles repeatedly.
 
 WHAT IS NOT AN INDIVIDUAL MISTAKE (never flag these):
 - Alndust Upheaval -- intentional soak
 - Rift Emergence / Rift Sickness -- unavoidable raid damage
 - Caustic Phlegm / Consume / Ravenous Dive -- unavoidable or tank-only
+- Discordant Roar -- unavoidable raid-wide from the Colossal Horror spawning, heal through
 - Blessing of Dawn -- Paladin self-buff, ignore
-- High tank damage from Melee, Stagger, Caustic Phlegm, Colossal Strikes, Consume -- all expected
+- High tank damage from Melee, Stagger, Caustic Phlegm, Colossal Strikes, Rending Tear, Consume -- all expected
 `,
 
   'Imperator Averzian': `

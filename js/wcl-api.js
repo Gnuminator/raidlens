@@ -16,13 +16,18 @@ async function getToken() {
   return data.access_token;
 }
 
-async function wclQuery(query, variables) {
+async function wclQuery(query, variables, isRetry = false) {
   if (!accessToken) accessToken = await getToken();
   const resp = await fetch('https://www.warcraftlogs.com/api/v2/client', {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ query, variables })
   });
+  if (resp.status === 401 && !isRetry) {
+    accessToken = null;
+    return wclQuery(query, variables, true);
+  }
+  if (resp.status === 429) throw new Error('WCL rate limit hit (429) — wait a minute and retry');
   if (!resp.ok) throw new Error(`WCL API error: ${resp.status}`);
   const data = await resp.json();
   if (data.errors) throw new Error(data.errors.map(e => e.message).join(', '));
@@ -42,6 +47,14 @@ async function fetchDmgTable(fight) {
 async function fetchDeaths(fight) {
   const q = `query($code:String!,$start:Float!,$end:Float!,$fightIds:[Int]!){reportData{report(code:$code){
     events(startTime:$start,endTime:$end,fightIDs:$fightIds,dataType:Deaths,limit:300){data}
+  }}}`;
+  const data = await wclQuery(q, { code: reportCode, start: fight.startTime, end: fight.endTime, fightIds: [fight.id] });
+  return data.reportData.report.events.data || [];
+}
+
+async function fetchResurrects(fight) {
+  const q = `query($code:String!,$start:Float!,$end:Float!,$fightIds:[Int]!){reportData{report(code:$code){
+    events(startTime:$start,endTime:$end,fightIDs:$fightIds,dataType:Resurrects,limit:300){data}
   }}}`;
   const data = await wclQuery(q, { code: reportCode, start: fight.startTime, end: fight.endTime, fightIds: [fight.id] });
   return data.reportData.report.events.data || [];
@@ -90,7 +103,8 @@ async function loadSpecGuides(specs) {
       specGuideCache[path] = md;
       results[label] = md;
     } catch(e) {
-      specGuideCache[path] = null;
+      // Network error, not a 404 — leave the cache entry unset so the next run retries.
+      console.warn(`Spec guide fetch failed (will retry next run): ${path}`, e.message);
     }
   }));
 
@@ -122,6 +136,27 @@ async function fetchCastEvents(fight, spellIds) {
     const startTime = nextPageTimestamp !== null ? nextPageTimestamp : fight.startTime;
     const q = `query($code:String!,$start:Float!,$end:Float!,$fightIds:[Int]!){reportData{report(code:$code){
       events(startTime:$start,endTime:$end,fightIDs:$fightIds,dataType:Casts,limit:300){data,nextPageTimestamp}
+    }}}`;
+    const data = await wclQuery(q, { code: reportCode, start: startTime, end: fight.endTime, fightIds: [fight.id] });
+    const result = data.reportData.report.events;
+    (result.data || []).forEach(ev => {
+      if (spellIds.includes(ev.abilityGameID)) allEvents.push(ev);
+    });
+    if (!result.nextPageTimestamp || result.nextPageTimestamp >= fight.endTime) break;
+    nextPageTimestamp = result.nextPageTimestamp;
+  }
+  return allEvents;
+}
+
+// hostilityType defaults to Friendlies — boss/add casts only show up with Enemies.
+async function fetchEnemyCastEvents(fight, spellIds) {
+  const allEvents = [];
+  let nextPageTimestamp = null;
+  if (spellIds.length === 0) return allEvents;
+  for (let page = 0; page < 10; page++) {
+    const startTime = nextPageTimestamp !== null ? nextPageTimestamp : fight.startTime;
+    const q = `query($code:String!,$start:Float!,$end:Float!,$fightIds:[Int]!){reportData{report(code:$code){
+      events(startTime:$start,endTime:$end,fightIDs:$fightIds,dataType:Casts,hostilityType:Enemies,limit:300){data,nextPageTimestamp}
     }}}`;
     const data = await wclQuery(q, { code: reportCode, start: startTime, end: fight.endTime, fightIds: [fight.id] });
     const result = data.reportData.report.events;

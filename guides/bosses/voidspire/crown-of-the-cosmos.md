@@ -130,8 +130,6 @@ The fight continues on three separated platform sections. Players must jump betw
 | Null Corona | Unavoidable assignment — heal through |
 | Stellar Emission ticking damage | Unavoidable intermission rot |
 | Void Expulsion raid-wide explosion | Unavoidable component of the orb detonation |
-| Abyssal Pool | Unavoidable Phase 2 rot |
-| Shattered Sky | Unavoidable rot |
 | Dark Hand | Tank ability for Morium |
 | Rift Slash | Tank ability for Simulacrum |
 

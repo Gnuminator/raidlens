@@ -1,4 +1,4 @@
-# Fallen-King Salhadaar — Boss Guide
+# Fallen King Salhadaar — Boss Guide
 **The Voidspire | Season 1 | Boss 3 of 6**
 
 _Guide for RaidLens analysis context. Covers all difficulties; Mythic differences called out explicitly._

@@ -1,4 +1,4 @@
-# Chimaerus the Undreamt God — Mythic Guide
+# Chimaerus, the Undreamt God — Mythic Guide
 **The Dreamrift | Season 1 | Single-Boss Raid**
 
 _Guide for RaidLens analysis context. Written for the Guide Writer project and used by Claude when analyzing logs._

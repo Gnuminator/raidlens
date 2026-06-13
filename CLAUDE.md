@@ -16,7 +16,7 @@ The user is Christian (Gnuminator on GitHub). He is the raid leader and tester. 
 ## Repository
 
 GitHub repo: https://github.com/Gnuminator/raidlens
-GitHub personal access token: stored in your Claude Project instructions (not committed to the repo)
+GitHub personal access token: stored in your Claude Project instructions (and in the gitignored `.claude/settings.local.json`) — not committed to the repo
 
 ---
 
@@ -52,6 +52,7 @@ Do not read all files by default. If scope is unclear, read `DECISIONS.md` and a
 ```
 raidlens/
 ├── index.html          ← HTML shell, script/link tags only
+├── raidlens-showcase.html  ← standalone project showcase page (committed deliberately)
 ├── CLAUDE.md           ← this file
 ├── DECISIONS.md        ← architectural decisions log
 ├── css/

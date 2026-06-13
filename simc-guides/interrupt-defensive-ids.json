@@ -18,6 +18,13 @@
         "referenceId": 236385,
         "defensiveMapId": 118038,
         "note": "Conflict — 118038 is the long-standing ID; 236385 also resolves to die-by-the-sword on Wowhead. Verify live before changing DEFENSIVE_SPELL_IDS."
+      },
+      {
+        "ability": "Fortifying Brew",
+        "specs": "Brewmaster Monk",
+        "referenceId": 115203,
+        "defensiveMapId": 243435,
+        "note": "Both real — 115203 is the class-wide Monk ID (used for Mistweaver/Windwalker in DEFENSIVE_SPELL_IDS); 243435 is the Brewmaster variant. Verify which appears as the Brewmaster cast event before changing DEFENSIVE_SPELL_IDS."
       }
     ],
     "usage": "Reference/documentation. NOT yet wired into the analyzer. DEFENSIVE_SPELL_IDS in boss-knowledge.js (Step 9) remains the functional source; reconcile deliberately. Interrupt tracking currently keys off boss abilities + WCL events, so per-spec interrupt IDs here are reference/future-use."

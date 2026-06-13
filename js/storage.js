@@ -5,6 +5,8 @@
 // tool degrades gracefully when localStorage is unavailable (e.g. some file:// contexts).
 
 const RL_STORAGE_KEY = 'raidlens.settings.v1';
+// Remember-toggle opt-out: '0' = off; '1' or absent = on (default).
+const RL_REMEMBER_KEY = 'raidlens.remember.v1';
 
 // Input element IDs that get persisted.
 const RL_PERSIST_FIELDS = ['clientId', 'clientSecret', 'anthropicKey', 'reportUrl', 'refReportUrl', 'refFightId'];
@@ -62,17 +64,24 @@ function initStorage() {
     if (note) note.textContent = 'Local storage unavailable here — settings will not persist.';
     return;
   }
-  const loaded = loadSettings();
+  let remember = true;
+  try { remember = localStorage.getItem(RL_REMEMBER_KEY) !== '0'; } catch (e) { /* default on */ }
+  const toggle = document.getElementById('rememberToggle');
+  if (toggle) toggle.checked = remember;
+
+  const loaded = remember ? loadSettings() : false;
   if (note && loaded) note.textContent = 'Loaded saved settings from this device.';
 
+  // saveSettings already no-ops while the toggle is unchecked, so always wiring the
+  // listeners is safe — re-checking the toggle resumes auto-save without a reload.
   RL_PERSIST_FIELDS.forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('input', saveSettings);
   });
 
-  const toggle = document.getElementById('rememberToggle');
   if (toggle) {
     toggle.addEventListener('change', () => {
+      try { localStorage.setItem(RL_REMEMBER_KEY, toggle.checked ? '1' : '0'); } catch (e) { /* ignore */ }
       if (toggle.checked) { saveSettings(); if (note) note.textContent = 'Remembering on this device.'; }
       else { clearSettings(); }
     });

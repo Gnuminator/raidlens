@@ -1,6 +1,12 @@
 # Local Claude Code config — contains GITHUB_TOKEN and machine-local settings.
-# Never commit; the token lives only in the Claude Project instructions.
+# Never commit; the token lives in the Claude Project instructions and in the
+# gitignored .claude/settings.local.json on this machine.
 .claude/
+
+# SimC HTML raid report (36 MB) — regeneration artifact for
+# simc-guides/build-spell-ids-reference.js (curl'd to repo root per its USAGE
+# header). Never commit; regenerate on demand. See DECISIONS.md.
+_simc_raid.html
 
 # OS / editor cruft
 Thumbs.db

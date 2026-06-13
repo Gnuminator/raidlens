@@ -12,6 +12,7 @@ Restructured from a single `wow_raid_analyzer.html` into:
 - `css/main.css` — all styles
 - `js/boss-knowledge.js` — BOSS_KNOWLEDGE_META, BOSS_NON_AVOIDABLE, BOSS_KNOWLEDGE constants (loaded first — `const` is not hoisted)
 - `js/globals.js` — global state variables and getCacheKey
+- `js/storage.js` — localStorage persistence (added Step 11, 2026-06-02)
 - `js/wcl-api.js` — WCL OAuth + GraphQL query functions
 - `js/ui.js` — status/error helpers, fmt, fmtTs, toggleExpand
 - `js/report.js` — loadReport, onFightChange, pull tag rendering, loadRefKill
@@ -200,3 +201,48 @@ The repo-root `Wipefest guide.txt` was byte-identical (same sha256) to the commi
 
 ### Doc accuracy
 Corrected CLAUDE.md (step list 4/8/9/10/11/12 were marked pending but shipped; file tree was missing `storage.js` and the expanded `guides/` layout; boss name/comma) and `raidlens-showcase.html` numbers (9 JS modules, 34 defensive specs, 12/14 steps, multi-boss 50%). The showcase was committed to the repo (Christian's call).
+
+---
+
+## Second deep review pass (2026-06-13)
+
+A second full multi-agent review (4 domain reviewers → 4 domain fixers → 1 adversarial verifier + a coordinator-run static verification). Verified the 2026-06-08 fixes were all still correctly in place, then went deeper. Everything below is applied unless marked otherwise.
+
+### High-severity correctness fixes
+- **Raid-wide filter was suppressing the boss's own avoidable mechanics from Claude (HIGH, `render.js`).** `buildPlayerList` classified any ability hit by ≥50% of the roster *at any point across the night* as "raid-wide unavoidable" and dropped it from non-tank `relevantAbilities` — which also feeds `ai.js` `topDamageSources`. Over a 20-pull night nearly everyone clips Alndust Essence / Corrupted Devastation once, so the two WCL-verified avoidables — the tool's whole purpose — could vanish from the cards *and the prompt*. Fixed: abilities whose names are in the boss's `BOSS_KNOWLEDGE_META.avoidableSpellIds` (plus `dissonanceAbilityNames`) are now exempt from the raid-wide filter (boss knowledge is authoritative). `[RaidLens][RaidWideFilter]` console line added to confirm behavior on a live log.
+- **Missed-interrupt detection almost certainly never worked (HIGH, `wcl-api.js` + `analyze.js`).** The shared `events(dataType:Casts)` fetch uses WCL's default `hostilityType:Friendlies`, but Fearsome Cry / Essence Bolt are cast by the *enemy* Haunting Essence add — so the boss casts the miss/overlap loop scans for never arrived, and Claude was told "0 missed interrupts" as fact. Fixed: new `fetchEnemyCastEvents(fight, spellIds)` (`hostilityType:Enemies`) feeds the miss/overlap loop; the friendly cast fetch now serves *only* defensives. `[RaidLens][Interrupts]` instrumentation added. **Still needs live-log confirmation** that enemy interrupt-target casts now appear (next suspect if not: casts emitting only `begincast` — the older documented 100ms-window risk).
+- **Partial-run cache poisoning (HIGH, `analyze.js`).** Per-pull WCL failures were swallowed with a `console.warn` and the cache was written unconditionally — so an all-fail run (bad/revoked token) cached an *empty* result and every later "Analyze" click returned the cached emptiness even after credentials were fixed. Both paths now collect failed fight IDs, `showError` names them as partial, and **skip the cache write** so a retry re-fetches.
+
+### Cost / prompt-quality (the "do it better")
+- **Spec-guide payload cut ~56% (`ai.js`).** SimC enrichment had grown guides to 13–74 KB each; a real roster injected ~1.27M chars of mostly DPS-rotation data useless for a damage-taken debrief. `stripSpecGuideSections()` removes the SimC/APL/Confirmed-IDs/talent/consumables `## ` sections in memory at injection time (disk files untouched), keeping Overview/Abilities/Defensives/Utility/Notes. Measured 1,270k → 560k chars across all 39 guides; handles Beast Mastery's odd `## SimulationCraft APL` heading.
+- **Prompt caching (`ai.js`).** Message content split into two text blocks: block 1 = stable context (boss knowledge + stripped guides + static rules) with `cache_control:{type:'ephemeral'}`, verified byte-identical across runs of the same boss+roster; block 2 = per-run data. Repeat runs within the 5-min TTL bill ~90% cheaper. Cost calc extended for cache-read ($0.30/M) and cache-creation ($3.75/M); token display shows both.
+- **Deep data now reaches Claude (`ai.js`).** The `isDeep` parameter was dead — per-hit `deadAtTime` (the documented called-wipe signal) never influenced the debrief. Now, when per-hit data is present, each player gets a `calledWipeHits` line ("N of M avoidable hits landed while 3+ players were already dead") and a DATA CAVEATS rule to discount them. Derived from data presence, not the flag.
+- **Prompt correctness:** tank rows are now correctly described as *not* pre-filtered; kill/wipe count and best/avg progression % are computed from `pullDetail` instead of the old hardcoded "wipes every pull"; defensive framing softened to acknowledge ally-castable spells are counted by caster; rules regrouped under CLASSIFICATION / FLAG / NEVER FLAG / DATA CAVEATS / FORMAT with the 3-pull threshold stated once; Mistweaver/Holy Paladin explicitly exempted from the zero-interrupt flag (no interrupt in 12.x). `max_tokens` 600→800 with a `stop_reason:'max_tokens'` truncation marker.
+
+### Medium fixes
+- **`deadAtTime` now subtracts battle rezzes (`analyze.js`).** It counted cumulative death *events*, so a brezzed-and-alive player still counted (and double deaths counted twice), firing the ⚠ called-wipe flag earlier than intended. New per-pull `fetchResurrects` (graceful fallback to deaths-only); `deadAtTime = max(0, deathsBefore − rezzesBefore)`.
+- **Re-entrancy guard (`globals.js` + `analyze.js` + `report.js`).** New `analysisRunning` flag + `setAnalysisButtonsDisabled()` block double-clicking Analyze, double-paid deep runs (both cached branches now disable the button before the paid await), and loading a new report mid-run.
+- **Pull numbering unified (`analyze.js` + `report.js`).** `pullIndex` was the index within the *selected Set* (insertion order) while the P# tags use the encounter's fight order — so "Pull 7" in Claude's output / expanded rows could point at the wrong pull. Both paths now use the encounter ordinal (all encounter pulls sorted by `startTime`); `renderPullTags` sorts explicitly too so the invariant can't regress on WCL ordering.
+- **Dissonance auto-discovery keeps all guids (`analyze.js`).** `abilityGuidByName` was first-guid-wins; same-named abilities (likely Dissonance's two realms) lost the sibling ID. Now name → array of guids; `resolveDissonanceSpellIds` unions all.
+- **Self-inflicted abilities** (Burning Rush, Death Strike, Frenzied Regeneration, …) moved to `selfInflictedAbilitiesGlobal` and excluded from per-pull avoidable snapshots *and* tank `topAbilities` — a tank's own mitigation cost no longer shows as "Top non-tank dmg".
+- **`wclQuery` resilience:** 401 → null the token, re-auth, retry once; 429 → distinct "rate limit hit" error (so the partial-run surface explains itself).
+- **Stub-boss data aligned to guides:** Rending Tear added to Chimaerus `BOSS_NON_AVOIDABLE` + text; Death Drop / Incubation of Flames removed from Belo'ren, Dark Archangel from Midnight Falls, Light/Void Dive added to Belo'ren (matched to the guides, which classify these as avoidable); Discordant Roar + Dissonance boss-text bullets reframed to match the documented decisions. `crown-of-the-cosmos.md` lost the two misattributed Midnight Falls rows.
+- **Defensive-ID gaps closed:** Frost (mage-side) gained Alter Time/Ice Cold/Greater Invis/Mirror Image; Fire gained Ice Cold; Protection gained Ignore Pain — so a Frost Mage / Prot Warrior surviving on those doesn't false-flag as "died with zero defensives". A third ID conflict (Brewmaster Fortifying Brew 243435 vs 115203) added to `interrupt-defensive-ids.json`'s reconcile list.
+
+### Low / cosmetic
+HTML-escaping helper `esc()` applied to all external strings (player/spec/ability/counterpart names) in `render.js` innerHTML sinks; deep mode now appends aggregated non-deep avoidable entries (the legend promised both); Dissonance per-event lines and the live `progressAvg` metric now render; deep absorbed damage counted (`amount + absorbed`); reference-kill refuses a wrong-encounter fight; stale `deepSection`/`selectedPulls`/`currentEncounterId` reset across report loads; "Remember credentials" opt-out now persists across reloads; spec-guide fetch only negative-caches real 404s (network blips retry); `tokenUsage` cleared between runs; ⚠Ndead marker made legible (warn color, 11px); dead CSS removed; `fmt()` M-tier rounding seam fixed; expanded rows persist open state across progressive re-render (keyed by `data-player`).
+
+### Repo hygiene (Christian's calls)
+- Removed from the repo: `Trivial.txt` (5.9 MB raw SimC dump — its useful content is preserved as the 49 `simc-guides/apl/` files + `spell-ids-reference.json`; regenerate from SimC if ever needed), `parse_simc.py` (superseded), `specs_list.txt` (empty). Moved `parse_simc_v2.py` → `simc-guides/`. Deleted the stale merged branch `claude/condescending-moser-3430fa`.
+- `.gitignore` now covers `_simc_raid.html` (the 36 MB regeneration artifact) and the token comment acknowledges `.claude/settings.local.json`. `SPEC_GUIDE_GAPS.md` regenerated against measured ground truth (31/39 enriched verified programmatically, ~120 resolved entries pruned). `simc-guides/README.md` per-class counts corrected (DK 6 / DH 5 / Mage 6) and the `apl/` + builder + `interrupt-defensive-ids.json` documented. `BOSS_GUIDE_PROMPT.md` updated to the single-file-per-boss convention actually adopted.
+
+### Verification
+All 9 JS files pass `node --check`; cross-file contracts (`selfInflictedAbilitiesGlobal`, `analysisRunning`, `esc`, `fetchEnemyCastEvents`, `fetchResurrects`, `stripSpecGuideSections`, `abilityGuidByName` name→array) resolve with no stale references; `ai.js` cache block verified free of per-run interpolation; deep-path producer/consumer fields agree; boss-knowledge maps consistent across all 9 encounters with every correction present; guide-stripping validated against real guides.
+
+### Still needs Christian's live-log DevTools verification (instrumented, not asserted)
+1. `[RaidLens][Interrupts]` shows non-zero enemy interrupt-target casts and miss/overlap finally populates (else: begincast-only casts).
+2. `[RaidLens][Rez]` shows plausible brez counts and Resurrect events carry a top-level `timestamp`.
+3. `[RaidLens][Dissonance]` lists BOTH realm guids if the table reports two, and Dissonance events carry a *player* `sourceID` (the oldest open Step 10 assumption).
+4. `[RaidLens][RaidWideFilter]` — confirm Alndust Essence / Corrupted Devastation now appear on non-tank cards.
+5. Avoidable damage events carry `absorbed` separate from `amount`; the fast-path table total's absorbed handling.
+6. Stub-boss ability classifications (Rending Tear spelling, Light/Void Dive as one ability vs two) when Voidspire / March on Quel'Danas logs exist.

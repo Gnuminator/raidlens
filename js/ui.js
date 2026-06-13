@@ -21,9 +21,14 @@ function extractCode(url) {
   return m ? m[1] : null;
 }
 
+// Escape external strings (player names, ability names from WCL) before interpolating
+// into innerHTML.
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
 function fmt(n) {
   if (n >= 1e9) return (n/1e9).toFixed(1) + 'B';
-  if (n >= 1e6) return (n/1e6).toFixed(1) + 'M';
+  // Values that would round up to 1000k promote to the M tier (avoids "1000k").
+  if (n >= 1e6 || Math.round(n/1e3) >= 1000) return (n/1e6).toFixed(1) + 'M';
   if (n >= 1e3) return Math.round(n/1e3) + 'k';
   return String(Math.round(n));
 }

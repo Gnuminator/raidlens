@@ -13,12 +13,17 @@ async function loadRefKill() {
 
   try {
     const q1 = `query($code:String!){reportData{report(code:$code){
-      fights(killType:All){id,startTime,endTime,kill,encounterID}
+      fights(killType:All){id,name,startTime,endTime,kill,encounterID}
     }}}`;
     const d1 = await wclQuery(q1, { code });
     const fight = (d1.reportData.report.fights || []).find(f => f.id === fightId);
     if (!fight) { statusEl.textContent = `Fight ID ${fightId} not found in that report.`; statusEl.style.color = 'var(--danger)'; return; }
     if (!fight.kill) { statusEl.textContent = `Fight ${fightId} is not a kill. Please use a kill.`; statusEl.style.color = 'var(--warn)'; return; }
+    if (currentEncounterId && fight.encounterID !== currentEncounterId) {
+      statusEl.textContent = `Fight ${fightId} is "${fight.name}" — a different boss than the selected encounter. Reference kill not loaded.`;
+      statusEl.style.color = 'var(--danger)';
+      return;
+    }
 
     const q2 = `query($code:String!,$start:Float!,$end:Float!,$fightIds:[Int]!){reportData{report(code:$code){
       table(startTime:$start,endTime:$end,fightIDs:$fightIds,dataType:DamageTaken,killType:All)
@@ -48,11 +53,16 @@ async function loadRefKill() {
 }
 
 async function loadReport() {
+  if (analysisRunning) { showError('Analysis already in progress — wait for it to finish before loading a report.'); return; }
   clearError();
   document.getElementById('resultsSection').classList.add('hidden');
   document.getElementById('fightSection').classList.add('hidden');
   document.getElementById('pullSection').classList.add('hidden');
   document.getElementById('analyzeSection').classList.add('hidden');
+  // deepSection uses inline display, not the hidden class
+  document.getElementById('deepSection').style.display = 'none';
+  selectedPulls = new Set();
+  currentEncounterId = null;
   accessToken = null;
 
   const url = document.getElementById('reportUrl').value.trim();
@@ -121,6 +131,8 @@ function onFightChange() {
   document.getElementById('analyzeSection').classList.remove('hidden');
   document.getElementById('refKillSection').classList.remove('hidden');
   document.getElementById('resultsSection').classList.add('hidden');
+  // deepSection uses inline display, not the hidden class
+  document.getElementById('deepSection').style.display = 'none';
   refKillAbilities = null;
   document.getElementById('refKillStatus').textContent = '';
   document.getElementById('refKillStatus').style.color = 'var(--muted)';
@@ -129,7 +141,8 @@ function onFightChange() {
 function renderPullTags(pulls) {
   const container = document.getElementById('pullTags');
   container.innerHTML = '';
-  pulls.forEach((f, i) => {
+  // Sort by startTime so the P# labels match analyze.js's encounter ordinal exactly.
+  [...pulls].sort((a, b) => a.startTime - b.startTime).forEach((f, i) => {
     const tag = document.createElement('span');
     const isKill = f.kill;
     // fightPercentage = boss HP remaining (e.g. 19 means boss was at 19% HP remaining)

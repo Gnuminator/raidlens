@@ -7,7 +7,14 @@ function buildPlayerList(playerStats) {
   const raidWideAbilities = new Set(
     Object.entries(abilityPlayerCount).filter(([, count]) => count >= numPlayers * 0.5).map(([ab]) => ab)
   );
-  const selfInflictedAbilities = new Set(['Burning Rush', 'Life Tap', 'Demon Skin', 'Blood Barrier', 'Crimson Scourge', 'Death Strike', 'Frenzied Regeneration']);
+  console.log('[RaidLens][RaidWideFilter] classified raid-wide:', [...raidWideAbilities]);
+  // Confirmed avoidable mechanics from boss knowledge are exempt from the raid-wide
+  // heuristic — across a long night nearly everyone gets clipped once, which would
+  // otherwise hide the exact abilities this tool exists to surface.
+  const bossFightBK = allFights.find(f => f.encounterID === currentEncounterId);
+  const bossMetaBK = BOSS_KNOWLEDGE_META[bossFightBK ? bossFightBK.name : ''] || {};
+  const confirmedAvoidable = new Set(Object.values(bossMetaBK.avoidableSpellIds || {}));
+  (bossMetaBK.dissonanceAbilityNames || []).forEach(nm => confirmedAvoidable.add(nm));
   const tankSpecs = new Set(['Brewmaster', 'Protection', 'Blood', 'Vengeance', 'Guardian']);
   const tankOnlyAbilities = new Set(['Melee', 'Stagger', 'Auto Attack', 'Melee Attack']);
   const tankNames = new Set(actors.filter(a => tankSpecs.has(a.subType)).map(a => a.name));
@@ -26,10 +33,11 @@ function buildPlayerList(playerStats) {
       const isTank = tankNames.has(name);
       const spec = playerSpecMap[name] || 'Unknown';
       const relevantAbilities = Object.entries(s.abilityDmg)
-        .filter(([ab]) => isTank || (!raidWideAbilities.has(ab) && !tankOnlyAbilities.has(ab) && !selfInflictedAbilities.has(ab)))
+        .filter(([ab]) => isTank || ((!raidWideAbilities.has(ab) || confirmedAvoidable.has(ab)) && !tankOnlyAbilities.has(ab) && !selfInflictedAbilitiesGlobal.has(ab)))
         .sort((a,b) => b[1].total - a[1].total).slice(0, 6)
         .map(([ab, d]) => ({ name: ab, total: d.total, pulls: d.pulls }));
       const topAbilities = Object.entries(s.abilityDmg)
+        .filter(([ab]) => !selfInflictedAbilitiesGlobal.has(ab))
         .sort((a,b) => b[1].total - a[1].total).slice(0, 6)
         .map(([ab, d]) => ({ name: ab, total: d.total, pulls: d.pulls }));
       return { name, spec, isTank, ...s, topAbilities, relevantAbilities, pullDetail: s.pullDetail || [] };
@@ -48,6 +56,7 @@ function renderResults(players, numPulls, isDeep = false) {
   renderPlayerTable(players, numPulls, isDeep);
   document.getElementById('resultsSection').classList.remove('hidden');
   document.getElementById('aiOutput').textContent = 'Waiting for Claude analysis...';
+  document.getElementById('tokenUsage').textContent = '';
 
   const deepSection = document.getElementById('deepSection');
   if (deepSection) {
@@ -65,6 +74,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
   const bossFlForInt = allFights.find(f => f.encounterID === currentEncounterId);
   const bossNmForInt = bossFlForInt ? bossFlForInt.name : '';
   const hasInterruptTracking = Object.keys((BOSS_KNOWLEDGE_META[bossNmForInt] || {}).interruptTargetSpellIds || {}).length > 0;
+  const nonAvoidable = BOSS_NON_AVOIDABLE[bossNmForInt] || new Set();
   const hasDefensiveTracking = players.some(p => (p.pullDetail || []).some(pd => Array.isArray(pd.defensives)));
   const colDefs = ['44px', '80px', '68px', '1fr'];
   if (hasInterruptTracking) colDefs.push('90px');
@@ -73,22 +83,19 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
 
   const rows = players.map((p, i) => {
     const [fg, bg] = colors[i % colors.length];
-    const initials = p.name.slice(0,2).toUpperCase();
+    const initials = esc(p.name.slice(0,2).toUpperCase());
     const deathBadge = p.deaths === 0 ? '' :
       p.deaths >= 5 ? `<span class="badge badge-danger">${p.deaths}x death</span>` :
       p.deaths >= 2 ? `<span class="badge badge-warn">${p.deaths}x death</span>` :
       `<span class="badge">${p.deaths}x death</span>`;
     const tankBadge = p.isTank ? `<span class="badge" style="background:rgba(74,158,218,0.15);color:#4a9eda;border:1px solid rgba(74,158,218,0.3);">Tank</span>` : '';
-    const specLabel = p.spec && p.spec !== 'Unknown' ? `<span style="font-size:11px;color:var(--muted);margin-left:4px;">${p.spec}</span>` : '';
-    const bossFightLocal = allFights.find(f => f.encounterID === currentEncounterId);
-    const bossNameLocal = bossFightLocal ? bossFightLocal.name : '';
-    const nonAvoidable = BOSS_NON_AVOIDABLE[bossNameLocal] || new Set();
+    const specLabel = p.spec && p.spec !== 'Unknown' ? `<span style="font-size:11px;color:var(--muted);margin-left:4px;">${esc(p.spec)}</span>` : '';
     const displayAb = p.isTank
       ? p.topAbilities.find(a => !nonAvoidable.has(a.name)) || null
       : p.relevantAbilities.find(a => !nonAvoidable.has(a.name)) || null;
     const topAb = p.isTank
-      ? (displayAb ? `Top non-tank dmg: ${displayAb.name} — ${fmt(displayAb.total)} over ${displayAb.pulls} pull${displayAb.pulls !== 1 ? 's' : ''}` : 'Tank damage profile normal')
-      : (displayAb ? `Top avoidable: ${displayAb.name} — ${fmt(displayAb.total)} over ${displayAb.pulls} pull${displayAb.pulls !== 1 ? 's' : ''}` : 'No notable avoidable damage');
+      ? (displayAb ? `Top non-tank dmg: ${esc(displayAb.name)} — ${fmt(displayAb.total)} over ${displayAb.pulls} pull${displayAb.pulls !== 1 ? 's' : ''}` : 'Tank damage profile normal')
+      : (displayAb ? `Top avoidable: ${esc(displayAb.name)} — ${fmt(displayAb.total)} over ${displayAb.pulls} pull${displayAb.pulls !== 1 ? 's' : ''}` : 'No notable avoidable damage');
     const attendance = p.pulls < numPulls ? `<span style="color:var(--warn);">${p.pulls}/${numPulls} pulls</span>` : `${p.pulls}/${numPulls} pulls`;
     const interruptLine = hasInterruptTracking && p.interruptStats
       ? `<div style="font-size:11px;color:var(--muted);margin-top:2px;">Interrupts: <span style="color:var(--ok);">${p.interruptStats.totalLanded}</span> landed across ${p.pulls} pull${p.pulls !== 1 ? 's' : ''}</div>`
@@ -120,21 +127,34 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
         avoidableContent = Object.entries(hitsByAbility).map(([ab, hits]) => {
           const hitList = hits.map(h => {
             const deadNote = h.deadAtTime >= 3
-              ? `<span style="color:var(--muted);font-size:10px;margin-left:2px;" title="${h.deadAtTime} players already dead at this point">⚠${h.deadAtTime}dead</span>`
+              ? `<span style="color:var(--warn);font-size:11px;margin-left:2px;" title="${h.deadAtTime} players already dead at this point">⚠${h.deadAtTime}dead</span>`
               : '';
             return `<span style="margin-right:8px;white-space:nowrap;font-size:11px;background:rgba(200,155,60,0.08);border-radius:3px;padding:1px 4px;">${fmtTs(h.timestamp)} <span style="color:var(--text);font-weight:500;">${fmt(h.amount)}</span>${deadNote}</span>`;
           }).join('');
-          return `<div style="margin-bottom:5px;"><span style="color:var(--accent);font-size:11px;font-weight:500;">⏱ ${ab}</span> <span style="color:var(--muted);font-size:11px;">→</span> ${hitList}</div>`;
+          return `<div style="margin-bottom:5px;"><span style="color:var(--accent);font-size:11px;font-weight:500;">⏱ ${esc(ab)}</span> <span style="color:var(--muted);font-size:11px;">→</span> ${hitList}</div>`;
         }).join('');
+        // Aggregated avoidable entries (fast-path data) not covered by the deep-tracked
+        // spell IDs — per the column legend, no-⏱ entries are aggregated totals.
+        const hitAbilityNames = new Set(pd.hits.map(h => h.ability));
+        avoidableContent += avoidableFiltered.filter(a => !hitAbilityNames.has(a.name)).map(a =>
+          `<span style="display:inline-flex;gap:5px;margin-right:16px;white-space:nowrap;margin-bottom:2px;">` +
+          `<span style="color:var(--danger);">${esc(a.name)}</span>` +
+          `<span style="color:var(--text);font-weight:500;">${fmt(a.total)}</span>` +
+          `</span>`).join('');
         if (!avoidableContent) avoidableContent = `<span style="color:var(--muted);font-style:italic;">Clean</span>`;
       } else {
         avoidableContent = avoidableFiltered.length > 0
           ? avoidableFiltered.map(a =>
               `<span style="display:inline-flex;gap:5px;margin-right:16px;white-space:nowrap;margin-bottom:2px;">` +
-              `<span style="color:var(--danger);">${a.name}</span>` +
+              `<span style="color:var(--danger);">${esc(a.name)}</span>` +
               `<span style="color:var(--text);font-weight:500;">${fmt(a.total)}</span>` +
               `</span>`).join('')
           : `<span style="color:var(--muted);font-style:italic;">Clean</span>`;
+      }
+      if (isDeep && pd.dissonance && pd.dissonance.events && pd.dissonance.events.length > 0) {
+        avoidableContent += pd.dissonance.events.map(ev =>
+          `<span style="display:block;font-size:11px;white-space:nowrap;color:${ev.role === 'source' ? 'var(--danger)' : 'var(--warn)'};">🔊 ${fmtTs(ev.timestamp)} ${ev.role === 'source' ? 'caused' : 'took'} ${fmt(ev.amount)} ${ev.role === 'source' ? 'to' : 'from'} ${esc(ev.other)}</span>`
+        ).join('');
       }
 
       const phaseLabel = pd.isKill
@@ -146,7 +166,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
         const myPI = pd.interrupts && pd.interrupts.perPlayer && pd.interrupts.perPlayer[p.name];
         if (isDeep && myPI && myPI.events && myPI.events.length > 0) {
           interruptCell = myPI.events.map(ev =>
-            `<span style="display:block;font-size:11px;white-space:nowrap;color:var(--ok);">⚡${fmtTs(ev.timestamp)} ${ev.ability}</span>`
+            `<span style="display:block;font-size:11px;white-space:nowrap;color:var(--ok);">⚡${fmtTs(ev.timestamp)} ${esc(ev.ability)}</span>`
           ).join('');
         } else {
           const count = myPI ? myPI.landed : 0;
@@ -163,7 +183,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
           const diedNoDef = pd.died && myDef.length === 0;
           if (isDeep && myDef.length > 0) {
             defensiveCell = myDef.map(d =>
-              `<span style="display:block;font-size:11px;white-space:nowrap;color:var(--ok);">🛡${fmtTs(d.timestamp)} ${d.name}</span>`
+              `<span style="display:block;font-size:11px;white-space:nowrap;color:var(--ok);">🛡${fmtTs(d.timestamp)} ${esc(d.name)}</span>`
             ).join('');
           } else {
             const dc = myDef.length;
@@ -187,7 +207,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
       <div class="player-row" style="cursor:pointer;user-select:none;" onclick="toggleExpand('${rowId}')">
         <div class="avatar" style="background:${bg};color:${fg};">${initials}</div>
         <div class="player-info">
-          <div class="player-name">${p.name}${tankBadge}${specLabel}${deathBadge}</div>
+          <div class="player-name">${esc(p.name)}${tankBadge}${specLabel}${deathBadge}</div>
           <div class="player-detail">${topAb}</div>
           <div style="font-size:11px;color:var(--muted);margin-top:2px;">${attendance}</div>
           ${interruptLine}
@@ -200,7 +220,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
         </div>
         <div style="margin-left:10px;color:var(--muted);font-size:11px;flex-shrink:0;" id="${rowId}-chevron">▶</div>
       </div>
-      <div id="${rowId}" style="display:none;padding:8px 12px 6px 52px;background:var(--surface2);border-radius:var(--radius);margin:-4px 0 6px;">
+      <div id="${rowId}" data-player="${esc(p.name)}" style="display:none;padding:8px 12px 6px 52px;background:var(--surface2);border-radius:var(--radius);margin:-4px 0 6px;">
         <div style="display:grid;grid-template-columns:${gridCols};gap:0;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:2px;">
           <span>Pull</span><span>Phase</span><span style="text-align:right;padding-right:16px;">Total</span>
           <span>Avoidable${isDeep ? ` <span style="font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px;color:var(--accent);">⏱ = timestamped hits &nbsp;·&nbsp; no ⏱ = aggregated total</span>` : ''}</span>
@@ -211,8 +231,23 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
       </div>`;
   }).join('');
 
-  document.getElementById('playerTableCard').innerHTML = `
+  // Preserve expanded rows across rebuilds (progressive fast renders + deep re-render).
+  // Keyed by player name, not row index — sort order can shift between rebuilds.
+  const card = document.getElementById('playerTableCard');
+  const openPlayers = new Set();
+  card.querySelectorAll('[data-player]').forEach(el => {
+    if (el.style.display !== 'none') openPlayers.add(el.dataset.player);
+  });
+
+  card.innerHTML = `
     <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">
       Click a player to expand &mdash; ${isDeep ? 'Deep mode: per-hit timestamps shown' : 'Fast mode: aggregated per pull'}
     </div>${rows}`;
+
+  card.querySelectorAll('[data-player]').forEach(el => {
+    if (!openPlayers.has(el.dataset.player)) return;
+    el.style.display = 'block';
+    const chevron = document.getElementById(el.id + '-chevron');
+    if (chevron) chevron.textContent = '▼';
+  });
 }
