@@ -246,3 +246,34 @@ All 9 JS files pass `node --check`; cross-file contracts (`selfInflictedAbilitie
 4. `[RaidLens][RaidWideFilter]` — confirm Alndust Essence / Corrupted Devastation now appear on non-tank cards.
 5. Avoidable damage events carry `absorbed` separate from `amount`; the fast-path table total's absorbed handling.
 6. Stub-boss ability classifications (Rending Tear spelling, Light/Void Dive as one ability vs two) when Voidspire / March on Quel'Danas logs exist.
+
+---
+
+## Local log parser v2 — comprehensive re-parse (2026-06-26)
+
+`parse-logs.js` was rewritten. The v1 report (`spell-id-report.json`) had two flaws Christian caught: it mislabeled friendly effects as boss damage, and it was too thin to classify mechanics. Both were root-caused in the logs (`Logfiles/`, gitignored) before changing code, per the "instrument, don't guess" rule.
+
+### Root cause of the mislabeling (FIXED)
+v1 classified a damage source as boss vs player by checking whether the source **GUID** started with `Player-`. That is wrong:
+- `Shadow Word: Death` (32409) recoil logs with a **nil source GUID** (`0000000000000000`) but source **flags** `0x514` (bit `0x10` = `REACTION_FRIENDLY`, `0x400` = `TYPE_PLAYER`). It's the priest's own recoil.
+- `Spirit Link` (98021) is sourced by the **Spirit Link Totem** (`Creature-` GUID, flags `0x2114`, friendly guardian).
+- Even Shadow Priest `Dread Shade` guardian damage (flags `0x2112`) looks like a `Creature-` boss to v1.
+
+v2 classifies by the **flags reaction bit** (`FRIENDLY 0x10` / `HOSTILE 0x40` / `NEUTRAL 0x20`), not the GUID prefix. Friendly/self/pet/totem damage now goes to a `friendlyNoise` bucket and is excluded from `boss`. **This same noise (Shadow Word: Death, Spirit Link) is unsuppressed on the live Chimaerus in `boss-knowledge.js` today** — they can false-flag as avoidable; fix in the next session's stub-fill pass.
+
+### What v2 captures (was: only SPELL_DAMAGE/_PERIODIC_DAMAGE, first-seen only)
+Per encounter+difficulty, aggregated (not first-seen): damage hits + **distinct players hit** + best-effort total; **avoided** counts by type (DODGE/PARRY/MISS/IMMUNE/ABSORB — a *dodged* boss spell is the strongest avoidable signal); fully-**absorbed** hits (`SPELL_ABSORBED`); enemy **casts** (`SPELL_CAST_START`/`_SUCCESS` — the only place interrupt-target cast IDs live); confirmed **interrupts** (`SPELL_INTERRUPT`, interrupted spell = `extraSpellId` at field **12**, not 15 — a smoke-test caught this off-by-3); debuff **auras** on players (`SPELL_AURA_APPLIED ... DEBUFF` — non-damaging mechanics); melee (`SWING_*`) and `ENVIRONMENTAL_DAMAGE`. Output schema per boss/diff: `{ encounterId, pulls, rosterSeen, boss{}, environment{}, friendlyNoise{} }`. The human `.txt` annotates each boss spell with hints (`INTERRUPTABLE`, `AVOIDABLE(dodged)`, `raid-wide`, `targeted/partial`, `debuff-only`).
+
+### Log-format facts (build 12.0.x)
+- Line = `M/D/YYYY HH:MM:SS.ssss<2 spaces>EVENT,...`. Advanced logging varies by file (`COMBAT_LOG_VERSION,...,ADVANCED_LOG_ENABLED,0/1`); the advanced-param block is 19 fields in 12.0.7 and is detected from the first `SPELL_CAST_SUCCESS` (= 12 prefix fields + advLen). Damage amount = field `12+advLen`.
+- `parse-logs.js` now accepts optional file-path args (`node parse-logs.js <file>`) for smoke tests; no args = all of `Logfiles/`. The 66-file / ~48M-line run takes well under a minute; report grew 59 KB → ~469 KB.
+
+### Re-parse confirmed (re: open assumptions)
+- **Dissonance** (Chimaerus Mythic) deals damage under TWO ids (1267201, 1268666), both **player-sourced** — resolves the long-open Step 10 assumption that the source is a player, not the boss.
+- Midnight Falls has its own **boss-sourced** "Dissonance" (1249585) — unrelated to Chimaerus's player-sourced proximity Dissonance; must NOT get `dissonanceAbilityNames`.
+
+### DEFERRED to next session: fill the 8 stub bosses
+Not done this session (we pivoted to fixing the parser first). The richer v2 report now supports it well (e.g. Belo'ren Mythic: 44 boss spells, 20 dodge-confirmed, 4 interrupted, 14 debuffs). Findings to apply:
+- **Name reconciliations required** — the code matches `BOSS_KNOWLEDGE*[fight.name]` by exact string, and three stub keys don't match the real WCL names: `'Vaelgor and Ezzorak'`→`'Vaelgor & Ezzorak'`, `'Fallen King Salhadaar'`→`'Fallen-King Salhadaar'`, `"Belo'ren"`→`"Belo'ren, Child of Al'ar"`. The Belo'ren one **reverses the 2026-06-08 decision** (which assumed bare "Belo'ren") — the real logs show the full subtitle is the encounter name. Recommend switching the lookup to **encounter ID** (robust; names are fragile) as a follow-up.
+- **Rotmire** (enc 3159, Heroic + Diff-233, fungal-themed) is in the logs but NOT a stub and fits neither Voidspire nor March on Quel'Danas — Christian to decide whether to add it (needs a guide/tier; don't fabricate).
+- Avoidable IDs should be cross-checked against v2's `avoided`/`dodge` and `interrupted` data, not guide text alone.
