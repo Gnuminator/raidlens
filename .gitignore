@@ -8,6 +8,14 @@
 # header). Never commit; regenerate on demand. See DECISIONS.md.
 _simc_raid.html
 
+# Raw WoW combat logs (~14 GB) — local development resource for spell ID
+# discovery and parser testing. Never commit; too large and personal.
+Logfiles/
+
+# Parser output — derived from Logfiles/, regenerate with: node parse-logs.js
+spell-id-report.txt
+spell-id-report.json
+
 # OS / editor cruft
 Thumbs.db
 .DS_Store
