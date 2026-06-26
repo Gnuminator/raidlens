@@ -56,6 +56,20 @@
         </div>
         <button class="primary" onclick="loadReport()">Load report &rarr;</button>
       </div>
+
+      <div style="display:flex;align-items:center;gap:10px;margin:16px 0 12px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;">
+        <span style="flex:1;height:1px;background:var(--border);"></span>
+        or analyze a local log — no WarcraftLogs needed
+        <span style="flex:1;height:1px;background:var(--border);"></span>
+      </div>
+
+      <label>Local combat log file <span style="font-size:10px;color:var(--muted);font-weight:400;letter-spacing:0;">(WoWCombatLog-*.txt — parsed in your browser, never uploaded)</span></label>
+      <div class="input-row">
+        <div>
+          <input type="file" id="localLogFile" accept=".txt,text/plain" />
+        </div>
+        <button class="primary" onclick="loadLocalLog()">Load local log &rarr;</button>
+      </div>
     </div>
   </div>
 
@@ -159,6 +173,7 @@
 <!-- Load order matters: constants before functions that reference them -->
 <script src="js/boss-knowledge.js"></script>
 <script src="js/globals.js"></script>
+<script src="js/local-log.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/wcl-api.js"></script>
 <script src="js/ui.js"></script>

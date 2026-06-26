@@ -68,6 +68,8 @@ async function loadReport() {
   const url = document.getElementById('reportUrl').value.trim();
   reportCode = extractCode(url);
   if (!reportCode) { showError('Could not find a report code in that URL. It should look like /reports/AbCdEfGh'); return; }
+  dataSource = 'wcl';
+  dataProvider = WCL_PROVIDER;
 
   showStatus('Authenticating with WarcraftLogs...');
   try { accessToken = await getToken(); } catch(e) { hideStatus(); showError(e.message); return; }
@@ -103,21 +105,94 @@ async function loadReport() {
       } catch(e) { console.warn('Could not load masterData actors:', e.message); }
     }
 
-    const bossMap = {};
-    allFights.forEach(f => { if (!bossMap[f.encounterID]) bossMap[f.encounterID] = f.name; });
-
-    const sel = document.getElementById('fightSelect');
-    sel.innerHTML = '<option value="">-- choose a boss --</option>';
-    Object.entries(bossMap).forEach(([id, name]) => {
-      const opt = document.createElement('option');
-      opt.value = id; opt.textContent = name;
-      sel.appendChild(opt);
-    });
-
-    document.getElementById('fightSection').classList.remove('hidden');
-    hideStatus();
-    if (Object.keys(bossMap).length === 0) showError('No boss fights found in this report.');
+    populateFightUI();
   } catch(e) { hideStatus(); showError('Failed to load report: ' + e.message); }
+}
+
+// Populate the boss dropdown from allFights (source-agnostic — WCL or local).
+function populateFightUI() {
+  const bossMap = {};
+  allFights.forEach(f => { if (!bossMap[f.encounterID]) bossMap[f.encounterID] = f.name; });
+
+  const sel = document.getElementById('fightSelect');
+  sel.innerHTML = '<option value="">-- choose a boss --</option>';
+  Object.entries(bossMap).forEach(([id, name]) => {
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = name;
+    sel.appendChild(opt);
+  });
+
+  document.getElementById('fightSection').classList.remove('hidden');
+  hideStatus();
+  if (Object.keys(bossMap).length === 0) showError('No boss fights found.');
+}
+
+// Stream a local File line-by-line without holding it all in memory; yields to the
+// event loop periodically so the tab stays responsive and progress updates.
+async function streamFileLines(file, onLine, onProgress) {
+  const reader = file.stream().pipeThrough(new TextDecoderStream()).getReader();
+  let buf = '', count = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += value;
+    let nl;
+    while ((nl = buf.indexOf('\n')) !== -1) {
+      onLine(buf.slice(0, nl));
+      buf = buf.slice(nl + 1);
+      if ((++count % 100000) === 0) { onProgress(count); await new Promise(r => setTimeout(r)); }
+    }
+  }
+  if (buf.length) onLine(buf);
+  onProgress(count);
+}
+
+// Local-log path: parse a WoWCombatLog .txt in the browser and use it as the data
+// provider, no WarcraftLogs account needed. Mirrors loadReport's reset + fight UI.
+async function loadLocalLog() {
+  if (analysisRunning) { showError('Analysis already in progress — wait before loading a log.'); return; }
+  const input = document.getElementById('localLogFile');
+  const file = input && input.files && input.files[0];
+  if (!file) { showError('Choose a WoWCombatLog .txt file first.'); return; }
+
+  clearError();
+  document.getElementById('resultsSection').classList.add('hidden');
+  document.getElementById('fightSection').classList.add('hidden');
+  document.getElementById('pullSection').classList.add('hidden');
+  document.getElementById('analyzeSection').classList.add('hidden');
+  document.getElementById('refKillSection').classList.add('hidden'); // reference kill is WCL-only
+  document.getElementById('deepSection').style.display = 'none';
+  selectedPulls = new Set();
+  currentEncounterId = null;
+
+  // Defensive spell-ID union across all specs, so friendly defensive casts are captured.
+  const defIds = new Set();
+  if (typeof DEFENSIVE_SPELL_IDS !== 'undefined') {
+    Object.values(DEFENSIVE_SPELL_IDS).forEach(map => Object.keys(map).forEach(id => defIds.add(Number(id))));
+  }
+
+  const report = createLocalReport({ defensiveIds: defIds });
+  showStatus('Reading local log…');
+  try {
+    await streamFileLines(file, line => report.processLine(line), n => {
+      const el = document.getElementById('statusText');
+      if (el) el.textContent = `Parsing local log… ${n.toLocaleString()} lines`;
+    });
+    report.finalize();
+
+    localReport = report;
+    dataProvider = report;       // local provider implements the same fetch* interface
+    dataSource = 'local';
+    reportCode = 'local:' + file.name;
+    allFights = report.getFights().filter(f => f.encounterID && f.encounterID > 0);
+    actors = report.getActors();
+    console.log(`[RaidLens][Local] parsed ${allFights.length} fights, ${actors.length} players from ${file.name}`);
+    populateFightUI();
+  } catch(e) {
+    hideStatus();
+    showError('Failed to parse local log: ' + e.message);
+    console.error('[RaidLens][Local] parse error', e);
+  }
 }
 
 function onFightChange() {
@@ -129,7 +204,8 @@ function onFightChange() {
   renderPullTags(pulls);
   document.getElementById('pullSection').classList.remove('hidden');
   document.getElementById('analyzeSection').classList.remove('hidden');
-  document.getElementById('refKillSection').classList.remove('hidden');
+  // Reference kill uses the WCL API — only offer it in WCL mode.
+  document.getElementById('refKillSection').classList.toggle('hidden', dataSource !== 'wcl');
   document.getElementById('resultsSection').classList.add('hidden');
   // deepSection uses inline display, not the hidden class
   document.getElementById('deepSection').style.display = 'none';

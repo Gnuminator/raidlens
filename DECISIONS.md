@@ -277,3 +277,24 @@ Not done this session (we pivoted to fixing the parser first). The richer v2 rep
 - **Name reconciliations required** — the code matches `BOSS_KNOWLEDGE*[fight.name]` by exact string, and three stub keys don't match the real WCL names: `'Vaelgor and Ezzorak'`→`'Vaelgor & Ezzorak'`, `'Fallen King Salhadaar'`→`'Fallen-King Salhadaar'`, `"Belo'ren"`→`"Belo'ren, Child of Al'ar"`. The Belo'ren one **reverses the 2026-06-08 decision** (which assumed bare "Belo'ren") — the real logs show the full subtitle is the encounter name. Recommend switching the lookup to **encounter ID** (robust; names are fragile) as a follow-up.
 - **Rotmire** (enc 3159, Heroic + Diff-233, fungal-themed) is in the logs but NOT a stub and fits neither Voidspire nor March on Quel'Danas — Christian to decide whether to add it (needs a guide/tier; don't fabricate).
 - Avoidable IDs should be cross-checked against v2's `avoided`/`dodge` and `interrupted` data, not guide text alone.
+
+---
+
+## Platform direction + local analysis engine (2026-06-26, later)
+
+### Platform vision drafted (multi-agent swarm)
+`PLATFORM_VISION.md` (+ `PLATFORM_VISION_RESEARCH.md` appendices) capture the long-term goal: evolve RaidLens into an AI-native WoW analytics platform fusing WarcraftLogs / Wipefest / WoWAnalyzer / QuestionablyEpic / Raider.IO / Archon. Strategic spine: don't fight RPGLogs' data moat (they own WCL + WoWAnalyzer + Archon) — own the **AI coaching layer**; AI sidesteps the ranking cold-start (judge pulls qualitatively from log #1); **integrate, don't build** (video→WarcraftRecorder, sims→SimC/Raidbots, healer→QE). **Hosting is explicitly LAST** — Christian's priority order is local client + core engine first.
+
+### Build order set by Christian: (3) local engine → (2) upgrade core → (1) fill stubs
+Working the local-log analysis engine first (WCL-independent core), then analysis-quality upgrades, then the 8 stub bosses.
+
+### Local-log analysis engine — Slices 1 & 2 (DONE, committed)
+`js/local-log.js` parses a raw `WoWCombatLog.txt` (in-browser via File streaming, or Node) into the **same shapes the WCL provider returns**, so the existing `analyze.js`/`render.js`/`ai.js` run with **no WarcraftLogs account**.
+- **Provider seam:** `dataProvider` (globals.js) holds the per-fight fetchers; `WCL_PROVIDER` (set at the end of wcl-api.js) is the default; `loadLocalLog()` (report.js) swaps in the local provider. `analyze.js` + `runDeepAnalysis` now call `dataProvider.fetchX(...)` instead of bare WCL functions. WCL path behaviour unchanged.
+- **Parser:** classifies source by unit **FLAGS** (same as parse-logs.js v2). Builds `allFights` (id/name/encounterID/difficulty/kill/duration; `fightPercentage` null — combat logs don't carry boss HP%), `actors` (spec from `COMBATANT_INFO` field **25**), and per-fight fast-path datasets (damage-taken table incl. SWING→"Melee"; deaths from `UNIT_DIED` dest; resurrects from `SPELL_RESURRECT` dest; landed interrupts from `SPELL_INTERRUPT` extraSpellId=field 12; friendly defensive casts filtered to the `DEFENSIVE_SPELL_IDS` union; enemy `SPELL_CAST_SUCCESS`). The damage TABLE includes ALL damage to a player (matches WCL; self/raid-wide filtering stays in analyze.js).
+- **UI:** `index.html` Report card gained a "or analyze a local log" file picker; `js/local-log.js` script tag after globals.js. Reference-kill section hidden in local mode (WCL-only). In-browser parse streams the file (`streamFileLines`, yields every 100k lines) — never holds the whole file; Anthropic key still required for the debrief.
+- **Validated:** Node harness on a real Mythic night (Imperator/Salhadaar/Vorasius) — 1.74M lines/3.3s, 19 specs resolved, correct damage tables, 17 interrupts on `1254088` (Shadow Fracture). In-browser: Blob→parser produced fight+actor+table+death; page boots with no console errors.
+- **KEY FINDING — raw-log boss names ≠ WCL names.** The combat log says `Chimaerus the Undreamt God` (no comma) and `Fallen-King Salhadaar`; the knowledge maps are keyed by the WCL spellings. So `BOSS_KNOWLEDGE*[fight.name]` MISSES in local mode → boss-specific suppression/guide text/avoidable-IDs don't apply, and **local Deep is gated off** (needs `avoidableSpellIds`). The fix is the already-recommended **encounterID-based lookup** — now a prerequisite, and the first task of focus #2 (add `encounterId` to `BOSS_KNOWLEDGE_META`, look up by id everywhere). Fast-path avoidable still works via the raid-wide heuristic.
+
+### Slice 3 (in progress): local deep path
+`fetchAvoidableEvents` in local-log.js retains per-hit avoidable + Dissonance damage events (by avoidable-ID union / dissonance-name union, bounded) with `{timestamp, abilityGameID, sourceID, targetID, amount(=field 12+advLen), absorbed(=18+advLen)}`. End-to-end browser use awaits the encounterID-matching change above.

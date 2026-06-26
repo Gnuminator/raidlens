@@ -15,6 +15,14 @@ const selfInflictedAbilitiesGlobal = new Set(['Burning Rush', 'Life Tap', 'Demon
 
 let analysisRunning = false;
 
+// Data-source abstraction. analyze.js / runDeepAnalysis call dataProvider.fetchX(...)
+// instead of the bare WCL functions, so a parsed local combat log can stand in for the
+// WCL API with no downstream changes. WCL_PROVIDER is assigned in wcl-api.js (default);
+// loadLocalLog() in report.js swaps in the local-log provider.
+let dataProvider = null;
+let dataSource = 'wcl';   // 'wcl' | 'local'
+let localReport = null;   // the createLocalReport() instance when dataSource === 'local'
+
 // Keyed by `${reportCode}-${encounterId}-${pullIds.join(',')}`
 const analysisCache = {};
 

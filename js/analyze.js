@@ -89,11 +89,11 @@ async function analyze() {
         // tracking. Boss/add casts only appear with hostilityType:Enemies — fetched
         // separately for missed/overlap interrupt detection.
         const [dmgData, deaths, interruptData, castData, enemyCastData] = await Promise.all([
-          fetchDmgTable(fight),
-          fetchDeaths(fight),
-          interruptSpellIds.length > 0 ? fetchInterruptEvents(fight) : Promise.resolve([]),
-          defensiveSpellIds.length > 0 ? fetchCastEvents(fight, defensiveSpellIds) : Promise.resolve([]),
-          interruptSpellIds.length > 0 ? fetchEnemyCastEvents(fight, interruptSpellIds) : Promise.resolve([])
+          dataProvider.fetchDmgTable(fight),
+          dataProvider.fetchDeaths(fight),
+          interruptSpellIds.length > 0 ? dataProvider.fetchInterruptEvents(fight) : Promise.resolve([]),
+          defensiveSpellIds.length > 0 ? dataProvider.fetchCastEvents(fight, defensiveSpellIds) : Promise.resolve([]),
+          interruptSpellIds.length > 0 ? dataProvider.fetchEnemyCastEvents(fight, interruptSpellIds) : Promise.resolve([])
         ]);
         const playersInPull = new Set();
         const pullSnapshot = {};
@@ -327,7 +327,7 @@ async function runDeepAnalysis() {
       showStatus(`Deep fetch pull ${i+1} of ${uniqueFightIds.length}...`);
 
       try {
-        const deaths = await fetchDeaths(fight);
+        const deaths = await dataProvider.fetchDeaths(fight);
         deathTimelines[fid] = deaths
           .map(ev => ev.timestamp)
           .filter(t => t != null)
@@ -337,7 +337,7 @@ async function runDeepAnalysis() {
         // resurrects before the hit. A failed fetch falls back to deaths-only counting.
         let rezTimeline = [];
         try {
-          const rezzes = await fetchResurrects(fight);
+          const rezzes = await dataProvider.fetchResurrects(fight);
           rezTimeline = rezzes.map(ev => ev.timestamp).filter(t => t != null).sort((a,b) => a - b);
           console.log('[RaidLens][Rez] pull', fid, 'resurrect events:', rezzes.length);
         } catch(e) {
@@ -347,7 +347,7 @@ async function runDeepAnalysis() {
         // Fetch avoidable + Dissonance damage events in one paginated pass.
         const fetchSpellIds = { ...avoidableSpellIds };
         dissonanceSpellIds.forEach(id => { if (!fetchSpellIds[id]) fetchSpellIds[id] = 'Dissonance'; });
-        const events = await fetchAvoidableEvents(fight, fetchSpellIds);
+        const events = await dataProvider.fetchAvoidableEvents(fight, fetchSpellIds);
 
         const dissonanceLog = [];
         events.forEach(ev => {

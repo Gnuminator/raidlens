@@ -169,6 +169,7 @@ async function fetchEnemyCastEvents(fight, spellIds) {
   return allEvents;
 }
 
+// (WCL_PROVIDER is assembled at the bottom of this file, after all fetchers exist.)
 async function fetchAvoidableEvents(fight, spellIds) {
   const allEvents = [];
   let nextPageTimestamp = null;
@@ -191,3 +192,12 @@ async function fetchAvoidableEvents(fight, spellIds) {
   }
   return allEvents;
 }
+
+// The WCL data provider — the per-fight fetchers analyze.js calls through `dataProvider`.
+// A parsed local combat log (js/local-log.js) implements the same interface. Set as the
+// default here (declared in globals.js, which loads before this file).
+const WCL_PROVIDER = {
+  fetchDmgTable, fetchDeaths, fetchResurrects, fetchInterruptEvents,
+  fetchCastEvents, fetchEnemyCastEvents, fetchAvoidableEvents
+};
+dataProvider = WCL_PROVIDER;
