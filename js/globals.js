@@ -11,7 +11,11 @@ let refKillAbilities = null;
 let abilityGuidByName = {};
 
 const tankOnlyAbilitiesGlobal = new Set(['Melee', 'Stagger', 'Auto Attack', 'Melee Attack']);
-const selfInflictedAbilitiesGlobal = new Set(['Burning Rush', 'Life Tap', 'Demon Skin', 'Blood Barrier', 'Crimson Scourge', 'Death Strike', 'Frenzied Regeneration']);
+// Abilities that surface in a damage-taken table but are a player's own / a friendly's effect,
+// never a boss mechanic — excluded from avoidable detection on every boss. Shadow Word: Death
+// (priest self-recoil, logs with a nil source) and Spirit Link (Resto Shaman totem
+// redistribution) were confirmed mislabelled as boss damage by the v2 log parse.
+const selfInflictedAbilitiesGlobal = new Set(['Burning Rush', 'Life Tap', 'Demon Skin', 'Blood Barrier', 'Crimson Scourge', 'Death Strike', 'Frenzied Regeneration', 'Shadow Word: Death', 'Spirit Link']);
 
 let analysisRunning = false;
 

@@ -52,7 +52,7 @@ async function analyze() {
     // show), not the position within the selected subset.
     const encPulls = allFights.filter(f => f.encounterID === currentEncounterId).sort((a, b) => a.startTime - b.startTime);
     const bossFightForFilter = allFights.find(f => f.encounterID === currentEncounterId);
-    const bossNameForFilter = bossFightForFilter ? bossFightForFilter.name : '';
+    const bossNameForFilter = resolveBossKey(currentEncounterId, bossFightForFilter ? bossFightForFilter.name : '');
     const nonAvoidableForFilter = BOSS_NON_AVOIDABLE[bossNameForFilter] || new Set();
     const bossKnowledge = BOSS_KNOWLEDGE_META[bossNameForFilter] || {};
     const interruptSpellIds = Object.keys(bossKnowledge.interruptTargetSpellIds || {}).map(Number);
@@ -262,7 +262,7 @@ async function runDeepAnalysis() {
   }
 
   const bossFight = allFights.find(f => f.encounterID === currentEncounterId);
-  const bossName = bossFight ? bossFight.name : '';
+  const bossName = resolveBossKey(currentEncounterId, bossFight ? bossFight.name : '');
   const bossKnowledge = BOSS_KNOWLEDGE_META[bossName] || {};
   const avoidableSpellIds = bossKnowledge.avoidableSpellIds || {};
 

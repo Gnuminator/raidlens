@@ -12,7 +12,7 @@ function buildPlayerList(playerStats) {
   // heuristic — across a long night nearly everyone gets clipped once, which would
   // otherwise hide the exact abilities this tool exists to surface.
   const bossFightBK = allFights.find(f => f.encounterID === currentEncounterId);
-  const bossMetaBK = BOSS_KNOWLEDGE_META[bossFightBK ? bossFightBK.name : ''] || {};
+  const bossMetaBK = BOSS_KNOWLEDGE_META[resolveBossKey(currentEncounterId, bossFightBK ? bossFightBK.name : '')] || {};
   const confirmedAvoidable = new Set(Object.values(bossMetaBK.avoidableSpellIds || {}));
   (bossMetaBK.dissonanceAbilityNames || []).forEach(nm => confirmedAvoidable.add(nm));
   const tankSpecs = new Set(['Brewmaster', 'Protection', 'Blood', 'Vengeance', 'Guardian']);
@@ -72,7 +72,7 @@ function renderPlayerTable(players, numPulls, isDeep = false) {
   ];
 
   const bossFlForInt = allFights.find(f => f.encounterID === currentEncounterId);
-  const bossNmForInt = bossFlForInt ? bossFlForInt.name : '';
+  const bossNmForInt = resolveBossKey(currentEncounterId, bossFlForInt ? bossFlForInt.name : '');
   const hasInterruptTracking = Object.keys((BOSS_KNOWLEDGE_META[bossNmForInt] || {}).interruptTargetSpellIds || {}).length > 0;
   const nonAvoidable = BOSS_NON_AVOIDABLE[bossNmForInt] || new Set();
   const hasDefensiveTracking = players.some(p => (p.pullDetail || []).some(pd => Array.isArray(pd.defensives)));

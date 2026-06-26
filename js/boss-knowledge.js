@@ -3,6 +3,7 @@
 
 const BOSS_KNOWLEDGE_META = {
   'Chimaerus, the Undreamt God': {
+    encounterId: 3306,
     avoidableSpellIds: {
       1245919: 'Alndust Essence',
       1245486: 'Corrupted Devastation'
@@ -17,47 +18,67 @@ const BOSS_KNOWLEDGE_META = {
     dissonanceAbilityNames: ['Dissonance']
   },
 
-  // ── VOIDSPIRE (6) + MARCH ON QUEL'DANAS (2) — 8 later-tier bosses ────────────
-  // (The Dreamrift is a single-boss raid: Chimaerus only. The 8 below are scaffolded
-  // ahead of logs — 6 Voidspire encounters + 2 March on Quel'Danas encounters.)
-  // PENDING WCL VERIFICATION: boss name strings below are assumed to match WCL
-  // encounter names exactly. Verify against a real report for each raid.
-  // avoidableSpellIds and interruptTargetSpellIds are empty — no WCL-verified
-  // spell IDs yet. Add confirmed IDs here when logs are available.
+  // ── VOIDSPIRE + MARCH ON QUEL'DANAS — 8 later-tier bosses ────────────────────
+  // `encounterId` is WCL-verified from a real combat-log parse (spell-id-report.json) and is
+  // the PRIMARY match key: resolveBossKey() looks every boss map up by encounter id, so the
+  // name strings below are just internal labels. Raw combat logs and WCL spell some boss
+  // names differently (e.g. "Chimaerus the Undreamt God" vs the comma'd form); matching by
+  // id makes that irrelevant for both data sources. avoidableSpellIds /
+  // interruptTargetSpellIds are filled from the v2 parse (dodge-confirmed + interrupted).
 
   'Imperator Averzian': {
+    encounterId: 3176,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
   'Vorasius': {
+    encounterId: 3177,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
   'Vaelgor and Ezzorak': {
+    encounterId: 3178,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
   'Fallen King Salhadaar': {
+    encounterId: 3179,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
   'Lightblinded Vanguard': {
+    encounterId: 3180,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
   'Crown of the Cosmos': {
+    encounterId: 3181,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
   "Belo'ren": {
+    encounterId: 3182,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   },
   'Midnight Falls': {
+    encounterId: 3183,
     avoidableSpellIds: {},
     interruptTargetSpellIds: {}
   }
 };
+
+// Resolve the canonical boss-map key for an encounter by its WCL encounterId. All three boss
+// maps (BOSS_KNOWLEDGE_META, BOSS_NON_AVOIDABLE, BOSS_KNOWLEDGE) share one key per boss, so a
+// single id->key lookup drives every boss-knowledge access. encounterId never changes and is
+// identical in WCL reports and raw combat logs, so this works for both data sources and is
+// immune to name-spelling differences. Falls back to the given name for unmapped bosses.
+function resolveBossKey(encounterId, fallbackName) {
+  for (const key in BOSS_KNOWLEDGE_META) {
+    if (BOSS_KNOWLEDGE_META[key].encounterId === encounterId) return key;
+  }
+  return fallbackName || '';
+}
 
 // Abilities known to be non-avoidable or expected for this boss (by encounter name).
 // Used to suppress misleading "top avoidable" labels in the player card UI.
@@ -69,7 +90,10 @@ const BOSS_NON_AVOIDABLE = {
     'Cannibalized Essence', 'Blessing of Dawn',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack',
     'Caustic Phlegm', 'Rift Madness',
-    'Discordant Roar', 'Rending Tear'
+    'Discordant Roar', 'Rending Tear',
+    // Interrupt-target casts: their damage when missed is a GROUP failure (tracked in the
+    // interrupt section), per the guide — never an individual avoidable hit.
+    'Fearsome Cry', 'Essence Bolt'
   ]),
 
   'Imperator Averzian': new Set([

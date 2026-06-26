@@ -28,7 +28,7 @@ function stripSpecGuideSections(md) {
 
 async function runAI(players, numPulls, apiKey, isDeep = false, specGuides = {}) {
   const bossFight = allFights.find(f => f.encounterID === currentEncounterId);
-  const bossName = bossFight ? bossFight.name : 'Unknown boss';
+  const bossName = resolveBossKey(currentEncounterId, bossFight ? bossFight.name : 'Unknown boss');
   const bossContext = BOSS_KNOWLEDGE[bossName] || null;
 
   // Deep-data presence is derived from the data itself, not the isDeep flag.
