@@ -26,45 +26,84 @@ const BOSS_KNOWLEDGE_META = {
   // id makes that irrelevant for both data sources. avoidableSpellIds /
   // interruptTargetSpellIds are filled from the v2 parse (dodge-confirmed + interrupted).
 
-  'Imperator Averzian': {
-    encounterId: 3176,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  'Imperator Averzian': {                       // Mythic data (5 pulls)
+    avoidableSpellIds: {                         // guide-dodge mechanics, low raid-fraction
+      1258883: 'Void Fall',
+      1260718: "Oblivion's Wrath",
+      1284786: 'Shadow Phalanx'
+    },
+    interruptTargetSpellIds: {                   // data-confirmed (interrupted in logs)
+      1255702: 'Pitch Bulwark',
+      1275059: 'Black Miasma'
+    },
+    encounterId: 3176
   },
-  'Vorasius': {
-    encounterId: 3177,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  'Vorasius': {                                  // Mythic data (6 pulls). No interrupts observed.
+    avoidableSpellIds: {                         // Void Breath — guide says explicitly AVOIDABLE
+      1257607: 'Void Breath',
+      1259921: 'Void Breath',
+      1259923: 'Void Breath'
+    },
+    interruptTargetSpellIds: {},
+    encounterId: 3177
   },
-  'Vaelgor and Ezzorak': {
-    encounterId: 3178,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  'Vaelgor and Ezzorak': {                       // Heroic data (no Mythic logs yet)
+    avoidableSpellIds: {                         // Dread Breath — fear cone, guide says dodge
+      1244225: 'Dread Breath',
+      1255979: 'Dread Breath'
+    },
+    interruptTargetSpellIds: {                   // Voidbolt — interrupted in logs (raid eats it if missed)
+      1245175: 'Voidbolt'
+    },
+    encounterId: 3178
   },
-  'Fallen King Salhadaar': {
-    encounterId: 3179,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  'Fallen King Salhadaar': {                     // Mythic data (5 pulls)
+    avoidableSpellIds: {                         // Shattering Twilight / spikes / beams — guide says dodge
+      1250803: 'Shattering Twilight',
+      1262989: 'Shattering Twilight',
+      1251213: 'Twilight Spikes',
+      1260030: 'Umbral Beams'
+    },
+    interruptTargetSpellIds: {                   // Shadow Fracture — 51 interrupts in logs
+      1254088: 'Shadow Fracture'
+    },
+    encounterId: 3179
   },
-  'Lightblinded Vanguard': {
-    encounterId: 3180,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  'Lightblinded Vanguard': {                     // Normal data only (1 pull) — LOW confidence
+    avoidableSpellIds: {                         // Divine Toll / Divine Hammer — guide says dodge
+      1248652: 'Divine Toll',
+      1249047: 'Divine Hammer'
+    },
+    interruptTargetSpellIds: {                   // Blinding Light — interrupted in logs
+      1258514: 'Blinding Light'
+    },
+    encounterId: 3180
   },
-  'Crown of the Cosmos': {
-    encounterId: 3181,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  'Crown of the Cosmos': {                       // Normal data only (1 pull) — LOW confidence; no clean
+    avoidableSpellIds: {},                       // low-fraction avoidable identifiable yet (revisit on Mythic)
+    interruptTargetSpellIds: {                   // Void Barrage — 13 interrupts in logs
+      1260000: 'Void Barrage'
+    },
+    encounterId: 3181
   },
-  "Belo'ren": {
-    encounterId: 3182,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  "Belo'ren": {                                  // Mythic data (47 pulls). Mistakes are colour-assignment
+    avoidableSpellIds: {},                       // gated (not in the damage data) — no simple avoidable IDs;
+    interruptTargetSpellIds: {                   // the value here is interrupt tracking on the colour birds.
+      1243852: 'Light Eruption',                 // 194 interrupts in logs
+      1243854: 'Void Eruption'                   // 203 interrupts in logs
+    },
+    encounterId: 3182
   },
-  'Midnight Falls': {
-    encounterId: 3183,
-    avoidableSpellIds: {},
-    interruptTargetSpellIds: {}
+  'Midnight Falls': {                            // Heroic data (no Mythic logs yet)
+    avoidableSpellIds: {                         // Dark Constellation / Dark Quasar — low-fraction, guide dodge
+      1266584: 'Dark Constellation',
+      1266586: 'Dark Constellation',
+      1282469: 'Dark Quasar'
+    },
+    interruptTargetSpellIds: {                   // Safeguard (the Safeguard Matrix adds) — 131 interrupts
+      1251392: 'Safeguard'
+    },
+    encounterId: 3183
   }
 };
 
@@ -96,45 +135,64 @@ const BOSS_NON_AVOIDABLE = {
     'Fearsome Cry', 'Essence Bolt'
   ]),
 
+  // The 8 sets below are built from the real boss spell names in the v2 log parse — every
+  // damaging ability that is NOT in the boss's avoidableSpellIds (raid-wide, tank, soak, or
+  // interrupt-target damage whose miss is a GROUP failure). Generic Melee/Stagger are also
+  // globally suppressed; kept here for safety. Interrupt-target damage names are included so a
+  // missed cast's damage never shows as an individual avoidable hit.
   'Imperator Averzian': new Set([
-    'Dark Upheaval', 'Blackening Wounds', "Imperator's Glory",
+    'Dark Upheaval', 'Umbral Collapse', 'Lingering Darkness', 'Dark Barrage',
+    "Shadow's Advance", 'Gnashing Void', 'Void Rupture', 'Black Miasma', 'Void Marked',
+    'Pitch Bulwark', 'Blackening Wounds', "Imperator's Glory",
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Vorasius': new Set([
-    'Primordial Roar', 'Overpowering Pulse', 'Shadowclaw Slam',
+    'Primordial Power', 'Dark Energy', 'Blisterburst', 'Parasite Expulsion',
+    'Shadowclaw Slam', 'Primordial Roar', 'Dark Goo', 'Leaping Swipe', 'Overpowering Pulse',
+    'Aftershock', 'Focused Aggression', 'Hinder Quarry', 'Creep Spit', 'Smashed',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Vaelgor and Ezzorak': new Set([
-    'Midnight Manifestation', 'Midnight Flames', 'Twilight Bond',
-    'Rakfang', 'Vaelwing', 'Nullzone', 'Radiant Barrier', 'Nullbeam',
-    'Unbound Shadow',
+    'Voidbolt', 'Midnight Manifestation', 'Nullsnap', 'Midnight Flames', 'Nullzone Implosion',
+    'Nullzone', 'Void Howl', 'Gloom', 'Gloomtouched', 'Gloomfield', 'Vaelwing', 'Rakfang',
+    'Nullbeam', 'Shadowmark', 'Tail Lash', 'Impale', 'Grappling Maw', 'Diminish',
+    'Twilight Bond', 'Radiant Barrier', 'Unbound Shadow',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Fallen King Salhadaar': new Set([
-    'Twisting Obscurity', 'Destabilizing Strikes',
-    'Void Convergence',
+    'Twisting Obscurity', 'Dark Radiation', 'Entropic Unraveling', 'Destabilizing Strikes',
+    'Despotic Command', 'Torturous Extract', 'Void Exposure', 'Void Infusion',
+    'Shadow Fracture', 'Void Convergence',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Lightblinded Vanguard': new Set([
-    'Light Infused', 'Sacred Toll', 'Searing Radiance',
-    'Judgment', 'Exorcism', 'Execution Sentence', 'Auras',
-    'Divine Shield', 'Consecration',
+    'Light Infusion', 'Light Infused', 'Sacred Toll', 'Trampled', "Avenger's Shield",
+    'Execution Sentence', 'Exorcism', 'Judgment', 'Shield of the Righteous', 'Final Verdict',
+    'Blinding Light', 'Searing Radiance', 'Auras', 'Divine Shield', 'Consecration',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Crown of the Cosmos': new Set([
-    'Stellar Emission', 'Dark Hand', 'Null Corona',
-    'Voidstalker Sting', 'Rift Slash', 'Devouring Cosmos',
-    'Silverstrike Barrage', 'Corrupting Essence',
+    'Voidstalker Sting', 'Cosmic Barrier', 'Stellar Emission', 'Dark Rush', 'Echoing Darkness',
+    'Gravity Collapse', 'Void Expulsion', 'Silverstrike Barrage', 'Silverstrike Arrow',
+    'Silverstrike Ricochet', 'Interrupting Tremor', 'Grasp of Emptiness', 'Volatile Fissure',
+    'Void Remnants', 'Corrupting Essence', 'Rift Slash', 'Devouring Cosmos', 'Dark Hand',
+    'Singularity Eruption', 'Bursting Emptiness', 'Orbiting Matter', 'Void Barrage', 'Null Corona',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   "Belo'ren": new Set([
-    'Burning Heart', 'Eternal Burns', 'Ashen Benediction',
-    'Voidlight Convergence', 'Light/Void Dive',
+    'Burning Heart', 'Voidlight Convergence', 'Light Flames', 'Void Flames', 'Light Echo',
+    'Void Echo', 'Erupting Light Echo', 'Erupting Void Echo', 'Light Burn', 'Void Burn',
+    'Voidlight Rupture', 'Light Dive', 'Void Dive', 'Death Drop', 'Light Patch', 'Void Patch',
+    'Light Quill', 'Void Quill', 'Ashen Benediction', 'Rebirth', 'Light Edict', 'Void Edict',
+    'Light Eruption', 'Void Eruption', 'Light Blast', 'Void Blast', 'Eternal Burns',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ]),
   'Midnight Falls': new Set([
-    "Heaven's Lance", 'Abyssal Pool', 'Total Eclipse', 'Shattered Sky',
-    'Disintegration', 'Dawn Crystal',
+    'Shattered Sky', 'Abyssal Pool', 'Glimmering', 'Cosmic Fission', 'Dissonance',
+    'Overkill Current', 'Dark Rune', 'Core Harvest', "Heaven's Glaives", 'Thunderous Well',
+    'Disintegration', "Heaven's Lance", 'Impaled', "Naaru's Lament", 'Galvanize', 'Resonance',
+    'Starsplinter', "Tears of L'ura", 'Light Siphon', 'Dark Meltdown', 'The Dark Archangel',
+    'Cosmic Fracture', 'Total Eclipse', 'Charged Core', 'Eclipsed', 'Dawn Crystal',
     'Melee', 'Stagger', 'Auto Attack', 'Melee Attack'
   ])
 };
