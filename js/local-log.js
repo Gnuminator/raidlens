@@ -99,6 +99,11 @@ function llCharName(fullName) {
 function createLocalReport(opts) {
   opts = opts || {};
   const defensiveIds = opts.defensiveIds instanceof Set ? opts.defensiveIds : new Set();
+  // Deep path (Slice 3): retain per-hit damage events for avoidable mechanics (by spell-ID
+  // union) and Dissonance (by ability-name union, since its IDs are auto-discovered). Bounded.
+  const avoidableIds = opts.avoidableIds instanceof Set ? opts.avoidableIds : new Set();
+  const avoidableNames = opts.avoidableNames instanceof Set ? opts.avoidableNames : new Set();
+  const trackEvents = avoidableIds.size > 0 || avoidableNames.size > 0;
 
   const fights = [];          // public: WCL-shaped fights
   const playersByGuid = new Map(); // guid -> { id, name, server, subType }
@@ -133,6 +138,7 @@ function createLocalReport(opts) {
       startTime: startTs, endTime: startTs, kill: false, fightPercentage: null,
       dmg: new Map(),          // playerName -> { name, type, total, abilities: Map<spellName,{name,guid,total}> }
       deaths: [], rez: [], interrupts: [], fcasts: [], ecasts: [],
+      events: [],              // deep path: retained per-hit avoidable/Dissonance damage events
     };
   }
 
@@ -219,10 +225,23 @@ function createLocalReport(opts) {
       const p = llParseCSV(ev);
       const dst = p[5];
       if (!llIsPlayer(dst)) return;
-      const name = actorNameFor(dst, p[6]);
+      const targetID = actorIdFor(dst, p[6]);
+      const name = playersByGuid.get(dst).name;
       const spellName = p[10] || ('Spell ' + p[9]);
+      const id = Number(p[9]);
       const amt = +p[12 + advLen];
-      if (Number.isFinite(amt) && amt > 0 && amt < 1e12) addDamage(name, spellName, p[9], amt);
+      const validAmt = Number.isFinite(amt) && amt > 0 && amt < 1e12;
+      if (validAmt) addDamage(name, spellName, p[9], amt);
+      if (trackEvents && (avoidableIds.has(id) || avoidableNames.has(spellName))) {
+        const absorbed = +p[18 + advLen]; // amount(+0) base(+1) overkill(+2) school(+3) resisted(+4) blocked(+5) absorbed(+6)
+        cur.events.push({
+          timestamp: pre.ts, abilityGameID: id,
+          sourceID: llIsPlayer(p[1]) ? actorIdFor(p[1], p[2]) : -1,
+          targetID,
+          amount: validAmt ? amt : 0,
+          absorbed: Number.isFinite(absorbed) && absorbed > 0 ? absorbed : 0,
+        });
+      }
       return;
     }
     if (type === 'SWING_DAMAGE') {
@@ -242,6 +261,25 @@ function createLocalReport(opts) {
       const envType = p[9 + advLen] || 'Environment';
       const amt = +p[10 + advLen];
       if (Number.isFinite(amt) && amt > 0 && amt < 1e12) addDamage(name, envType, null, amt);
+      return;
+    }
+    // Fully-absorbed avoidable/Dissonance hit — invisible to the damage table but it still
+    // landed positionally. Only the spell form (numeric damage spellId at p[9]) is captured.
+    if (type === 'SPELL_ABSORBED' && trackEvents) {
+      const p = llParseCSV(ev);
+      const dst = p[5];
+      if (!llIsPlayer(dst) || !/^\d+$/.test(p[9])) return;
+      const id = Number(p[9]);
+      const spellName = p[10] || '';
+      if (!(avoidableIds.has(id) || avoidableNames.has(spellName))) return;
+      const absorbed = +p[19]; // ...,absorbSpellId,absorbName,absorbSchool,absorbedAmount,...
+      cur.events.push({
+        timestamp: pre.ts, abilityGameID: id,
+        sourceID: llIsPlayer(p[1]) ? actorIdFor(p[1], p[2]) : -1,
+        targetID: actorIdFor(dst, p[6]),
+        amount: 0,
+        absorbed: Number.isFinite(absorbed) && absorbed > 0 ? absorbed : 0,
+      });
       return;
     }
 
@@ -308,9 +346,14 @@ function createLocalReport(opts) {
     const set = new Set(ids);
     return fd.ecasts.filter(c => set.has(c.abilityGameID));
   }
-  // Slice 3 will implement this from retained per-hit damage-taken events. Until then the
-  // deep path degrades to "no per-hit data" rather than crashing (analyze.js tolerates []).
-  function fetchAvoidableEvents(/* fight, spellIds */) { return []; }
+  // Deep path: per-hit avoidable + Dissonance damage events for the requested spell IDs.
+  // analyze.js passes a { id: name } map (matching the WCL fetcher); an array is also ok.
+  function fetchAvoidableEvents(fight, spellIds) {
+    const fd = fightData[fight.id]; if (!fd) return [];
+    const ids = Array.isArray(spellIds) ? spellIds.map(Number) : Object.keys(spellIds || {}).map(Number);
+    const set = new Set(ids);
+    return fd.events.filter(e => set.has(e.abilityGameID));
+  }
 
   return {
     processLine, finalize,

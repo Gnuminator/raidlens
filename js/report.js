@@ -170,8 +170,19 @@ async function loadLocalLog() {
   if (typeof DEFENSIVE_SPELL_IDS !== 'undefined') {
     Object.values(DEFENSIVE_SPELL_IDS).forEach(map => Object.keys(map).forEach(id => defIds.add(Number(id))));
   }
+  // Avoidable spell-ID + Dissonance-name unions (all bosses) so the deep path can retain
+  // per-hit events without knowing which boss the user will pick.
+  const avoidableIds = new Set();
+  const avoidableNames = new Set();
+  if (typeof BOSS_KNOWLEDGE_META !== 'undefined') {
+    Object.values(BOSS_KNOWLEDGE_META).forEach(meta => {
+      Object.keys(meta.avoidableSpellIds || {}).forEach(id => avoidableIds.add(Number(id)));
+      Object.values(meta.avoidableSpellIds || {}).forEach(nm => avoidableNames.add(nm));
+      (meta.dissonanceAbilityNames || []).forEach(nm => avoidableNames.add(nm));
+    });
+  }
 
-  const report = createLocalReport({ defensiveIds: defIds });
+  const report = createLocalReport({ defensiveIds: defIds, avoidableIds, avoidableNames });
   showStatus('Reading local log…');
   try {
     await streamFileLines(file, line => report.processLine(line), n => {
